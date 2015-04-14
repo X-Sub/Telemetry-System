@@ -1,5 +1,3 @@
-
-
 def info():
 	infoProyecto = u"El xSub es un proyecto del Grupo de Investigacion y Desarrollo en Mecatronica"
 	print(infoProyecto)
