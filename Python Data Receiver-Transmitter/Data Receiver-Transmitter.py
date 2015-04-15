@@ -26,7 +26,7 @@ def xSub_DataLogger():
 xSub.info() #Info del Proyecto
 
 #Log del programa
-logging.basicConfig(filename='Logger/logger.txt',level=logging.DEBUG)
+logging.basicConfig(filename='logger.txt',level=logging.DEBUG)
 logging.info('Test2') # will not print anything
 
 #Creación de Threads
