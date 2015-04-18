@@ -57,9 +57,12 @@ void loop(){
  GyZH = Wire.read();
  GyZL = Wire.read();
 
-  Serial.write(0x00);
-  Serial.write(AcYH);
-  Serial.write(AcYL);
-  Serial.write(0xFF);
+  //Simulink toma el primer byte y lo hace el menos significativo
+
+  Serial.write(TmpL);
+  Serial.write(TmpH);
+  Serial.write('\0');
+
+  //Serial.write(0xFF);
   
 }
