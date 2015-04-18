@@ -59,10 +59,10 @@ void loop(){
 
   //Simulink toma el primer byte y lo hace el menos significativo
 
-  Serial.write(TmpL);
-  Serial.write(TmpH);
+  Serial.write(GyYL);
+  Serial.write(GyYH);
   Serial.write('\0');
 
   //Serial.write(0xFF);
-  
+  delay(20);
 }
