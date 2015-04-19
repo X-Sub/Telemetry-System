@@ -11,6 +11,7 @@
 #define MPU6050_AFS_SEL1   MPU6050_D4
 #define MPU6050_AFS_SEL_0 (0)
 #define MPU6050_AFS_SEL_1 (bit(MPU6050_AFS_SEL0))
+#define MPU6050_AFS_SEL_4G 0x08 //Config para +-4G
 
 const int MPU=0x68;  // I2C address of the MPU-6050
 //Aceleraciones H-> High, L -> Low
