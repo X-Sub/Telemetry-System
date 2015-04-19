@@ -5,13 +5,9 @@
 
 #include<Wire.h>
 #define MPU6050_ACCEL_CONFIG       0x1C   // R/W
-#define MPU6050_D3 3
-#define MPU6050_D4 4
-#define MPU6050_AFS_SEL0   MPU6050_D3
-#define MPU6050_AFS_SEL1   MPU6050_D4
-#define MPU6050_AFS_SEL_0 (0)
-#define MPU6050_AFS_SEL_1 (bit(MPU6050_AFS_SEL0))
 #define MPU6050_AFS_SEL_4G 0x08 //Config para +-4G
+#define MPU6050_GYRO_CONFIG 0x1B //R/W
+#define MPU6050_FS_SEL_1000 0x10 //Config para +-1000º/s
 
 const int MPU=0x68;  // I2C address of the MPU-6050
 //Aceleraciones H-> High, L -> Low
@@ -37,7 +33,8 @@ void setup(){
   Wire.endTransmission(true);
   Serial.begin(115200);
   
-  MPU6050_write_reg(MPU6050_ACCEL_CONFIG,MPU6050_AFS_SEL_4G);
+  MPU6050_write_reg(MPU6050_ACCEL_CONFIG,MPU6050_AFS_SEL_4G);//+-4G
+  MPU6050_write_reg(MPU6050_GYRO_CONFIG,MPU6050_FS_SEL_1000);//+-1000º/s
 }
 
 void loop(){
@@ -71,13 +68,26 @@ void loop(){
 
   //Simulink toma el primer byte y lo hace el menos significativo
 
-  Serial.write(AcZL);
-  Serial.write(AcZH);
+  Serial.write(GyYL);
+  Serial.write(GyYH);
   Serial.write('\0');
 
   //Serial.write(0xFF);
   delay(20);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
