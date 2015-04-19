@@ -4,6 +4,8 @@ import threading
 import serial
 import logging
 import xSub
+import time
+import datetime
 
 #THREADS
 
@@ -26,8 +28,8 @@ def xSub_DataLogger():
 xSub.info() #Info del Proyecto
 
 #Log del programa
-logging.basicConfig(filename='Logger/logger.txt',level=logging.DEBUG)
-logging.info('Test2') # will not print anything
+logging.basicConfig(filename='C:/dataLog_test/datalog.txt',level=logging.DEBUG)
+logging.info(datetime.datetime.now()) # will not print anything
 
 #Creación de Threads
 Servidor = threading.Thread(name='tServidor', target = xSub_Servidor)
