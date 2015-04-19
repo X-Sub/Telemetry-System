@@ -4,6 +4,8 @@ import threading
 import serial
 import logging
 import xSub
+import time
+import datetime
 
 #THREADS
 
@@ -26,8 +28,13 @@ def xSub_DataLogger():
 xSub.info() #Info del Proyecto
 
 #Log del programa
+<<<<<<< HEAD
 logging.basicConfig(filename='logger.txt',level=logging.DEBUG)
 logging.info('Test2') # will not print anything
+=======
+logging.basicConfig(filename='C:/dataLog_test/datalog.txt',level=logging.DEBUG)
+logging.info(datetime.datetime.now()) # will not print anything
+>>>>>>> Spectrum-Analyser-Simulink
 
 #Creación de Threads
 Servidor = threading.Thread(name='tServidor', target = xSub_Servidor)
