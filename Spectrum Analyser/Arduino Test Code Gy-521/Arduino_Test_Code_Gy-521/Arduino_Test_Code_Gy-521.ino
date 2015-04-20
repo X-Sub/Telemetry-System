@@ -68,8 +68,8 @@ void loop(){
 
   //Simulink toma el primer byte y lo hace el menos significativo
 
-  Serial.write(GyYL);
-  Serial.write(GyYH);
+  Serial.write(AcZL);
+  Serial.write(AcZH);
   Serial.write('\0');
 
   //Serial.write(0xFF);
@@ -145,3 +145,5 @@ int MPU6050_write_reg(int reg, uint8_t data)
 
   return (error);
 }
+
+

@@ -14,9 +14,22 @@ def xSub_Servidor():
 	print(threading.currentThread().getName())
 	return
 
+
+
+
+
+
+
+
 def xSub_Serial():
 	"""Este Thread se encarga de la comunicacion por Serial para transmisión de datos"""
 	print(threading.currentThread().getName())
+	
+	ser = serial.Serial('COM7',115200)
+	#x = ser.read()          # read one byte
+	s = ser.read(3)        # read up to ten bytes (timeout)
+	print(s)
+	ser.close()
 	return
 
 def xSub_DataLogger():
@@ -28,13 +41,12 @@ def xSub_DataLogger():
 xSub.info() #Info del Proyecto
 
 #Log del programa
-<<<<<<< HEAD
 logging.basicConfig(filename='logger.txt',level=logging.DEBUG)
 logging.info('Test2') # will not print anything
-=======
+
 logging.basicConfig(filename='C:/dataLog_test/datalog.txt',level=logging.DEBUG)
 logging.info(datetime.datetime.now()) # will not print anything
->>>>>>> Spectrum-Analyser-Simulink
+
 
 #Creación de Threads
 Servidor = threading.Thread(name='tServidor', target = xSub_Servidor)
