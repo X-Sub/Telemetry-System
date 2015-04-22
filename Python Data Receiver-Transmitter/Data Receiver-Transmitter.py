@@ -6,8 +6,16 @@ import logging
 import xSub
 import time
 import datetime
+from pynmea import nmea
+
+
+
+
+
+
 
 #THREADS
+
 
 def xSub_Servidor():
 	'''Este Thread se encarga de la comunicacion por tcp/ip para transmisión de datos'''
@@ -23,29 +31,51 @@ def xSub_Servidor():
 
 def xSub_Serial():
 	"""Este Thread se encarga de la comunicacion por Serial para transmisión de datos"""
-	print(threading.currentThread().getName())
-	
-	ser = serial.Serial('COM7',115200)
-	#x = ser.read()          # read one byte
-	s = ser.read(3)        # read up to ten bytes (timeout)
-	print(s)
-	ser.close()
+	#print(threading.currentThread().getName())
+	#ser1 = serial.Serial('COM7',115200)
+	##x = ser.read()          # read one byte
+	#s = ser.read(3)        # read up to ten bytes (timeout)
+	#print(s)
+#
+	#ser.close()
+
+	ser = serial.Serial(xSub.PuertoS_GPS,57600)
+	while True:
+		
+		# read what is on serial port
+		data = ser.readline().decode("ASCII")
+		#data = '$GPGGA,180914.600,1024.6583,N,06652.9368,W,2,6,1.09,1201.0,M,-18.1,M,0000,0000*5B\r\n'
+		#print(data)
+		#reads bytes followed by a newline
+		if data[0:6] == '$GPGGA':
+			#print(data)      #print the sentence to the console
+			gpgga = nmea.GPGGA()  # class constructor
+			gpgga.parse(data)   # method for parsing the sentence
+			lats = gpgga.latitude
+			lat_dir = gpgga.lat_direction
+			longs = gpgga.longitude
+			long_dir = gpgga.lon_direction
+			time = gpgga.timestamp
+			alt = gpgga.antenna_altitude
+			print(time + '\n')
+			print('Hora UTC:' + time[0:2] + ':' + time[2:4] + ':' + time[4:6])
+			
 	return
 
 def xSub_DataLogger():
 	"""Este Thread se encarga de la creación de un archivo .txt con la data recibida"""
 	print(threading.currentThread().getName())
+	logging.info(Head) 
 	return
 
 #Creación de threads para multiproceso
 xSub.info() #Info del Proyecto
 
 #Log del programa
-logging.basicConfig(filename='logger.txt',level=logging.DEBUG)
-logging.info('Test2') # will not print anything
 
 logging.basicConfig(filename='C:/dataLog_test/datalog.txt',level=logging.DEBUG)
-logging.info(datetime.datetime.now()) # will not print anything
+Head = datetime.datetime.now().strftime(" Fecha: %d/%m/%Y Hora: %H:%M:%S")
+logging.info(Head) 
 
 
 #Creación de Threads
@@ -57,7 +87,4 @@ DataLogger = threading.Thread(name='tDataLogger', target = xSub_DataLogger)
 Servidor.start()
 Serial.start()
 DataLogger.start()
-
-
-
 
