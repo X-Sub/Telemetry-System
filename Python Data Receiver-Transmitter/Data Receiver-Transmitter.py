@@ -58,14 +58,15 @@ def xSub_Serial():
 			time = gpgga.timestamp
 			alt = gpgga.antenna_altitude
 			print(time + '\n')
-			print('Hora UTC:' + time[0:2] + ':' + time[2:4] + ':' + time[4:6])
-			
+			Hora = 'Hora UTC:' + time[0:2] + ':' + time[2:4] + ':' + time[4:6]
+			print(Hora)
+			logging.info(Hora)
+			time.sleep(1) 
 	return
 
 def xSub_DataLogger():
 	"""Este Thread se encarga de la creación de un archivo .txt con la data recibida"""
 	print(threading.currentThread().getName())
-	logging.info(Head) 
 	return
 
 #Creación de threads para multiproceso
