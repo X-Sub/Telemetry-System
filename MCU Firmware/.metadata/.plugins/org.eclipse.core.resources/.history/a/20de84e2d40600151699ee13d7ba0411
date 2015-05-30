@@ -11,10 +11,7 @@
 **     Settings    :
 **     Contents    :
 **         No public methods
-**		Firmware made by Danilo D. for the Mechatronics Research and Development of the
-**		Universidad Simón Bolívar (USB)
-**		www.usb.ve
-**		mecatronica.labc.usb.ve
+**
 ** ###################################################################*/
 /*!
 ** @file main.c

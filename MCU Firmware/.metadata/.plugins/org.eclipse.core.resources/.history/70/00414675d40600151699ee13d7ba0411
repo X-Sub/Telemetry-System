@@ -21,11 +21,11 @@
       <File Name="Sources/Events.c" FileDate="2015-05-30, 09:28:10" FileAge="1432994290314" FileType="131328" />
       <File Name="Documentation/X-Sub MCU Firmware.txt" FileDate="2015-05-30, 09:28:10" FileAge="1432994290489" FileType="3072" />
       <File Name="Generated_Code/IO_Map.h" FileDate="2015-05-30, 09:28:10" FileAge="1432994290404" FileType="45637" />
-      <File Name="Documentation/X-Sub MCU Firmware_SIGNALS.txt" FileDate="2015-05-30, 09:32:07" FileAge="1432994527316" FileType="3072" />
+      <File Name="Documentation/X-Sub MCU Firmware_SIGNALS.txt" FileDate="2015-05-30, 09:29:19" FileAge="1432994359961" FileType="3072" />
       <File Name="Generated_Code/Cpu.c" FileDate="2015-05-30, 09:29:19" FileAge="1432994359935" FileType="45637" CompNumb="4" />
       <File Name="Generated_Code/PE_Const.h" FileDate="2015-05-30, 09:28:10" FileAge="1432994290419" FileType="45637" />
       <File Name="Generated_Code/IO_Map.c" FileDate="2015-05-30, 09:28:10" FileAge="1432994290384" FileType="45637" />
     </GeneratedByPE>
   </GeneratedFilesList>
-  <CodeGenReference>3</CodeGenReference>
+  <CodeGenReference>2</CodeGenReference>
 </CodeGenerationInfo>
