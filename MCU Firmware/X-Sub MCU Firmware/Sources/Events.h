@@ -34,6 +34,11 @@
 #include "PE_Error.h"
 #include "PE_Const.h"
 #include "IO_Map.h"
+#include "PE_Timer.h"
+#include "M1_ESC.h"
+#include "M2_ESC.h"
+#include "M3_ESC.h"
+#include "M4_ESC.h"
 
 
 /* END Events */

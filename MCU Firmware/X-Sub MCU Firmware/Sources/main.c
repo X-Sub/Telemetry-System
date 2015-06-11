@@ -33,6 +33,10 @@
 /* Including needed modules to compile this module/procedure */
 #include "Cpu.h"
 #include "Events.h"
+#include "M1_ESC.h"
+#include "M2_ESC.h"
+#include "M3_ESC.h"
+#include "M4_ESC.h"
 /* Include shared modules, which are used for whole project */
 #include "PE_Types.h"
 #include "PE_Error.h"
@@ -51,6 +55,28 @@ void main(void)
 
   /* Write your code here */
   /* For example: for(;;) { } */
+  
+  for(;;)
+  {
+	  
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
 
   /*** Don't write any code pass this line, or it will be deleted during code generation. ***/
   /*** Processor Expert end of main routine. DON'T MODIFY THIS CODE!!! ***/
