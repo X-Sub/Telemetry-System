@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenerationInfo_G_C>
+  <Options>
+    <ProjectName>test1</ProjectName>
+    <ProjectDirectory>C:\Users\ddtdanilo\Dropbox\X-Sub\MCU Firmware\test1\</ProjectDirectory>
+    <ProjectMainModuleName>main</ProjectMainModuleName>
+    <DestEventsDirectory>Sources\</DestEventsDirectory>
+    <DestDriversSubDirectory>..\Generated_Code\</DestDriversSubDirectory>
+    <DestDocumentationDirectory>Documentation\</DestDocumentationDirectory>
+    <DestCompiledFilesSubDirectory />
+    <DestTemporaryDirectory />
+    <GenCpuDerivative>MCF51QE128CLK</GenCpuDerivative>
+    <GenFiles>
+      <LinkerFileGenerated>false</LinkerFileGenerated>
+      <MakefileGenerated>false</MakefileGenerated>
+      <GenSharedModules lines_count="4">
+        <Line>PE_Types</Line>
+        <Line>PE_Error</Line>
+        <Line>PE_Const</Line>
+        <Line>IO_Map</Line>
+      </GenSharedModules>
+      <ShrdHeaderAge0>1187745021</ShrdHeaderAge0>
+      <ShrdCodeAge0>-1</ShrdCodeAge0>
+      <ShrdAsemblAge0>-1</ShrdAsemblAge0>
+      <ShrdHeaderAge1>1187745021</ShrdHeaderAge1>
+      <ShrdCodeAge1>-1</ShrdCodeAge1>
+      <ShrdAsemblAge1>-1</ShrdAsemblAge1>
+      <ShrdHeaderAge2>1187745021</ShrdHeaderAge2>
+      <ShrdCodeAge2>-1</ShrdCodeAge2>
+      <ShrdAsemblAge2>-1</ShrdAsemblAge2>
+      <ShrdHeaderAge3>1187745021</ShrdHeaderAge3>
+      <ShrdCodeAge3>1187745021</ShrdCodeAge3>
+      <ShrdAsemblAge3>-1</ShrdAsemblAge3>
+      <GenExtraFiles lines_count="2">
+        <Line>Project_Settings\Linker_Files\ProcessorExpert.lcf</Line>
+        <Line>Generated_Code\Vectors.c</Line>
+      </GenExtraFiles>
+      <XtraAge1>1187745021</XtraAge1>
+      <GenExtraFileType1>4</GenExtraFileType1>
+      <GenLinkedFiles lines_count="0" />
+      <GenEventModules lines_count="1">
+        <Line>Events</Line>
+      </GenEventModules>
+      <GenMethodsInEvents lines_count="0" />
+      <GenAllModules lines_count="6">
+        <Line>Cpu</Line>
+        <Line>Events</Line>
+        <Line>IO_Map</Line>
+        <Line>PE_Const</Line>
+        <Line>PE_Error</Line>
+        <Line>PE_Types</Line>
+      </GenAllModules>
+      <GenExternModules lines_count="0" />
+      <GenBeanModules lines_count="0" />
+    </GenFiles>
+    <SignalListFile>Documentation\test1_SIGNALS.txt</SignalListFile>
+    <DestinationCompiler>CodeWarriorColdFireV1</DestinationCompiler>
+    <ProjectModificationStamp>3</ProjectModificationStamp>
+  </Options>
+  <CpuID_2>
+    <Generated>false</Generated>
+    <GenCompName />
+    <GenComponentVersion>??.???</GenComponentVersion>
+    <GenDriverVersion>??.??</GenDriverVersion>
+    <GenEventModule />
+    <HeaderAge>-1</HeaderAge>
+    <CodeAge>-1</CodeAge>
+    <AsemblAge>-1</AsemblAge>
+    <GenNumMethods>19</GenNumMethods>
+    <SetHighSpeed>false</SetHighSpeed>
+    <SetLowSpeed>false</SetLowSpeed>
+    <SetSlowSpeed>false</SetSlowSpeed>
+    <GetSpeedMode>false</GetSpeedMode>
+    <EnableInt>false</EnableInt>
+    <DisableInt>false</DisableInt>
+    <SetILM>false</SetILM>
+    <GetResetSource>false</GetResetSource>
+    <SetWaitMode>false</SetWaitMode>
+    <SetStopMode>false</SetStopMode>
+    <GetLowVoltageFlag>false</GetLowVoltageFlag>
+    <ClearLowVoltageFlag>false</ClearLowVoltageFlag>
+    <GetLowVoltageWarningFlag>false</GetLowVoltageWarningFlag>
+    <ClearLowVoltageWarningFlag>false</ClearLowVoltageWarningFlag>
+    <GetPartialPowerDownFlag>false</GetPartialPowerDownFlag>
+    <ClearPartialPowerDownFlag>false</ClearPartialPowerDownFlag>
+    <GetIdentification>false</GetIdentification>
+    <SetBackdoorKey>false</SetBackdoorKey>
+    <Delay100US>false</Delay100US>
+    <GenNumEvents>8</GenNumEvents>
+    <OnAddrRelatedEXP_Selected>1</OnAddrRelatedEXP_Selected>
+    <OnAddrRelatedEXP_Name>Cpu_OnAddrRelatedEXP</OnAddrRelatedEXP_Name>
+    <OnAddrRelatedEXP_Priority>interrupts disabled</OnAddrRelatedEXP_Priority>
+    <OnInstrRelatedEXP_Selected>1</OnInstrRelatedEXP_Selected>
+    <OnInstrRelatedEXP_Name>Cpu_OnInstrRelatedEXP</OnInstrRelatedEXP_Name>
+    <OnInstrRelatedEXP_Priority>interrupts disabled</OnInstrRelatedEXP_Priority>
+    <OnTrapEXP_Selected>1</OnTrapEXP_Selected>
+    <OnTrapEXP_Name>Cpu_OnTrapEXP</OnTrapEXP_Name>
+    <OnTrapEXP_Priority>interrupts disabled</OnTrapEXP_Priority>
+    <OnUnsupportedInstEXP_Selected>1</OnUnsupportedInstEXP_Selected>
+    <OnUnsupportedInstEXP_Name>Cpu_OnUnsupportedInstEXP</OnUnsupportedInstEXP_Name>
+    <OnUnsupportedInstEXP_Priority>interrupts disabled</OnUnsupportedInstEXP_Priority>
+    <OnSwINT_Selected>1</OnSwINT_Selected>
+    <OnSwINT_Name>Cpu_OnSwINT</OnSwINT_Name>
+    <OnSwINT_Priority>interrupts disabled</OnSwINT_Priority>
+    <OnReset_Selected>1</OnReset_Selected>
+    <OnReset_Name>Cpu_OnReset</OnReset_Name>
+    <OnReset_Priority>interrupts disabled</OnReset_Priority>
+    <OnLvdINT_Selected>1</OnLvdINT_Selected>
+    <OnLvdINT_Name>Cpu_OnLvdINT</OnLvdINT_Name>
+    <OnLvdINT_Priority>interrupts disabled</OnLvdINT_Priority>
+    <OnLvwINT_Selected>1</OnLvwINT_Selected>
+    <OnLvwINT_Name>Cpu_OnLvwINT</OnLvwINT_Name>
+    <OnLvwINT_Priority>interrupts disabled</OnLvwINT_Priority>
+    <GenSmartUserChangesDetected_Header>false</GenSmartUserChangesDetected_Header>
+    <GenSmartUserChangesDetected_Code>false</GenSmartUserChangesDetected_Code>
+    <GenSmartUserChangesDetected_Asembl>false</GenSmartUserChangesDetected_Asembl>
+    <GenExtraFilesCount>0</GenExtraFilesCount>
+  </CpuID_2>
+  <CpuID_4>
+    <Generated>true</Generated>
+    <GenCompName>Cpu</GenCompName>
+    <GenComponentVersion>01.014</GenComponentVersion>
+    <GenDriverVersion>01.12</GenDriverVersion>
+    <GenEventModule>Events</GenEventModule>
+    <HeaderAge>1187745021</HeaderAge>
+    <CodeAge>1187745021</CodeAge>
+    <AsemblAge>-1</AsemblAge>
+    <GenNumMethods>19</GenNumMethods>
+    <SetHighSpeed>false</SetHighSpeed>
+    <SetLowSpeed>false</SetLowSpeed>
+    <SetSlowSpeed>false</SetSlowSpeed>
+    <GetSpeedMode>false</GetSpeedMode>
+    <EnableInt>true</EnableInt>
+    <DisableInt>true</DisableInt>
+    <SetILM>false</SetILM>
+    <GetResetSource>false</GetResetSource>
+    <SetWaitMode>false</SetWaitMode>
+    <SetStopMode>false</SetStopMode>
+    <GetLowVoltageFlag>false</GetLowVoltageFlag>
+    <ClearLowVoltageFlag>false</ClearLowVoltageFlag>
+    <GetLowVoltageWarningFlag>false</GetLowVoltageWarningFlag>
+    <ClearLowVoltageWarningFlag>false</ClearLowVoltageWarningFlag>
+    <GetPartialPowerDownFlag>false</GetPartialPowerDownFlag>
+    <ClearPartialPowerDownFlag>false</ClearPartialPowerDownFlag>
+    <GetIdentification>false</GetIdentification>
+    <SetBackdoorKey>false</SetBackdoorKey>
+    <Delay100US>false</Delay100US>
+    <GenNumEvents>8</GenNumEvents>
+    <OnAddrRelatedEXP_Selected>0</OnAddrRelatedEXP_Selected>
+    <OnAddrRelatedEXP_Name>Cpu_OnAddrRelatedEXP</OnAddrRelatedEXP_Name>
+    <OnAddrRelatedEXP_Priority>interrupts disabled</OnAddrRelatedEXP_Priority>
+    <OnInstrRelatedEXP_Selected>0</OnInstrRelatedEXP_Selected>
+    <OnInstrRelatedEXP_Name>Cpu_OnInstrRelatedEXP</OnInstrRelatedEXP_Name>
+    <OnInstrRelatedEXP_Priority>interrupts disabled</OnInstrRelatedEXP_Priority>
+    <OnTrapEXP_Selected>0</OnTrapEXP_Selected>
+    <OnTrapEXP_Name>Cpu_OnTrapEXP</OnTrapEXP_Name>
+    <OnTrapEXP_Priority>interrupts disabled</OnTrapEXP_Priority>
+    <OnUnsupportedInstEXP_Selected>1</OnUnsupportedInstEXP_Selected>
+    <OnUnsupportedInstEXP_Name>Cpu_OnUnsupportedInstEXP</OnUnsupportedInstEXP_Name>
+    <OnUnsupportedInstEXP_Priority>interrupts disabled</OnUnsupportedInstEXP_Priority>
+    <OnSwINT_Selected>0</OnSwINT_Selected>
+    <OnSwINT_Name>Cpu_OnSwINT</OnSwINT_Name>
+    <OnSwINT_Priority>interrupts disabled</OnSwINT_Priority>
+    <OnReset_Selected>1</OnReset_Selected>
+    <OnReset_Name>Cpu_OnReset</OnReset_Name>
+    <OnReset_Priority>interrupts disabled</OnReset_Priority>
+    <OnLvdINT_Selected>0</OnLvdINT_Selected>
+    <OnLvdINT_Name>Cpu_OnLvdINT</OnLvdINT_Name>
+    <OnLvdINT_Priority>interrupts disabled</OnLvdINT_Priority>
+    <OnLvwINT_Selected>1</OnLvwINT_Selected>
+    <OnLvwINT_Name>Cpu_OnLvwINT</OnLvwINT_Name>
+    <OnLvwINT_Priority>interrupts disabled</OnLvwINT_Priority>
+    <ISR_ISRnameLVW />
+    <ISR_ISRDefaultName>isr_default</ISR_ISRDefaultName>
+    <ISR_ISRnameINITPC>_startup</ISR_ISRnameINITPC>
+    <ISR_ISRnameIllegalInstruction />
+    <ISR_ISRnameUnimplementedLineA />
+    <ISR_ISRnameUnimplementedLineF />
+    <ISR_ISRnamePrivilegeViolation />
+    <ISR_ISRnameAccessError />
+    <ISR_ISRnameAddressError />
+    <ISR_ISRnameFormatError />
+    <ISR_ISRnameDivideByZero />
+    <ISR_ISRnameUnsupportedInstr />
+    <ISR_ISRnameTrap0 />
+    <ISR_ISRnameTrap1 />
+    <ISR_ISRnameTrap2 />
+    <ISR_ISRnameTrap3 />
+    <ISR_ISRnameTrap4 />
+    <ISR_ISRnameTrap5 />
+    <ISR_ISRnameTrap6 />
+    <ISR_ISRnameTrap7 />
+    <ISR_ISRnameTrap8 />
+    <ISR_ISRnameTrap9 />
+    <ISR_ISRnameTrap10 />
+    <ISR_ISRnameTrap11 />
+    <ISR_ISRnameTrap12 />
+    <ISR_ISRnameTrap13 />
+    <ISR_ISRnameTrap14 />
+    <ISR_ISRnameTrap15 />
+    <ISR_ISRnameSwi0 />
+    <ISR_ISRnameSwi1 />
+    <ISR_ISRnameSwi2 />
+    <ISR_ISRnameSwi3 />
+    <ISR_ISRnameSwi4 />
+    <ISR_ISRnameSwi5 />
+    <ISR_ISRnameSwi6 />
+    <ISR_ISRnameLossOfLock />
+    <ISR_ISRnameTraceException />
+    <ISR_ISRnameDebugInterrupt />
+    <GenSmartUserChangesDetected_Header>false</GenSmartUserChangesDetected_Header>
+    <GenSmartUserChangesDetected_Code>false</GenSmartUserChangesDetected_Code>
+    <GenSmartUserChangesDetected_Asembl>false</GenSmartUserChangesDetected_Asembl>
+    <GenExtraFilesCount>2</GenExtraFilesCount>
+    <ExtraFile0>Project_Settings\Linker_Files\ProcessorExpert.lcf</ExtraFile0>
+    <ExtraFile1>Generated_Code\Vectors.c</ExtraFile1>
+  </CpuID_4>
+  <UsedSrcFiles>
+    <SrcFile0>Drivers\Common\CheckRegBits8_Rst.prg=1116866294</SrcFile0>
+    <SrcFile1>Drivers\Common\PE_MisraRuleToDocumentation.prg=1116866294</SrcFile1>
+    <SrcFile2>Drivers\HCS08\MC9S08_ICS_V3.prg=1116866294</SrcFile2>
+    <SrcFile3>Drivers\ColdFireV1\InternalPeripherals_IO.prg=1116866294</SrcFile3>
+    <SrcFile4>Drivers\HCS08\MC9S08_MemProtect.prg=1116866294</SrcFile4>
+    <SrcFile5>Drivers\Common\CommonRegInitialization.prg=1116866294</SrcFile5>
+    <SrcFile6>Drivers\Common\SetReg8.prg=1127381294</SrcFile6>
+    <SrcFile7>Drivers\Common\PE_TypesSettings.inc=1116866294</SrcFile7>
+    <SrcFile8>Drivers\HCS08\InitPin.prg=1116866294</SrcFile8>
+    <SrcFile9>Drivers\Common\PE_MisraRuleToDocumentation_HCS08.prg=1146382935</SrcFile9>
+    <SrcFile10>Drivers\HCS08\MC9S08_DefineRegsAndBitsAccess.prg=1116866294</SrcFile10>
+    <SrcFile11>Drivers\ColdFireV1\MCF51QE128_80c.prg=1116866294</SrcFile11>
+    <SrcFile12>Drivers\Common\Header.end=1116866294</SrcFile12>
+    <SrcFile13>Drivers\HCS08\MC9S08_SharedInterruptVectors.prg=1116866294</SrcFile13>
+    <SrcFile14>Drivers\ColdFireV1\ColdFireV1.drv=1146382935</SrcFile14>
+    <SrcFile15>Drivers\ColdFireV1\ColdFireV1_Linker.prg=1116866294</SrcFile15>
+    <SrcFile16>Drivers\Common\GenWatchDogResetCode.prg=1121555243</SrcFile16>
+    <SrcFile17>Drivers\Common\CommonRegInit.prg=1116866294</SrcFile17>
+    <SrcFile18>Drivers\Common\GeneralParametersNone.inc=1116866294</SrcFile18>
+    <SrcFile19>Drivers\Common\Header.doxy=1119169723</SrcFile19>
+    <SrcFile20>Drivers\Common\ColdFireV1DisableInt.inc=1116866294</SrcFile20>
+    <SrcFile21>Drivers\HCS08\MC9S08_Constants.prg=1116866294</SrcFile21>
+    <SrcFile22>Drivers\Common\GeneralInternalGlobal.inc=1116866294</SrcFile22>
+    <SrcFile23>Drivers\Common\PE_MisraEnableRules.prg=1116866294</SrcFile23>
+    <SrcFile24>Drivers\Common\PE_TypesAbstract.inc=1116866294</SrcFile24>
+    <SrcFile25>Drivers\Common\CommonRegInitialization_Flash.prg=1116866294</SrcFile25>
+    <SrcFile26>Drivers\Common\GeneralInternalDescription.prg=1116866294</SrcFile26>
+    <SrcFile27>Drivers\Common\CommonInitializationSequenceNames.inc=1116866294</SrcFile27>
+    <SrcFile28>Drivers\HCS08\Init_PORT_HCS08.prg=1127381294</SrcFile28>
+    <SrcFile29>Drivers\Common\IO_MapAbstract.inc=1116866294</SrcFile29>
+    <SrcFile30>Drivers\HC08\Common_HCx08\MC9x08_WhileSet.prg=1116866294</SrcFile30>
+    <SrcFile31>Drivers\Common\CommonRegInit_WriteOnce.prg=1116866294</SrcFile31>
+    <SrcFile32>Drivers\Common\ToolChain_Settings.prg=1146382935</SrcFile32>
+    <SrcFile33>Drivers\Common\GenReg32InitInfo.prg=1116866294</SrcFile33>
+    <SrcFile34>Drivers\ColdFireV1\IO_Map.drv=1116866294</SrcFile34>
+    <SrcFile35>Drivers\ColdFireV1.src=1121555243</SrcFile35>
+    <SrcFile36>Drivers\HC08\Common_HCx08\MC9x08_WhileNotSet.prg=1116866294</SrcFile36>
+    <SrcFile37>Drivers\Common\GenReg8BitsInitInfo.prg=1116866294</SrcFile37>
+    <SrcFile38>Drivers\HC08\Common_HCx08\MC9x08_COPreset.prg=1116866294</SrcFile38>
+    <SrcFile39>Drivers\Common\SetReg8_Rst.prg=1116866294</SrcFile39>
+    <SrcFile40>Drivers\Common\GeneralInternal.inc=1116866294</SrcFile40>
+    <SrcFile41>Drivers\ColdFireV1\PE_Error.drv=1116866294</SrcFile41>
+    <SrcFile42>Drivers\ColdFireV1\ColdFireV1_InterruptVectorTable.prg=1116866294</SrcFile42>
+    <SrcFile43>Drivers\Common\GenReg32BitsInitInfo.prg=1116866294</SrcFile43>
+    <SrcFile44>Drivers\Common\ColdFireV1Abstract.inc=1116866294</SrcFile44>
+    <SrcFile45>Drivers\Common\EBGNSupport\StringLib.prg=1146382935</SrcFile45>
+    <SrcFile46>Drivers\HCS08\MC9S08_LowLevelInit.prg=1116866294</SrcFile46>
+    <SrcFile47>Drivers\Common\GeneralDamage.inc=1116866294</SrcFile47>
+    <SrcFile48>Drivers\HCS08\MC9S08_DefineCommonSymbols.prg=1116866294</SrcFile48>
+    <SrcFile49>Drivers\Common\CommonInitialization_WriteOnce.prg=1116866294</SrcFile49>
+    <SrcFile50>Drivers\Common\Header.c=1116866294</SrcFile50>
+    <SrcFile51>Drivers\Common\Header.h=1116866294</SrcFile51>
+    <SrcFile52>Drivers\Common\ColdFireV1EnableInt.inc=1116866294</SrcFile52>
+    <SrcFile53>Drivers\HC08\Common_HCx08\MC9x08_InitTrimCode.prg=1116866294</SrcFile53>
+    <SrcFile54>Drivers\Common\CommonEnabling.prg=1116866294</SrcFile54>
+    <SrcFile55>Drivers\Common\Doxy_CollectRegInitInfo.prg=1116866294</SrcFile55>
+    <SrcFile56>Drivers\Common\SetRegBits8.prg=1127381294</SrcFile56>
+    <SrcFile57>Drivers\Common\PE_MisraDisableRules.prg=1116866294</SrcFile57>
+    <SrcFile58>Drivers\Common\HeaderGeneral.c=1116866294</SrcFile58>
+    <SrcFile59>Drivers\Common\SetRegBits8_Rst.prg=1116866294</SrcFile59>
+    <SrcFile60>Drivers\Common\DefineISR.prg=1120303303</SrcFile60>
+    <SrcFile61>Drivers\Common\InitReg8Block.prg=1116866294</SrcFile61>
+    <SrcFile62>Drivers\HCS08\MC9S08_EntryPointCode.prg=1116866294</SrcFile62>
+    <SrcFile63>Drivers\Common\DeclareISR.prg=1146382935</SrcFile63>
+    <SrcFile64>Drivers\Common\ErrorDefinitions.inc=1116866294</SrcFile64>
+    <SrcFile65>Drivers\ColdFireV1\PE_Const.drv=1116866294</SrcFile65>
+    <SrcFile66>Drivers\Common\IO_MapSettings.inc=1116866294</SrcFile66>
+    <SrcFile67>Drivers\Common\PE_ConstSettings.inc=1116866294</SrcFile67>
+    <SrcFile68>Drivers\Common\PE_ConstAbstract.inc=1116866294</SrcFile68>
+    <SrcFile69>Drivers\ColdFireV1\PE_Types.drv=1116866294</SrcFile69>
+    <SrcFile70>Drivers\HC08\Common_HCx08\MC9x08_WhileNotValue.prg=1116866294</SrcFile70>
+    <SrcFile71>Drivers\Common\Header.C=1116866294</SrcFile71>
+    <SrcFile72>Drivers\Common\PE_ErrorAbstract.inc=1116866294</SrcFile72>
+    <SrcFile73>Drivers\Common\InitReg8.prg=1116866294</SrcFile73>
+    <SrcFile74>Drivers\Common\CommonInitialization.prg=1116866294</SrcFile74>
+    <SrcFile75>Drivers\Common\GeneralMethod.inc=1116866294</SrcFile75>
+    <SrcFile76>Drivers\ColdFireV1\Init_ExternalBus_COLDFIREV1.prg=1116866294</SrcFile76>
+    <SrcFile77>Drivers\Common\PE_MisraRuleToErrorCode.prg=1127381294</SrcFile77>
+    <SrcFile78>Drivers\Common\GeneralReturnNothing.inc=1116866294</SrcFile78>
+    <SrcFile79>Drivers\Common\ColdFireV1Settings.inc=1116866294</SrcFile79>
+    <SrcFile80>Drivers\Common\CommonInitialization_FLASH.prg=1116866294</SrcFile80>
+    <SrcFile81>Drivers\ColdFireV1\MCF51QE128_80h.prg=1116866294</SrcFile81>
+    <SrcFile82>Drivers\Common\HeaderCopyright.inc=1146382935</SrcFile82>
+  </UsedSrcFiles>
+</GenerationInfo_G_C>
+

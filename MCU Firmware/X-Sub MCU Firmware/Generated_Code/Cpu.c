@@ -7,7 +7,7 @@
 **     Version     : Component 01.014, Driver 01.12, CPU db: 3.00.078
 **     Datasheet   : MCF51QE128RM, Rev. 3, 9/2007
 **     Compiler    : CodeWarrior ColdFireV1 C Compiler
-**     Date/Time   : 2015-06-11, 11:42, # CodeGen: 5
+**     Date/Time   : 2015-06-12, 10:25, # CodeGen: 9
 **     Abstract    :
 **         This component "MCF51QE128_80" contains initialization of the
 **         CPU and provides basic methods and events for CPU core
@@ -67,6 +67,7 @@
 #include "M2_ESC.h"
 #include "M3_ESC.h"
 #include "M4_ESC.h"
+#include "sMCU_OK.h"
 #include "PE_Types.h"
 #include "PE_Error.h"
 #include "PE_Const.h"
@@ -216,6 +217,12 @@ void PE_low_level_init(void)
   setReg8Bits(PTBDD, 0x30U);            
   /* PTBD: PTBD5=0,PTBD4=0 */
   clrReg8Bits(PTBD, 0x30U);             
+  /* PTCD: PTCD0=0 */
+  clrReg8Bits(PTCD, 0x01U);             
+  /* PTCPE: PTCPE0=0 */
+  clrReg8Bits(PTCPE, 0x01U);            
+  /* PTCDD: PTCDD0=1 */
+  setReg8Bits(PTCDD, 0x01U);            
   /* PTASE: PTASE7=0,PTASE6=0,PTASE4=0,PTASE3=0,PTASE2=0,PTASE1=0,PTASE0=0 */
   clrReg8Bits(PTASE, 0xDFU);            
   /* PTBSE: PTBSE7=0,PTBSE6=0,PTBSE5=0,PTBSE4=0,PTBSE3=0,PTBSE2=0,PTBSE1=0,PTBSE0=0 */
@@ -261,6 +268,7 @@ void PE_low_level_init(void)
   M3_ESC_Init();
   /* ### Programable pulse generation "M4_ESC" init code ... */
   M4_ESC_Init();
+  /* ### BitIO "sMCU_OK" init code ... */
   /* Common peripheral initialization - ENABLE */
   /* TPM1SC: CLKSB=0,CLKSA=1,PS0=1 */
   clrSetReg8Bits(TPM1SC, 0x10U, 0x09U); 
