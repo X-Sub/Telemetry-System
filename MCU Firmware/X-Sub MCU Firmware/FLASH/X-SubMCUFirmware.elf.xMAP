@@ -21,35 +21,44 @@
 # .code
 
 # .text
-  00000410 0000001A .text   sMCU_OK_PutVal	(sMCU_OK_c.obj)
-  0000042A 00000030 .text   SetRatio	(M4_ESC_c.obj)
-  0000045A 0000000A .text   M4_ESC_Enable	(M4_ESC_c.obj)
-  00000464 00000026 .text   M4_ESC_Init	(M4_ESC_c.obj)
-  0000048A 00000030 .text   SetRatio	(M3_ESC_c.obj)
-  000004BA 0000000A .text   M3_ESC_Enable	(M3_ESC_c.obj)
-  000004C4 00000012 .text   M3_ESC_Init	(M3_ESC_c.obj)
-  000004D6 00000030 .text   SetRatio	(M2_ESC_c.obj)
-  00000506 0000000A .text   M2_ESC_Enable	(M2_ESC_c.obj)
-  00000510 00000012 .text   M2_ESC_Init	(M2_ESC_c.obj)
-  00000522 00000030 .text   SetRatio	(M1_ESC_c.obj)
-  00000552 0000000A .text   M1_ESC_Enable	(M1_ESC_c.obj)
-  0000055C 00000020 .text   M1_ESC_Init	(M1_ESC_c.obj)
-  0000057C 00000002 .text   Cpu_Interrupt	(Cpu_c.obj)
-  0000057E 00000088 .text   __initialize_hardware	(Cpu_c.obj)
-  00000606 0000010C .text   PE_low_level_init	(Cpu_c.obj)
-  00000712 00000002 .text   __initialize_system	(startcf_c.obj)
-  00000714 00000062 .text   __copy_rom_section	(startcf_c.obj)
-  00000776 00000046 .text   __copy_rom_sections_to_ram	(startcf_c.obj)
-  000007BC 00000004 .text   _ExitProcess	(startcf_c.obj)
-  000007C0 00000210 .text   clear_mem	(startcf_c.obj)
-  000009D0 00000090 .text   _startup	(startcf_c.obj)
-  00000A60 00000012 .text   initMxSub	(xSub_c.obj)
-  00000A72 00000014 .text   main	(main_c.obj)
-  00000A86 0000001C .text   __call_static_initializers	(librt.a cf_staticinitia)
-  00000AA2 0000002C .text   __destroy_global_chain	(librt.a cf_staticinitia)
-  00000ACE 0000000C .text   _ewl_exit	(librt.a abort_exit.o   )
-#>00000ADC          ___ROM_AT (linker command file)
-#>00000ADC          ___DATA_ROM (linker command file)
+  00000410 00000030 .text   SetRatio	(S_TiltCamera_c.obj)
+  00000440 00000012 .text   S_TiltCamera_Init	(S_TiltCamera_c.obj)
+  00000452 00000030 .text   SetRatio	(S_PanCamera_c.obj)
+  00000482 00000012 .text   S_PanCamera_Init	(S_PanCamera_c.obj)
+  00000494 00000030 .text   SetRatio	(M4_ESC_c.obj)
+  000004C4 0000000A .text   M4_ESC_Enable	(M4_ESC_c.obj)
+  000004CE 00000020 .text   M4_ESC_Init	(M4_ESC_c.obj)
+  000004EE 00000030 .text   SetRatio	(M3_ESC_c.obj)
+  0000051E 0000000A .text   M3_ESC_Enable	(M3_ESC_c.obj)
+  00000528 00000012 .text   M3_ESC_Init	(M3_ESC_c.obj)
+  0000053A 00000030 .text   SetRatio	(M2_ESC_c.obj)
+  0000056A 0000000A .text   M2_ESC_Enable	(M2_ESC_c.obj)
+  00000574 00000012 .text   M2_ESC_Init	(M2_ESC_c.obj)
+  00000586 00000030 .text   SetRatio	(M1_ESC_c.obj)
+  000005B6 0000000A .text   M1_ESC_Enable	(M1_ESC_c.obj)
+  000005C0 00000020 .text   M1_ESC_Init	(M1_ESC_c.obj)
+  000005E0 00000002 .text   Cpu_Interrupt	(Cpu_c.obj)
+  000005E2 00000088 .text   __initialize_hardware	(Cpu_c.obj)
+  0000066A 00000130 .text   PE_low_level_init	(Cpu_c.obj)
+  0000079A 0000001C .text   Aux_Int_Init	(Aux_Int_c.obj)
+  000007B6 00000022 .text   Aux_Int_Interrupt	(Aux_Int_c.obj)
+  000007D8 00000002 .text   __initialize_system	(startcf_c.obj)
+  000007DA 00000062 .text   __copy_rom_section	(startcf_c.obj)
+  0000083C 00000046 .text   __copy_rom_sections_to_ram	(startcf_c.obj)
+  00000882 00000004 .text   _ExitProcess	(startcf_c.obj)
+  00000886 00000210 .text   clear_mem	(startcf_c.obj)
+  00000A96 00000090 .text   _startup	(startcf_c.obj)
+  00000B26 00000012 .text   initMxSub	(xSub_c.obj)
+  00000B38 00000008 .text   sMCU_OK_W	(xSub_c.obj)
+  00000B40 00000008 .text   sCom_In_W	(xSub_c.obj)
+  00000B48 00000008 .text   sPC_OK_NW	(xSub_c.obj)
+  00000B50 0000001A .text   main	(main_c.obj)
+  00000B6A 00000044 .text   Aux_Int_OnInterrupt	(Events_c.obj)
+  00000BAE 0000001C .text   __call_static_initializers	(librt.a cf_staticinitia)
+  00000BCA 0000002C .text   __destroy_global_chain	(librt.a cf_staticinitia)
+  00000BF6 0000000C .text   _ewl_exit	(librt.a abort_exit.o   )
+#>00000C04          ___ROM_AT (linker command file)
+#>00000C04          ___DATA_ROM (linker command file)
 
 # .data
 #>00800000          ___DATA_RAM (linker command file)
@@ -70,31 +79,36 @@
 # .bss
 #>00800004          ___BSS_START (linker command file)
 #>00800004          __START_SBSS (linker command file)
-  00800004 00000002 .sbss   ActualRatio	(M4_ESC_c.obj)
-  00800006 00000002 .sbss   ActualRatio	(M3_ESC_c.obj)
-  00800008 00000002 .sbss   ActualRatio	(M2_ESC_c.obj)
-  0080000A 00000002 .sbss   ActualRatio	(M1_ESC_c.obj)
-  0080000C 00000001 .sbss   SR_lock	(Cpu_c.obj)
-#>00800010          __END_SBSS (linker command file)
-#>00800010          __START_BSS (linker command file)
-  00800010 00000004 .bss    __global_destructor_chain	(librt.a cf_staticinitia)
-#>00800014          __END_BSS (linker command file)
-#>00800014          ___BSS_END (linker command file)
+  00800004 00000002 .sbss   ActualRatio	(S_TiltCamera_c.obj)
+  00800006 00000002 .sbss   ActualRatio	(S_PanCamera_c.obj)
+  00800008 00000002 .sbss   ActualRatio	(M4_ESC_c.obj)
+  0080000A 00000002 .sbss   ActualRatio	(M3_ESC_c.obj)
+  0080000C 00000002 .sbss   ActualRatio	(M2_ESC_c.obj)
+  0080000E 00000002 .sbss   ActualRatio	(M1_ESC_c.obj)
+  00800010 00000001 .sbss   SR_lock	(Cpu_c.obj)
+  00800011 00000001 .sbss   led0x00	(Events_c.obj)
+  00800012 00000001 .sbss   led0x01	(Events_c.obj)
+  00800013 00000001 .sbss   led0x02	(Events_c.obj)
+#>00800014          __END_SBSS (linker command file)
+#>00800014          __START_BSS (linker command file)
+  00800014 00000004 .bss    __global_destructor_chain	(librt.a cf_staticinitia)
+#>00800018          __END_BSS (linker command file)
+#>00800018          ___BSS_END (linker command file)
 
 # .custom
-#>00800014          ___HEAP_START (linker command file)
-#>00800014          ___heap_addr (linker command file)
-#>00800414          ___HEAP_END (linker command file)
-#>00800414          ___SP_END (linker command file)
-#>00800814          ___SP_INIT (linker command file)
-#>00800414          ___mem_limit (linker command file)
+#>00800018          ___HEAP_START (linker command file)
+#>00800018          ___heap_addr (linker command file)
+#>00800418          ___HEAP_END (linker command file)
+#>00800418          ___SP_END (linker command file)
+#>00800818          ___SP_INIT (linker command file)
+#>00800418          ___mem_limit (linker command file)
 #>00000010          ___stack_safety (linker command file)
-#>00800814          __SP_INIT (linker command file)
-#>00800814          ___SP_AFTER_RESET (linker command file)
-#>00000AE0          _romp_at (linker command file)
+#>00800818          __SP_INIT (linker command file)
+#>00800818          ___SP_AFTER_RESET (linker command file)
+#>00000C08          _romp_at (linker command file)
 
 # .romp
-#>00000AE0          __S_romp (linker command file)
+#>00000C08          __S_romp (linker command file)
 
 
 # Memory map:
@@ -103,12 +117,12 @@
   0000040D 0000040D 00000001 .abs_NVPROT_INIT abs_NVPROT_INIT
   0000040F 0000040F 00000001 .abs_NVOPT_INIT abs_NVOPT_INIT
   00000410 00000410 00000000 .code      code
-  00000410 00000410 000006CC .text      code
+  00000410 00000410 000007F4 .text      code
   00800000 00800000 00000000 .userram   userram
-  00800000 00000ADC 00000004 .data      userram
-  00800004 00800004 00000010 .bss       userram
-  00800014 00800014 00000000 .custom    userram
-  00800014 00000AE0 00000018 .romp      userram
+  00800000 00000C04 00000004 .data      userram
+  00800004 00800004 00000014 .bss       userram
+  00800018 00800018 00000000 .custom    userram
+  00800018 00000C08 00000018 .romp      userram
 
-# Link start time: Fri Jun 12 10:27:07 2015
-# Link end time: Fri Jun 12 10:27:07 2015
+# Link start time: Mon Jun 15 16:26:28 2015
+# Link end time: Mon Jun 15 16:26:28 2015

@@ -7,7 +7,7 @@
 **     Version     : Component 01.014, Driver 01.12, CPU db: 3.00.078
 **     Datasheet   : MCF51QE128RM, Rev. 3, 9/2007
 **     Compiler    : CodeWarrior ColdFireV1 C Compiler
-**     Date/Time   : 2015-06-12, 10:25, # CodeGen: 9
+**     Date/Time   : 2015-06-15, 16:23, # CodeGen: 15
 **     Abstract    :
 **         This component "MCF51QE128_80" contains initialization of the
 **         CPU and provides basic methods and events for CPU core
@@ -67,7 +67,12 @@
 #include "M2_ESC.h"
 #include "M3_ESC.h"
 #include "M4_ESC.h"
+#include "S_PanCamera.h"
+#include "S_TiltCamera.h"
 #include "sMCU_OK.h"
+#include "sCom_In.h"
+#include "sPC_OK.h"
+#include "Aux_Int.h"
 #include "PE_Types.h"
 #include "PE_Error.h"
 #include "PE_Const.h"
@@ -209,20 +214,20 @@ void PE_low_level_init(void)
   /* SCGC2: ??=1,FLS=1,IRQ=1,KBI=1,ACMP=1,RTC=1,SPI2=1,SPI1=1 */
   setReg8(SCGC2, 0xFFU);                
   /* Common initialization of the CPU registers */
-  /* PTADD: PTADD6=1,PTADD0=1 */
-  setReg8Bits(PTADD, 0x41U);            
-  /* PTAD: PTAD6=0,PTAD0=0 */
-  clrReg8Bits(PTAD, 0x41U);             
+  /* PTADD: PTADD7=1,PTADD6=1,PTADD1=1,PTADD0=1 */
+  setReg8Bits(PTADD, 0xC3U);            
+  /* PTAD: PTAD7=0,PTAD6=0,PTAD1=0,PTAD0=0 */
+  clrReg8Bits(PTAD, 0xC3U);             
   /* PTBDD: PTBDD5=1,PTBDD4=1 */
   setReg8Bits(PTBDD, 0x30U);            
   /* PTBD: PTBD5=0,PTBD4=0 */
   clrReg8Bits(PTBD, 0x30U);             
-  /* PTCD: PTCD0=0 */
-  clrReg8Bits(PTCD, 0x01U);             
-  /* PTCPE: PTCPE0=0 */
-  clrReg8Bits(PTCPE, 0x01U);            
-  /* PTCDD: PTCDD0=1 */
-  setReg8Bits(PTCDD, 0x01U);            
+  /* PTCD: PTCD2=0,PTCD1=0,PTCD0=0 */
+  clrReg8Bits(PTCD, 0x07U);             
+  /* PTCPE: PTCPE2=0,PTCPE1=0,PTCPE0=0 */
+  clrReg8Bits(PTCPE, 0x07U);            
+  /* PTCDD: PTCDD2=1,PTCDD1=1,PTCDD0=1 */
+  setReg8Bits(PTCDD, 0x07U);            
   /* PTASE: PTASE7=0,PTASE6=0,PTASE4=0,PTASE3=0,PTASE2=0,PTASE1=0,PTASE0=0 */
   clrReg8Bits(PTASE, 0xDFU);            
   /* PTBSE: PTBSE7=0,PTBSE6=0,PTBSE5=0,PTBSE4=0,PTBSE3=0,PTBSE2=0,PTBSE1=0,PTBSE0=0 */
@@ -268,10 +273,23 @@ void PE_low_level_init(void)
   M3_ESC_Init();
   /* ### Programable pulse generation "M4_ESC" init code ... */
   M4_ESC_Init();
+  /* ### Programable pulse generation "S_PanCamera" init code ... */
+  S_PanCamera_Init();
+  /* ### Programable pulse generation "S_TiltCamera" init code ... */
+  S_TiltCamera_Init();
   /* ### BitIO "sMCU_OK" init code ... */
+  /* ### BitIO "sCom_In" init code ... */
+  /* ### BitIO "sPC_OK" init code ... */
+  /* ### TimerInt "Aux_Int" init code ... */
+  Aux_Int_Init();
   /* Common peripheral initialization - ENABLE */
   /* TPM1SC: CLKSB=0,CLKSA=1,PS0=1 */
   clrSetReg8Bits(TPM1SC, 0x10U, 0x09U); 
+  /* TPM2SC: CLKSB=0,CLKSA=1,PS0=1 */
+  clrSetReg8Bits(TPM2SC, 0x10U, 0x09U); 
+  /* Initialize priority of ivVrtc interrupt */
+  /* INTC_PL6P6: ??=0,??=0,??=0,REQN=0x16 */
+  setReg8(INTC_PL6P6, 0x16U);           
   /* INTC_WCR: ENB=0,??=0,??=0,??=0,??=0,MASK=0 */
   setReg8(INTC_WCR, 0x00U);             
   SR_lock = 0x00;
