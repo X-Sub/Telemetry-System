@@ -37,7 +37,12 @@
 #include "M2_ESC.h"
 #include "M3_ESC.h"
 #include "M4_ESC.h"
+#include "S_PanCamera.h"
+#include "S_TiltCamera.h"
 #include "sMCU_OK.h"
+#include "sPC_OK.h"
+#include "sCom_In.h"
+#include "Aux_Int.h"
 /* Include shared modules, which are used for whole project */
 #include "PE_Types.h"
 #include "PE_Error.h"
@@ -59,7 +64,9 @@ void main(void)
   /* Write your code here */
   /* For example: for(;;) { } */
   initMxSub();
-  (void)sMCU_OK_PutVal(FALSE);
+  sMCU_OK_W();
+  sCom_In_W();
+  sPC_OK_NW();
   for(;;)
   {
 	  

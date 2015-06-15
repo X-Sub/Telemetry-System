@@ -22,7 +22,7 @@
 #include "xSub.h"
 
 
-
+//Inicializa los motores
 void initMxSub(){
 	M1_ESC_Enable();
 	M2_ESC_Enable();
@@ -30,3 +30,79 @@ void initMxSub(){
 	M4_ESC_Enable();
 }
 
+//Cambia el Status de un LED
+//Hace que se mantenga encendido o titilando si està activo.
+void lStatus(byte nLed, bool status)
+{
+	switch(nLed)
+	{
+		case 0x00:
+			led0x00 = status;
+			break;
+			
+		case 0x01:
+			led0x01 = status;		
+			break;
+			
+		case 0x02:
+			led0x02 = status;				
+			break;
+		
+		case 0x03:
+			led0x03 = status;				
+			break;
+			
+		case 0x04:
+			led0x04 = status;				
+			break;
+		
+		case 0x05:
+			led0x05 = status;		
+			break;
+					
+		case 0x06:
+			led0x06 = status;				
+			break;
+			
+		case 0x07:
+			led0x07 = status;						
+			break;
+				
+	}
+}
+
+//Activa a sMCU_OK
+void sMCU_OK_W()
+{
+	sMCU_OK_ClrVal();
+}
+
+//Desactiva a sMCU_OK
+void sMCU_OK_NW()
+{
+	sMCU_OK_SetVal();
+}
+
+//Muestra titilando a sPC_OK
+void sCom_In_W()
+{
+	lStatus(0x01,TRUE);
+}
+
+//Muestra titilando a sPC_OK
+void sCom_In_NW()
+{
+	lStatus(0x01,FALSE);
+}
+
+//Muestra titilando a sPC_OK
+void sPC_OK_W()
+{
+	lStatus(0x02,TRUE);
+}
+
+//Muestra titilando a sPC_OK
+void sPC_OK_NW()
+{
+	lStatus(0x02,FALSE);
+}

@@ -6,7 +6,7 @@
 **     Component   : PWM
 **     Version     : Component 02.240, Driver 01.28, CPU db: 3.00.078
 **     Compiler    : CodeWarrior ColdFireV1 C Compiler
-**     Date/Time   : 2015-06-11, 11:42, # CodeGen: 5
+**     Date/Time   : 2015-06-15, 15:15, # CodeGen: 10
 **     Abstract    :
 **         This component implements a pulse-width modulation generator
 **         that generates signal with variable duty and fixed cycle. 
@@ -15,7 +15,7 @@
 **             ----------------------------------------------------
 **                Number (on package)  |    Name
 **             ----------------------------------------------------
-**                       23            |  PTB4_TPM2CH1_MISO1
+**                       61            |  PTA1_KBI1P1_TPM2CH0_ADP1_ACMP1MINUS
 **             ----------------------------------------------------
 **
 **         Timer name                  : TPM2 [16-bit]
@@ -23,16 +23,16 @@
 **         Mode register               : TPM2SC    [0xFFFF8050]
 **         Run register                : TPM2SC    [0xFFFF8050]
 **         Prescaler                   : TPM2SC    [0xFFFF8050]
-**         Compare register            : TPM2C1V   [0xFFFF8059]
-**         Flip-flop register          : TPM2C1SC  [0xFFFF8058]
+**         Compare register            : TPM2C0V   [0xFFFF8056]
+**         Flip-flop register          : TPM2C0SC  [0xFFFF8055]
 **
 **         User handling procedure     : not specified
 **
-**         Port name                   : PTB
-**         Bit number (in port)        : 4
-**         Bit mask of the port        : 0x0010
-**         Port data register          : PTBD      [0xFFFF8002]
-**         Port control register       : PTBDD     [0xFFFF8003]
+**         Port name                   : PTA
+**         Bit number (in port)        : 1
+**         Bit mask of the port        : 0x0002
+**         Port data register          : PTAD      [0xFFFF8000]
+**         Port control register       : PTADD     [0xFFFF8001]
 **
 **         Initialization:
 **              Output level           : low

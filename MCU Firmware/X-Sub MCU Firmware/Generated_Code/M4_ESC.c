@@ -6,7 +6,7 @@
 **     Component   : PWM
 **     Version     : Component 02.240, Driver 01.28, CPU db: 3.00.078
 **     Compiler    : CodeWarrior ColdFireV1 C Compiler
-**     Date/Time   : 2015-06-11, 11:42, # CodeGen: 5
+**     Date/Time   : 2015-06-15, 15:15, # CodeGen: 10
 **     Abstract    :
 **         This component implements a pulse-width modulation generator
 **         that generates signal with variable duty and fixed cycle. 
@@ -15,7 +15,7 @@
 **             ----------------------------------------------------
 **                Number (on package)  |    Name
 **             ----------------------------------------------------
-**                       23            |  PTB4_TPM2CH1_MISO1
+**                       61            |  PTA1_KBI1P1_TPM2CH0_ADP1_ACMP1MINUS
 **             ----------------------------------------------------
 **
 **         Timer name                  : TPM2 [16-bit]
@@ -23,16 +23,16 @@
 **         Mode register               : TPM2SC    [0xFFFF8050]
 **         Run register                : TPM2SC    [0xFFFF8050]
 **         Prescaler                   : TPM2SC    [0xFFFF8050]
-**         Compare register            : TPM2C1V   [0xFFFF8059]
-**         Flip-flop register          : TPM2C1SC  [0xFFFF8058]
+**         Compare register            : TPM2C0V   [0xFFFF8056]
+**         Flip-flop register          : TPM2C0SC  [0xFFFF8055]
 **
 **         User handling procedure     : not specified
 **
-**         Port name                   : PTB
-**         Bit number (in port)        : 4
-**         Bit mask of the port        : 0x0010
-**         Port data register          : PTBD      [0xFFFF8002]
-**         Port control register       : PTBDD     [0xFFFF8003]
+**         Port name                   : PTA
+**         Bit number (in port)        : 1
+**         Bit mask of the port        : 0x0002
+**         Port data register          : PTAD      [0xFFFF8000]
+**         Port control register       : PTADD     [0xFFFF8001]
 **
 **         Initialization:
 **              Output level           : low
@@ -138,9 +138,9 @@ static void SetRatio(void);
 static void SetRatio(void)
 {
   if (ActualRatio == 0xFFFFU) {        /* Duty = 100%? */
-    TPM2C1V = 0xFFFFU;                 /* Store new value to the compare reg. */
+    TPM2C0V = 0xFFFFU;                 /* Store new value to the compare reg. */
   } else {
-    TPM2C1V = (word)(((0xA3D7UL * (dword)ActualRatio)  + 0x8000UL) >> 0x10U); /* Calculate new compare value according to the given ratio */
+    TPM2C0V = (word)(((0xA3D7UL * (dword)ActualRatio)  + 0x8000UL) >> 0x10U); /* Calculate new compare value according to the given ratio */
   }
 }
 
@@ -161,8 +161,8 @@ static void SetRatio(void)
 */
 byte M4_ESC_Enable(void)
 {
-  /* TPM2SC: TOF=0,TOIE=0,CPWMS=0,CLKSB=0,CLKSA=1,PS2=0,PS1=0,PS0=1 */
-  setReg8(TPM2SC, 0x09U);              /* Run the counter (set CLKSB:CLKSA) */ 
+  /* TPM2C0SC: CH0F=0,CH0IE=0,MS0B=1,MS0A=1,ELS0B=1,ELS0A=1,??=0,??=0 */
+  setReg8(TPM2C0SC, 0x3CU);            /* Set up PWM mode with output signal level low */ 
   return ERR_OK;                       /* OK */
 }
 
@@ -183,10 +183,8 @@ byte M4_ESC_Enable(void)
 */
 byte M4_ESC_Disable(void)
 {
-  /* TPM2SC: TOF=0,TOIE=0,CPWMS=0,CLKSB=0,CLKSA=0,PS2=0,PS1=0,PS0=0 */
-  setReg8(TPM2SC, 0x00U);              /* Stop counter (CLKSB:CLKSA = 00) */ 
-  /* TPM2CNTH: BIT15=0,BIT14=0,BIT13=0,BIT12=0,BIT11=0,BIT10=0,BIT9=0,BIT8=0 */
-  setReg8(TPM2CNTH, 0x00U);            /* Reset HW Counter */ 
+  /* TPM2C0SC: CH0F=0,CH0IE=0,MS0B=0,MS0A=0,ELS0B=0,ELS0A=0,??=0,??=0 */
+  setReg8(TPM2C0SC, 0x00U);            /* Disable output signal */ 
   return ERR_OK;                       /* OK */
 }
 
@@ -331,14 +329,12 @@ void M4_ESC_Init(void)
 {
   /* TPM2SC: TOF=0,TOIE=0,CPWMS=0,CLKSB=0,CLKSA=0,PS2=0,PS1=0,PS0=0 */
   setReg8(TPM2SC, 0x00U);              /* Disable device */ 
-  /* TPM2C1SC: CH1F=0,CH1IE=0,MS1B=1,MS1A=1,ELS1B=1,ELS1A=1,??=0,??=0 */
-  setReg8(TPM2C1SC, 0x3CU);            /* Set up PWM mode with output signal level low */ 
+  /* TPM2C0SC: CH0F=0,CH0IE=0,MS0B=1,MS0A=1,ELS0B=1,ELS0A=1,??=0,??=0 */
+  setReg8(TPM2C0SC, 0x3CU);            /* Set up PWM mode with output signal level low */ 
   ActualRatio = 0x00U;                 /* Store initial value of the ratio */
   /* TPM2MOD: BIT15=1,BIT14=0,BIT13=1,BIT12=0,BIT11=0,BIT10=0,BIT9=1,BIT8=1,BIT7=1,BIT6=1,BIT5=0,BIT4=1,BIT3=0,BIT2=1,BIT1=1,BIT0=0 */
   setReg16(TPM2MOD, 0xA3D6U);          /* Set modulo register */ 
   SetRatio();                          /* Calculate and set up new values of the compare according to the selected speed CPU mode */
-  /* TPM2SC: TOF=0,TOIE=0,CPWMS=0,CLKSB=0,CLKSA=1,PS2=0,PS1=0,PS0=1 */
-  setReg8(TPM2SC, 0x09U);              /* Run the counter (set CLKSB:CLKSA) */ 
 }
 
 /* END M4_ESC. */

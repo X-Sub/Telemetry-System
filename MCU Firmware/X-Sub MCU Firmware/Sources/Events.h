@@ -39,8 +39,29 @@
 #include "M2_ESC.h"
 #include "M3_ESC.h"
 #include "M4_ESC.h"
+#include "S_PanCamera.h"
+#include "S_TiltCamera.h"
 #include "sMCU_OK.h"
+#include "sPC_OK.h"
+#include "sCom_In.h"
+#include "Aux_Int.h"
 
+
+void Aux_Int_OnInterrupt(void);
+/*
+** ===================================================================
+**     Event       :  Aux_Int_OnInterrupt (module Events)
+**
+**     Component   :  Aux_Int [TimerInt]
+**     Description :
+**         When a timer interrupt occurs this event is called (only
+**         when the component is enabled - <Enable> and the events are
+**         enabled - <EnableEvent>). This event is enabled only if a
+**         <interrupt service/event> is enabled.
+**     Parameters  : None
+**     Returns     : Nothing
+** ===================================================================
+*/
 
 /* END Events */
 #endif /* __Events_H*/
