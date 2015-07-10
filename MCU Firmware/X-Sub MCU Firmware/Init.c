@@ -14,6 +14,13 @@
 /*Mis includes*/
 #include "xSub.h"
 
+/*Constantes de Motores*/
+word CENTERDC = 0xED71; //7.2432% = 0xFFFF-0x128A = 65536-4747
+word MAXFORWARD = 59162;
+word MAXBACKWARD = 62200;
+
+
+/*Variables físicas*/
 byte  SIZEPACKAGE = 27;
 
 vFisica8  STATUS;

@@ -69,7 +69,7 @@ void main(void)
   /* Write your code here */
   /* For example: for(;;) { } */
   //delay(5000);
-  initMxSub();
+  initMxSub(1);
   
   sMCU_OK_W();
   sCom_In_W();
@@ -84,14 +84,14 @@ void main(void)
 	 //DC2 = (0xFFFF-0xFFFF*0.0535 - 0xFFFF-0xFFFF*0.0915)/2;
 	 //setDC(DC2);
 	 //DC2 = map(DC,0,0xFFF,0xFFFF-0xFFFF*0.0535,0xFFFF-0xFFFF*0.0915);
-	 DC2 = map(DC,0,0xFFF,0xFFFF-0xFFFF*0.053821,0xFFFF-0xFFFF*0.09204);
+	 DC2 = map(DC,0,0xFFF,0xED71,62200);
 	 //setDC(DC2);
 	 
-	  setDC(62007);
+	  setDC(MAXFORWARD);
 	  delay(2000);
-	  setDC(0xED71);
-	  delay(1000);
-	  setDC(59973);
+	  //setDC(0xED71);
+	  //delay(1);
+	  setDC(MAXBACKWARD);
 	  delay(2000);
   }
   

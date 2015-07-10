@@ -24,6 +24,7 @@
 
 
 
+
 //Cambia el Status de un LED
 //Hace que se mantenga encendido o titilando si està activo.
 void lStatus(byte nLed, bool status)
@@ -110,23 +111,22 @@ void delay(word time)
 
 
 //Inicializa los motores
-void initMxSub(){
+void initMxSub(byte tipo){
+	if(tipo == 1)//HK 30A
+	{
 	word spDC;
-	
 	//M1_ESC_Enable();
 	M2_ESC_Enable();
 	M3_ESC_Enable();
 	M4_ESC_Enable();
-	
-	tMotor = 0;
-	
-	//spDC = 0x13DC;//0x13DC = 7.76%
-	spDC = (0xED71);
+	spDC = (CENTERDC); //0xED71 = 7.24% = 60788
 	//M1_ESC_SetRatio16(spDC);
 	M2_ESC_SetRatio16(spDC);
 	M3_ESC_SetRatio16(spDC);
 	M4_ESC_SetRatio16(spDC);
-	delay(6000);
+	delay(5000);
+	}
+	
 
 }
 

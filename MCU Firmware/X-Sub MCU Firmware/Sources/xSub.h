@@ -73,13 +73,16 @@ extern vFisica8  finTrama;
 
 
 //Se encarga de inicializar el xSub
-void initMxSub();
+void initMxSub(byte tipo);
 void initVFisicas();//Genera la numeración de la posición
 void vFisicas2Array(byte paquete[]);
 
 
 //MOTORES***************
 extern byte tMotor;
+extern word CENTERDC;
+extern word MAXFORWARD;
+extern word MAXBACKWARD;
 
 //Activa a sMCU_OK
 void sMCU_OK_W();
@@ -100,9 +103,11 @@ void delay(word time);
 long map(long x, long in_min,long in_max,long out_min, long out_max);
 
 //***************Motores :D **********************************
-void initMxSub();
+void initMxSub(byte tipo);
 
 //Coloca un DC a todos los motores
 void setDC(word Speed);
+
+
 
 #endif /* XSUB_H_ */
