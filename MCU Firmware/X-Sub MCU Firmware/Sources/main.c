@@ -71,8 +71,8 @@ void main(void)
   //delay(5000);
   initMxSub();
   
-  //sMCU_OK_W();
-  //sCom_In_W();
+  sMCU_OK_W();
+  sCom_In_W();
   sPC_OK_NW();
   //setDC(0x19C8);
   
@@ -81,8 +81,18 @@ void main(void)
 	 ADC_Measure(TRUE);
 	 ADC_GetValue16(&DC);
 	 DC = DC >> 4;
-	 DC2 = map(DC,0,0xFFF,0xFFFF-0xFFFF*0.0535,0xFFFF-0xFFFF*0.0915);
-	 setDC(DC2);
+	 //DC2 = (0xFFFF-0xFFFF*0.0535 - 0xFFFF-0xFFFF*0.0915)/2;
+	 //setDC(DC2);
+	 //DC2 = map(DC,0,0xFFF,0xFFFF-0xFFFF*0.0535,0xFFFF-0xFFFF*0.0915);
+	 DC2 = map(DC,0,0xFFF,0xFFFF-0xFFFF*0.053821,0xFFFF-0xFFFF*0.09204);
+	 //setDC(DC2);
+	 
+	  setDC(62007);
+	  delay(2000);
+	  setDC(0xED71);
+	  delay(1000);
+	  setDC(59973);
+	  delay(2000);
   }
   
   

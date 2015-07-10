@@ -7,7 +7,7 @@
 **     Version     : Component 01.014, Driver 01.12, CPU db: 3.00.078
 **     Datasheet   : MCF51QE128RM, Rev. 3, 9/2007
 **     Compiler    : CodeWarrior ColdFireV1 C Compiler
-**     Date/Time   : 2015-07-09, 18:56, # CodeGen: 25
+**     Date/Time   : 2015-07-10, 08:37, # CodeGen: 29
 **     Abstract    :
 **         This component "MCF51QE128_80" contains initialization of the
 **         CPU and provides basic methods and events for CPU core

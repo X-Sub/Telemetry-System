@@ -121,12 +121,12 @@ void initMxSub(){
 	tMotor = 0;
 	
 	//spDC = 0x13DC;//0x13DC = 7.76%
-	spDC = 0xFFFF*0.0776;
+	spDC = (0xED71);
 	//M1_ESC_SetRatio16(spDC);
 	M2_ESC_SetRatio16(spDC);
 	M3_ESC_SetRatio16(spDC);
 	M4_ESC_SetRatio16(spDC);
-	delay(2500);
+	delay(6000);
 
 }
 

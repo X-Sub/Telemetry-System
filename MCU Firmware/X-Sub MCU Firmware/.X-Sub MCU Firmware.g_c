@@ -93,7 +93,7 @@
     </GenFiles>
     <SignalListFile>Documentation\X-Sub MCU Firmware_SIGNALS.txt</SignalListFile>
     <DestinationCompiler>CodeWarriorColdFireV1</DestinationCompiler>
-    <ProjectModificationStamp>23</ProjectModificationStamp>
+    <ProjectModificationStamp>25</ProjectModificationStamp>
   </Options>
   <CpuID_2>
     <Generated>false</Generated>
@@ -161,7 +161,7 @@
     <GenDriverVersion>01.12</GenDriverVersion>
     <GenEventModule>Events</GenEventModule>
     <HeaderAge>1188648569</HeaderAge>
-    <CodeAge>1189713673</CodeAge>
+    <CodeAge>1189758144</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>19</GenNumMethods>
     <SetHighSpeed>false</SetHighSpeed>
@@ -412,8 +412,8 @@
     <GenComponentVersion>02.240</GenComponentVersion>
     <GenDriverVersion>01.28</GenDriverVersion>
     <GenEventModule>Events</GenEventModule>
-    <HeaderAge>1188648569</HeaderAge>
-    <CodeAge>1189713673</CodeAge>
+    <HeaderAge>1189758141</HeaderAge>
+    <CodeAge>1189758144</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>15</GenNumMethods>
     <Enable>true</Enable>
@@ -565,8 +565,8 @@
     <GenComponentVersion>02.240</GenComponentVersion>
     <GenDriverVersion>01.28</GenDriverVersion>
     <GenEventModule>Events</GenEventModule>
-    <HeaderAge>1188648569</HeaderAge>
-    <CodeAge>1188648568</CodeAge>
+    <HeaderAge>1189758141</HeaderAge>
+    <CodeAge>1189758144</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>15</GenNumMethods>
     <Enable>true</Enable>
@@ -718,8 +718,8 @@
     <GenComponentVersion>02.240</GenComponentVersion>
     <GenDriverVersion>01.28</GenDriverVersion>
     <GenEventModule>Events</GenEventModule>
-    <HeaderAge>1188648568</HeaderAge>
-    <CodeAge>1188648568</CodeAge>
+    <HeaderAge>1189758141</HeaderAge>
+    <CodeAge>1189758144</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>15</GenNumMethods>
     <Enable>true</Enable>
@@ -871,8 +871,8 @@
     <GenComponentVersion>02.240</GenComponentVersion>
     <GenDriverVersion>01.28</GenDriverVersion>
     <GenEventModule>Events</GenEventModule>
-    <HeaderAge>1188648568</HeaderAge>
-    <CodeAge>1188648568</CodeAge>
+    <HeaderAge>1189758141</HeaderAge>
+    <CodeAge>1189758144</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>15</GenNumMethods>
     <Enable>true</Enable>
@@ -1024,8 +1024,8 @@
     <GenComponentVersion>02.240</GenComponentVersion>
     <GenDriverVersion>01.28</GenDriverVersion>
     <GenEventModule>Events</GenEventModule>
-    <HeaderAge>1188648568</HeaderAge>
-    <CodeAge>1188648568</CodeAge>
+    <HeaderAge>1189758141</HeaderAge>
+    <CodeAge>1189758144</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>15</GenNumMethods>
     <Enable>true</Enable>
