@@ -97,7 +97,7 @@ void sPC_OK_NW();
 //paraliza el MCU por el tiempo time en ms
 void delay(word time);
 //Mapea
-double map(double in, double minA,double maxA,double minB, double maxB);
+long map(long x, long in_min,long in_max,long out_min, long out_max);
 
 //***************Motores :D **********************************
 void initMxSub();

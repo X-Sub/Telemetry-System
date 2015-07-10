@@ -60,6 +60,7 @@ void main(void)
 {
   /* Write your local variable definition here */
 	word DC = 0x0000;
+	word DC2 = 0x0000;
 	byte pDC = 0; //%
   /*** Processor Expert internal initialization. DON'T REMOVE THIS CODE!!! ***/
   PE_low_level_init();
@@ -80,8 +81,8 @@ void main(void)
 	 ADC_Measure(TRUE);
 	 ADC_GetValue16(&DC);
 	 DC = DC >> 4;
-	 DC = map(DC,0,0xFFF,0x0000,0xFFFF);
-	 setDC(DC);
+	 DC2 = map(DC,0,0xFFF,0xFFFF-0xFFFF*0.0535,0xFFFF-0xFFFF*0.0915);
+	 setDC(DC2);
   }
   
   

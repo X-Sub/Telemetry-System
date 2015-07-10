@@ -121,18 +121,12 @@ void initMxSub(){
 	tMotor = 0;
 	
 	//spDC = 0x13DC;//0x13DC = 7.76%
-	spDC = 0xFFFF;
+	spDC = 0xFFFF*0.0776;
 	//M1_ESC_SetRatio16(spDC);
 	M2_ESC_SetRatio16(spDC);
 	M3_ESC_SetRatio16(spDC);
 	M4_ESC_SetRatio16(spDC);
-	delay(2000);
-	spDC = 0x0000;
-	//M1_ESC_SetRatio16(spDC);
-	M2_ESC_SetRatio16(spDC);
-	M3_ESC_SetRatio16(spDC);
-	M4_ESC_SetRatio16(spDC);
-	delay(2000);
+	delay(2500);
 
 }
 
@@ -146,8 +140,8 @@ void setDC(word Speed)
 }
 
 //MAPEA
-double map(double in, double minA,double maxA,double minB, double maxB){
-	return ((maxB-minB)/(maxA-minA))*in;
+long map(long x, long in_min,long in_max,long out_min, long out_max){
+	return (x-in_min)*(out_max-out_min)/(in_max-in_min)+out_min;
 }
 
 

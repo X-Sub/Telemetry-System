@@ -64,48 +64,23 @@
   00000B96 00000210 .text   clear_mem	(startcf_c.obj)
   00000DA6 00000090 .text   _startup	(startcf_c.obj)
   00000E36 00000008 .text   sPC_OK_NW	(xSub_c.obj)
-  00000E3E 00000060 .text   initMxSub	(xSub_c.obj)
-  00000E9E 0000001A .text   setDC	(xSub_c.obj)
-  00000EB8 000000C8 .text   map	(xSub_c.obj)
-  00000F80 000000C4 .text   main	(main_c.obj)
-  00001044 00000070 .text   Aux_Int_OnInterrupt	(Events_c.obj)
-  000010B4 00000002 .text   SerialCom_OnRxChar	(Events_c.obj)
-  000010B6 00000002 .text   SerialCom_OnTxChar	(Events_c.obj)
-  000010B8 00000002 .text   testMotor_OnEnd	(Events_c.obj)
-  000010BA 00000002 .text   RESET_INTERRUPT_OnInterrupt	(Events_c.obj)
-  000010BC 00000002 .text   ADC_OnEnd	(Events_c.obj)
-  000010BE 0000001C .text   __call_static_initializers	(librt.a cf_staticinitia)
-  000010DA 0000002C .text   __destroy_global_chain	(librt.a cf_staticinitia)
-  00001106 0000000C .text   _ewl_exit	(librt.a abort_exit.o   )
-  00001114 00000614 .text   .text	(fp_coldfire_nodiv.a dadd.o         )
-  00001114 00000000 .text   _d_add	(fp_coldfire_nodiv.a dadd.o         )
-  00001114 00000614 .text   @DummyFn2	(fp_coldfire_nodiv.a dadd.o         )
-  00001344 00000000 .text   _d_sub	(fp_coldfire_nodiv.a dadd.o         )
-  00001728 00000448 .text   @DummyFn4	(fp_coldfire_nodiv.a ddiv.o         )
-  00001728 00000000 .text   _d_div	(fp_coldfire_nodiv.a ddiv.o         )
-  00001728 00000448 .text   .text	(fp_coldfire_nodiv.a ddiv.o         )
-  00001B70 00000598 .text   @DummyFn5	(fp_coldfire_nodiv.a dmul.o         )
-  00001B70 00000000 .text   _d_mul	(fp_coldfire_nodiv.a dmul.o         )
-  00001B70 00000598 .text   .text	(fp_coldfire_nodiv.a dmul.o         )
-  00002108 00000056 .text   @DummyFn6	(fp_coldfire_nodiv.a dterminals.o   )
-  00002108 00000000 .text   _fp_d_rounding	(fp_coldfire_nodiv.a dterminals.o   )
-  00002108 00000056 .text   .text	(fp_coldfire_nodiv.a dterminals.o   )
-  00002130 00000000 .text   _fp_d_underflow	(fp_coldfire_nodiv.a dterminals.o   )
-  00002144 00000000 .text   _fp_d_overflow	(fp_coldfire_nodiv.a dterminals.o   )
-  00002160 00000064 .text   @DummyFn10	(fp_coldfire_nodiv.a dtou.o         )
-  00002160 00000000 .text   _d_dtou	(fp_coldfire_nodiv.a dtou.o         )
-  00002160 00000064 .text   .text	(fp_coldfire_nodiv.a dtou.o         )
-  000021C4 00000136 .text   @DummyFn22	(fp_coldfire_nodiv.a int_to_d.o     )
-  000021C4 00000136 .text   .text	(fp_coldfire_nodiv.a int_to_d.o     )
-  000021C4 00000000 .text   _d_utod	(fp_coldfire_nodiv.a int_to_d.o     )
-  0000220A 00000000 .text   _d_itod	(fp_coldfire_nodiv.a int_to_d.o     )
-  00002226 00000000 .text   _d_ulltod	(fp_coldfire_nodiv.a int_to_d.o     )
-  000022B8 00000000 .text   _d_lltod	(fp_coldfire_nodiv.a int_to_d.o     )
-  000022FC 00000058 .text   @DummyFn24	(fp_coldfire_nodiv.a soft_division.o)
-  000022FC 00000000 .text   _fp_PA_divu16	(fp_coldfire_nodiv.a soft_division.o)
-  000022FC 00000058 .text   .text	(fp_coldfire_nodiv.a soft_division.o)
-#>00002354          ___ROM_AT (linker command file)
-#>00002354          ___DATA_ROM (linker command file)
+  00000E3E 0000003E .text   initMxSub	(xSub_c.obj)
+  00000E7C 0000001A .text   setDC	(xSub_c.obj)
+  00000E96 0000003E .text   map	(xSub_c.obj)
+  00000ED4 00000070 .text   main	(main_c.obj)
+  00000F44 00000070 .text   Aux_Int_OnInterrupt	(Events_c.obj)
+  00000FB4 00000002 .text   SerialCom_OnRxChar	(Events_c.obj)
+  00000FB6 00000002 .text   SerialCom_OnTxChar	(Events_c.obj)
+  00000FB8 00000002 .text   testMotor_OnEnd	(Events_c.obj)
+  00000FBA 00000002 .text   RESET_INTERRUPT_OnInterrupt	(Events_c.obj)
+  00000FBC 00000002 .text   ADC_OnEnd	(Events_c.obj)
+  00000FBE 0000001C .text   __call_static_initializers	(librt.a cf_staticinitia)
+  00000FDA 0000002C .text   __destroy_global_chain	(librt.a cf_staticinitia)
+  00001006 0000003E .text   __ldivu__	(librt.a cf_runtime.o   )
+  00001044 00000034 .text   __ldiv__	(librt.a cf_runtime.o   )
+  00001078 0000000C .text   _ewl_exit	(librt.a abort_exit.o   )
+#>00001084          ___ROM_AT (linker command file)
+#>00001084          ___DATA_ROM (linker command file)
 
 # .data
 #>00800000          ___DATA_RAM (linker command file)
@@ -161,10 +136,10 @@
 #>00000010          ___stack_safety (linker command file)
 #>00800824          __SP_INIT (linker command file)
 #>00800824          ___SP_AFTER_RESET (linker command file)
-#>00002358          _romp_at (linker command file)
+#>00001088          _romp_at (linker command file)
 
 # .romp
-#>00002358          __S_romp (linker command file)
+#>00001088          __S_romp (linker command file)
 
 
 # Memory map:
@@ -173,12 +148,12 @@
   0000040D 0000040D 00000001 .abs_NVPROT_INIT abs_NVPROT_INIT
   0000040F 0000040F 00000001 .abs_NVOPT_INIT abs_NVOPT_INIT
   00000410 00000410 00000000 .code      code
-  00000410 00000410 00001F44 .text      code
+  00000410 00000410 00000C74 .text      code
   00800000 00800000 00000000 .userram   userram
-  00800000 00002354 00000004 .data      userram
+  00800000 00001084 00000004 .data      userram
   00800004 00800004 00000020 .bss       userram
   00800024 00800024 00000000 .custom    userram
-  00800024 00002358 00000018 .romp      userram
+  00800024 00001088 00000018 .romp      userram
 
-# Link start time: Thu Jul 09 21:12:41 2015
-# Link end time: Thu Jul 09 21:12:41 2015
+# Link start time: Thu Jul 09 21:49:02 2015
+# Link end time: Thu Jul 09 21:49:02 2015
