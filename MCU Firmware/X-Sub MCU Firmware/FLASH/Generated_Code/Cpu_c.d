@@ -2,7 +2,7 @@ Generated_Code/Cpu_c.obj: C:\Users\ddtdanilo\Dropbox\X-Sub\MCU\ Firmware\X-Sub\ 
 	C:\Freescale\CW\ MCU\ v10.6\MCU\ColdFire_Support\ewl\EWL_C\include\lib_ewl.prefix \
 	C:\Freescale\CW\ MCU\ v10.6\MCU\ColdFire_Support\ewl\EWL_C\include\common.prefix \
 	C:\Freescale\CW\ MCU\ v10.6\MCU\ColdFire_Support\ewl\EWL_C\include\ewl_c_version.h \
-	C:\Users\ddtdanilo\Dropbox\X-Sub\MCU\ Firmware\X-Sub\ MCU\ Firmware\Generated_Code\M1_ESC.h \
+	C:\Users\ddtdanilo\Dropbox\X-Sub\MCU\ Firmware\X-Sub\ MCU\ Firmware\Generated_Code\M2_ESC.h \
 	C:\Users\ddtdanilo\Dropbox\X-Sub\MCU\ Firmware\X-Sub\ MCU\ Firmware\Generated_Code\PE_Types.h \
 	C:\Freescale\CW\ MCU\ v10.6\MCU\ColdFire_Support\ewl\EWL_C\include\stdint.h \
 	C:\Freescale\CW\ MCU\ v10.6\MCU\ColdFire_Support\ewl\EWL_C\include\ansi_parms.h \
@@ -18,7 +18,6 @@ Generated_Code/Cpu_c.obj: C:\Users\ddtdanilo\Dropbox\X-Sub\MCU\ Firmware\X-Sub\ 
 	C:\Users\ddtdanilo\Dropbox\X-Sub\MCU\ Firmware\X-Sub\ MCU\ Firmware\Generated_Code\IO_Map.h \
 	C:\Users\ddtdanilo\Dropbox\X-Sub\MCU\ Firmware\X-Sub\ MCU\ Firmware\Generated_Code\PE_Timer.h \
 	C:\Users\ddtdanilo\Dropbox\X-Sub\MCU\ Firmware\X-Sub\ MCU\ Firmware\Generated_Code\Cpu.h \
-	C:\Users\ddtdanilo\Dropbox\X-Sub\MCU\ Firmware\X-Sub\ MCU\ Firmware\Generated_Code\M2_ESC.h \
 	C:\Users\ddtdanilo\Dropbox\X-Sub\MCU\ Firmware\X-Sub\ MCU\ Firmware\Generated_Code\M3_ESC.h \
 	C:\Users\ddtdanilo\Dropbox\X-Sub\MCU\ Firmware\X-Sub\ MCU\ Firmware\Generated_Code\M4_ESC.h \
 	C:\Users\ddtdanilo\Dropbox\X-Sub\MCU\ Firmware\X-Sub\ MCU\ Firmware\Generated_Code\S_PanCamera.h \
@@ -27,4 +26,8 @@ Generated_Code/Cpu_c.obj: C:\Users\ddtdanilo\Dropbox\X-Sub\MCU\ Firmware\X-Sub\ 
 	C:\Users\ddtdanilo\Dropbox\X-Sub\MCU\ Firmware\X-Sub\ MCU\ Firmware\Generated_Code\sCom_In.h \
 	C:\Users\ddtdanilo\Dropbox\X-Sub\MCU\ Firmware\X-Sub\ MCU\ Firmware\Generated_Code\sPC_OK.h \
 	C:\Users\ddtdanilo\Dropbox\X-Sub\MCU\ Firmware\X-Sub\ MCU\ Firmware\Generated_Code\Aux_Int.h \
-	C:\Users\ddtdanilo\Dropbox\X-Sub\MCU\ Firmware\X-Sub\ MCU\ Firmware\Sources\Events.h 
+	C:\Users\ddtdanilo\Dropbox\X-Sub\MCU\ Firmware\X-Sub\ MCU\ Firmware\Generated_Code\testMotor.h \
+	C:\Users\ddtdanilo\Dropbox\X-Sub\MCU\ Firmware\X-Sub\ MCU\ Firmware\Generated_Code\SerialCom.h \
+	C:\Users\ddtdanilo\Dropbox\X-Sub\MCU\ Firmware\X-Sub\ MCU\ Firmware\Generated_Code\RESET_INTERRUPT.h \
+	C:\Users\ddtdanilo\Dropbox\X-Sub\MCU\ Firmware\X-Sub\ MCU\ Firmware\Sources\Events.h \
+	C:\Users\ddtdanilo\Dropbox\X-Sub\MCU\ Firmware\X-Sub\ MCU\ Firmware\Generated_Code\ADC.h 

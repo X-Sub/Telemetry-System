@@ -5,7 +5,7 @@
 **     Processor   : MCF51QE128CLK
 **     Version     : Component 01.014, Driver 01.12, CPU db: 3.00.078
 **     Compiler    : CodeWarrior ColdFireV1 C Compiler
-**     Date/Time   : 2015-06-15, 16:23, # CodeGen: 15
+**     Date/Time   : 2015-07-09, 18:56, # CodeGen: 25
 **     Abstract    :
 **         This component "MCF51QE128_80" contains initialization of the
 **         CPU and provides basic methods and events for CPU core
@@ -57,7 +57,6 @@
 **  @{
 */         
 #include "Cpu.h"
-#include "M1_ESC.h"
 #include "M2_ESC.h"
 #include "M3_ESC.h"
 #include "M4_ESC.h"
@@ -67,6 +66,10 @@
 #include "sCom_In.h"
 #include "sPC_OK.h"
 #include "Aux_Int.h"
+#include "testMotor.h"
+#include "SerialCom.h"
+#include "RESET_INTERRUPT.h"
+#include "ADC.h"
 #include "startcf.h"
 
 extern unsigned long far _SP_INIT[];
@@ -140,7 +143,7 @@ const tIsrFunc _InterruptVectorTable[103] @0x00000000 = { /* Interrupt vector ta
   Cpu_Interrupt,                       /* 0x3D  0x000000F4   -   -   ivVunsinstr   unused by PE */
   Cpu_Interrupt,                       /* 0x3E  0x000000F8   -   -   ivVReserved62 unused by PE */
   Cpu_Interrupt,                       /* 0x3F  0x000000FC   -   -   ivVReserved63 unused by PE */
-  Cpu_Interrupt,                       /* 0x40  0x00000100   -   -   ivVirq        unused by PE */
+  RESET_INTERRUPT_Interrupt,           /* 0x40  0x00000100   7   mid   ivVirq        used by PE */
   Cpu_Interrupt,                       /* 0x41  0x00000104   -   -   ivVlvd        unused by PE */
   Cpu_Interrupt,                       /* 0x42  0x00000108   -   -   ivVtpm1ch0    unused by PE */
   Cpu_Interrupt,                       /* 0x43  0x0000010C   -   -   ivVtpm1ch1    unused by PE */
@@ -152,12 +155,12 @@ const tIsrFunc _InterruptVectorTable[103] @0x00000000 = { /* Interrupt vector ta
   Cpu_Interrupt,                       /* 0x49  0x00000124   -   -   ivVtpm2ovf    unused by PE */
   Cpu_Interrupt,                       /* 0x4A  0x00000128   -   -   ivVspi2       unused by PE */
   Cpu_Interrupt,                       /* 0x4B  0x0000012C   -   -   ivVspi1       unused by PE */
-  Cpu_Interrupt,                       /* 0x4C  0x00000130   -   -   ivVsci1err    unused by PE */
-  Cpu_Interrupt,                       /* 0x4D  0x00000134   -   -   ivVsci1rx     unused by PE */
-  Cpu_Interrupt,                       /* 0x4E  0x00000138   -   -   ivVsci1tx     unused by PE */
+  SerialCom_InterruptError,            /* 0x4C  0x00000130   4   5   ivVsci1err    used by PE */
+  SerialCom_InterruptRx,               /* 0x4D  0x00000134   6   6   ivVsci1rx     used by PE */
+  SerialCom_InterruptTx,               /* 0x4E  0x00000138   6   6   ivVsci1tx     used by PE */
   Cpu_Interrupt,                       /* 0x4F  0x0000013C   -   -   ivViicx       unused by PE */
   Cpu_Interrupt,                       /* 0x50  0x00000140   -   -   ivVkeyboard   unused by PE */
-  Cpu_Interrupt,                       /* 0x51  0x00000144   -   -   ivVadc        unused by PE */
+  ADC_Interrupt,                       /* 0x51  0x00000144   3   5   ivVadc        used by PE */
   Cpu_Interrupt,                       /* 0x52  0x00000148   -   -   ivVacmpx      unused by PE */
   Cpu_Interrupt,                       /* 0x53  0x0000014C   -   -   ivVsci2err    unused by PE */
   Cpu_Interrupt,                       /* 0x54  0x00000150   -   -   ivVsci2rx     unused by PE */
@@ -169,7 +172,7 @@ const tIsrFunc _InterruptVectorTable[103] @0x00000000 = { /* Interrupt vector ta
   Cpu_Interrupt,                       /* 0x5A  0x00000168   -   -   ivVtpm3ch3    unused by PE */
   Cpu_Interrupt,                       /* 0x5B  0x0000016C   -   -   ivVtpm3ch4    unused by PE */
   Cpu_Interrupt,                       /* 0x5C  0x00000170   -   -   ivVtpm3ch5    unused by PE */
-  Cpu_Interrupt,                       /* 0x5D  0x00000174   -   -   ivVtpm3ovf    unused by PE */
+  testMotor_Interrupt,                 /* 0x5D  0x00000174   6   6   ivVtpm3ovf    used by PE */
   Cpu_Interrupt,                       /* 0x5E  0x00000178   -   -   ivVReserved94 unused by PE */
   Cpu_Interrupt,                       /* 0x5F  0x0000017C   -   -   ivVReserved95 unused by PE */
   Cpu_Interrupt,                       /* 0x60  0x00000180   -   -   ivVL7swi      unused by PE */

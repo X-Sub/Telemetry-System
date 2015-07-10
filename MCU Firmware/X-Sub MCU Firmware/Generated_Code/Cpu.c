@@ -7,7 +7,7 @@
 **     Version     : Component 01.014, Driver 01.12, CPU db: 3.00.078
 **     Datasheet   : MCF51QE128RM, Rev. 3, 9/2007
 **     Compiler    : CodeWarrior ColdFireV1 C Compiler
-**     Date/Time   : 2015-06-15, 16:23, # CodeGen: 15
+**     Date/Time   : 2015-07-09, 18:56, # CodeGen: 25
 **     Abstract    :
 **         This component "MCF51QE128_80" contains initialization of the
 **         CPU and provides basic methods and events for CPU core
@@ -17,6 +17,7 @@
 **     Contents    :
 **         EnableInt  - void Cpu_EnableInt(void);
 **         DisableInt - void Cpu_DisableInt(void);
+**         Delay100US - void Cpu_Delay100US(word us100);
 **
 **     Copyright : 1997 - 2014 Freescale Semiconductor, Inc. 
 **     All Rights Reserved.
@@ -63,7 +64,6 @@
 */         
 
 /* MODULE Cpu. */
-#include "M1_ESC.h"
 #include "M2_ESC.h"
 #include "M3_ESC.h"
 #include "M4_ESC.h"
@@ -73,6 +73,10 @@
 #include "sCom_In.h"
 #include "sPC_OK.h"
 #include "Aux_Int.h"
+#include "testMotor.h"
+#include "SerialCom.h"
+#include "RESET_INTERRUPT.h"
+#include "ADC.h"
 #include "PE_Types.h"
 #include "PE_Error.h"
 #include "PE_Const.h"
@@ -101,6 +105,66 @@ ISR(Cpu_Interrupt)
   /* asm (HALT) */
 }
 
+
+/*
+** ===================================================================
+**     Method      :  Cpu_Delay100US (component MCF51QE128_80)
+**     Description :
+**         This method realizes software delay. The length of delay is
+**         at least 100 microsecond multiply input parameter [us100].
+**         As the delay implementation is not based on real clock, the
+**         delay time may be increased by interrupt service routines
+**         processed during the delay. The method is independent on
+**         selected speed mode.
+**     Parameters  :
+**         NAME            - DESCRIPTION
+**         us100           - Number of 100 us delay repetitions.
+**     Returns     : Nothing
+** ===================================================================
+*/
+#pragma aligncode on
+
+__declspec(register_abi) void Cpu_Delay100US(word us100:__D0)
+{
+  /* irremovable one time overhead (ignored): 11 cycles */
+  /* move: 1 cycle overhead (load parameter into register) */
+  /* jsr:  3 cycles overhead (jump to subroutine) */
+  /* andi: 1 cycle overhead (clear upper word of d0) */
+  /* tpf: 1 cycle overhead (alignment) */
+  /* rts:  5 cycles overhead (return from subroutine) */
+
+  /* aproximate irremovable overhead for each 100us cycle (counted) : 3 cycles */
+  /* subq.l 1 cycles overhead  */
+  /* bne.b  2 cycles overhead  */
+
+  /* Disable MISRA rule 55 checking - Non-case label used */
+  /*lint -esym( 961, 55)   */
+#pragma unused(us100)
+  asm {
+    naked
+    andi.l #0xFFFF,d0                  /* parameter is word - clear the rest of d0 register */
+    tpf                                /* alignment */
+loop:
+    /* 100 us delay block begin */
+    /*
+     * Delay
+     *   - requested                  : 100 us @ 14.942208MHz,
+     *   - possible                   : 1494 c, 99985.22 ns, delta -14.78 ns
+     *   - without removable overhead : 1491 c, 99784.45 ns
+     */
+    move.l #0x01F0,d1                  /* (1 c: 66.92 ns) number of iterations */
+label0:
+    subq.l #1,d1                       /* (1 c: 66.92 ns) decrement d1 */
+    bne.b label0                       /* (2 c: 133.85 ns) repeat 496x */
+    tpf                                /* (1 c: 66.92 ns) wait for 1 c */
+    /* 100 us delay block end */
+    subq.l #1,d0                       /* parameter is passed via d0 register */
+    bne.w loop                         /* next loop */
+    rts                                /* return from subroutine */
+  }
+  /* Restore MISRA rule 55 checking - Non-case label used */
+  /*lint +esym( 961, 55)   */
+}
 
 /*
 ** ===================================================================
@@ -181,12 +245,12 @@ void __initialize_hardware(void)
   /*lint -restore Enable MISRA rule (11.3) checking. */
   /* ICSC1: CLKS=0,RDIV=0,IREFS=1,IRCLKEN=1,IREFSTEN=0 */
   setReg8(ICSC1, 0x06U);               /* Initialization of the ICS control register 1 */ 
-  /* ICSC2: BDIV=0,RANGE=0,HGO=0,LP=0,EREFS=0,ERCLKEN=0,EREFSTEN=0 */
-  setReg8(ICSC2, 0x00U);               /* Initialization of the ICS control register 2 */ 
+  /* ICSC2: BDIV=1,RANGE=0,HGO=0,LP=0,EREFS=0,ERCLKEN=0,EREFSTEN=0 */
+  setReg8(ICSC2, 0x40U);               /* Initialization of the ICS control register 2 */ 
   while(ICSSC_IREFST == 0U) {          /* Wait until the source of reference clock is internal clock */
   }
-  /* ICSSC: DRST_DRS=2,DMX32=0 */
-  clrSetReg8Bits(ICSSC, 0x60U, 0x80U); /* Initialization of the ICS status and control */ 
+  /* ICSSC: DRST_DRS=2,DMX32=1 */
+  clrSetReg8Bits(ICSSC, 0x40U, 0xA0U); /* Initialization of the ICS status and control */ 
   while((ICSSC & 0xC0U) != 0x80U) {    /* Wait until the FLL switches to High range DCO mode */
   }
 
@@ -214,20 +278,24 @@ void PE_low_level_init(void)
   /* SCGC2: ??=1,FLS=1,IRQ=1,KBI=1,ACMP=1,RTC=1,SPI2=1,SPI1=1 */
   setReg8(SCGC2, 0xFFU);                
   /* Common initialization of the CPU registers */
-  /* PTADD: PTADD7=1,PTADD6=1,PTADD1=1,PTADD0=1 */
-  setReg8Bits(PTADD, 0xC3U);            
-  /* PTAD: PTAD7=0,PTAD6=0,PTAD1=0,PTAD0=0 */
-  clrReg8Bits(PTAD, 0xC3U);             
-  /* PTBDD: PTBDD5=1,PTBDD4=1 */
-  setReg8Bits(PTBDD, 0x30U);            
-  /* PTBD: PTBD5=0,PTBD4=0 */
-  clrReg8Bits(PTBD, 0x30U);             
-  /* PTCD: PTCD2=0,PTCD1=0,PTCD0=0 */
-  clrReg8Bits(PTCD, 0x07U);             
+  /* PTBDD: PTBDD5=1,PTBDD4=1,PTBDD1=1,PTBDD0=0 */
+  clrSetReg8Bits(PTBDD, 0x01U, 0x32U);  
+  /* PTBD: PTBD5=0,PTBD4=0,PTBD1=1 */
+  clrSetReg8Bits(PTBD, 0x30U, 0x02U);   
+  /* PTADD: PTADD7=1,PTADD6=1,PTADD5=0,PTADD1=1 */
+  clrSetReg8Bits(PTADD, 0x20U, 0xC2U);  
+  /* PTAD: PTAD7=0,PTAD6=0,PTAD1=0 */
+  clrReg8Bits(PTAD, 0xC2U);             
+  /* PTCD: PTCD3=0,PTCD2=0,PTCD1=0,PTCD0=0 */
+  clrReg8Bits(PTCD, 0x0FU);             
   /* PTCPE: PTCPE2=0,PTCPE1=0,PTCPE0=0 */
   clrReg8Bits(PTCPE, 0x07U);            
-  /* PTCDD: PTCDD2=1,PTCDD1=1,PTCDD0=1 */
-  setReg8Bits(PTCDD, 0x07U);            
+  /* PTCDD: PTCDD3=1,PTCDD2=1,PTCDD1=1,PTCDD0=1 */
+  setReg8Bits(PTCDD, 0x0FU);            
+  /* PTAPE: PTAPE5=1 */
+  setReg8Bits(PTAPE, 0x20U);            
+  /* APCTL1: ADPC0=1 */
+  setReg8Bits(APCTL1, 0x01U);           
   /* PTASE: PTASE7=0,PTASE6=0,PTASE4=0,PTASE3=0,PTASE2=0,PTASE1=0,PTASE0=0 */
   clrReg8Bits(PTASE, 0xDFU);            
   /* PTBSE: PTBSE7=0,PTBSE6=0,PTBSE5=0,PTBSE4=0,PTBSE3=0,PTBSE2=0,PTBSE1=0,PTBSE0=0 */
@@ -265,8 +333,6 @@ void PE_low_level_init(void)
   /* PTJDS: PTJDS7=1,PTJDS6=1,PTJDS5=1,PTJDS4=1,PTJDS3=1,PTJDS2=1,PTJDS1=1,PTJDS0=1 */
   setReg8(PTJDS, 0xFFU);                
   /* ### Shared modules init code ... */
-  /* ### Programable pulse generation "M1_ESC" init code ... */
-  M1_ESC_Init();
   /* ### Programable pulse generation "M2_ESC" init code ... */
   M2_ESC_Init();
   /* ### Programable pulse generation "M3_ESC" init code ... */
@@ -282,14 +348,36 @@ void PE_low_level_init(void)
   /* ### BitIO "sPC_OK" init code ... */
   /* ### TimerInt "Aux_Int" init code ... */
   Aux_Int_Init();
+  /* ### Programable pulse generation "testMotor" init code ... */
+  testMotor_Init();
+  /* ### Asynchro serial "SerialCom" init code ... */
+  SerialCom_Init();
+  /* ### External interrupt "RESET_INTERRUPT" init code ... */
+  /* IRQSC: ??=0,IRQPDD=0,IRQEDG=0,IRQPE=1,IRQF=0,IRQACK=0,IRQIE=0,IRQMOD=0 */
+  setReg8(IRQSC, 0x10U);                
+  /* IRQSC: IRQACK=1 */
+  setReg8Bits(IRQSC, 0x04U);            
+  /* IRQSC: IRQIE=1 */
+  setReg8Bits(IRQSC, 0x02U);            
+  /* ###  "ADC" init code ... */
+  ADC_Init();
   /* Common peripheral initialization - ENABLE */
-  /* TPM1SC: CLKSB=0,CLKSA=1,PS0=1 */
-  clrSetReg8Bits(TPM1SC, 0x10U, 0x09U); 
-  /* TPM2SC: CLKSB=0,CLKSA=1,PS0=1 */
-  clrSetReg8Bits(TPM2SC, 0x10U, 0x09U); 
+  /* TPM1SC: CLKSB=0,CLKSA=1,PS1=1,PS0=1 */
+  clrSetReg8Bits(TPM1SC, 0x10U, 0x0BU); 
+  /* TPM2SC: CLKSB=0,CLKSA=1 */
+  clrSetReg8Bits(TPM2SC, 0x10U, 0x08U); 
+  /* Initialize priority of ivVsci1rx interrupt */
+  /* INTC_PL6P6: ??=0,??=0,??=0,REQN=0x0D */
+  setReg8(INTC_PL6P6, 0x0DU);           
+  /* Initialize priority of ivVsci1tx interrupt */
+  /* INTC_PL6P6: ??=0,??=0,??=0,REQN=0x0E */
+  setReg8(INTC_PL6P6, 0x0EU);           
   /* Initialize priority of ivVrtc interrupt */
   /* INTC_PL6P6: ??=0,??=0,??=0,REQN=0x16 */
   setReg8(INTC_PL6P6, 0x16U);           
+  /* Initialize priority of ivVtpm3ovf interrupt */
+  /* INTC_PL6P6: ??=0,??=0,??=0,REQN=0x1D */
+  setReg8(INTC_PL6P6, 0x1DU);           
   /* INTC_WCR: ENB=0,??=0,??=0,??=0,??=0,MASK=0 */
   setReg8(INTC_WCR, 0x00U);             
   SR_lock = 0x00;

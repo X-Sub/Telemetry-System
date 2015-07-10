@@ -6,7 +6,7 @@
 **     Component   : PWM
 **     Version     : Component 02.240, Driver 01.28, CPU db: 3.00.078
 **     Compiler    : CodeWarrior ColdFireV1 C Compiler
-**     Date/Time   : 2015-06-11, 11:42, # CodeGen: 5
+**     Date/Time   : 2015-06-25, 10:51, # CodeGen: 20
 **     Abstract    :
 **         This component implements a pulse-width modulation generator
 **         that generates signal with variable duty and fixed cycle. 
@@ -39,13 +39,13 @@
 **              Timer                  : Enabled
 **              Event                  : Enabled
 **         High speed mode
-**             Prescaler               : divide-by-2
-**             Clock                   : 12582912 Hz
+**             Prescaler               : divide-by-8
+**             Clock                   : 1867776 Hz
 **           Initial value of            period     pulse width
-**             Xtal ticks              : 109        0
-**             microseconds            : 3333       0
-**             milliseconds            : 3          0
-**             seconds (real)          : 0.003333330154 0.0
+**             Xtal ticks              : 655        0
+**             microseconds            : 20000      0
+**             milliseconds            : 20         0
+**             seconds (real)          : 0.02000025699 0.0
 **
 **     Contents    :
 **         Enable     - byte M2_ESC_Enable(void);
@@ -111,8 +111,8 @@
 #include "PE_Timer.h"
 #include "Cpu.h"
 
-#define M2_ESC_PERIOD_VALUE              0xA3D6U /* Initial period value in ticks of the timer in high speed mode */
-#define M2_ESC_PERIOD_VALUE_HIGH         0xA3D6U /* Period value in ticks of the timer in high speed mode */
+#define M2_ESC_PERIOD_VALUE              0x91EBU /* Initial period value in ticks of the timer in high speed mode */
+#define M2_ESC_PERIOD_VALUE_HIGH         0x91EBU /* Period value in ticks of the timer in high speed mode */
 
 
 byte M2_ESC_Enable(void);
@@ -208,7 +208,7 @@ byte M2_ESC_SetDutyUS(word Time);
 **     Parameters  :
 **         NAME            - DESCRIPTION
 **         Time            - Duty to set [in microseconds]
-**                      (0 to 3333 us in high speed mode)
+**                      (0 to 20000 us in high speed mode)
 **     Returns     :
 **         ---             - Error code, possible codes:
 **                           ERR_OK - OK
@@ -230,7 +230,7 @@ byte M2_ESC_SetDutyMS(word Time);
 **     Parameters  :
 **         NAME            - DESCRIPTION
 **         Time            - Duty to set [in milliseconds]
-**                      (0 to 3 ms in high speed mode)
+**                      (0 to 20 ms in high speed mode)
 **     Returns     :
 **         ---             - Error code, possible codes:
 **                           ERR_OK - OK

@@ -33,7 +33,6 @@
 /* Including needed modules to compile this module/procedure */
 #include "Cpu.h"
 #include "Events.h"
-#include "M1_ESC.h"
 #include "M2_ESC.h"
 #include "M3_ESC.h"
 #include "M4_ESC.h"
@@ -43,6 +42,10 @@
 #include "sPC_OK.h"
 #include "sCom_In.h"
 #include "Aux_Int.h"
+#include "testMotor.h"
+#include "SerialCom.h"
+#include "RESET_INTERRUPT.h"
+#include "ADC.h"
 /* Include shared modules, which are used for whole project */
 #include "PE_Types.h"
 #include "PE_Error.h"
@@ -56,20 +59,29 @@
 void main(void)
 {
   /* Write your local variable definition here */
-
+	word DC = 0x0000;
+	byte pDC = 0; //%
   /*** Processor Expert internal initialization. DON'T REMOVE THIS CODE!!! ***/
   PE_low_level_init();
   /*** End of Processor Expert internal initialization.                    ***/
 
   /* Write your code here */
   /* For example: for(;;) { } */
+  //delay(5000);
   initMxSub();
-  sMCU_OK_W();
-  sCom_In_W();
+  
+  //sMCU_OK_W();
+  //sCom_In_W();
   sPC_OK_NW();
+  //setDC(0x19C8);
+  
   for(;;)
   {
-	  
+	 ADC_Measure(TRUE);
+	 ADC_GetValue16(&DC);
+	 DC = DC >> 4;
+	 DC = map(DC,0,0xFFF,0x0000,0xFFFF);
+	 setDC(DC);
   }
   
   

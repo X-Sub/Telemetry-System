@@ -6,7 +6,7 @@
 **     Component   : PWM
 **     Version     : Component 02.240, Driver 01.28, CPU db: 3.00.078
 **     Compiler    : CodeWarrior ColdFireV1 C Compiler
-**     Date/Time   : 2015-06-15, 15:15, # CodeGen: 10
+**     Date/Time   : 2015-06-25, 10:51, # CodeGen: 20
 **     Abstract    :
 **         This component implements a pulse-width modulation generator
 **         that generates signal with variable duty and fixed cycle. 
@@ -39,13 +39,13 @@
 **              Timer                  : Enabled
 **              Event                  : Enabled
 **         High speed mode
-**             Prescaler               : divide-by-2
-**             Clock                   : 12582912 Hz
+**             Prescaler               : divide-by-1
+**             Clock                   : 14942208 Hz
 **           Initial value of            period     pulse width
 **             Xtal ticks              : 109        0
 **             microseconds            : 3333       0
 **             milliseconds            : 3          0
-**             seconds (real)          : 0.003333330154 0.0
+**             seconds (real)          : 0.003333309241 0.0
 **
 **     Contents    :
 **         Enable     - byte S_PanCamera_Enable(void);
@@ -111,8 +111,8 @@
 #include "PE_Timer.h"
 #include "Cpu.h"
 
-#define S_PanCamera_PERIOD_VALUE              0xA3D6U /* Initial period value in ticks of the timer in high speed mode */
-#define S_PanCamera_PERIOD_VALUE_HIGH         0xA3D6U /* Period value in ticks of the timer in high speed mode */
+#define S_PanCamera_PERIOD_VALUE              0xC28EU /* Initial period value in ticks of the timer in high speed mode */
+#define S_PanCamera_PERIOD_VALUE_HIGH         0xC28EU /* Period value in ticks of the timer in high speed mode */
 
 
 byte S_PanCamera_Enable(void);

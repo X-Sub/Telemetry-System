@@ -48,6 +48,11 @@ bool led0x05 = FALSE; //0x05
 bool led0x06 = FALSE; //0x06
 bool led0x07 = FALSE; //0x07
 
+
+//Tiempo
+byte tLed = 0x00;
+byte tMotor = 0x00;
+
 /*
 ** ===================================================================
 **     Event       :  Aux_Int_OnInterrupt (module Events)
@@ -62,16 +67,134 @@ bool led0x07 = FALSE; //0x07
 **     Returns     : Nothing
 ** ===================================================================
 */
+
+//Resolucion de 10 ms
 void Aux_Int_OnInterrupt(void)
 {
-	//Control de leds de status
-	if(led0x00 == TRUE) sMCU_OK_NegVal(); //0x00
-	else sMCU_OK_ClrVal();
-	if(led0x01 == TRUE) sCom_In_NegVal(); //0x01
-	else sCom_In_ClrVal();
-	if(led0x02 == TRUE) sPC_OK_NegVal(); //0x02
-	else sPC_OK_ClrVal();
+	//Bucle para 100 ms de leds
+	if(tLed != 10-1)
+	{
+		tLed++;
+	}
+	else
+	{
+		//Control de leds de status
+					if(led0x00 == TRUE) sMCU_OK_NegVal(); //0x00
+					else sMCU_OK_ClrVal();
+					if(led0x01 == TRUE) sCom_In_NegVal(); //0x01
+					else sCom_In_ClrVal();
+					if(led0x02 == TRUE) sPC_OK_NegVal(); //0x02
+					else sPC_OK_ClrVal();
+					tLed = 0;
+	}
+	
+	
+	//Bucle para 100 ms de leds
+	if(tMotor != 2-1)
+	{
+		tMotor++;
+	}
+	else
+	{
+		
+	}
+	
+} 
+
+/*
+** ===================================================================
+**     Event       :  SerialCom_OnRxChar (module Events)
+**
+**     Component   :  SerialCom [AsynchroSerial]
+**     Description :
+**         This event is called after a correct character is received.
+**         The event is available only when the <Interrupt
+**         service/event> property is enabled and either the <Receiver>
+**         property is enabled or the <SCI output mode> property (if
+**         supported) is set to Single-wire mode.
+**     Parameters  : None
+**     Returns     : Nothing
+** ===================================================================
+*/
+void  SerialCom_OnRxChar(void)
+{
+  /* Write your code here ... */
 }
+
+/*
+** ===================================================================
+**     Event       :  SerialCom_OnTxChar (module Events)
+**
+**     Component   :  SerialCom [AsynchroSerial]
+**     Description :
+**         This event is called after a character is transmitted.
+**     Parameters  : None
+**     Returns     : Nothing
+** ===================================================================
+*/
+void  SerialCom_OnTxChar(void)
+{
+  /* Write your code here ... */
+}
+
+/*
+** ===================================================================
+**     Event       :  testMotor_OnEnd (module Events)
+**
+**     Component   :  testMotor [PPG]
+**     Description :
+**         This event is called when the specified number of iterations
+**         is generated. (Only when the component is enabled - <Enable>
+**         and the events are enabled - <EnableEvent>). The event is
+**         available only when the peripheral supports an interrupt,
+**         that is generated at the end of the PWM period.
+**     Parameters  : None
+**     Returns     : Nothing
+** ===================================================================
+*/
+void testMotor_OnEnd(void)
+{
+  /* Write your code here ... */
+}
+
+
+/*
+** ===================================================================
+**     Event       :  RESET_INTERRUPT_OnInterrupt (module Events)
+**
+**     Component   :  RESET_INTERRUPT [ExtInt]
+**     Description :
+**         This event is called when an active signal edge/level has
+**         occurred.
+**     Parameters  : None
+**     Returns     : Nothing
+** ===================================================================
+*/
+void RESET_INTERRUPT_OnInterrupt(void)
+{
+  /* place your RESET_INTERRUPT interrupt procedure body here*/
+
+}
+
+/*
+** ===================================================================
+**     Event       :  ADC_OnEnd (module Events)
+**
+**     Component   :  ADC [ADC]
+**     Description :
+**         This event is called after the measurement (which consists
+**         of <1 or more conversions>) is/are finished.
+**         The event is available only when the <Interrupt
+**         service/event> property is enabled.
+**     Parameters  : None
+**     Returns     : Nothing
+** ===================================================================
+*/
+void ADC_OnEnd(void)
+{
+  /* Write your code here ... */
+}
+
 
 /* END Events */
 

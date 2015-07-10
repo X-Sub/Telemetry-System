@@ -8,7 +8,7 @@
 /*Includes*/
 #include "Cpu.h"
 #include "Events.h"
-#include "M1_ESC.h"
+//#include "M1_ESC.h"
 #include "M2_ESC.h"
 #include "M3_ESC.h"
 #include "M4_ESC.h"
@@ -22,13 +22,7 @@
 #include "xSub.h"
 
 
-//Inicializa los motores
-void initMxSub(){
-	M1_ESC_Enable();
-	M2_ESC_Enable();
-	M3_ESC_Enable();
-	M4_ESC_Enable();
-}
+
 
 //Cambia el Status de un LED
 //Hace que se mantenga encendido o titilando si està activo.
@@ -106,3 +100,63 @@ void sPC_OK_NW()
 {
 	lStatus(0x02,FALSE);
 }
+
+//paraliza el MCU por el tiempo time en ms
+void delay(word time)
+{
+	sPC_OK_W();
+	Cpu_Delay100US(time*10);
+}
+
+
+//Inicializa los motores
+void initMxSub(){
+	word spDC;
+	
+	//M1_ESC_Enable();
+	M2_ESC_Enable();
+	M3_ESC_Enable();
+	M4_ESC_Enable();
+	
+	tMotor = 0;
+	
+	//spDC = 0x13DC;//0x13DC = 7.76%
+	spDC = 0xFFFF;
+	//M1_ESC_SetRatio16(spDC);
+	M2_ESC_SetRatio16(spDC);
+	M3_ESC_SetRatio16(spDC);
+	M4_ESC_SetRatio16(spDC);
+	delay(2000);
+	spDC = 0x0000;
+	//M1_ESC_SetRatio16(spDC);
+	M2_ESC_SetRatio16(spDC);
+	M3_ESC_SetRatio16(spDC);
+	M4_ESC_SetRatio16(spDC);
+	delay(2000);
+
+}
+
+//Coloca un DC a todos los motores
+void setDC(word Speed)
+{
+ //(void)M1_ESC_SetRatio16(Speed);
+ (void)M2_ESC_SetRatio16(Speed);
+ (void)M3_ESC_SetRatio16(Speed);
+ (void)M4_ESC_SetRatio16(Speed);
+}
+
+//MAPEA
+double map(double in, double minA,double maxA,double minB, double maxB){
+	return ((maxB-minB)/(maxA-minA))*in;
+}
+
+
+
+
+
+
+
+
+
+
+

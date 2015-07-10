@@ -7,7 +7,7 @@
 **     Version     : Component 01.014, Driver 01.12, CPU db: 3.00.078
 **     Datasheet   : MCF51QE128RM, Rev. 3, 9/2007
 **     Compiler    : CodeWarrior ColdFireV1 C Compiler
-**     Date/Time   : 2015-06-11, 11:40, # CodeGen: 4
+**     Date/Time   : 2015-06-25, 10:51, # CodeGen: 20
 **     Abstract    :
 **         This component "MCF51QE128_80" contains initialization of the
 **         CPU and provides basic methods and events for CPU core
@@ -17,6 +17,7 @@
 **     Contents    :
 **         EnableInt  - void Cpu_EnableInt(void);
 **         DisableInt - void Cpu_DisableInt(void);
+**         Delay100US - void Cpu_Delay100US(word us100);
 **
 **     Copyright : 1997 - 2014 Freescale Semiconductor, Inc. 
 **     All Rights Reserved.
@@ -81,9 +82,9 @@
 
 
 
-#define CPU_BUS_CLK_HZ              0x01800000UL /* Initial value of the bus clock frequency in Hz */
+#define CPU_BUS_CLK_HZ              0x00E40000UL /* Initial value of the bus clock frequency in Hz */
 
-#define CPU_INSTR_CLK_HZ            0x01800000UL /* Initial value of the instruction clock frequency in Hz */
+#define CPU_INSTR_CLK_HZ            0x00E40000UL /* Initial value of the instruction clock frequency in Hz */
 
 #define CPU_INT_CLK_HZ              0x8000UL /* Value of the internal oscillator clock frequency in Hz */
 
@@ -119,6 +120,24 @@ void __initialize_hardware(void);
 **     Description :
 **         Configure the basic system functions (timing, etc.).
 **         This method is internal. It is used by Processor Expert only.
+** ===================================================================
+*/
+
+ __declspec(register_abi) void Cpu_Delay100US(word us100:__D0);
+/*
+** ===================================================================
+**     Method      :  Cpu_Delay100US (component MCF51QE128_80)
+**     Description :
+**         This method realizes software delay. The length of delay is
+**         at least 100 microsecond multiply input parameter [us100].
+**         As the delay implementation is not based on real clock, the
+**         delay time may be increased by interrupt service routines
+**         processed during the delay. The method is independent on
+**         selected speed mode.
+**     Parameters  :
+**         NAME            - DESCRIPTION
+**         us100           - Number of 100 us delay repetitions.
+**     Returns     : Nothing
 ** ===================================================================
 */
 
