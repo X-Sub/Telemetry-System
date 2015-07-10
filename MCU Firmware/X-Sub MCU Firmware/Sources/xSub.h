@@ -108,6 +108,7 @@ void initMxSub(byte tipo);
 //Coloca un DC a todos los motores
 void setDC(word Speed);
 
-
+//Setea la velocidad de los motores de manera individual. Rango de 10 bits-> 0 - 1023
+void setMotorSpeed(word Speed,byte Motor);
 
 #endif /* XSUB_H_ */

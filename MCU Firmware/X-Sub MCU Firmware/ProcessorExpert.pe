@@ -3,7 +3,7 @@
   <Header>
     <Name>X-Sub MCU Firmware</Name>
     <SavedBy>ddtdanilo</SavedBy>
-    <ModificationStamp>25</ModificationStamp>
+    <ModificationStamp>26</ModificationStamp>
     <Date>2015-07-10</Date>
     <IDE>Eclipse IDE</IDE>
     <PEversion>1.9.0.RT6_b1411-0406</PEversion>
@@ -9821,7 +9821,7 @@
     <BeanType>PWM</BeanType>
     <Name>M1_ESC</Name>
     <CompNumb>8</CompNumb>
-    <CompEnabled>false</CompEnabled>
+    <CompEnabled>true</CompEnabled>
     <GenCodeMode>ALWAYS_WRITE</GenCodeMode>
     <IconName>SIGNAL</IconName>
     <UserFolderName />
@@ -19348,7 +19348,7 @@
     <BeanType>ADC</BeanType>
     <Name>ADC</Name>
     <CompNumb>47</CompNumb>
-    <CompEnabled>true</CompEnabled>
+    <CompEnabled>false</CompEnabled>
     <GenCodeMode>ALWAYS_WRITE</GenCodeMode>
     <IconName>AD</IconName>
     <UserFolderName />

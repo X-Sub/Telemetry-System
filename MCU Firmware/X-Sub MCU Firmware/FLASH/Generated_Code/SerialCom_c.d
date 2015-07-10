@@ -19,6 +19,7 @@ Generated_Code/SerialCom_c.obj: C:\Users\ddtdanilo\Dropbox\X-Sub\MCU\ Firmware\X
 	C:\Users\ddtdanilo\Dropbox\X-Sub\MCU\ Firmware\X-Sub\ MCU\ Firmware\Generated_Code\IO_Map.h \
 	C:\Users\ddtdanilo\Dropbox\X-Sub\MCU\ Firmware\X-Sub\ MCU\ Firmware\Generated_Code\PE_Timer.h \
 	C:\Users\ddtdanilo\Dropbox\X-Sub\MCU\ Firmware\X-Sub\ MCU\ Firmware\Sources\Events.h \
+	C:\Users\ddtdanilo\Dropbox\X-Sub\MCU\ Firmware\X-Sub\ MCU\ Firmware\Generated_Code\M1_ESC.h \
 	C:\Users\ddtdanilo\Dropbox\X-Sub\MCU\ Firmware\X-Sub\ MCU\ Firmware\Generated_Code\M2_ESC.h \
 	C:\Users\ddtdanilo\Dropbox\X-Sub\MCU\ Firmware\X-Sub\ MCU\ Firmware\Generated_Code\M3_ESC.h \
 	C:\Users\ddtdanilo\Dropbox\X-Sub\MCU\ Firmware\X-Sub\ MCU\ Firmware\Generated_Code\M4_ESC.h \
@@ -29,5 +30,4 @@ Generated_Code/SerialCom_c.obj: C:\Users\ddtdanilo\Dropbox\X-Sub\MCU\ Firmware\X
 	C:\Users\ddtdanilo\Dropbox\X-Sub\MCU\ Firmware\X-Sub\ MCU\ Firmware\Generated_Code\sCom_In.h \
 	C:\Users\ddtdanilo\Dropbox\X-Sub\MCU\ Firmware\X-Sub\ MCU\ Firmware\Generated_Code\Aux_Int.h \
 	C:\Users\ddtdanilo\Dropbox\X-Sub\MCU\ Firmware\X-Sub\ MCU\ Firmware\Generated_Code\testMotor.h \
-	C:\Users\ddtdanilo\Dropbox\X-Sub\MCU\ Firmware\X-Sub\ MCU\ Firmware\Generated_Code\RESET_INTERRUPT.h \
-	C:\Users\ddtdanilo\Dropbox\X-Sub\MCU\ Firmware\X-Sub\ MCU\ Firmware\Generated_Code\ADC.h 
+	C:\Users\ddtdanilo\Dropbox\X-Sub\MCU\ Firmware\X-Sub\ MCU\ Firmware\Generated_Code\RESET_INTERRUPT.h 

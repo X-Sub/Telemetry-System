@@ -35,6 +35,7 @@
 #include "PE_Const.h"
 #include "IO_Map.h"
 #include "PE_Timer.h"
+#include "M1_ESC.h"
 #include "M2_ESC.h"
 #include "M3_ESC.h"
 #include "M4_ESC.h"
@@ -47,7 +48,6 @@
 #include "testMotor.h"
 #include "SerialCom.h"
 #include "RESET_INTERRUPT.h"
-#include "ADC.h"
 
 
 void Aux_Int_OnInterrupt(void);
@@ -122,22 +122,6 @@ void RESET_INTERRUPT_OnInterrupt(void);
 **     Description :
 **         This event is called when an active signal edge/level has
 **         occurred.
-**     Parameters  : None
-**     Returns     : Nothing
-** ===================================================================
-*/
-
-void ADC_OnEnd(void);
-/*
-** ===================================================================
-**     Event       :  ADC_OnEnd (module Events)
-**
-**     Component   :  ADC [ADC]
-**     Description :
-**         This event is called after the measurement (which consists
-**         of <1 or more conversions>) is/are finished.
-**         The event is available only when the <Interrupt
-**         service/event> property is enabled.
 **     Parameters  : None
 **     Returns     : Nothing
 ** ===================================================================

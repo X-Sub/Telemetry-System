@@ -876,7 +876,7 @@
       <Period v="20 ms" />
       <Starting_pulse_width v="0 ms" />
       <Aligned v="Edge" />
-      <Initial_polarity v="high" />
+      <Initial_polarity v="low" />
       <Same_period_in_modes v="no" />
       <Component_uses_entire_timer v="no" />
       <group name="Initialization">
@@ -925,7 +925,7 @@
       <Period v="20 ms" />
       <Starting_pulse_width v="0 ms" />
       <Aligned v="Edge" />
-      <Initial_polarity v="high" />
+      <Initial_polarity v="low" />
       <Same_period_in_modes v="no" />
       <Component_uses_entire_timer v="no" />
       <group name="Initialization">
@@ -974,7 +974,7 @@
       <Period v="20 ms" />
       <Starting_pulse_width v="0 ms" />
       <Aligned v="Edge" />
-      <Initial_polarity v="high" />
+      <Initial_polarity v="low" />
       <Same_period_in_modes v="no" />
       <Component_uses_entire_timer v="no" />
       <group name="Initialization">
@@ -1023,7 +1023,7 @@
       <Period v="3.333333333 ms" />
       <Starting_pulse_width v="0 ms" />
       <Aligned v="Edge" />
-      <Initial_polarity v="high" />
+      <Initial_polarity v="low" />
       <Same_period_in_modes v="no" />
       <Component_uses_entire_timer v="no" />
       <group name="Initialization">
@@ -1072,7 +1072,7 @@
       <Period v="3.333333333 ms" />
       <Starting_pulse_width v="0 ms" />
       <Aligned v="Edge" />
-      <Initial_polarity v="high" />
+      <Initial_polarity v="low" />
       <Same_period_in_modes v="no" />
       <Component_uses_entire_timer v="no" />
       <group name="Initialization">
@@ -1121,7 +1121,7 @@
       <Period v="3.333333333 ms" />
       <Starting_pulse_width v="0 ms" />
       <Aligned v="Edge" />
-      <Initial_polarity v="high" />
+      <Initial_polarity v="low" />
       <Same_period_in_modes v="no" />
       <Component_uses_entire_timer v="no" />
       <group name="Initialization">

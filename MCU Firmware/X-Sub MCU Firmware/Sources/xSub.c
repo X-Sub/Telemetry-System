@@ -8,7 +8,7 @@
 /*Includes*/
 #include "Cpu.h"
 #include "Events.h"
-//#include "M1_ESC.h"
+#include "M1_ESC.h"
 #include "M2_ESC.h"
 #include "M3_ESC.h"
 #include "M4_ESC.h"
@@ -115,12 +115,12 @@ void initMxSub(byte tipo){
 	if(tipo == 1)//HK 30A
 	{
 	word spDC;
-	//M1_ESC_Enable();
+	M1_ESC_Enable();
 	M2_ESC_Enable();
 	M3_ESC_Enable();
 	M4_ESC_Enable();
 	spDC = (CENTERDC); //0xED71 = 7.24% = 60788
-	//M1_ESC_SetRatio16(spDC);
+	M1_ESC_SetRatio16(spDC);
 	M2_ESC_SetRatio16(spDC);
 	M3_ESC_SetRatio16(spDC);
 	M4_ESC_SetRatio16(spDC);
@@ -133,10 +133,32 @@ void initMxSub(byte tipo){
 //Coloca un DC a todos los motores
 void setDC(word Speed)
 {
- //(void)M1_ESC_SetRatio16(Speed);
+ (void)M1_ESC_SetRatio16(Speed);
  (void)M2_ESC_SetRatio16(Speed);
  (void)M3_ESC_SetRatio16(Speed);
  (void)M4_ESC_SetRatio16(Speed);
+}
+
+//Setea la velocidad de los motores de manera individual. Rango de 10 bits-> 0 - 1023
+void setMotorSpeed(word Speed,byte Motor){
+	
+	Speed = map(Speed,0,1023,MAXFORWARD,MAXBACKWARD);
+	
+	switch(Motor){
+	
+	case 1:
+		    (void)M1_ESC_SetRatio16(CENTERDC);
+			(void)M1_ESC_SetRatio16(Speed);
+	case 2:
+		    (void)M2_ESC_SetRatio16(CENTERDC);
+			(void)M2_ESC_SetRatio16(Speed);
+	case 3:
+		    (void)M3_ESC_SetRatio16(CENTERDC);
+			(void)M3_ESC_SetRatio16(Speed);
+	case 4:
+		    (void)M4_ESC_SetRatio16(CENTERDC);
+			(void)M4_ESC_SetRatio16(Speed);	
+	}
 }
 
 //MAPEA

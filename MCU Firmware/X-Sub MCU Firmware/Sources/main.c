@@ -33,6 +33,7 @@
 /* Including needed modules to compile this module/procedure */
 #include "Cpu.h"
 #include "Events.h"
+#include "M1_ESC.h"
 #include "M2_ESC.h"
 #include "M3_ESC.h"
 #include "M4_ESC.h"
@@ -45,7 +46,6 @@
 #include "testMotor.h"
 #include "SerialCom.h"
 #include "RESET_INTERRUPT.h"
-#include "ADC.h"
 /* Include shared modules, which are used for whole project */
 #include "PE_Types.h"
 #include "PE_Error.h"
@@ -78,20 +78,16 @@ void main(void)
   
   for(;;)
   {
-	 ADC_Measure(TRUE);
-	 ADC_GetValue16(&DC);
-	 DC = DC >> 4;
+	 //ADC_Measure(TRUE);
+	 //ADC_GetValue16(&DC);
+	 //DC = DC >> 4;
 	 //DC2 = (0xFFFF-0xFFFF*0.0535 - 0xFFFF-0xFFFF*0.0915)/2;
 	 //setDC(DC2);
 	 //DC2 = map(DC,0,0xFFF,0xFFFF-0xFFFF*0.0535,0xFFFF-0xFFFF*0.0915);
-	 DC2 = map(DC,0,0xFFF,0xED71,62200);
+	 //DC2 = map(DC,0,0xFFF,0xED71,62200);
 	 //setDC(DC2);
 	 
-	  setDC(MAXFORWARD);
-	  delay(2000);
-	  //setDC(0xED71);
-	  //delay(1);
-	  setDC(MAXBACKWARD);
+	  setMotorSpeed(1023,2);
 	  delay(2000);
   }
   

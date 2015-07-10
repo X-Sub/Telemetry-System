@@ -6,7 +6,7 @@
 **     Component   : PWM
 **     Version     : Component 02.240, Driver 01.28, CPU db: 3.00.078
 **     Compiler    : CodeWarrior ColdFireV1 C Compiler
-**     Date/Time   : 2015-07-10, 08:37, # CodeGen: 29
+**     Date/Time   : 2015-07-10, 14:45, # CodeGen: 30
 **     Abstract    :
 **         This component implements a pulse-width modulation generator
 **         that generates signal with variable duty and fixed cycle. 
@@ -327,13 +327,9 @@ byte M2_ESC_SetDutyMS(word Time)
 */
 void M2_ESC_Init(void)
 {
-  /* TPM1SC: TOF=0,TOIE=0,CPWMS=0,CLKSB=0,CLKSA=0,PS2=0,PS1=0,PS0=0 */
-  setReg8(TPM1SC, 0x00U);              /* Disable device */ 
   /* TPM1C1SC: CH1F=0,CH1IE=0,MS1B=1,MS1A=1,ELS1B=1,ELS1A=1,??=0,??=0 */
   setReg8(TPM1C1SC, 0x3CU);            /* Set up PWM mode with output signal level low */ 
   ActualRatio = 0x00U;                 /* Store initial value of the ratio */
-  /* TPM1MOD: BIT15=1,BIT14=0,BIT13=0,BIT12=1,BIT11=0,BIT10=0,BIT9=0,BIT8=1,BIT7=1,BIT6=1,BIT5=1,BIT4=0,BIT3=1,BIT2=0,BIT1=1,BIT0=1 */
-  setReg16(TPM1MOD, 0x91EBU);          /* Set modulo register */ 
   SetRatio();                          /* Calculate and set up new values of the compare according to the selected speed CPU mode */
 }
 
