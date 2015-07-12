@@ -210,6 +210,25 @@ Module "SerialCom" (component AsynchroSerial)
 Module "RESET_INTERRUPT" (component ExtInt)
    - RESET_INTERRUPT_GetVal -Returns the actual value of the input pin of the component.
 
+Module "ADC"       (component ADC)
+   - ADC_Measure -This method performs one measurement on all channels that are set in the component inspector. (Note: If the 
+                <number of conversions> is more than one the conversion of A/D channels is performed specified number of times.)
+   - ADC_MeasureChan -This method performs measurement on one channel. (Note: If the <number of conversions> is more than one 
+                the conversion of the A/D channel is performed specified number of times.)
+   - ADC_GetValue -Returns the last measured values for all channels. Format and width of the value is a native format of the 
+                A/D converter.
+   - ADC_GetChanValue -Returns the last measured value of the required channel. Format and width of the value is a native 
+                format of the A/D converter.
+   - ADC_GetValue8 -This method returns the last measured values of all channels. Compared with <GetValue> method this method 
+                returns more accurate result if the <number of conversions> is greater than 1 and <AD resolution> is less than 
+                8 bits. In addition, the user code dependency on <AD resolution> is eliminated.
+   - ADC_GetValue16 -This method returns the last measured values of all channels. Compared with <GetValue> method this method 
+                returns more accurate result if the <number of conversions> is greater than 1 and <AD resolution> is less than 
+                16 bits. In addition, the user code dependency on <AD resolution> is eliminated.
+   - ADC_GetChanValue16 -This method returns the last measured value of the required channel. Compared with <GetChanValue> 
+                method this method returns more accurate result if the <number of conversions> is greater than 1 and <AD 
+                resolution> is less than 16 bits. In addition, the user code dependency on <AD resolution> is eliminated.
+
 Module "Cpu"       (component MCF51QE128_80)
    - Cpu_EnableInt -Enables maskable interrupts
    - Cpu_DisableInt -Disables maskable interrupts

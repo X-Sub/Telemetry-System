@@ -84,6 +84,10 @@ extern word CENTERDC;
 extern word MAXFORWARD;
 extern word MAXBACKWARD;
 
+//Servos*********
+extern word MINSERVOUS;
+extern word MAXSERVOUS;
+
 //Activa a sMCU_OK
 void sMCU_OK_W();
 //Desactiva a sMCU_OK
@@ -110,5 +114,11 @@ void setDC(word Speed);
 
 //Setea la velocidad de los motores de manera individual. Rango de 10 bits-> 0 - 1023
 void setMotorSpeed(word Speed,byte Motor);
+
+/***SERVOS*/
+void servoPanAngle(word Angle);//Resolución de 0 - 179
+void servoPan1024(word In);//Resolución de 0 - 1023 (0 - 0x1023)
+void servoTiltAngle(word Angle);//Resolución de 0 - 179
+void servoTilt1024(word In);//Resolución de 0 - 1023 (0 - 0x1023)
 
 #endif /* XSUB_H_ */

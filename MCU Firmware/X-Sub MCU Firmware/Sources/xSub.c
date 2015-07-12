@@ -161,6 +161,36 @@ void setMotorSpeed(word Speed,byte Motor){
 	}
 }
 
+//SERVOS
+
+  /*Pan*/
+void servoPanAngle(word Angle)//Resolución de 0 - 179
+{
+	Angle = map(Angle,0,179,MINSERVOUS,MAXSERVOUS);
+	S_PanCamera_SetDutyUS(Angle);
+}
+
+void servoPan1024(word In)//Resolución de 0 - 1023 (0 - 0x1023)
+{
+	In = map(In,0,1023,MINSERVOUS,MAXSERVOUS);
+	S_PanCamera_SetDutyUS(In);
+}
+
+   /*Tilt*/
+void servoTiltAngle(word Angle)//Resolución de 0 - 179
+{
+	Angle = map(Angle,0,179,MINSERVOUS,MAXSERVOUS);
+	S_TiltCamera_SetDutyUS(Angle);
+}
+
+void servoTilt1024(word In)//Resolución de 0 - 1023 (0 - 0x1023)
+{
+	In = map(In,0,1023,MINSERVOUS,MAXSERVOUS);
+	S_TiltCamera_SetDutyUS(In);
+}
+
+
+
 //MAPEA
 long map(long x, long in_min,long in_max,long out_min, long out_max){
 	return (x-in_min)*(out_max-out_min)/(in_max-in_min)+out_min;

@@ -18,6 +18,10 @@
 word CENTERDC = 0xED71; //7.2432% = 0xFFFF-0x128A = 65536-4747
 word MAXFORWARD = 59162;
 word MAXBACKWARD = 62200;
+//word MINSERVOUS = 500;
+//word MAXSERVOUS = 3000;
+word MINSERVOUS = 900; //useg
+word MAXSERVOUS = 3300; //useg
 
 
 /*Variables físicas*/

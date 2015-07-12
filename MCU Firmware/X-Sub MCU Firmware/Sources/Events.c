@@ -178,6 +178,26 @@ void RESET_INTERRUPT_OnInterrupt(void)
 
 }
 
+/*
+** ===================================================================
+**     Event       :  ADC_OnEnd (module Events)
+**
+**     Component   :  ADC [ADC]
+**     Description :
+**         This event is called after the measurement (which consists
+**         of <1 or more conversions>) is/are finished.
+**         The event is available only when the <Interrupt
+**         service/event> property is enabled.
+**     Parameters  : None
+**     Returns     : Nothing
+** ===================================================================
+*/
+void ADC_OnEnd(void)
+{
+  /* Write your code here ... */
+}
+
+
 /* END Events */
 
 /*!

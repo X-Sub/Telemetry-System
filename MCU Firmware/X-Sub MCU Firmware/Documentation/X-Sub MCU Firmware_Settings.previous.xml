@@ -865,7 +865,7 @@
     </CompilerProperties>
   </CPU_Bean>
   <Bean name="M1_ESC" type="PWM">
-    <Enabled v="N" />
+    <Enabled v="Y" />
     <Properties>
       <Component_name v="M1_ESC" />
       <PWM_or_PPG_device v="TPM10" />
@@ -1527,7 +1527,7 @@ rising or falling edge
     </Events>
   </Bean>
   <Bean name="ADC" type="ADC">
-    <Enabled v="Y" />
+    <Enabled v="N" />
     <Properties>
       <Component_name v="ADC" />
       <A_D_converter v="ADC" />

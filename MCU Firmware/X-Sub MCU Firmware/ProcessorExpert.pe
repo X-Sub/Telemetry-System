@@ -3,8 +3,8 @@
   <Header>
     <Name>X-Sub MCU Firmware</Name>
     <SavedBy>ddtdanilo</SavedBy>
-    <ModificationStamp>26</ModificationStamp>
-    <Date>2015-07-10</Date>
+    <ModificationStamp>28</ModificationStamp>
+    <Date>2015-07-11</Date>
     <IDE>Eclipse IDE</IDE>
     <PEversion>1.9.0.RT6_b1411-0406</PEversion>
   </Header>
@@ -29,7 +29,7 @@
     <UseExistingModules>true</UseExistingModules>
     <RenamePeripheries>false</RenamePeripheries>
     <Autodependency>true</Autodependency>
-    <ProjectCompNumb>48</ProjectCompNumb>
+    <ProjectCompNumb>51</ProjectCompNumb>
     <DelUnusedPreviouslyGenFiles>true</DelUnusedPreviouslyGenFiles>
     <GeneratedCodeFrozen>false</GeneratedCodeFrozen>
     <AssignInitComponentNameToPrph>true</AssignInitComponentNameToPrph>
@@ -19348,7 +19348,7 @@
     <BeanType>ADC</BeanType>
     <Name>ADC</Name>
     <CompNumb>47</CompNumb>
-    <CompEnabled>false</CompEnabled>
+    <CompEnabled>true</CompEnabled>
     <GenCodeMode>ALWAYS_WRITE</GenCodeMode>
     <IconName>AD</IconName>
     <UserFolderName />
@@ -19508,14 +19508,14 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>PortAD0</ItemSymbol>
-        <Value>PTA</Value>
+        <Value>PTF</Value>
         <SharedPrphMode>false</SharedPrphMode>
       </ItemState>
       <ItemState>
         <ItemSymbol>AD0</ItemSymbol>
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
-        <Value>PTA0_KBI1P0_TPM1CH0_ADP0_ACMP1PLUS</Value>
+        <Value>PTF0_ADP10</Value>
         <SharedPrphMode>false</SharedPrphMode>
       </ItemState>
       <ItemState>
