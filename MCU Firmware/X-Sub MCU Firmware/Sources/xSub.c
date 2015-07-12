@@ -69,13 +69,13 @@ void lStatus(byte nLed, bool status)
 //Activa a sMCU_OK
 void sMCU_OK_W()
 {
-	sMCU_OK_ClrVal();
+	lStatus(0x00,TRUE);
 }
 
 //Desactiva a sMCU_OK
 void sMCU_OK_NW()
 {
-	sMCU_OK_SetVal();
+	lStatus(0x01,FALSE);
 }
 
 //Muestra titilando a sPC_OK
@@ -105,7 +105,7 @@ void sPC_OK_NW()
 //paraliza el MCU por el tiempo time en ms
 void delay(word time)
 {
-	sPC_OK_W();
+	//sPC_OK_W();
 	Cpu_Delay100US(time*10);
 }
 

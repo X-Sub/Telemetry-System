@@ -92,13 +92,13 @@ extern word MAXSERVOUS;
 void sMCU_OK_W();
 //Desactiva a sMCU_OK
 void sMCU_OK_NW();
-//Muestra titilando a sPC_OK
+//Muestra titilando a sCom
 void sCom_In_W();
-//Muestra titilando a sPC_OK
+//Desactiva  a sCom
 void sCom_In_NW();
 //Muestra titilando a sPC_OK
 void sPC_OK_W();
-//Muestra titilando a sPC_OK
+//Desactiva a sPC_OK
 void sPC_OK_NW();
 
 //paraliza el MCU por el tiempo time en ms

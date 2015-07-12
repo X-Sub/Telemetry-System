@@ -30,9 +30,9 @@
   00000574 00000020 .text   SerialCom_InterruptError	(SerialCom_c.obj)
   00000594 0000004A .text   SerialCom_Init	(SerialCom_c.obj)
   000005DE 00000030 .text   SetRatio	(S_TiltCamera_c.obj)
-  0000060E 00000012 .text   S_TiltCamera_Init	(S_TiltCamera_c.obj)
-  00000620 00000030 .text   SetRatio	(S_PanCamera_c.obj)
-  00000650 0000004E .text   S_PanCamera_SetDutyUS	(S_PanCamera_c.obj)
+  0000060E 0000004E .text   S_TiltCamera_SetDutyUS	(S_TiltCamera_c.obj)
+  0000065C 00000012 .text   S_TiltCamera_Init	(S_TiltCamera_c.obj)
+  0000066E 00000030 .text   SetRatio	(S_PanCamera_c.obj)
   0000069E 00000012 .text   S_PanCamera_Init	(S_PanCamera_c.obj)
   000006B0 00000022 .text   RESET_INTERRUPT_Interrupt	(RESET_INTERRUPT_c.obj)
   000006D2 000000F4 .text   PE_Timer_LngMul	(PE_Timer_c.obj)
@@ -52,41 +52,39 @@
   000009C0 00000002 .text   Cpu_Interrupt	(Cpu_c.obj)
   000009C4 0000001C .text   Cpu_Delay100US	(Cpu_c.obj)
   000009E0 00000088 .text   __initialize_hardware	(Cpu_c.obj)
-  00000A68 00000198 .text   PE_low_level_init	(Cpu_c.obj)
-  00000C00 0000001C .text   Aux_Int_Init	(Aux_Int_c.obj)
-  00000C1C 00000022 .text   Aux_Int_Interrupt	(Aux_Int_c.obj)
-  00000C3E 00000032 .text   ADC_Interrupt	(ADC_c.obj)
-  00000C70 00000014 .text   ADC_HWEnDi	(ADC_c.obj)
-  00000C84 0000002A .text   ADC_Measure	(ADC_c.obj)
-  00000CAE 0000001E .text   ADC_GetValue16	(ADC_c.obj)
-  00000CCC 00000020 .text   ADC_Init	(ADC_c.obj)
-  00000CEC 00000002 .text   __initialize_system	(startcf_c.obj)
-  00000CEE 00000062 .text   __copy_rom_section	(startcf_c.obj)
-  00000D50 00000046 .text   __copy_rom_sections_to_ram	(startcf_c.obj)
-  00000D96 00000004 .text   _ExitProcess	(startcf_c.obj)
-  00000D9A 00000210 .text   clear_mem	(startcf_c.obj)
-  00000FAA 00000090 .text   _startup	(startcf_c.obj)
-  0000103A 00000008 .text   sMCU_OK_W	(xSub_c.obj)
-  00001042 00000008 .text   sCom_In_W	(xSub_c.obj)
-  0000104A 00000008 .text   sPC_OK_W	(xSub_c.obj)
-  00001052 00000018 .text   delay	(xSub_c.obj)
-  0000106A 00000098 .text   setMotorSpeed	(xSub_c.obj)
-  00001102 0000003E .text   servoPanAngle	(xSub_c.obj)
-  00001140 0000003E .text   map	(xSub_c.obj)
-  0000117E 00000076 .text   main	(main_c.obj)
-  000011F4 00000070 .text   Aux_Int_OnInterrupt	(Events_c.obj)
-  00001264 00000002 .text   SerialCom_OnRxChar	(Events_c.obj)
-  00001266 00000002 .text   SerialCom_OnTxChar	(Events_c.obj)
-  00001268 00000002 .text   testMotor_OnEnd	(Events_c.obj)
-  0000126A 00000012 .text   RESET_INTERRUPT_OnInterrupt	(Events_c.obj)
-  0000127C 00000002 .text   ADC_OnEnd	(Events_c.obj)
-  0000127E 0000001C .text   __call_static_initializers	(librt.a cf_staticinitia)
-  0000129A 0000002C .text   __destroy_global_chain	(librt.a cf_staticinitia)
-  000012C6 0000003E .text   __ldivu__	(librt.a cf_runtime.o   )
-  00001304 00000034 .text   __ldiv__	(librt.a cf_runtime.o   )
-  00001338 0000000C .text   _ewl_exit	(librt.a abort_exit.o   )
-#>00001344          ___ROM_AT (linker command file)
-#>00001344          ___DATA_ROM (linker command file)
+  00000A68 0000019C .text   PE_low_level_init	(Cpu_c.obj)
+  00000C04 0000001C .text   Aux_Int_Init	(Aux_Int_c.obj)
+  00000C20 00000022 .text   Aux_Int_Interrupt	(Aux_Int_c.obj)
+  00000C42 00000032 .text   ADC_Interrupt	(ADC_c.obj)
+  00000C74 00000014 .text   ADC_HWEnDi	(ADC_c.obj)
+  00000C88 0000002A .text   ADC_Measure	(ADC_c.obj)
+  00000CB2 0000001E .text   ADC_GetValue16	(ADC_c.obj)
+  00000CD0 00000020 .text   ADC_Init	(ADC_c.obj)
+  00000CF0 00000002 .text   __initialize_system	(startcf_c.obj)
+  00000CF2 00000062 .text   __copy_rom_section	(startcf_c.obj)
+  00000D54 00000046 .text   __copy_rom_sections_to_ram	(startcf_c.obj)
+  00000D9A 00000004 .text   _ExitProcess	(startcf_c.obj)
+  00000D9E 00000210 .text   clear_mem	(startcf_c.obj)
+  00000FAE 00000090 .text   _startup	(startcf_c.obj)
+  0000103E 00000008 .text   sMCU_OK_W	(xSub_c.obj)
+  00001046 00000012 .text   delay	(xSub_c.obj)
+  00001058 00000098 .text   setMotorSpeed	(xSub_c.obj)
+  000010F0 0000003E .text   servoTiltAngle	(xSub_c.obj)
+  0000112E 0000003E .text   map	(xSub_c.obj)
+  0000116C 0000006E .text   main	(main_c.obj)
+  000011DA 00000070 .text   Aux_Int_OnInterrupt	(Events_c.obj)
+  0000124A 00000002 .text   SerialCom_OnRxChar	(Events_c.obj)
+  0000124C 00000002 .text   SerialCom_OnTxChar	(Events_c.obj)
+  0000124E 00000002 .text   testMotor_OnEnd	(Events_c.obj)
+  00001250 00000012 .text   RESET_INTERRUPT_OnInterrupt	(Events_c.obj)
+  00001262 00000002 .text   ADC_OnEnd	(Events_c.obj)
+  00001264 0000001C .text   __call_static_initializers	(librt.a cf_staticinitia)
+  00001280 0000002C .text   __destroy_global_chain	(librt.a cf_staticinitia)
+  000012AC 0000003E .text   __ldivu__	(librt.a cf_runtime.o   )
+  000012EA 00000034 .text   __ldiv__	(librt.a cf_runtime.o   )
+  0000131E 0000000C .text   _ewl_exit	(librt.a abort_exit.o   )
+#>0000132C          ___ROM_AT (linker command file)
+#>0000132C          ___DATA_ROM (linker command file)
 
 # .data
 #>00800000          ___DATA_RAM (linker command file)
@@ -148,10 +146,10 @@
 #>00000010          ___stack_safety (linker command file)
 #>00800834          __SP_INIT (linker command file)
 #>00800834          ___SP_AFTER_RESET (linker command file)
-#>00001354          _romp_at (linker command file)
+#>0000133C          _romp_at (linker command file)
 
 # .romp
-#>00001354          __S_romp (linker command file)
+#>0000133C          __S_romp (linker command file)
 
 
 # Memory map:
@@ -160,12 +158,12 @@
   0000040D 0000040D 00000001 .abs_NVPROT_INIT abs_NVPROT_INIT
   0000040F 0000040F 00000001 .abs_NVOPT_INIT abs_NVOPT_INIT
   00000410 00000410 00000000 .code      code
-  00000410 00000410 00000F34 .text      code
+  00000410 00000410 00000F1C .text      code
   00800000 00800000 00000000 .userram   userram
-  00800000 00001344 00000010 .data      userram
+  00800000 0000132C 00000010 .data      userram
   00800010 00800010 00000024 .bss       userram
   00800034 00800034 00000000 .custom    userram
-  00800034 00001354 00000018 .romp      userram
+  00800034 0000133C 00000018 .romp      userram
 
-# Link start time: Sat Jul 11 22:21:11 2015
-# Link end time: Sat Jul 11 22:21:11 2015
+# Link start time: Sat Jul 11 22:45:10 2015
+# Link end time: Sat Jul 11 22:45:10 2015

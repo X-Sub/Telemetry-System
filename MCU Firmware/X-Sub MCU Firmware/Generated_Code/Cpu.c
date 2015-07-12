@@ -7,7 +7,7 @@
 **     Version     : Component 01.014, Driver 01.12, CPU db: 3.00.078
 **     Datasheet   : MCF51QE128RM, Rev. 3, 9/2007
 **     Compiler    : CodeWarrior ColdFireV1 C Compiler
-**     Date/Time   : 2015-07-11, 20:31, # CodeGen: 32
+**     Date/Time   : 2015-07-11, 22:33, # CodeGen: 33
 **     Abstract    :
 **         This component "MCF51QE128_80" contains initialization of the
 **         CPU and provides basic methods and events for CPU core
@@ -287,8 +287,8 @@ void PE_low_level_init(void)
   clrSetReg8Bits(PTBDD, 0x01U, 0x32U);  
   /* PTBD: PTBD5=0,PTBD4=0,PTBD1=1 */
   clrSetReg8Bits(PTBD, 0x30U, 0x02U);   
-  /* PTCD: PTCD3=0,PTCD2=0,PTCD1=0,PTCD0=0 */
-  clrReg8Bits(PTCD, 0x0FU);             
+  /* PTCD: PTCD3=0,PTCD2=1,PTCD1=1,PTCD0=1 */
+  clrSetReg8Bits(PTCD, 0x08U, 0x07U);   
   /* PTCPE: PTCPE2=0,PTCPE1=0,PTCPE0=0 */
   clrReg8Bits(PTCPE, 0x07U);            
   /* PTCDD: PTCDD3=1,PTCDD2=1,PTCDD1=1,PTCDD0=1 */

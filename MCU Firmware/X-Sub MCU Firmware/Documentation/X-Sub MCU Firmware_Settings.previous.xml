@@ -1527,7 +1527,7 @@ rising or falling edge
     </Events>
   </Bean>
   <Bean name="ADC" type="ADC">
-    <Enabled v="N" />
+    <Enabled v="Y" />
     <Properties>
       <Component_name v="ADC" />
       <A_D_converter v="ADC" />
@@ -1538,7 +1538,7 @@ rising or falling edge
       </boolgroup>
       <list name="A/D channels" v="1">
         <group name="Channel0">
-          <A_D_channel__pin_ v="PTA0_KBI1P0_TPM1CH0_ADP0_ACMP1PLUS" />
+          <A_D_channel__pin_ v="PTF0_ADP10" />
         </group>
       </list>
       <A_D_resolution v="12 bits" />

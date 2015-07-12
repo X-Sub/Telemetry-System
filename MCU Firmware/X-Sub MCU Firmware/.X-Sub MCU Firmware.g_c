@@ -95,7 +95,7 @@
     </GenFiles>
     <SignalListFile>Documentation\X-Sub MCU Firmware_SIGNALS.txt</SignalListFile>
     <DestinationCompiler>CodeWarriorColdFireV1</DestinationCompiler>
-    <ProjectModificationStamp>28</ProjectModificationStamp>
+    <ProjectModificationStamp>29</ProjectModificationStamp>
   </Options>
   <CpuID_2>
     <Generated>false</Generated>
@@ -163,7 +163,7 @@
     <GenDriverVersion>01.12</GenDriverVersion>
     <GenEventModule>Events</GenEventModule>
     <HeaderAge>1188648569</HeaderAge>
-    <CodeAge>1189848056</CodeAge>
+    <CodeAge>1189852216</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>19</GenNumMethods>
     <SetHighSpeed>false</SetHighSpeed>
@@ -1179,8 +1179,8 @@
     <GenComponentVersion>02.086</GenComponentVersion>
     <GenDriverVersion>03.14</GenDriverVersion>
     <GenEventModule />
-    <HeaderAge>1187795763</HeaderAge>
-    <CodeAge>1187795763</CodeAge>
+    <HeaderAge>1189852216</HeaderAge>
+    <CodeAge>1189852216</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>10</GenNumMethods>
     <GetDir>false</GetDir>
@@ -1276,8 +1276,8 @@
     <GenComponentVersion>02.086</GenComponentVersion>
     <GenDriverVersion>03.14</GenDriverVersion>
     <GenEventModule />
-    <HeaderAge>1188002285</HeaderAge>
-    <CodeAge>1188002285</CodeAge>
+    <HeaderAge>1189852216</HeaderAge>
+    <CodeAge>1189852216</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>10</GenNumMethods>
     <GetDir>false</GetDir>
@@ -1373,8 +1373,8 @@
     <GenComponentVersion>02.086</GenComponentVersion>
     <GenDriverVersion>03.14</GenDriverVersion>
     <GenEventModule />
-    <HeaderAge>1188004124</HeaderAge>
-    <CodeAge>1188004124</CodeAge>
+    <HeaderAge>1189852216</HeaderAge>
+    <CodeAge>1189852216</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>10</GenNumMethods>
     <GetDir>false</GetDir>

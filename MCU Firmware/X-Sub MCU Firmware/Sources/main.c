@@ -46,6 +46,7 @@
 #include "testMotor.h"
 #include "SerialCom.h"
 #include "RESET_INTERRUPT.h"
+#include "ADC.h"
 /* Include shared modules, which are used for whole project */
 #include "PE_Types.h"
 #include "PE_Error.h"
@@ -69,26 +70,42 @@ void main(void)
   /* Write your code here */
   /* For example: for(;;) { } */
   //delay(5000);
-  initMxSub(1);
+  //initMxSub(1);
   
   sMCU_OK_W();
-  sCom_In_W();
-  sPC_OK_NW();
+  //sMCU_OK_NW();
+  //sCom_In_NW();
+  //sPC_OK_NW();
   //setDC(0x19C8);
   
   for(;;)
   {
-	 //ADC_Measure(TRUE);
-	 //ADC_GetValue16(&DC);
-	 //DC = DC >> 4;
+	 ADC_Measure(TRUE);
+	 ADC_GetValue16(&DC);
+	 DC = DC >> 4;
 	 //DC2 = (0xFFFF-0xFFFF*0.0535 - 0xFFFF-0xFFFF*0.0915)/2;
 	 //setDC(DC2);
-	 //DC2 = map(DC,0,0xFFF,0xFFFF-0xFFFF*0.0535,0xFFFF-0xFFFF*0.0915);
+	 //DC2 = map(DC,0,0xFFF,0,179);
 	 //DC2 = map(DC,0,0xFFF,0xED71,62200);
 	 //setDC(DC2);
 	 
-	  setMotorSpeed(1023,2);
+	  //setMotorSpeed(1023,2);
+	  //delay(2000);
+	  //S_PanCamera_SetRatio16(520);
+	 //servoPanAngle(DC2);
+	 //S_PanCamera_SetDutyUS(1500);
+	  
+	  servoTiltAngle(0);
 	  delay(2000);
+	  //S_PanCamera_SetRatio16(0xE470);
+	  servoTiltAngle(89);
+	  delay(2000);
+	  servoTiltAngle(179);
+	  delay(2000);
+	  servoTiltAngle(89);
+	  delay(2000);
+	  
+	  
   }
   
   
