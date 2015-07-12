@@ -6,7 +6,7 @@
 **     Component   : BitIO
 **     Version     : Component 02.086, Driver 03.14, CPU db: 3.00.078
 **     Compiler    : CodeWarrior ColdFireV1 C Compiler
-**     Date/Time   : 2015-07-11, 22:33, # CodeGen: 33
+**     Date/Time   : 2015-07-11, 23:17, # CodeGen: 34
 **     Abstract    :
 **         This component "BitIO" implements an one-bit input/output.
 **         It uses one bit/pin of a port.
@@ -18,13 +18,13 @@
 **             ----------------------------------------------------
 **                Number (on package)  |    Name
 **             ----------------------------------------------------
-**                       34            |  PTC0_RGPIO8_TPM3CH0
+**                       25            |  PTC2_RGPIO10_TPM3CH2
 **             ----------------------------------------------------
 **
 **         Port name                   : PTC
 **
-**         Bit number (in port)        : 0
-**         Bit mask of the port        : 0x0001
+**         Bit number (in port)        : 2
+**         Bit mask of the port        : 0x0004
 **
 **         Initial direction           : Output (direction cannot be changed)
 **         Initial output value        : 1
@@ -119,7 +119,7 @@
 ** ===================================================================
 */
 #define sMCU_OK_GetVal() ( \
-    (bool)((getReg8(PTCD) & 0x01U))    /* Return port data */ \
+    (bool)((getReg8(PTCD) & 0x04U))    /* Return port data */ \
   )
 
 /*
@@ -147,7 +147,7 @@ void sMCU_OK_PutVal(bool Val);
 ** ===================================================================
 */
 #define sMCU_OK_ClrVal() ( \
-    (void)setReg8(PTCCLR, 0x01U)       /* PTCCLR0=0x01U */ \
+    (void)setReg8(PTCCLR, 0x04U)       /* PTCCLR2=0x01U */ \
   )
 
 /*
@@ -160,7 +160,7 @@ void sMCU_OK_PutVal(bool Val);
 ** ===================================================================
 */
 #define sMCU_OK_SetVal() ( \
-    (void)setReg8(PTCSET, 0x01U)       /* PTCSET0=0x01U */ \
+    (void)setReg8(PTCSET, 0x04U)       /* PTCSET2=0x01U */ \
   )
 
 /*
@@ -173,7 +173,7 @@ void sMCU_OK_PutVal(bool Val);
 ** ===================================================================
 */
 #define sMCU_OK_NegVal() ( \
-    (void)setReg8(PTCTOG, 0x01U)       /* PTCTOG0=0x01U */ \
+    (void)setReg8(PTCTOG, 0x04U)       /* PTCTOG2=0x01U */ \
   )
 
 

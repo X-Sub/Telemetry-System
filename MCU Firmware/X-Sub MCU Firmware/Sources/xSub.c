@@ -189,6 +189,19 @@ void servoTilt1024(word In)//Resolución de 0 - 1023 (0 - 0x1023)
 	S_TiltCamera_SetDutyUS(In);
 }
 
+/****LEDS****/
+ void setLEDPWM(word PWM){
+	 LedLight1_SetRatio16(PWM);
+	 LedLight2_SetRatio16(PWM);
+ }
+ 
+ void setLED1PWM(word PWM){
+	 LedLight1_SetRatio16(PWM);
+ }
+ 
+ void setLED2PWM(word PWM){
+	 LedLight2_SetRatio16(PWM);
+ }
 
 
 //MAPEA

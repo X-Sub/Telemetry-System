@@ -43,10 +43,11 @@
 #include "sPC_OK.h"
 #include "sCom_In.h"
 #include "Aux_Int.h"
-#include "testMotor.h"
 #include "SerialCom.h"
 #include "RESET_INTERRUPT.h"
 #include "ADC.h"
+#include "LedLight1.h"
+#include "LedLight2.h"
 /* Include shared modules, which are used for whole project */
 #include "PE_Types.h"
 #include "PE_Error.h"
@@ -94,7 +95,7 @@ void main(void)
 	  //S_PanCamera_SetRatio16(520);
 	 //servoPanAngle(DC2);
 	 //S_PanCamera_SetDutyUS(1500);
-	  
+	  /*
 	  servoTiltAngle(0);
 	  delay(2000);
 	  //S_PanCamera_SetRatio16(0xE470);
@@ -104,6 +105,7 @@ void main(void)
 	  delay(2000);
 	  servoTiltAngle(89);
 	  delay(2000);
+	  */
 	  
 	  
   }

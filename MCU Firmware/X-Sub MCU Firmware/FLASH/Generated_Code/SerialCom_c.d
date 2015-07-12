@@ -29,6 +29,7 @@ Generated_Code/SerialCom_c.obj: C:\Users\ddtdanilo\Dropbox\X-Sub\MCU\ Firmware\X
 	C:\Users\ddtdanilo\Dropbox\X-Sub\MCU\ Firmware\X-Sub\ MCU\ Firmware\Generated_Code\sPC_OK.h \
 	C:\Users\ddtdanilo\Dropbox\X-Sub\MCU\ Firmware\X-Sub\ MCU\ Firmware\Generated_Code\sCom_In.h \
 	C:\Users\ddtdanilo\Dropbox\X-Sub\MCU\ Firmware\X-Sub\ MCU\ Firmware\Generated_Code\Aux_Int.h \
-	C:\Users\ddtdanilo\Dropbox\X-Sub\MCU\ Firmware\X-Sub\ MCU\ Firmware\Generated_Code\testMotor.h \
 	C:\Users\ddtdanilo\Dropbox\X-Sub\MCU\ Firmware\X-Sub\ MCU\ Firmware\Generated_Code\RESET_INTERRUPT.h \
-	C:\Users\ddtdanilo\Dropbox\X-Sub\MCU\ Firmware\X-Sub\ MCU\ Firmware\Generated_Code\ADC.h 
+	C:\Users\ddtdanilo\Dropbox\X-Sub\MCU\ Firmware\X-Sub\ MCU\ Firmware\Generated_Code\ADC.h \
+	C:\Users\ddtdanilo\Dropbox\X-Sub\MCU\ Firmware\X-Sub\ MCU\ Firmware\Generated_Code\LedLight1.h \
+	C:\Users\ddtdanilo\Dropbox\X-Sub\MCU\ Firmware\X-Sub\ MCU\ Firmware\Generated_Code\LedLight2.h 

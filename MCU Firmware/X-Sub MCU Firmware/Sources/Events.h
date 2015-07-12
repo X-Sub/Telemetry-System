@@ -45,10 +45,11 @@
 #include "sPC_OK.h"
 #include "sCom_In.h"
 #include "Aux_Int.h"
-#include "testMotor.h"
 #include "SerialCom.h"
 #include "RESET_INTERRUPT.h"
 #include "ADC.h"
+#include "LedLight1.h"
+#include "LedLight2.h"
 
 
 void Aux_Int_OnInterrupt(void);
@@ -92,23 +93,6 @@ void SerialCom_OnTxChar(void);
 **     Component   :  SerialCom [AsynchroSerial]
 **     Description :
 **         This event is called after a character is transmitted.
-**     Parameters  : None
-**     Returns     : Nothing
-** ===================================================================
-*/
-
-void testMotor_OnEnd(void);
-/*
-** ===================================================================
-**     Event       :  testMotor_OnEnd (module Events)
-**
-**     Component   :  testMotor [PPG]
-**     Description :
-**         This event is called when the specified number of iterations
-**         is generated. (Only when the component is enabled - <Enable>
-**         and the events are enabled - <EnableEvent>). The event is
-**         available only when the peripheral supports an interrupt,
-**         that is generated at the end of the PWM period.
 **     Parameters  : None
 **     Returns     : Nothing
 ** ===================================================================

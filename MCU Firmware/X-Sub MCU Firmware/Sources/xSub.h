@@ -121,4 +121,9 @@ void servoPan1024(word In);//Resolución de 0 - 1023 (0 - 0x1023)
 void servoTiltAngle(word Angle);//Resolución de 0 - 179
 void servoTilt1024(word In);//Resolución de 0 - 1023 (0 - 0x1023)
 
+/****LEDS****/
+ void setLEDPWM(word PWM);//Setea los dos leds
+ void setLED1PWM(word PWM);
+ void setLED2PWM(word PWM);
+
 #endif /* XSUB_H_ */

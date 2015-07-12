@@ -11129,3 +11129,74 @@ java.lang.AssertionError: Assertion failed: Wrong usage of progress monitor in D
 	at com.sun.corba.se.impl.transport.SocketOrChannelConnectionImpl.doWork(Unknown Source)
 	at com.sun.corba.se.impl.orbutil.threadpool.ThreadPoolImpl$WorkerThread.performWork(Unknown Source)
 	at com.sun.corba.se.impl.orbutil.threadpool.ThreadPoolImpl$WorkerThread.run(Unknown Source)
+
+!ENTRY com.freescale.core.debugger.cdt 4 120 2015-07-11 22:49:40.666
+!MESSAGE Error logged from CodeWarrior debugger core:
+!STACK 0
+org.eclipse.cdt.debug.core.cdi.CDIException: ColdFire GDI Protocol Adapter : An invalid preference was passed to the ColdFire GDI protocol. Loss of communications with P&E hardware.[ColdFire GDI Protocol Adapter : An invalid preference was passed to the ColdFire GDI protocol. Loss of communications with P&E hardware.]
+	at com.freescale.cdt.debug.cw.core.DebugErrorUtils.handleDebugError(DebugErrorUtils.java:95)
+	at com.freescale.cdt.debug.cw.core.cdi.model.Target.doTerminate(Target.java:1409)
+	at com.freescale.cdt.debug.cw.core.cdi.model.Target.access$2(Target.java:1344)
+	at com.freescale.cdt.debug.cw.core.cdi.model.Target$TerminateJob.run(Target.java:1302)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+
+!ENTRY com.freescale.core.debugger.cdt 4 120 2015-07-11 22:49:40.679
+!MESSAGE Error logged from CodeWarrior debugger core:
+!STACK 1
+org.eclipse.debug.core.DebugException: Target request failed: ColdFire GDI Protocol Adapter : An invalid preference was passed to the ColdFire GDI protocol. Loss of communications with P&E hardware.
+	at org.eclipse.cdt.debug.internal.core.model.CDebugElement.throwDebugException(CDebugElement.java:295)
+	at org.eclipse.cdt.debug.internal.core.model.CDebugElement.requestFailed(CDebugElement.java:262)
+	at org.eclipse.cdt.debug.internal.core.model.CDebugElement.targetRequestFailed(CDebugElement.java:250)
+	at org.eclipse.cdt.debug.internal.core.model.CDebugTarget.terminate(CDebugTarget.java:589)
+	at com.freescale.cdt.debug.cw.core.TargetConnectionLostHandler.terminateConnection(TargetConnectionLostHandler.java:278)
+	at com.freescale.cdt.debug.cw.core.TargetConnectionLostHandler.access$5(TargetConnectionLostHandler.java:258)
+	at com.freescale.cdt.debug.cw.core.TargetConnectionLostHandler$4.run(TargetConnectionLostHandler.java:344)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+!SUBENTRY 1 org.eclipse.cdt.debug.core 4 5010 2015-07-11 22:49:40.679
+!MESSAGE Target request failed: ColdFire GDI Protocol Adapter : An invalid preference was passed to the ColdFire GDI protocol. Loss of communications with P&E hardware.
+
+!ENTRY com.freescale.core.debugger.cdt 4 16777218 2015-07-11 23:19:52.986
+!MESSAGE Error launching X-Sub MCU Firmware_FLASH_PnE U-MultiLink
+!STACK 1
+org.eclipse.core.runtime.CoreException: ColdFire GDI Protocol Adapter : Can't connect. The Debugger can not connect to the P&E BDC interface or targetted hardware board.
+	at com.freescale.cdt.debug.cw.core.DebugErrorUtils.handleDebugCoreError(DebugErrorUtils.java:281)
+	at com.freescale.cdt.launch.cw.DownloadLaunchDelegate.cwDoLaunch(DownloadLaunchDelegate.java:542)
+	at com.freescale.cdt.launch.cw.BaseLaunchDelegate.doLaunch(BaseLaunchDelegate.java:203)
+	at com.freescale.cdt.launch.cw.DownloadLaunchDelegate.launchDebug(DownloadLaunchDelegate.java:276)
+	at com.freescale.cdt.launch.cw.DownloadLaunchDelegate.launch(DownloadLaunchDelegate.java:123)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:862)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:704)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1047)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$8.run(DebugUIPlugin.java:1251)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+!SUBENTRY 1 com.freescale.core.debugger.cdt 4 16777218 2015-07-11 23:19:52.987
+!MESSAGE ColdFire GDI Protocol Adapter : Can't connect. The Debugger can not connect to the P&E BDC interface or targetted hardware board.
+
+!ENTRY com.freescale.core.debugger.cdt 4 120 2015-07-11 23:20:07.640
+!MESSAGE Error logged from CodeWarrior debugger core:
+!STACK 0
+java.lang.AssertionError: Assertion failed: Wrong usage of progress monitor in DE!
+	at com.freescale.cdt.debug.cw.CWExceptionLogger.logAssert(CWExceptionLogger.java:100)
+	at com.freescale.cdt.debug.cw.CWProgressMonitor.newChild(CWProgressMonitor.java:186)
+	at cwdbg.ProgressMonitorPOA._invoke(ProgressMonitorPOA.java:190)
+	at com.sun.corba.se.impl.protocol.CorbaServerRequestDispatcherImpl.dispatchToServant(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaServerRequestDispatcherImpl.dispatch(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaMessageMediatorImpl.handleRequestRequest(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaMessageMediatorImpl.handleRequest(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaMessageMediatorImpl.handleInput(Unknown Source)
+	at com.sun.corba.se.impl.protocol.giopmsgheaders.RequestMessage_1_2.callback(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaMessageMediatorImpl.handleRequest(Unknown Source)
+	at com.sun.corba.se.impl.transport.SocketOrChannelConnectionImpl.dispatch(Unknown Source)
+	at com.sun.corba.se.impl.transport.SocketOrChannelConnectionImpl.doWork(Unknown Source)
+	at com.sun.corba.se.impl.orbutil.threadpool.ThreadPoolImpl$WorkerThread.performWork(Unknown Source)
+	at com.sun.corba.se.impl.orbutil.threadpool.ThreadPoolImpl$WorkerThread.run(Unknown Source)
+
+!ENTRY com.freescale.core.debugger.cdt 4 120 2015-07-11 23:24:03.189
+!MESSAGE Error logged from CodeWarrior debugger core:
+!STACK 0
+org.eclipse.cdt.debug.core.cdi.CDIException: ColdFire GDI Protocol Adapter : An invalid preference was passed to the ColdFire GDI protocol. Loss of communications with P&E hardware.[ColdFire GDI Protocol Adapter : An invalid preference was passed to the ColdFire GDI protocol. Loss of communications with P&E hardware.]
+	at com.freescale.cdt.debug.cw.core.DebugErrorUtils.handleDebugError(DebugErrorUtils.java:95)
+	at com.freescale.cdt.debug.cw.core.cdi.model.Target.doTerminate(Target.java:1409)
+	at com.freescale.cdt.debug.cw.core.cdi.model.Target.access$2(Target.java:1344)
+	at com.freescale.cdt.debug.cw.core.cdi.model.Target$TerminateJob.run(Target.java:1302)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)

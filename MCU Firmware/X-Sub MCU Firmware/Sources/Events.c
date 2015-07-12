@@ -139,27 +139,6 @@ void  SerialCom_OnTxChar(void)
 
 /*
 ** ===================================================================
-**     Event       :  testMotor_OnEnd (module Events)
-**
-**     Component   :  testMotor [PPG]
-**     Description :
-**         This event is called when the specified number of iterations
-**         is generated. (Only when the component is enabled - <Enable>
-**         and the events are enabled - <EnableEvent>). The event is
-**         available only when the peripheral supports an interrupt,
-**         that is generated at the end of the PWM period.
-**     Parameters  : None
-**     Returns     : Nothing
-** ===================================================================
-*/
-void testMotor_OnEnd(void)
-{
-  /* Write your code here ... */
-}
-
-
-/*
-** ===================================================================
 **     Event       :  RESET_INTERRUPT_OnInterrupt (module Events)
 **
 **     Component   :  RESET_INTERRUPT [ExtInt]

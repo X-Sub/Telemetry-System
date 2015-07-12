@@ -5,7 +5,7 @@
 **     Processor   : MCF51QE128CLK
 **     Version     : Component 01.014, Driver 01.12, CPU db: 3.00.078
 **     Compiler    : CodeWarrior ColdFireV1 C Compiler
-**     Date/Time   : 2015-07-11, 20:31, # CodeGen: 32
+**     Date/Time   : 2015-07-11, 23:17, # CodeGen: 34
 **     Abstract    :
 **         This component "MCF51QE128_80" contains initialization of the
 **         CPU and provides basic methods and events for CPU core
@@ -67,10 +67,11 @@
 #include "sCom_In.h"
 #include "sPC_OK.h"
 #include "Aux_Int.h"
-#include "testMotor.h"
 #include "SerialCom.h"
 #include "RESET_INTERRUPT.h"
 #include "ADC.h"
+#include "LedLight1.h"
+#include "LedLight2.h"
 #include "startcf.h"
 
 extern unsigned long far _SP_INIT[];
@@ -173,7 +174,7 @@ const tIsrFunc _InterruptVectorTable[103] @0x00000000 = { /* Interrupt vector ta
   Cpu_Interrupt,                       /* 0x5A  0x00000168   -   -   ivVtpm3ch3    unused by PE */
   Cpu_Interrupt,                       /* 0x5B  0x0000016C   -   -   ivVtpm3ch4    unused by PE */
   Cpu_Interrupt,                       /* 0x5C  0x00000170   -   -   ivVtpm3ch5    unused by PE */
-  testMotor_Interrupt,                 /* 0x5D  0x00000174   6   6   ivVtpm3ovf    used by PE */
+  Cpu_Interrupt,                       /* 0x5D  0x00000174   -   -   ivVtpm3ovf    unused by PE */
   Cpu_Interrupt,                       /* 0x5E  0x00000178   -   -   ivVReserved94 unused by PE */
   Cpu_Interrupt,                       /* 0x5F  0x0000017C   -   -   ivVReserved95 unused by PE */
   Cpu_Interrupt,                       /* 0x60  0x00000180   -   -   ivVL7swi      unused by PE */

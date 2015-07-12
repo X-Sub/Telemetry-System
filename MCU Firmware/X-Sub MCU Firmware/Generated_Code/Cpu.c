@@ -7,7 +7,7 @@
 **     Version     : Component 01.014, Driver 01.12, CPU db: 3.00.078
 **     Datasheet   : MCF51QE128RM, Rev. 3, 9/2007
 **     Compiler    : CodeWarrior ColdFireV1 C Compiler
-**     Date/Time   : 2015-07-11, 22:33, # CodeGen: 33
+**     Date/Time   : 2015-07-11, 23:17, # CodeGen: 34
 **     Abstract    :
 **         This component "MCF51QE128_80" contains initialization of the
 **         CPU and provides basic methods and events for CPU core
@@ -74,10 +74,11 @@
 #include "sCom_In.h"
 #include "sPC_OK.h"
 #include "Aux_Int.h"
-#include "testMotor.h"
 #include "SerialCom.h"
 #include "RESET_INTERRUPT.h"
 #include "ADC.h"
+#include "LedLight1.h"
+#include "LedLight2.h"
 #include "PE_Types.h"
 #include "PE_Error.h"
 #include "PE_Const.h"
@@ -287,12 +288,12 @@ void PE_low_level_init(void)
   clrSetReg8Bits(PTBDD, 0x01U, 0x32U);  
   /* PTBD: PTBD5=0,PTBD4=0,PTBD1=1 */
   clrSetReg8Bits(PTBD, 0x30U, 0x02U);   
-  /* PTCD: PTCD3=0,PTCD2=1,PTCD1=1,PTCD0=1 */
-  clrSetReg8Bits(PTCD, 0x08U, 0x07U);   
-  /* PTCPE: PTCPE2=0,PTCPE1=0,PTCPE0=0 */
-  clrReg8Bits(PTCPE, 0x07U);            
-  /* PTCDD: PTCDD3=1,PTCDD2=1,PTCDD1=1,PTCDD0=1 */
-  setReg8Bits(PTCDD, 0x0FU);            
+  /* PTCD: PTCD4=1,PTCD3=1,PTCD2=1,PTCD1=0,PTCD0=0 */
+  clrSetReg8Bits(PTCD, 0x03U, 0x1CU);   
+  /* PTCPE: PTCPE4=0,PTCPE3=0,PTCPE2=0 */
+  clrReg8Bits(PTCPE, 0x1CU);            
+  /* PTCDD: PTCDD4=1,PTCDD3=1,PTCDD2=1,PTCDD1=1,PTCDD0=1 */
+  setReg8Bits(PTCDD, 0x1FU);            
   /* PTAPE: PTAPE5=1 */
   setReg8Bits(PTAPE, 0x20U);            
   /* APCTL2: ADPC10=1 */
@@ -351,8 +352,6 @@ void PE_low_level_init(void)
   /* ### BitIO "sPC_OK" init code ... */
   /* ### TimerInt "Aux_Int" init code ... */
   Aux_Int_Init();
-  /* ### Programable pulse generation "testMotor" init code ... */
-  testMotor_Init();
   /* ### Asynchro serial "SerialCom" init code ... */
   SerialCom_Init();
   /* ### External interrupt "RESET_INTERRUPT" init code ... */
@@ -364,11 +363,17 @@ void PE_low_level_init(void)
   setReg8Bits(IRQSC, 0x02U);            
   /* ###  "ADC" init code ... */
   ADC_Init();
+  /* ### Programable pulse generation "LedLight1" init code ... */
+  LedLight1_Init();
+  /* ### Programable pulse generation "LedLight2" init code ... */
+  LedLight2_Init();
   /* Common peripheral initialization - ENABLE */
   /* TPM1SC: CLKSB=0,CLKSA=1,PS1=1,PS0=1 */
   clrSetReg8Bits(TPM1SC, 0x10U, 0x0BU); 
   /* TPM2SC: CLKSB=0,CLKSA=1 */
   clrSetReg8Bits(TPM2SC, 0x10U, 0x08U); 
+  /* TPM3SC: CLKSB=0,CLKSA=1,PS1=1 */
+  clrSetReg8Bits(TPM3SC, 0x10U, 0x0AU); 
   /* Initialize priority of ivVsci1rx interrupt */
   /* INTC_PL6P6: ??=0,??=0,??=0,REQN=0x0D */
   setReg8(INTC_PL6P6, 0x0DU);           
@@ -378,9 +383,6 @@ void PE_low_level_init(void)
   /* Initialize priority of ivVrtc interrupt */
   /* INTC_PL6P6: ??=0,??=0,??=0,REQN=0x16 */
   setReg8(INTC_PL6P6, 0x16U);           
-  /* Initialize priority of ivVtpm3ovf interrupt */
-  /* INTC_PL6P6: ??=0,??=0,??=0,REQN=0x1D */
-  setReg8(INTC_PL6P6, 0x1DU);           
   /* INTC_WCR: ENB=0,??=0,??=0,??=0,??=0,MASK=0 */
   setReg8(INTC_WCR, 0x00U);             
   SR_lock = 0x00;
