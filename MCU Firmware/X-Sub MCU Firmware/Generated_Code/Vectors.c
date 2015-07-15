@@ -5,7 +5,11 @@
 **     Processor   : MCF51QE128CLK
 **     Version     : Component 01.014, Driver 01.12, CPU db: 3.00.078
 **     Compiler    : CodeWarrior ColdFireV1 C Compiler
+<<<<<<< HEAD
 **     Date/Time   : 2015-07-11, 23:17, # CodeGen: 34
+=======
+**     Date/Time   : 2015-06-15, 16:23, # CodeGen: 15
+>>>>>>> ef6348856dbd10b0d1ac938feeb92755e9868d98
 **     Abstract    :
 **         This component "MCF51QE128_80" contains initialization of the
 **         CPU and provides basic methods and events for CPU core
@@ -67,11 +71,14 @@
 #include "sCom_In.h"
 #include "sPC_OK.h"
 #include "Aux_Int.h"
+<<<<<<< HEAD
 #include "SerialCom.h"
 #include "RESET_INTERRUPT.h"
 #include "ADC.h"
 #include "LedLight1.h"
 #include "LedLight2.h"
+=======
+>>>>>>> ef6348856dbd10b0d1ac938feeb92755e9868d98
 #include "startcf.h"
 
 extern unsigned long far _SP_INIT[];

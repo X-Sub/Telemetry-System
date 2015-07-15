@@ -169,17 +169,17 @@ void setMotorSpeed256(byte Speed,byte Motor){
 	switch(Motor){
 	
 	case 1:
-		    (void)M1_ESC_SetRatio16(CENTERDC);
-			(void)M1_ESC_SetRatio16(Speed);
+		    (void)M1_ESC_SetRatio8(CENTERDC);
+			(void)M1_ESC_SetRatio8(Speed);
 	case 2:
-		    (void)M2_ESC_SetRatio16(CENTERDC);
-			(void)M2_ESC_SetRatio16(Speed);
+		    (void)M2_ESC_SetRatio8(CENTERDC);
+			(void)M2_ESC_SetRatio8(Speed);
 	case 3:
-		    (void)M3_ESC_SetRatio16(CENTERDC);
-			(void)M3_ESC_SetRatio16(Speed);
+		    (void)M3_ESC_SetRatio8(CENTERDC);
+			(void)M3_ESC_SetRatio8(Speed);
 	case 4:
-		    (void)M4_ESC_SetRatio16(CENTERDC);
-			(void)M4_ESC_SetRatio16(Speed);	
+		    (void)M4_ESC_SetRatio8(CENTERDC);
+			(void)M4_ESC_SetRatio8(Speed);	
 	}
 }
 //SERVOS

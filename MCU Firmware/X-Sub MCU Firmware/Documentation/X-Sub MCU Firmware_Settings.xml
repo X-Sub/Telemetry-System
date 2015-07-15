@@ -1272,6 +1272,7 @@ autoselected pull
       <EmptySection_DummyValue />
     </Events>
   </Bean>
+<<<<<<< HEAD
   <Bean name="Aux_Int" type="TimerInt">
     <Enabled v="Y" />
     <Properties>
@@ -1481,6 +1482,97 @@ rising or falling edge
       <Sample_time v="short" />
       <boolgroup name="Internal trigger" v="Disabled" />
       <Number_of_conversions v="1" />
+=======
+  <Bean name="sCom_In" type="BitIO">
+    <Enabled v="Y" />
+    <Properties>
+      <Component_name v="sCom_In" />
+      <Pin_for_I_O v="PTC1_RGPIO9_TPM3CH1" />
+      <Pull_resistor sel_value="no pull resistor">
+        
+autoselected pull
+
+        <EmptySection_DummyValue />
+      </Pull_resistor>
+      <Open_drain v="push-pull" />
+      <Slew_rate_control_for_PTC1 v="no" />
+      <Drive_strength_for_PTC1 v="High" />
+      <Direction v="Output" />
+      <group name="Initialization">
+        <Init__direction v="Output" />
+        <Init__value v="0" />
+      </group>
+      <Safe_mode v="yes" />
+      <Optimization_for v="speed" />
+    </Properties>
+    <Methods>
+      <GetDir v="don&amp;apos;t generate code" />
+      <SetDir v="don&amp;apos;t generate code" />
+      <SetInput v="don&amp;apos;t generate code" />
+      <SetOutput v="don&amp;apos;t generate code" />
+      <GetVal v="generate code" />
+      <PutVal v="generate code" />
+      <ClrVal v="generate code" />
+      <SetVal v="generate code" />
+      <NegVal v="generate code" />
+      <GetRawVal v="don&amp;apos;t generate code" />
+    </Methods>
+    <Events>
+      <EmptySection_DummyValue />
+    </Events>
+  </Bean>
+  <Bean name="sPC_OK" type="BitIO">
+    <Enabled v="Y" />
+    <Properties>
+      <Component_name v="sPC_OK" />
+      <Pin_for_I_O v="PTC2_RGPIO10_TPM3CH2" />
+      <Pull_resistor sel_value="no pull resistor">
+        
+autoselected pull
+
+        <EmptySection_DummyValue />
+      </Pull_resistor>
+      <Open_drain v="push-pull" />
+      <Slew_rate_control_for_PTC2 v="no" />
+      <Drive_strength_for_PTC2 v="High" />
+      <Direction v="Output" />
+      <group name="Initialization">
+        <Init__direction v="Output" />
+        <Init__value v="0" />
+      </group>
+      <Safe_mode v="yes" />
+      <Optimization_for v="speed" />
+    </Properties>
+    <Methods>
+      <GetDir v="don&amp;apos;t generate code" />
+      <SetDir v="don&amp;apos;t generate code" />
+      <SetInput v="don&amp;apos;t generate code" />
+      <SetOutput v="don&amp;apos;t generate code" />
+      <GetVal v="generate code" />
+      <PutVal v="generate code" />
+      <ClrVal v="generate code" />
+      <SetVal v="generate code" />
+      <NegVal v="generate code" />
+      <GetRawVal v="don&amp;apos;t generate code" />
+    </Methods>
+    <Events>
+      <EmptySection_DummyValue />
+    </Events>
+  </Bean>
+  <Bean name="Aux_Int" type="TimerInt">
+    <Enabled v="Y" />
+    <Properties>
+      <Component_name v="Aux_Int" />
+      <Periodic_interrupt_source v="RTCmod" />
+      <Counter v="RTC" />
+      <boolgroup name="Interrupt service/event" v="Enabled">
+        <Interrupt v="Vrtc" />
+        <Interrupt_priority v="high priority" />
+      </boolgroup>
+      <Interrupt_period v="125 ms" />
+      <Same_period_in_modes v="yes" />
+      <Component_uses_entire_timer v="no" />
+>>>>>>> ef6348856dbd10b0d1ac938feeb92755e9868d98
       <group name="Initialization">
         <Enabled_in_init__code v="yes" />
         <Events_enabled_in_init_ v="yes" />
@@ -1496,6 +1588,7 @@ rising or falling edge
       <Disable v="don&amp;apos;t generate code" />
       <EnableEvent v="don&amp;apos;t generate code" />
       <DisableEvent v="don&amp;apos;t generate code" />
+<<<<<<< HEAD
       <Start v="don&amp;apos;t generate code" />
       <Stop v="don&amp;apos;t generate code" />
       <Measure v="generate code" />
@@ -1511,17 +1604,35 @@ rising or falling edge
       <DisableAsynchroClock v="don&amp;apos;t generate code" />
       <EnableAutoCompare v="don&amp;apos;t generate code" />
       <DisableAutoCompare v="don&amp;apos;t generate code" />
+=======
+      <SetPeriodMode v="don&amp;apos;t generate code" />
+      <SetPeriodTicks16 v="don&amp;apos;t generate code" />
+      <SetPeriodTicks32 v="don&amp;apos;t generate code" />
+      <SetPeriodUS v="don&amp;apos;t generate code" />
+      <SetPeriodMS v="don&amp;apos;t generate code" />
+      <SetPeriodSec v="don&amp;apos;t generate code" />
+      <SetPeriodReal v="don&amp;apos;t generate code" />
+      <SetFreqHz v="don&amp;apos;t generate code" />
+      <SetFreqkHz v="don&amp;apos;t generate code" />
+      <SetFreqMHz v="don&amp;apos;t generate code" />
+>>>>>>> ef6348856dbd10b0d1ac938feeb92755e9868d98
     </Methods>
     <Events>
       <Event_module_name v="Events" />
       <event name="BeforeNewSpeed" v="don&amp;apos;t generate code" />
       <event name="AfterNewSpeed" v="don&amp;apos;t generate code" />
+<<<<<<< HEAD
       <event name="OnEnd" v="generate code">
         <Event_procedure_name v="ADC_OnEnd" />
+=======
+      <event name="OnInterrupt" v="generate code">
+        <Event_procedure_name v="Aux_Int_OnInterrupt" />
+>>>>>>> ef6348856dbd10b0d1ac938feeb92755e9868d98
         <Priority v="same as interrupt" />
       </event>
     </Events>
   </Bean>
+<<<<<<< HEAD
   <Bean name="LedLight1" type="PWM">
     <Enabled v="Y" />
     <Properties>
@@ -1620,5 +1731,7 @@ rising or falling edge
       <event name="OnEnd" v="don&amp;apos;t generate code" />
     </Events>
   </Bean>
+=======
+>>>>>>> ef6348856dbd10b0d1ac938feeb92755e9868d98
 </PE_PROJECT_SETTINGS_DOCUMENTATION>
 

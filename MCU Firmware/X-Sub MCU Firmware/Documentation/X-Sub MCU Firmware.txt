@@ -171,6 +171,7 @@ Module "sPC_OK"    (component BitIO)
 
 Module "Aux_Int"   (component TimerInt)
 
+<<<<<<< HEAD
 Module "SerialCom" (component AsynchroSerial)
    - SerialCom_Enable -Enables the component - it starts the send and receive functions. Events may be generated 
                 ("DisableEvent"/"EnableEvent").
@@ -252,6 +253,8 @@ Module "LedLight2" (component PWM)
                 16-bit unsigned integer number. The method is available only if it is not selected list of predefined values in 
                 <Starting pulse width> property.
 
+=======
+>>>>>>> ef6348856dbd10b0d1ac938feeb92755e9868d98
 Module "Cpu"       (component MCF51QE128_80)
    - Cpu_EnableInt -Enables maskable interrupts
    - Cpu_DisableInt -Disables maskable interrupts

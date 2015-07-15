@@ -48,12 +48,15 @@ bool led0x05 = FALSE; //0x05
 bool led0x06 = FALSE; //0x06
 bool led0x07 = FALSE; //0x07
 
+<<<<<<< HEAD
 byte SerialIn;
 
 //Tiempo
 byte tLed = 0x00;
 byte tMotor = 0x00;
 
+=======
+>>>>>>> ef6348856dbd10b0d1ac938feeb92755e9868d98
 /*
 ** ===================================================================
 **     Event       :  Aux_Int_OnInterrupt (module Events)
@@ -68,6 +71,7 @@ byte tMotor = 0x00;
 **     Returns     : Nothing
 ** ===================================================================
 */
+<<<<<<< HEAD
 
 //Resolucion de 10 ms
 void Aux_Int_OnInterrupt(void)
@@ -184,6 +188,18 @@ void ADC_OnEnd(void)
   /* Write your code here ... */
 }
 
+=======
+void Aux_Int_OnInterrupt(void)
+{
+	//Control de leds de status
+	if(led0x00 == TRUE) sMCU_OK_NegVal(); //0x00
+	else sMCU_OK_ClrVal();
+	if(led0x01 == TRUE) sCom_In_NegVal(); //0x01
+	else sCom_In_ClrVal();
+	if(led0x02 == TRUE) sPC_OK_NegVal(); //0x02
+	else sPC_OK_ClrVal();
+}
+>>>>>>> ef6348856dbd10b0d1ac938feeb92755e9868d98
 
 /* END Events */
 

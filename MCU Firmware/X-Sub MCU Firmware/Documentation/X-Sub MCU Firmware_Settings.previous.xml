@@ -1162,7 +1162,11 @@
     <Enabled v="Y" />
     <Properties>
       <Component_name v="sMCU_OK" />
+<<<<<<< HEAD
       <Pin_for_I_O v="PTC2_RGPIO10_TPM3CH2" />
+=======
+      <Pin_for_I_O v="PTC0_RGPIO8_TPM3CH0" />
+>>>>>>> ef6348856dbd10b0d1ac938feeb92755e9868d98
       <Pull_resistor sel_value="no pull resistor">
         
 autoselected pull
@@ -1170,12 +1174,21 @@ autoselected pull
         <EmptySection_DummyValue />
       </Pull_resistor>
       <Open_drain v="push-pull" />
+<<<<<<< HEAD
       <Slew_rate_control_for_PTC2 v="no" />
       <Drive_strength_for_PTC2 v="High" />
       <Direction v="Output" />
       <group name="Initialization">
         <Init__direction v="Output" />
         <Init__value v="1" />
+=======
+      <Slew_rate_control_for_PTC0 v="no" />
+      <Drive_strength_for_PTC0 v="High" />
+      <Direction v="Output" />
+      <group name="Initialization">
+        <Init__direction v="Output" />
+        <Init__value v="0" />
+>>>>>>> ef6348856dbd10b0d1ac938feeb92755e9868d98
       </group>
       <Safe_mode v="yes" />
       <Optimization_for v="speed" />
@@ -1196,11 +1209,19 @@ autoselected pull
       <EmptySection_DummyValue />
     </Events>
   </Bean>
+<<<<<<< HEAD
   <Bean name="sCom_In" type="BitIO">
     <Enabled v="Y" />
     <Properties>
       <Component_name v="sCom_In" />
       <Pin_for_I_O v="PTC3_RGPIO11_TPM3CH3" />
+=======
+  <Bean name="sPC_OK" type="BitIO">
+    <Enabled v="Y" />
+    <Properties>
+      <Component_name v="sPC_OK" />
+      <Pin_for_I_O v="PTC2_RGPIO10_TPM3CH2" />
+>>>>>>> ef6348856dbd10b0d1ac938feeb92755e9868d98
       <Pull_resistor sel_value="no pull resistor">
         
 autoselected pull
@@ -1208,12 +1229,21 @@ autoselected pull
         <EmptySection_DummyValue />
       </Pull_resistor>
       <Open_drain v="push-pull" />
+<<<<<<< HEAD
       <Slew_rate_control_for_PTC3 v="no" />
       <Drive_strength_for_PTC3 v="High" />
       <Direction v="Output" />
       <group name="Initialization">
         <Init__direction v="Output" />
         <Init__value v="1" />
+=======
+      <Slew_rate_control_for_PTC2 v="no" />
+      <Drive_strength_for_PTC2 v="High" />
+      <Direction v="Output" />
+      <group name="Initialization">
+        <Init__direction v="Output" />
+        <Init__value v="0" />
+>>>>>>> ef6348856dbd10b0d1ac938feeb92755e9868d98
       </group>
       <Safe_mode v="yes" />
       <Optimization_for v="speed" />
@@ -1234,11 +1264,19 @@ autoselected pull
       <EmptySection_DummyValue />
     </Events>
   </Bean>
+<<<<<<< HEAD
   <Bean name="sPC_OK" type="BitIO">
     <Enabled v="Y" />
     <Properties>
       <Component_name v="sPC_OK" />
       <Pin_for_I_O v="PTC4_RGPIO12_TPM3CH4_RSTO" />
+=======
+  <Bean name="sCom_In" type="BitIO">
+    <Enabled v="Y" />
+    <Properties>
+      <Component_name v="sCom_In" />
+      <Pin_for_I_O v="PTC1_RGPIO9_TPM3CH1" />
+>>>>>>> ef6348856dbd10b0d1ac938feeb92755e9868d98
       <Pull_resistor sel_value="no pull resistor">
         
 autoselected pull
@@ -1246,12 +1284,21 @@ autoselected pull
         <EmptySection_DummyValue />
       </Pull_resistor>
       <Open_drain v="push-pull" />
+<<<<<<< HEAD
       <Slew_rate_control_for_PTC4 v="no" />
       <Drive_strength_for_PTC4 v="High" />
       <Direction v="Output" />
       <group name="Initialization">
         <Init__direction v="Output" />
         <Init__value v="1" />
+=======
+      <Slew_rate_control_for_PTC1 v="no" />
+      <Drive_strength_for_PTC1 v="High" />
+      <Direction v="Output" />
+      <group name="Initialization">
+        <Init__direction v="Output" />
+        <Init__value v="0" />
+>>>>>>> ef6348856dbd10b0d1ac938feeb92755e9868d98
       </group>
       <Safe_mode v="yes" />
       <Optimization_for v="speed" />
@@ -1282,7 +1329,11 @@ autoselected pull
         <Interrupt v="Vrtc" />
         <Interrupt_priority v="high priority" />
       </boolgroup>
+<<<<<<< HEAD
       <Interrupt_period v="10 ms" />
+=======
+      <Interrupt_period v="125 ms" />
+>>>>>>> ef6348856dbd10b0d1ac938feeb92755e9868d98
       <Same_period_in_modes v="yes" />
       <Component_uses_entire_timer v="no" />
       <group name="Initialization">
@@ -1321,6 +1372,7 @@ autoselected pull
       </event>
     </Events>
   </Bean>
+<<<<<<< HEAD
   <Bean name="SerialCom" type="AsynchroSerial">
     <Enabled v="Y" />
     <Properties>
@@ -1626,5 +1678,7 @@ rising or falling edge
       <event name="OnEnd" v="don&amp;apos;t generate code" />
     </Events>
   </Bean>
+=======
+>>>>>>> ef6348856dbd10b0d1ac938feeb92755e9868d98
 </PE_PROJECT_SETTINGS_DOCUMENTATION>
 
