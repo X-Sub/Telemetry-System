@@ -48,6 +48,7 @@ bool led0x05 = FALSE; //0x05
 bool led0x06 = FALSE; //0x06
 bool led0x07 = FALSE; //0x07
 
+byte SerialIn;
 
 //Tiempo
 byte tLed = 0x00;
@@ -119,6 +120,13 @@ void Aux_Int_OnInterrupt(void)
 void  SerialCom_OnRxChar(void)
 {
   /* Write your code here ... */
+	sPC_OK_W();
+	
+	(void)SerialCom_RecvChar(&SerialIn);
+	setMotorSpeed256(SerialIn,1);
+	(void)SerialCom_SendChar(SerialIn);
+	//(void)SerialCom_ClearRxBuf();
+	//(void)SerialCom_ClearTxBuf();
 }
 
 /*
@@ -152,7 +160,7 @@ void  SerialCom_OnTxChar(void)
 void RESET_INTERRUPT_OnInterrupt(void)
 {
   /* place your RESET_INTERRUPT interrupt procedure body here*/
-	setMotorSpeed(0,2);
+	setMotorSpeed1024(0,2);
 	delay(2000);
 
 }

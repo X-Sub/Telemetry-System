@@ -140,7 +140,7 @@ void setDC(word Speed)
 }
 
 //Setea la velocidad de los motores de manera individual. Rango de 10 bits-> 0 - 1023
-void setMotorSpeed(word Speed,byte Motor){
+void setMotorSpeed1024(word Speed,byte Motor){
 	
 	Speed = map(Speed,0,1023,MAXFORWARD,MAXBACKWARD);
 	
@@ -161,6 +161,27 @@ void setMotorSpeed(word Speed,byte Motor){
 	}
 }
 
+//Setea la velocidad de los motores de manera individual. Rango de 8 bits-> 0 - 255
+void setMotorSpeed256(byte Speed,byte Motor){
+	
+	Speed = map(Speed,0,255,MAXFORWARD,MAXBACKWARD);
+	
+	switch(Motor){
+	
+	case 1:
+		    (void)M1_ESC_SetRatio16(CENTERDC);
+			(void)M1_ESC_SetRatio16(Speed);
+	case 2:
+		    (void)M2_ESC_SetRatio16(CENTERDC);
+			(void)M2_ESC_SetRatio16(Speed);
+	case 3:
+		    (void)M3_ESC_SetRatio16(CENTERDC);
+			(void)M3_ESC_SetRatio16(Speed);
+	case 4:
+		    (void)M4_ESC_SetRatio16(CENTERDC);
+			(void)M4_ESC_SetRatio16(Speed);	
+	}
+}
 //SERVOS
 
   /*Pan*/

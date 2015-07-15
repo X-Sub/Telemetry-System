@@ -3,8 +3,8 @@
   <Header>
     <Name>X-Sub MCU Firmware</Name>
     <SavedBy>ddtdanilo</SavedBy>
-    <ModificationStamp>30</ModificationStamp>
-    <Date>2015-07-11</Date>
+    <ModificationStamp>34</ModificationStamp>
+    <Date>2015-07-14</Date>
     <IDE>Eclipse IDE</IDE>
     <PEversion>1.9.0.RT6_b1411-0406</PEversion>
   </Header>
@@ -29,7 +29,7 @@
     <UseExistingModules>true</UseExistingModules>
     <RenamePeripheries>false</RenamePeripheries>
     <Autodependency>true</Autodependency>
-    <ProjectCompNumb>53</ProjectCompNumb>
+    <ProjectCompNumb>56</ProjectCompNumb>
     <DelUnusedPreviouslyGenFiles>true</DelUnusedPreviouslyGenFiles>
     <GeneratedCodeFrozen>false</GeneratedCodeFrozen>
     <AssignInitComponentNameToPrph>true</AssignInitComponentNameToPrph>

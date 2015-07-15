@@ -71,7 +71,8 @@ void main(void)
   /* Write your code here */
   /* For example: for(;;) { } */
   //delay(5000);
-  //initMxSub(1);
+  (void)SerialCom_SendChar(0xFF);
+  initMxSub(1);
   
   sMCU_OK_W();
   //sMCU_OK_NW();

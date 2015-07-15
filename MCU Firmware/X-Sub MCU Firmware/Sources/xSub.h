@@ -43,6 +43,9 @@ extern bool led0x05; //0x05
 extern bool led0x06; //0x06
 extern bool led0x07; //0x07
 
+/*Puerto Serial*/
+extern byte SIZEBUFFERIN;
+extern byte SIZEBUFFEROUT;
 
 /*Variables*/
 extern byte  SIZEPACKAGE;
@@ -113,7 +116,9 @@ void initMxSub(byte tipo);
 void setDC(word Speed);
 
 //Setea la velocidad de los motores de manera individual. Rango de 10 bits-> 0 - 1023
-void setMotorSpeed(word Speed,byte Motor);
+void setMotorSpeed1024(word Speed,byte Motor);
+//Setea la velocidad de los motores de manera individual. Rango de 8 bits-> 0 - 255
+void setMotorSpeed256(byte Speed,byte Motor);
 
 /***SERVOS*/
 void servoPanAngle(word Angle);//Resolución de 0 - 179

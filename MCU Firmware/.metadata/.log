@@ -11200,3 +11200,1366 @@ org.eclipse.cdt.debug.core.cdi.CDIException: ColdFire GDI Protocol Adapter : An 
 	at com.freescale.cdt.debug.cw.core.cdi.model.Target.access$2(Target.java:1344)
 	at com.freescale.cdt.debug.cw.core.cdi.model.Target$TerminateJob.run(Target.java:1302)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+
+!ENTRY org.eclipse.core.jobs 2 2 2015-07-13 21:40:17.573
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.cdt.internal.core.pdom.PDOMIndexerJob$ProgressUpdateJob
+
+!ENTRY org.eclipse.core.jobs 2 2 2015-07-13 21:40:17.582
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.cdt.internal.core.pdom.PDOMIndexerJob
+!SESSION 2015-07-14 16:00:11.717 -----------------------------------------------
+eclipse.buildId=I20070613-1755
+java.version=1.6.0_15
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en
+Command-line arguments:  -os win32 -ws win32 -arch x86
+
+!ENTRY org.eclipse.osgi 2 1 2015-07-14 16:00:16.790
+!MESSAGE NLS missing message: ContentTypes_errorDialogAlreadyExists in: org.eclipse.ui.internal.messages
+
+!ENTRY com.freescale.processorexpert.core 1 0 2015-07-14 16:00:22.141
+!MESSAGE Plugin com.freescale.processorexpert.core.service ProcessorExpertServiceProvider
+
+!ENTRY com.freescale.core.ide.cdt.toolchain 4 0 2015-07-14 16:00:33.966
+!MESSAGE Environment Variable Dependency not resolved for 'ARMGNUDirEnv'.
+
+!ENTRY com.freescale.core.ide.cdt.toolchain 4 0 2015-07-14 16:00:33.975
+!MESSAGE Environment Variable Dependency not resolved for 'ARMSummonDirEnv'.
+
+!ENTRY com.freescale.core.ide.cdt.toolchain 4 0 2015-07-14 16:00:33.982
+!MESSAGE Environment Variable Dependency not resolved for 'ARMYagartoDirEnv'.
+
+!ENTRY com.freescale.core.ide.cdt.toolchain 4 0 2015-07-14 16:00:33.990
+!MESSAGE Environment Variable Dependency not resolved for 'ARMdevkitProDirEnv'.
+
+!ENTRY com.freescale.core.ide.wizard.ui 2 0 2015-07-14 16:00:53.282
+!MESSAGE External elements location 'C:\Freescale\CW MCU v10.6\eclipse\../MCU/lib/wizard_data/mqx/4.0/ppc' does not exist
+
+!ENTRY com.freescale.core.ide.wizard.ui 2 0 2015-07-14 16:00:53.288
+!MESSAGE External elements location 'C:\Freescale\CW MCU v10.6\eclipse\../MCU/lib/wizard_data/mqx/4.0/patches' does not exist
+
+!ENTRY com.freescale.core.ide.wizard.ui 2 0 2015-07-14 16:00:54.451
+!MESSAGE External elements location 'C:\Freescale\CW MCU v10.6\eclipse\../MCU/lib/wizard_data/mqx/4.1/ppc' does not exist
+
+!ENTRY com.freescale.core.ide.wizard.ui 2 0 2015-07-14 16:00:54.456
+!MESSAGE External elements location 'C:\Freescale\CW MCU v10.6\eclipse\../MCU/lib/wizard_data/mqx/4.1/patches' does not exist
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2015-07-14 16:01:07.164
+!MESSAGE No repository found at jar:file:C:%5CUsers%5Cddtdanilo%5CDownloads%5CCW%20for%20MCU%2010.6%5Ccom.freescale.mcu10_6.e200.updatesite.zip!/.
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2015-07-14 16:01:07.199
+!MESSAGE No repository found at jar:file:C:%5CUsers%5Cddtdanilo%5CDownloads%5CCW%20for%20MCU%2010.6%5Ccom.freescale.mcu10_6.coldfire.updatesite.zip!/.
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2015-07-14 16:01:07.233
+!MESSAGE No repository found at jar:file:C:%5CUsers%5Cddtdanilo%5CDownloads%5CCW%20for%20MCU%2010.6%5Ccom.freescale.mcu10_6.hcs08_rs08.updatesite.zip!/.
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2015-07-14 16:01:13.726
+!MESSAGE No repository found at jar:file:C:%5CUsers%5Cddtdanilo%5CDownloads%5CCW%20for%20MCU%2010.6%5Ccom.freescale.mcu10_6.dsc.updatesite.zip!/.
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2015-07-14 16:01:13.751
+!MESSAGE No repository found at jar:file:C:%5CUsers%5Cddtdanilo%5CDownloads%5CCW%20for%20MCU%2010.6%5Ccom.freescale.mcu10_6.kinetis.updatesite.zip!/.
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2015-07-14 16:01:13.776
+!MESSAGE No repository found at jar:file:C:%5CUsers%5Cddtdanilo%5CDownloads%5CCW%20for%20MCU%2010.6%5Ccom.freescale.mcu10_6.s12z.updatesite.zip!/.
+
+!ENTRY org.eclipse.osgi 2 1 2015-07-14 16:09:08.608
+!MESSAGE NLS unused message: trace_trigger_dv_error_title in: com.freescale.sa.mcu.analysispoints.nls.ui
+
+!ENTRY org.eclipse.osgi 2 1 2015-07-14 16:09:08.613
+!MESSAGE NLS unused message: trace_trigger_dv_error_message in: com.freescale.sa.mcu.analysispoints.nls.ui
+!SESSION 2015-07-14 16:22:28.701 -----------------------------------------------
+eclipse.buildId=I20070613-1755
+java.version=1.6.0_15
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en
+Command-line arguments:  -os win32 -ws win32 -arch x86
+
+!ENTRY org.eclipse.osgi 2 1 2015-07-14 16:22:32.783
+!MESSAGE NLS missing message: ContentTypes_errorDialogAlreadyExists in: org.eclipse.ui.internal.messages
+
+!ENTRY com.freescale.processorexpert.core 1 0 2015-07-14 16:22:37.945
+!MESSAGE Plugin com.freescale.processorexpert.core.service ProcessorExpertServiceProvider
+
+!ENTRY com.freescale.core.ide.cdt.toolchain 4 0 2015-07-14 16:22:49.507
+!MESSAGE Environment Variable Dependency not resolved for 'ARMGNUDirEnv'.
+
+!ENTRY com.freescale.core.ide.cdt.toolchain 4 0 2015-07-14 16:22:49.517
+!MESSAGE Environment Variable Dependency not resolved for 'ARMSummonDirEnv'.
+
+!ENTRY com.freescale.core.ide.cdt.toolchain 4 0 2015-07-14 16:22:49.527
+!MESSAGE Environment Variable Dependency not resolved for 'ARMYagartoDirEnv'.
+
+!ENTRY com.freescale.core.ide.cdt.toolchain 4 0 2015-07-14 16:22:49.537
+!MESSAGE Environment Variable Dependency not resolved for 'ARMdevkitProDirEnv'.
+
+!ENTRY com.freescale.core.ide.wizard.ui 2 0 2015-07-14 16:23:08.198
+!MESSAGE External elements location 'C:\Freescale\CW MCU v10.6\eclipse\../MCU/lib/wizard_data/mqx/4.0/ppc' does not exist
+
+!ENTRY com.freescale.core.ide.wizard.ui 2 0 2015-07-14 16:23:08.198
+!MESSAGE External elements location 'C:\Freescale\CW MCU v10.6\eclipse\../MCU/lib/wizard_data/mqx/4.0/patches' does not exist
+
+!ENTRY com.freescale.core.ide.wizard.ui 2 0 2015-07-14 16:23:09.268
+!MESSAGE External elements location 'C:\Freescale\CW MCU v10.6\eclipse\../MCU/lib/wizard_data/mqx/4.1/ppc' does not exist
+
+!ENTRY com.freescale.core.ide.wizard.ui 2 0 2015-07-14 16:23:09.278
+!MESSAGE External elements location 'C:\Freescale\CW MCU v10.6\eclipse\../MCU/lib/wizard_data/mqx/4.1/patches' does not exist
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2015-07-14 16:23:21.443
+!MESSAGE No repository found at jar:file:C:%5CUsers%5Cddtdanilo%5CDownloads%5CCW%20for%20MCU%2010.6%5Ccom.freescale.mcu10_6.e200.updatesite.zip!/.
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2015-07-14 16:23:21.473
+!MESSAGE No repository found at jar:file:C:%5CUsers%5Cddtdanilo%5CDownloads%5CCW%20for%20MCU%2010.6%5Ccom.freescale.mcu10_6.coldfire.updatesite.zip!/.
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2015-07-14 16:23:21.503
+!MESSAGE No repository found at jar:file:C:%5CUsers%5Cddtdanilo%5CDownloads%5CCW%20for%20MCU%2010.6%5Ccom.freescale.mcu10_6.hcs08_rs08.updatesite.zip!/.
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2015-07-14 16:23:30.115
+!MESSAGE No repository found at jar:file:C:%5CUsers%5Cddtdanilo%5CDownloads%5CCW%20for%20MCU%2010.6%5Ccom.freescale.mcu10_6.dsc.updatesite.zip!/.
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2015-07-14 16:23:30.139
+!MESSAGE No repository found at jar:file:C:%5CUsers%5Cddtdanilo%5CDownloads%5CCW%20for%20MCU%2010.6%5Ccom.freescale.mcu10_6.kinetis.updatesite.zip!/.
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2015-07-14 16:23:30.163
+!MESSAGE No repository found at jar:file:C:%5CUsers%5Cddtdanilo%5CDownloads%5CCW%20for%20MCU%2010.6%5Ccom.freescale.mcu10_6.s12z.updatesite.zip!/.
+
+!ENTRY org.eclipse.osgi 2 1 2015-07-14 16:23:44.156
+!MESSAGE NLS unused message: trace_trigger_dv_error_title in: com.freescale.sa.mcu.analysispoints.nls.ui
+
+!ENTRY org.eclipse.osgi 2 1 2015-07-14 16:23:44.166
+!MESSAGE NLS unused message: trace_trigger_dv_error_message in: com.freescale.sa.mcu.analysispoints.nls.ui
+
+!ENTRY org.eclipse.osgi 2 1 2015-07-14 16:23:44.336
+!MESSAGE NLS missing message: DisassemblyPreferencePage_showFunctionOffsets in: org.eclipse.cdt.dsf.debug.internal.ui.disassembly.DisassemblyMessages
+
+!ENTRY org.eclipse.osgi 2 1 2015-07-14 16:23:44.336
+!MESSAGE NLS missing message: DisassemblyPreferencePage_showFunctionOffsetsTooltip in: org.eclipse.cdt.dsf.debug.internal.ui.disassembly.DisassemblyMessages
+
+!ENTRY org.eclipse.osgi 2 1 2015-07-14 16:23:44.346
+!MESSAGE NLS missing message: DisassemblyPreferencePage_showCodeBytes in: org.eclipse.cdt.dsf.debug.internal.ui.disassembly.DisassemblyMessages
+
+!ENTRY org.eclipse.osgi 2 1 2015-07-14 16:23:44.346
+!MESSAGE NLS missing message: DisassemblyPreferencePage_showCodeBytesTooltip in: org.eclipse.cdt.dsf.debug.internal.ui.disassembly.DisassemblyMessages
+
+!ENTRY org.eclipse.osgi 2 1 2015-07-14 16:23:44.356
+!MESSAGE NLS missing message: DisassemblyPreferencePage_showAddress in: org.eclipse.cdt.dsf.debug.internal.ui.disassembly.DisassemblyMessages
+
+!ENTRY org.eclipse.osgi 2 1 2015-07-14 16:23:44.356
+!MESSAGE NLS missing message: DisassemblyPreferencePage_showAddressTooltip in: org.eclipse.cdt.dsf.debug.internal.ui.disassembly.DisassemblyMessages
+
+!ENTRY com.freescale.core.debugger.cdt 4 120 2015-07-14 16:23:52.180
+!MESSAGE Error logged from CodeWarrior debugger core:
+!STACK 0
+java.lang.AssertionError: Assertion failed: Wrong usage of progress monitor in DE!
+	at com.freescale.cdt.debug.cw.CWExceptionLogger.logAssert(CWExceptionLogger.java:100)
+	at com.freescale.cdt.debug.cw.CWProgressMonitor.newChild(CWProgressMonitor.java:186)
+	at cwdbg.ProgressMonitorPOA._invoke(ProgressMonitorPOA.java:190)
+	at com.sun.corba.se.impl.protocol.CorbaServerRequestDispatcherImpl.dispatchToServant(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaServerRequestDispatcherImpl.dispatch(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaMessageMediatorImpl.handleRequestRequest(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaMessageMediatorImpl.handleRequest(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaMessageMediatorImpl.handleInput(Unknown Source)
+	at com.sun.corba.se.impl.protocol.giopmsgheaders.RequestMessage_1_2.callback(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaMessageMediatorImpl.handleRequest(Unknown Source)
+	at com.sun.corba.se.impl.transport.SocketOrChannelConnectionImpl.dispatch(Unknown Source)
+	at com.sun.corba.se.impl.transport.SocketOrChannelConnectionImpl.doWork(Unknown Source)
+	at com.sun.corba.se.impl.orbutil.threadpool.ThreadPoolImpl$WorkerThread.performWork(Unknown Source)
+	at com.sun.corba.se.impl.orbutil.threadpool.ThreadPoolImpl$WorkerThread.run(Unknown Source)
+
+!ENTRY org.eclipse.debug.core 4 2 2015-07-14 16:28:56.213
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.debug.core".
+!STACK 0
+org.eclipse.swt.SWTException: Device is disposed
+	at org.eclipse.swt.SWT.error(SWT.java:4361)
+	at org.eclipse.swt.SWT.error(SWT.java:4276)
+	at org.eclipse.swt.SWT.error(SWT.java:4247)
+	at org.eclipse.swt.widgets.Display.error(Display.java:1265)
+	at org.eclipse.swt.widgets.Display.getThread(Display.java:2606)
+	at org.eclipse.debug.internal.ui.stringsubstitution.SelectedResourceManager.getActiveWindow(SelectedResourceManager.java:236)
+	at org.eclipse.debug.ui.DebugUITools.getDebugContext(DebugUITools.java:225)
+	at org.eclipse.cdt.debug.internal.ui.actions.RemoveAllGlobalsActionDelegate.update(RemoveAllGlobalsActionDelegate.java:99)
+	at org.eclipse.cdt.debug.internal.ui.actions.RemoveAllGlobalsActionDelegate.handleDebugEvents(RemoveAllGlobalsActionDelegate.java:131)
+	at org.eclipse.debug.core.DebugPlugin$EventNotifier.run(DebugPlugin.java:1109)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.core.DebugPlugin$EventNotifier.dispatch(DebugPlugin.java:1143)
+	at org.eclipse.debug.core.DebugPlugin$EventDispatchJob.run(DebugPlugin.java:407)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+
+!ENTRY org.eclipse.debug.core 4 125 2015-07-14 16:28:56.219
+!MESSAGE An exception occurred while dispatching debug events.
+!STACK 0
+org.eclipse.swt.SWTException: Device is disposed
+	at org.eclipse.swt.SWT.error(SWT.java:4361)
+	at org.eclipse.swt.SWT.error(SWT.java:4276)
+	at org.eclipse.swt.SWT.error(SWT.java:4247)
+	at org.eclipse.swt.widgets.Display.error(Display.java:1265)
+	at org.eclipse.swt.widgets.Display.getThread(Display.java:2606)
+	at org.eclipse.debug.internal.ui.stringsubstitution.SelectedResourceManager.getActiveWindow(SelectedResourceManager.java:236)
+	at org.eclipse.debug.ui.DebugUITools.getDebugContext(DebugUITools.java:225)
+	at org.eclipse.cdt.debug.internal.ui.actions.RemoveAllGlobalsActionDelegate.update(RemoveAllGlobalsActionDelegate.java:99)
+	at org.eclipse.cdt.debug.internal.ui.actions.RemoveAllGlobalsActionDelegate.handleDebugEvents(RemoveAllGlobalsActionDelegate.java:131)
+	at org.eclipse.debug.core.DebugPlugin$EventNotifier.run(DebugPlugin.java:1109)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.core.DebugPlugin$EventNotifier.dispatch(DebugPlugin.java:1143)
+	at org.eclipse.debug.core.DebugPlugin$EventDispatchJob.run(DebugPlugin.java:407)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+
+!ENTRY org.eclipse.debug.core 4 2 2015-07-14 16:28:56.261
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.debug.core".
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.cdt.debug.internal.ui.views.memory.CMemoryRenderingStore.getMemorySite(CMemoryRenderingStore.java:82)
+	at org.eclipse.cdt.debug.internal.ui.views.memory.CMemoryRenderingStore$2.run(CMemoryRenderingStore.java:220)
+	at org.eclipse.swt.widgets.Synchronizer.syncExec(Synchronizer.java:200)
+	at org.eclipse.swt.widgets.Display.syncExec(Display.java:4702)
+	at org.eclipse.cdt.debug.internal.ui.views.memory.CMemoryRenderingStore.handleDebugEvents(CMemoryRenderingStore.java:218)
+	at org.eclipse.debug.core.DebugPlugin$EventNotifier.run(DebugPlugin.java:1109)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.core.DebugPlugin$EventNotifier.dispatch(DebugPlugin.java:1143)
+	at org.eclipse.debug.core.DebugPlugin$EventDispatchJob.run(DebugPlugin.java:407)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+
+!ENTRY org.eclipse.debug.core 4 125 2015-07-14 16:28:56.266
+!MESSAGE An exception occurred while dispatching debug events.
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.cdt.debug.internal.ui.views.memory.CMemoryRenderingStore.getMemorySite(CMemoryRenderingStore.java:82)
+	at org.eclipse.cdt.debug.internal.ui.views.memory.CMemoryRenderingStore$2.run(CMemoryRenderingStore.java:220)
+	at org.eclipse.swt.widgets.Synchronizer.syncExec(Synchronizer.java:200)
+	at org.eclipse.swt.widgets.Display.syncExec(Display.java:4702)
+	at org.eclipse.cdt.debug.internal.ui.views.memory.CMemoryRenderingStore.handleDebugEvents(CMemoryRenderingStore.java:218)
+	at org.eclipse.debug.core.DebugPlugin$EventNotifier.run(DebugPlugin.java:1109)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.core.DebugPlugin$EventNotifier.dispatch(DebugPlugin.java:1143)
+	at org.eclipse.debug.core.DebugPlugin$EventDispatchJob.run(DebugPlugin.java:407)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+
+!ENTRY com.freescale.core.debugger.cdt 4 120 2015-07-14 16:29:01.171
+!MESSAGE Error logged from CodeWarrior debugger core:
+!STACK 0
+java.lang.AssertionError: Assertion failed: Exhausted shutdown timeout while asking the DE to shut itself down. Proceeding with Eclipse shutdown.
+	at com.freescale.cdt.debug.cw.CWExceptionLogger.logAssert(CWExceptionLogger.java:100)
+	at com.freescale.cdt.debug.cw.CWCorbaMgr$CorbaContext.terminate(CWCorbaMgr.java:528)
+	at com.freescale.cdt.debug.cw.CWCorbaMgr$CorbaContext.access$15(CWCorbaMgr.java:466)
+	at com.freescale.cdt.debug.cw.CWCorbaMgr.stop(CWCorbaMgr.java:1109)
+	at com.freescale.cdt.debug.cw.core.CWPlugin.stop(CWPlugin.java:455)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl$2.run(BundleContextImpl.java:771)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.stop(BundleContextImpl.java:764)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.stopWorker(BundleHost.java:510)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.suspend(AbstractBundle.java:566)
+	at org.eclipse.osgi.framework.internal.core.Framework.suspendBundle(Framework.java:1206)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.decFWSL(StartLevelManager.java:592)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.doSetStartLevel(StartLevelManager.java:257)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.shutdown(StartLevelManager.java:215)
+	at org.eclipse.osgi.framework.internal.core.InternalSystemBundle.suspend(InternalSystemBundle.java:284)
+	at org.eclipse.osgi.framework.internal.core.Framework.shutdown(Framework.java:692)
+	at org.eclipse.osgi.framework.internal.core.Framework.close(Framework.java:600)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.shutdown(EclipseStarter.java:399)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:199)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:630)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:585)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1439)
+
+!ENTRY com.freescale.core.debugger.cdt 4 120 2015-07-14 16:29:02.656
+!MESSAGE Error logged from CodeWarrior debugger core:
+!STACK 0
+java.lang.AssertionError: Assertion failed: Exhausted shutdown timeout while shutting down the ORB. Will destroy DE & ORB nevertheless.
+	at com.freescale.cdt.debug.cw.CWExceptionLogger.logAssert(CWExceptionLogger.java:100)
+	at com.freescale.cdt.debug.cw.CWCorbaMgr$CorbaContext.terminate(CWCorbaMgr.java:567)
+	at com.freescale.cdt.debug.cw.CWCorbaMgr$CorbaContext.access$15(CWCorbaMgr.java:466)
+	at com.freescale.cdt.debug.cw.CWCorbaMgr.stop(CWCorbaMgr.java:1109)
+	at com.freescale.cdt.debug.cw.core.CWPlugin.stop(CWPlugin.java:455)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl$2.run(BundleContextImpl.java:771)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.stop(BundleContextImpl.java:764)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.stopWorker(BundleHost.java:510)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.suspend(AbstractBundle.java:566)
+	at org.eclipse.osgi.framework.internal.core.Framework.suspendBundle(Framework.java:1206)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.decFWSL(StartLevelManager.java:592)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.doSetStartLevel(StartLevelManager.java:257)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.shutdown(StartLevelManager.java:215)
+	at org.eclipse.osgi.framework.internal.core.InternalSystemBundle.suspend(InternalSystemBundle.java:284)
+	at org.eclipse.osgi.framework.internal.core.Framework.shutdown(Framework.java:692)
+	at org.eclipse.osgi.framework.internal.core.Framework.close(Framework.java:600)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.shutdown(EclipseStarter.java:399)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:199)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:630)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:585)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1439)
+
+!ENTRY com.freescale.core.debugger.cdt 4 120 2015-07-14 16:29:03.163
+!MESSAGE Error logged from CodeWarrior debugger core:
+!STACK 0
+java.lang.AssertionError: Assertion failed: Exhausted shutdown timeout while waiting for DE process to go away. Will forcibly kill.
+	at com.freescale.cdt.debug.cw.CWExceptionLogger.logAssert(CWExceptionLogger.java:100)
+	at com.freescale.cdt.debug.cw.CWCorbaMgr$CorbaContext.terminate(CWCorbaMgr.java:617)
+	at com.freescale.cdt.debug.cw.CWCorbaMgr$CorbaContext.access$15(CWCorbaMgr.java:466)
+	at com.freescale.cdt.debug.cw.CWCorbaMgr.stop(CWCorbaMgr.java:1109)
+	at com.freescale.cdt.debug.cw.core.CWPlugin.stop(CWPlugin.java:455)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl$2.run(BundleContextImpl.java:771)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.stop(BundleContextImpl.java:764)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.stopWorker(BundleHost.java:510)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.suspend(AbstractBundle.java:566)
+	at org.eclipse.osgi.framework.internal.core.Framework.suspendBundle(Framework.java:1206)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.decFWSL(StartLevelManager.java:592)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.doSetStartLevel(StartLevelManager.java:257)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.shutdown(StartLevelManager.java:215)
+	at org.eclipse.osgi.framework.internal.core.InternalSystemBundle.suspend(InternalSystemBundle.java:284)
+	at org.eclipse.osgi.framework.internal.core.Framework.shutdown(Framework.java:692)
+	at org.eclipse.osgi.framework.internal.core.Framework.close(Framework.java:600)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.shutdown(EclipseStarter.java:399)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:199)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:630)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:585)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1439)
+
+!ENTRY com.freescale.core.debugger.cdt 4 120 2015-07-14 16:29:03.283
+!MESSAGE Error logged from CodeWarrior debugger core:
+!STACK 0
+java.lang.NullPointerException
+	at com.sun.corba.se.impl.orb.ORBImpl.checkShutdownState(Unknown Source)
+	at com.sun.corba.se.impl.orb.ORBImpl.getInvocationInfo(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaClientDelegateImpl.getClientRequestDispatcher(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaClientDelegateImpl.releaseReply(Unknown Source)
+	at org.omg.CORBA.portable.ObjectImpl._releaseReply(Unknown Source)
+	at cwdbg._DebuggerEngineStub.RequestShutdown(_DebuggerEngineStub.java:912)
+	at com.freescale.cdt.debug.cw.CWCorbaMgr$CorbaContext$2.run(CWCorbaMgr.java:512)
+	at com.freescale.cdt.debug.cw.core.CWWaitTimeout$1.run(CWWaitTimeout.java:66)
+!SESSION 2015-07-14 16:29:56.046 -----------------------------------------------
+eclipse.buildId=I20070613-1755
+java.version=1.6.0_15
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en
+Command-line arguments:  -os win32 -ws win32 -arch x86
+
+!ENTRY org.eclipse.core.resources 2 10035 2015-07-14 16:29:57.367
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.osgi 2 1 2015-07-14 16:29:58.489
+!MESSAGE NLS missing message: ContentTypes_errorDialogAlreadyExists in: org.eclipse.ui.internal.messages
+
+!ENTRY org.eclipse.osgi 2 1 2015-07-14 16:30:03.764
+!MESSAGE NLS missing message: DisassemblyPreferencePage_showFunctionOffsets in: org.eclipse.cdt.dsf.debug.internal.ui.disassembly.DisassemblyMessages
+
+!ENTRY org.eclipse.osgi 2 1 2015-07-14 16:30:04.047
+!MESSAGE NLS missing message: DisassemblyPreferencePage_showFunctionOffsetsTooltip in: org.eclipse.cdt.dsf.debug.internal.ui.disassembly.DisassemblyMessages
+
+!ENTRY org.eclipse.osgi 2 1 2015-07-14 16:30:04.051
+!MESSAGE NLS missing message: DisassemblyPreferencePage_showCodeBytes in: org.eclipse.cdt.dsf.debug.internal.ui.disassembly.DisassemblyMessages
+
+!ENTRY org.eclipse.osgi 2 1 2015-07-14 16:30:04.055
+!MESSAGE NLS missing message: DisassemblyPreferencePage_showCodeBytesTooltip in: org.eclipse.cdt.dsf.debug.internal.ui.disassembly.DisassemblyMessages
+
+!ENTRY org.eclipse.osgi 2 1 2015-07-14 16:30:04.059
+!MESSAGE NLS missing message: DisassemblyPreferencePage_showAddress in: org.eclipse.cdt.dsf.debug.internal.ui.disassembly.DisassemblyMessages
+
+!ENTRY org.eclipse.osgi 2 1 2015-07-14 16:30:04.063
+!MESSAGE NLS missing message: DisassemblyPreferencePage_showAddressTooltip in: org.eclipse.cdt.dsf.debug.internal.ui.disassembly.DisassemblyMessages
+
+!ENTRY com.freescale.core.ide.cdt.toolchain 4 0 2015-07-14 16:30:06.256
+!MESSAGE Environment Variable Dependency not resolved for 'ARMGNUDirEnv'.
+
+!ENTRY com.freescale.core.ide.cdt.toolchain 4 0 2015-07-14 16:30:06.262
+!MESSAGE Environment Variable Dependency not resolved for 'ARMSummonDirEnv'.
+
+!ENTRY com.freescale.core.ide.cdt.toolchain 4 0 2015-07-14 16:30:06.268
+!MESSAGE Environment Variable Dependency not resolved for 'ARMYagartoDirEnv'.
+
+!ENTRY com.freescale.core.ide.cdt.toolchain 4 0 2015-07-14 16:30:06.276
+!MESSAGE Environment Variable Dependency not resolved for 'ARMdevkitProDirEnv'.
+
+!ENTRY com.freescale.core.ide.wizard.ui 2 0 2015-07-14 16:30:08.254
+!MESSAGE External elements location 'C:\Freescale\CW MCU v10.6\eclipse\../MCU/lib/wizard_data/mqx/4.0/ppc' does not exist
+
+!ENTRY com.freescale.core.ide.wizard.ui 2 0 2015-07-14 16:30:08.259
+!MESSAGE External elements location 'C:\Freescale\CW MCU v10.6\eclipse\../MCU/lib/wizard_data/mqx/4.0/patches' does not exist
+
+!ENTRY com.freescale.core.ide.wizard.ui 2 0 2015-07-14 16:30:08.496
+!MESSAGE External elements location 'C:\Freescale\CW MCU v10.6\eclipse\../MCU/lib/wizard_data/mqx/4.1/ppc' does not exist
+
+!ENTRY com.freescale.core.ide.wizard.ui 2 0 2015-07-14 16:30:08.503
+!MESSAGE External elements location 'C:\Freescale\CW MCU v10.6\eclipse\../MCU/lib/wizard_data/mqx/4.1/patches' does not exist
+
+!ENTRY com.freescale.processorexpert.core 1 0 2015-07-14 16:30:10.353
+!MESSAGE Plugin com.freescale.processorexpert.core.service ProcessorExpertServiceProvider
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2015-07-14 16:30:15.441
+!MESSAGE No repository found at jar:file:C:%5CUsers%5Cddtdanilo%5CDownloads%5CCW%20for%20MCU%2010.6%5Ccom.freescale.mcu10_6.e200.updatesite.zip!/.
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2015-07-14 16:30:15.476
+!MESSAGE No repository found at jar:file:C:%5CUsers%5Cddtdanilo%5CDownloads%5CCW%20for%20MCU%2010.6%5Ccom.freescale.mcu10_6.coldfire.updatesite.zip!/.
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2015-07-14 16:30:15.510
+!MESSAGE No repository found at jar:file:C:%5CUsers%5Cddtdanilo%5CDownloads%5CCW%20for%20MCU%2010.6%5Ccom.freescale.mcu10_6.hcs08_rs08.updatesite.zip!/.
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2015-07-14 16:30:20.841
+!MESSAGE No repository found at jar:file:C:%5CUsers%5Cddtdanilo%5CDownloads%5CCW%20for%20MCU%2010.6%5Ccom.freescale.mcu10_6.dsc.updatesite.zip!/.
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2015-07-14 16:30:21.491
+!MESSAGE No repository found at jar:file:C:%5CUsers%5Cddtdanilo%5CDownloads%5CCW%20for%20MCU%2010.6%5Ccom.freescale.mcu10_6.kinetis.updatesite.zip!/.
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2015-07-14 16:30:21.518
+!MESSAGE No repository found at jar:file:C:%5CUsers%5Cddtdanilo%5CDownloads%5CCW%20for%20MCU%2010.6%5Ccom.freescale.mcu10_6.s12z.updatesite.zip!/.
+
+!ENTRY org.eclipse.osgi 2 1 2015-07-14 16:30:54.832
+!MESSAGE NLS unused message: trace_trigger_dv_error_title in: com.freescale.sa.mcu.analysispoints.nls.ui
+
+!ENTRY org.eclipse.osgi 2 1 2015-07-14 16:30:54.840
+!MESSAGE NLS unused message: trace_trigger_dv_error_message in: com.freescale.sa.mcu.analysispoints.nls.ui
+
+!ENTRY com.freescale.core.debugger.cdt 4 120 2015-07-14 16:31:25.926
+!MESSAGE Error logged from CodeWarrior debugger core:
+!STACK 0
+java.lang.AssertionError: Assertion failed: Wrong usage of progress monitor in DE!
+	at com.freescale.cdt.debug.cw.CWExceptionLogger.logAssert(CWExceptionLogger.java:100)
+	at com.freescale.cdt.debug.cw.CWProgressMonitor.newChild(CWProgressMonitor.java:186)
+	at cwdbg.ProgressMonitorPOA._invoke(ProgressMonitorPOA.java:190)
+	at com.sun.corba.se.impl.protocol.CorbaServerRequestDispatcherImpl.dispatchToServant(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaServerRequestDispatcherImpl.dispatch(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaMessageMediatorImpl.handleRequestRequest(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaMessageMediatorImpl.handleRequest(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaMessageMediatorImpl.handleInput(Unknown Source)
+	at com.sun.corba.se.impl.protocol.giopmsgheaders.RequestMessage_1_2.callback(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaMessageMediatorImpl.handleRequest(Unknown Source)
+	at com.sun.corba.se.impl.transport.SocketOrChannelConnectionImpl.dispatch(Unknown Source)
+	at com.sun.corba.se.impl.transport.SocketOrChannelConnectionImpl.doWork(Unknown Source)
+	at com.sun.corba.se.impl.orbutil.threadpool.ThreadPoolImpl$WorkerThread.performWork(Unknown Source)
+	at com.sun.corba.se.impl.orbutil.threadpool.ThreadPoolImpl$WorkerThread.run(Unknown Source)
+
+!ENTRY org.eclipse.debug.core 4 2 2015-07-14 16:34:22.590
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.debug.core".
+!STACK 0
+org.eclipse.swt.SWTException: Device is disposed
+	at org.eclipse.swt.SWT.error(SWT.java:4361)
+	at org.eclipse.swt.SWT.error(SWT.java:4276)
+	at org.eclipse.swt.SWT.error(SWT.java:4247)
+	at org.eclipse.swt.widgets.Display.error(Display.java:1265)
+	at org.eclipse.swt.widgets.Display.getThread(Display.java:2606)
+	at org.eclipse.debug.internal.ui.stringsubstitution.SelectedResourceManager.getActiveWindow(SelectedResourceManager.java:236)
+	at org.eclipse.debug.ui.DebugUITools.getDebugContext(DebugUITools.java:225)
+	at org.eclipse.cdt.debug.internal.ui.actions.RemoveAllGlobalsActionDelegate.update(RemoveAllGlobalsActionDelegate.java:99)
+	at org.eclipse.cdt.debug.internal.ui.actions.RemoveAllGlobalsActionDelegate.handleDebugEvents(RemoveAllGlobalsActionDelegate.java:131)
+	at org.eclipse.debug.core.DebugPlugin$EventNotifier.run(DebugPlugin.java:1109)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.core.DebugPlugin$EventNotifier.dispatch(DebugPlugin.java:1143)
+	at org.eclipse.debug.core.DebugPlugin$EventDispatchJob.run(DebugPlugin.java:407)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+
+!ENTRY org.eclipse.debug.core 4 125 2015-07-14 16:34:22.597
+!MESSAGE An exception occurred while dispatching debug events.
+!STACK 0
+org.eclipse.swt.SWTException: Device is disposed
+	at org.eclipse.swt.SWT.error(SWT.java:4361)
+	at org.eclipse.swt.SWT.error(SWT.java:4276)
+	at org.eclipse.swt.SWT.error(SWT.java:4247)
+	at org.eclipse.swt.widgets.Display.error(Display.java:1265)
+	at org.eclipse.swt.widgets.Display.getThread(Display.java:2606)
+	at org.eclipse.debug.internal.ui.stringsubstitution.SelectedResourceManager.getActiveWindow(SelectedResourceManager.java:236)
+	at org.eclipse.debug.ui.DebugUITools.getDebugContext(DebugUITools.java:225)
+	at org.eclipse.cdt.debug.internal.ui.actions.RemoveAllGlobalsActionDelegate.update(RemoveAllGlobalsActionDelegate.java:99)
+	at org.eclipse.cdt.debug.internal.ui.actions.RemoveAllGlobalsActionDelegate.handleDebugEvents(RemoveAllGlobalsActionDelegate.java:131)
+	at org.eclipse.debug.core.DebugPlugin$EventNotifier.run(DebugPlugin.java:1109)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.core.DebugPlugin$EventNotifier.dispatch(DebugPlugin.java:1143)
+	at org.eclipse.debug.core.DebugPlugin$EventDispatchJob.run(DebugPlugin.java:407)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+
+!ENTRY org.eclipse.debug.core 4 2 2015-07-14 16:34:22.640
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.debug.core".
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.cdt.debug.internal.ui.views.memory.CMemoryRenderingStore.getMemorySite(CMemoryRenderingStore.java:82)
+	at org.eclipse.cdt.debug.internal.ui.views.memory.CMemoryRenderingStore$2.run(CMemoryRenderingStore.java:220)
+	at org.eclipse.swt.widgets.Synchronizer.syncExec(Synchronizer.java:200)
+	at org.eclipse.swt.widgets.Display.syncExec(Display.java:4702)
+	at org.eclipse.cdt.debug.internal.ui.views.memory.CMemoryRenderingStore.handleDebugEvents(CMemoryRenderingStore.java:218)
+	at org.eclipse.debug.core.DebugPlugin$EventNotifier.run(DebugPlugin.java:1109)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.core.DebugPlugin$EventNotifier.dispatch(DebugPlugin.java:1143)
+	at org.eclipse.debug.core.DebugPlugin$EventDispatchJob.run(DebugPlugin.java:407)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+
+!ENTRY org.eclipse.debug.core 4 125 2015-07-14 16:34:22.645
+!MESSAGE An exception occurred while dispatching debug events.
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.cdt.debug.internal.ui.views.memory.CMemoryRenderingStore.getMemorySite(CMemoryRenderingStore.java:82)
+	at org.eclipse.cdt.debug.internal.ui.views.memory.CMemoryRenderingStore$2.run(CMemoryRenderingStore.java:220)
+	at org.eclipse.swt.widgets.Synchronizer.syncExec(Synchronizer.java:200)
+	at org.eclipse.swt.widgets.Display.syncExec(Display.java:4702)
+	at org.eclipse.cdt.debug.internal.ui.views.memory.CMemoryRenderingStore.handleDebugEvents(CMemoryRenderingStore.java:218)
+	at org.eclipse.debug.core.DebugPlugin$EventNotifier.run(DebugPlugin.java:1109)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.core.DebugPlugin$EventNotifier.dispatch(DebugPlugin.java:1143)
+	at org.eclipse.debug.core.DebugPlugin$EventDispatchJob.run(DebugPlugin.java:407)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+
+!ENTRY com.freescale.core.debugger.cdt 4 120 2015-07-14 16:34:27.558
+!MESSAGE Error logged from CodeWarrior debugger core:
+!STACK 0
+java.lang.AssertionError: Assertion failed: Exhausted shutdown timeout while asking the DE to shut itself down. Proceeding with Eclipse shutdown.
+	at com.freescale.cdt.debug.cw.CWExceptionLogger.logAssert(CWExceptionLogger.java:100)
+	at com.freescale.cdt.debug.cw.CWCorbaMgr$CorbaContext.terminate(CWCorbaMgr.java:528)
+	at com.freescale.cdt.debug.cw.CWCorbaMgr$CorbaContext.access$15(CWCorbaMgr.java:466)
+	at com.freescale.cdt.debug.cw.CWCorbaMgr.stop(CWCorbaMgr.java:1109)
+	at com.freescale.cdt.debug.cw.core.CWPlugin.stop(CWPlugin.java:455)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl$2.run(BundleContextImpl.java:771)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.stop(BundleContextImpl.java:764)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.stopWorker(BundleHost.java:510)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.suspend(AbstractBundle.java:566)
+	at org.eclipse.osgi.framework.internal.core.Framework.suspendBundle(Framework.java:1206)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.decFWSL(StartLevelManager.java:592)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.doSetStartLevel(StartLevelManager.java:257)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.shutdown(StartLevelManager.java:215)
+	at org.eclipse.osgi.framework.internal.core.InternalSystemBundle.suspend(InternalSystemBundle.java:284)
+	at org.eclipse.osgi.framework.internal.core.Framework.shutdown(Framework.java:692)
+	at org.eclipse.osgi.framework.internal.core.Framework.close(Framework.java:600)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.shutdown(EclipseStarter.java:399)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:199)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:630)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:585)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1439)
+
+!ENTRY com.freescale.core.debugger.cdt 4 120 2015-07-14 16:34:29.049
+!MESSAGE Error logged from CodeWarrior debugger core:
+!STACK 0
+java.lang.AssertionError: Assertion failed: Exhausted shutdown timeout while shutting down the ORB. Will destroy DE & ORB nevertheless.
+	at com.freescale.cdt.debug.cw.CWExceptionLogger.logAssert(CWExceptionLogger.java:100)
+	at com.freescale.cdt.debug.cw.CWCorbaMgr$CorbaContext.terminate(CWCorbaMgr.java:567)
+	at com.freescale.cdt.debug.cw.CWCorbaMgr$CorbaContext.access$15(CWCorbaMgr.java:466)
+	at com.freescale.cdt.debug.cw.CWCorbaMgr.stop(CWCorbaMgr.java:1109)
+	at com.freescale.cdt.debug.cw.core.CWPlugin.stop(CWPlugin.java:455)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl$2.run(BundleContextImpl.java:771)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.stop(BundleContextImpl.java:764)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.stopWorker(BundleHost.java:510)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.suspend(AbstractBundle.java:566)
+	at org.eclipse.osgi.framework.internal.core.Framework.suspendBundle(Framework.java:1206)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.decFWSL(StartLevelManager.java:592)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.doSetStartLevel(StartLevelManager.java:257)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.shutdown(StartLevelManager.java:215)
+	at org.eclipse.osgi.framework.internal.core.InternalSystemBundle.suspend(InternalSystemBundle.java:284)
+	at org.eclipse.osgi.framework.internal.core.Framework.shutdown(Framework.java:692)
+	at org.eclipse.osgi.framework.internal.core.Framework.close(Framework.java:600)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.shutdown(EclipseStarter.java:399)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:199)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:630)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:585)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1439)
+
+!ENTRY com.freescale.core.debugger.cdt 4 120 2015-07-14 16:34:29.606
+!MESSAGE Error logged from CodeWarrior debugger core:
+!STACK 0
+java.lang.AssertionError: Assertion failed: Exhausted shutdown timeout while waiting for DE process to go away. Will forcibly kill.
+	at com.freescale.cdt.debug.cw.CWExceptionLogger.logAssert(CWExceptionLogger.java:100)
+	at com.freescale.cdt.debug.cw.CWCorbaMgr$CorbaContext.terminate(CWCorbaMgr.java:617)
+	at com.freescale.cdt.debug.cw.CWCorbaMgr$CorbaContext.access$15(CWCorbaMgr.java:466)
+	at com.freescale.cdt.debug.cw.CWCorbaMgr.stop(CWCorbaMgr.java:1109)
+	at com.freescale.cdt.debug.cw.core.CWPlugin.stop(CWPlugin.java:455)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl$2.run(BundleContextImpl.java:771)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.stop(BundleContextImpl.java:764)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.stopWorker(BundleHost.java:510)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.suspend(AbstractBundle.java:566)
+	at org.eclipse.osgi.framework.internal.core.Framework.suspendBundle(Framework.java:1206)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.decFWSL(StartLevelManager.java:592)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.doSetStartLevel(StartLevelManager.java:257)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.shutdown(StartLevelManager.java:215)
+	at org.eclipse.osgi.framework.internal.core.InternalSystemBundle.suspend(InternalSystemBundle.java:284)
+	at org.eclipse.osgi.framework.internal.core.Framework.shutdown(Framework.java:692)
+	at org.eclipse.osgi.framework.internal.core.Framework.close(Framework.java:600)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.shutdown(EclipseStarter.java:399)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:199)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:630)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:585)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1439)
+
+!ENTRY com.freescale.core.debugger.cdt 4 120 2015-07-14 16:34:29.802
+!MESSAGE Error logged from CodeWarrior debugger core:
+!STACK 0
+java.lang.NullPointerException
+	at com.sun.corba.se.impl.orb.ORBImpl.checkShutdownState(Unknown Source)
+	at com.sun.corba.se.impl.orb.ORBImpl.getInvocationInfo(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaClientDelegateImpl.getClientRequestDispatcher(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaClientDelegateImpl.releaseReply(Unknown Source)
+	at org.omg.CORBA.portable.ObjectImpl._releaseReply(Unknown Source)
+	at cwdbg._DebuggerEngineStub.RequestShutdown(_DebuggerEngineStub.java:912)
+	at com.freescale.cdt.debug.cw.CWCorbaMgr$CorbaContext$2.run(CWCorbaMgr.java:512)
+	at com.freescale.cdt.debug.cw.core.CWWaitTimeout$1.run(CWWaitTimeout.java:66)
+!SESSION 2015-07-14 16:40:40.651 -----------------------------------------------
+eclipse.buildId=I20070613-1755
+java.version=1.6.0_15
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en
+Command-line arguments:  -os win32 -ws win32 -arch x86
+
+!ENTRY org.eclipse.core.resources 2 10035 2015-07-14 16:40:41.938
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.osgi 2 1 2015-07-14 16:40:43.075
+!MESSAGE NLS missing message: ContentTypes_errorDialogAlreadyExists in: org.eclipse.ui.internal.messages
+
+!ENTRY org.eclipse.osgi 2 1 2015-07-14 16:40:48.257
+!MESSAGE NLS missing message: DisassemblyPreferencePage_showFunctionOffsets in: org.eclipse.cdt.dsf.debug.internal.ui.disassembly.DisassemblyMessages
+
+!ENTRY org.eclipse.osgi 2 1 2015-07-14 16:40:48.542
+!MESSAGE NLS missing message: DisassemblyPreferencePage_showFunctionOffsetsTooltip in: org.eclipse.cdt.dsf.debug.internal.ui.disassembly.DisassemblyMessages
+
+!ENTRY org.eclipse.osgi 2 1 2015-07-14 16:40:48.546
+!MESSAGE NLS missing message: DisassemblyPreferencePage_showCodeBytes in: org.eclipse.cdt.dsf.debug.internal.ui.disassembly.DisassemblyMessages
+
+!ENTRY org.eclipse.osgi 2 1 2015-07-14 16:40:48.550
+!MESSAGE NLS missing message: DisassemblyPreferencePage_showCodeBytesTooltip in: org.eclipse.cdt.dsf.debug.internal.ui.disassembly.DisassemblyMessages
+
+!ENTRY org.eclipse.osgi 2 1 2015-07-14 16:40:48.554
+!MESSAGE NLS missing message: DisassemblyPreferencePage_showAddress in: org.eclipse.cdt.dsf.debug.internal.ui.disassembly.DisassemblyMessages
+
+!ENTRY org.eclipse.osgi 2 1 2015-07-14 16:40:48.558
+!MESSAGE NLS missing message: DisassemblyPreferencePage_showAddressTooltip in: org.eclipse.cdt.dsf.debug.internal.ui.disassembly.DisassemblyMessages
+
+!ENTRY com.freescale.core.ide.cdt.toolchain 4 0 2015-07-14 16:40:50.794
+!MESSAGE Environment Variable Dependency not resolved for 'ARMGNUDirEnv'.
+
+!ENTRY com.freescale.core.ide.cdt.toolchain 4 0 2015-07-14 16:40:50.802
+!MESSAGE Environment Variable Dependency not resolved for 'ARMSummonDirEnv'.
+
+!ENTRY com.freescale.core.ide.cdt.toolchain 4 0 2015-07-14 16:40:50.808
+!MESSAGE Environment Variable Dependency not resolved for 'ARMYagartoDirEnv'.
+
+!ENTRY com.freescale.core.ide.cdt.toolchain 4 0 2015-07-14 16:40:50.814
+!MESSAGE Environment Variable Dependency not resolved for 'ARMdevkitProDirEnv'.
+
+!ENTRY com.freescale.processorexpert.core 1 0 2015-07-14 16:40:50.847
+!MESSAGE Plugin com.freescale.processorexpert.core.service ProcessorExpertServiceProvider
+
+!ENTRY com.freescale.core.ide.wizard.ui 2 0 2015-07-14 16:40:58.117
+!MESSAGE External elements location 'C:\Freescale\CW MCU v10.6\eclipse\../MCU/lib/wizard_data/mqx/4.0/ppc' does not exist
+
+!ENTRY com.freescale.core.ide.wizard.ui 2 0 2015-07-14 16:40:58.122
+!MESSAGE External elements location 'C:\Freescale\CW MCU v10.6\eclipse\../MCU/lib/wizard_data/mqx/4.0/patches' does not exist
+
+!ENTRY com.freescale.core.ide.wizard.ui 2 0 2015-07-14 16:40:58.349
+!MESSAGE External elements location 'C:\Freescale\CW MCU v10.6\eclipse\../MCU/lib/wizard_data/mqx/4.1/ppc' does not exist
+
+!ENTRY com.freescale.core.ide.wizard.ui 2 0 2015-07-14 16:40:58.354
+!MESSAGE External elements location 'C:\Freescale\CW MCU v10.6\eclipse\../MCU/lib/wizard_data/mqx/4.1/patches' does not exist
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2015-07-14 16:41:06.353
+!MESSAGE No repository found at jar:file:C:%5CUsers%5Cddtdanilo%5CDownloads%5CCW%20for%20MCU%2010.6%5Ccom.freescale.mcu10_6.e200.updatesite.zip!/.
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2015-07-14 16:41:06.447
+!MESSAGE No repository found at jar:file:C:%5CUsers%5Cddtdanilo%5CDownloads%5CCW%20for%20MCU%2010.6%5Ccom.freescale.mcu10_6.coldfire.updatesite.zip!/.
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2015-07-14 16:41:06.486
+!MESSAGE No repository found at jar:file:C:%5CUsers%5Cddtdanilo%5CDownloads%5CCW%20for%20MCU%2010.6%5Ccom.freescale.mcu10_6.hcs08_rs08.updatesite.zip!/.
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2015-07-14 16:41:11.641
+!MESSAGE No repository found at jar:file:C:%5CUsers%5Cddtdanilo%5CDownloads%5CCW%20for%20MCU%2010.6%5Ccom.freescale.mcu10_6.dsc.updatesite.zip!/.
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2015-07-14 16:41:11.663
+!MESSAGE No repository found at jar:file:C:%5CUsers%5Cddtdanilo%5CDownloads%5CCW%20for%20MCU%2010.6%5Ccom.freescale.mcu10_6.kinetis.updatesite.zip!/.
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2015-07-14 16:41:11.689
+!MESSAGE No repository found at jar:file:C:%5CUsers%5Cddtdanilo%5CDownloads%5CCW%20for%20MCU%2010.6%5Ccom.freescale.mcu10_6.s12z.updatesite.zip!/.
+
+!ENTRY org.eclipse.osgi 2 1 2015-07-14 16:41:38.702
+!MESSAGE NLS unused message: trace_trigger_dv_error_title in: com.freescale.sa.mcu.analysispoints.nls.ui
+
+!ENTRY org.eclipse.osgi 2 1 2015-07-14 16:41:38.706
+!MESSAGE NLS unused message: trace_trigger_dv_error_message in: com.freescale.sa.mcu.analysispoints.nls.ui
+
+!ENTRY com.freescale.core.debugger.cdt 4 120 2015-07-14 16:42:10.956
+!MESSAGE Error logged from CodeWarrior debugger core:
+!STACK 0
+java.lang.AssertionError: Assertion failed: Wrong usage of progress monitor in DE!
+	at com.freescale.cdt.debug.cw.CWExceptionLogger.logAssert(CWExceptionLogger.java:100)
+	at com.freescale.cdt.debug.cw.CWProgressMonitor.newChild(CWProgressMonitor.java:186)
+	at cwdbg.ProgressMonitorPOA._invoke(ProgressMonitorPOA.java:190)
+	at com.sun.corba.se.impl.protocol.CorbaServerRequestDispatcherImpl.dispatchToServant(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaServerRequestDispatcherImpl.dispatch(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaMessageMediatorImpl.handleRequestRequest(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaMessageMediatorImpl.handleRequest(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaMessageMediatorImpl.handleInput(Unknown Source)
+	at com.sun.corba.se.impl.protocol.giopmsgheaders.RequestMessage_1_2.callback(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaMessageMediatorImpl.handleRequest(Unknown Source)
+	at com.sun.corba.se.impl.transport.SocketOrChannelConnectionImpl.dispatch(Unknown Source)
+	at com.sun.corba.se.impl.transport.SocketOrChannelConnectionImpl.doWork(Unknown Source)
+	at com.sun.corba.se.impl.orbutil.threadpool.ThreadPoolImpl$WorkerThread.performWork(Unknown Source)
+	at com.sun.corba.se.impl.orbutil.threadpool.ThreadPoolImpl$WorkerThread.run(Unknown Source)
+
+!ENTRY com.freescale.core.debugger.cdt 4 16777218 2015-07-14 16:42:38.636
+!MESSAGE Failed to resume target process.
+!STACK 1
+org.eclipse.core.runtime.CoreException: ColdFire GDI Protocol Adapter : An error occurred while trying to write registers. Loss of communications with P&E hardware.
+	at com.freescale.cdt.debug.cw.core.DebugErrorUtils.handleDebugCoreError(DebugErrorUtils.java:281)
+	at com.freescale.cdt.debug.cw.core.cdi.model.Target.launchComplete(Target.java:4610)
+	at com.freescale.cdt.debug.cw.CWCallback.NotifyTargetLaunchComplete(CWCallback.java:631)
+	at cwdbg.DebuggerCallbackPOA._invoke(DebuggerCallbackPOA.java:399)
+	at com.sun.corba.se.impl.protocol.CorbaServerRequestDispatcherImpl.dispatchToServant(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaServerRequestDispatcherImpl.dispatch(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaMessageMediatorImpl.handleRequestRequest(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaMessageMediatorImpl.handleRequest(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaMessageMediatorImpl.handleInput(Unknown Source)
+	at com.sun.corba.se.impl.protocol.giopmsgheaders.RequestMessage_1_2.callback(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaMessageMediatorImpl.handleRequest(Unknown Source)
+	at com.sun.corba.se.impl.transport.SocketOrChannelConnectionImpl.dispatch(Unknown Source)
+	at com.sun.corba.se.impl.transport.SocketOrChannelConnectionImpl.doWork(Unknown Source)
+	at com.sun.corba.se.impl.orbutil.threadpool.ThreadPoolImpl$WorkerThread.performWork(Unknown Source)
+	at com.sun.corba.se.impl.orbutil.threadpool.ThreadPoolImpl$WorkerThread.run(Unknown Source)
+!SUBENTRY 1 com.freescale.core.debugger.cdt 4 16777218 2015-07-14 16:42:38.638
+!MESSAGE ColdFire GDI Protocol Adapter : An error occurred while trying to write registers. Loss of communications with P&E hardware.
+
+!ENTRY com.freescale.core.debugger.cdt 4 120 2015-07-14 16:42:51.713
+!MESSAGE Error logged from CodeWarrior debugger core:
+!STACK 0
+java.lang.AssertionError: Assertion failed: Wrong usage of progress monitor in DE!
+	at com.freescale.cdt.debug.cw.CWExceptionLogger.logAssert(CWExceptionLogger.java:100)
+	at com.freescale.cdt.debug.cw.CWProgressMonitor.newChild(CWProgressMonitor.java:186)
+	at cwdbg.ProgressMonitorPOA._invoke(ProgressMonitorPOA.java:190)
+	at com.sun.corba.se.impl.protocol.CorbaServerRequestDispatcherImpl.dispatchToServant(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaServerRequestDispatcherImpl.dispatch(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaMessageMediatorImpl.handleRequestRequest(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaMessageMediatorImpl.handleRequest(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaMessageMediatorImpl.handleInput(Unknown Source)
+	at com.sun.corba.se.impl.protocol.giopmsgheaders.RequestMessage_1_2.callback(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaMessageMediatorImpl.handleRequest(Unknown Source)
+	at com.sun.corba.se.impl.transport.SocketOrChannelConnectionImpl.dispatch(Unknown Source)
+	at com.sun.corba.se.impl.transport.SocketOrChannelConnectionImpl.doWork(Unknown Source)
+	at com.sun.corba.se.impl.orbutil.threadpool.ThreadPoolImpl$WorkerThread.performWork(Unknown Source)
+	at com.sun.corba.se.impl.orbutil.threadpool.ThreadPoolImpl$WorkerThread.run(Unknown Source)
+
+!ENTRY com.freescale.core.debugger.cdt 4 16777218 2015-07-14 16:43:10.315
+!MESSAGE Failed to resume target process.
+!STACK 1
+org.eclipse.core.runtime.CoreException: ColdFire GDI Protocol Adapter : An invalid preference was passed to the ColdFire GDI protocol. Loss of communications with P&E hardware.
+	at com.freescale.cdt.debug.cw.core.DebugErrorUtils.handleDebugCoreError(DebugErrorUtils.java:281)
+	at com.freescale.cdt.debug.cw.core.cdi.model.Target.launchComplete(Target.java:4610)
+	at com.freescale.cdt.debug.cw.CWCallback.NotifyTargetLaunchComplete(CWCallback.java:631)
+	at cwdbg.DebuggerCallbackPOA._invoke(DebuggerCallbackPOA.java:399)
+	at com.sun.corba.se.impl.protocol.CorbaServerRequestDispatcherImpl.dispatchToServant(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaServerRequestDispatcherImpl.dispatch(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaMessageMediatorImpl.handleRequestRequest(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaMessageMediatorImpl.handleRequest(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaMessageMediatorImpl.handleInput(Unknown Source)
+	at com.sun.corba.se.impl.protocol.giopmsgheaders.RequestMessage_1_2.callback(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaMessageMediatorImpl.handleRequest(Unknown Source)
+	at com.sun.corba.se.impl.transport.SocketOrChannelConnectionImpl.dispatch(Unknown Source)
+	at com.sun.corba.se.impl.transport.SocketOrChannelConnectionImpl.doWork(Unknown Source)
+	at com.sun.corba.se.impl.orbutil.threadpool.ThreadPoolImpl$WorkerThread.performWork(Unknown Source)
+	at com.sun.corba.se.impl.orbutil.threadpool.ThreadPoolImpl$WorkerThread.run(Unknown Source)
+!SUBENTRY 1 com.freescale.core.debugger.cdt 4 16777218 2015-07-14 16:43:10.315
+!MESSAGE ColdFire GDI Protocol Adapter : An invalid preference was passed to the ColdFire GDI protocol. Loss of communications with P&E hardware.
+
+!ENTRY com.freescale.core.debugger.cdt 4 120 2015-07-14 16:43:18.295
+!MESSAGE Error logged from CodeWarrior debugger core:
+!STACK 0
+java.lang.AssertionError: Assertion failed: Wrong usage of progress monitor in DE!
+	at com.freescale.cdt.debug.cw.CWExceptionLogger.logAssert(CWExceptionLogger.java:100)
+	at com.freescale.cdt.debug.cw.CWProgressMonitor.newChild(CWProgressMonitor.java:186)
+	at cwdbg.ProgressMonitorPOA._invoke(ProgressMonitorPOA.java:190)
+	at com.sun.corba.se.impl.protocol.CorbaServerRequestDispatcherImpl.dispatchToServant(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaServerRequestDispatcherImpl.dispatch(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaMessageMediatorImpl.handleRequestRequest(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaMessageMediatorImpl.handleRequest(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaMessageMediatorImpl.handleInput(Unknown Source)
+	at com.sun.corba.se.impl.protocol.giopmsgheaders.RequestMessage_1_2.callback(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaMessageMediatorImpl.handleRequest(Unknown Source)
+	at com.sun.corba.se.impl.transport.SocketOrChannelConnectionImpl.dispatch(Unknown Source)
+	at com.sun.corba.se.impl.transport.SocketOrChannelConnectionImpl.doWork(Unknown Source)
+	at com.sun.corba.se.impl.orbutil.threadpool.ThreadPoolImpl$WorkerThread.performWork(Unknown Source)
+	at com.sun.corba.se.impl.orbutil.threadpool.ThreadPoolImpl$WorkerThread.run(Unknown Source)
+
+!ENTRY com.freescale.core.debugger.cdt 4 16777218 2015-07-14 16:43:24.930
+!MESSAGE Failed to resume target process.
+!STACK 1
+org.eclipse.core.runtime.CoreException: Downloading binary to target...
+	at com.freescale.cdt.debug.cw.core.DebugErrorUtils.handleDebugCoreError(DebugErrorUtils.java:281)
+	at com.freescale.cdt.debug.cw.core.cdi.model.Target.launchComplete(Target.java:4610)
+	at com.freescale.cdt.debug.cw.CWCallback.NotifyTargetLaunchComplete(CWCallback.java:631)
+	at cwdbg.DebuggerCallbackPOA._invoke(DebuggerCallbackPOA.java:399)
+	at com.sun.corba.se.impl.protocol.CorbaServerRequestDispatcherImpl.dispatchToServant(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaServerRequestDispatcherImpl.dispatch(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaMessageMediatorImpl.handleRequestRequest(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaMessageMediatorImpl.handleRequest(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaMessageMediatorImpl.handleInput(Unknown Source)
+	at com.sun.corba.se.impl.protocol.giopmsgheaders.RequestMessage_1_2.callback(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaMessageMediatorImpl.handleRequest(Unknown Source)
+	at com.sun.corba.se.impl.transport.SocketOrChannelConnectionImpl.dispatch(Unknown Source)
+	at com.sun.corba.se.impl.transport.SocketOrChannelConnectionImpl.doWork(Unknown Source)
+	at com.sun.corba.se.impl.orbutil.threadpool.ThreadPoolImpl$WorkerThread.performWork(Unknown Source)
+	at com.sun.corba.se.impl.orbutil.threadpool.ThreadPoolImpl$WorkerThread.run(Unknown Source)
+!SUBENTRY 1 com.freescale.core.debugger.cdt 4 16777218 2015-07-14 16:43:24.931
+!MESSAGE Downloading binary to target...
+
+!ENTRY com.freescale.core.debugger.cdt 4 120 2015-07-14 16:43:36.033
+!MESSAGE Error logged from CodeWarrior debugger core:
+!STACK 0
+java.lang.AssertionError: Assertion failed: Wrong usage of progress monitor in DE!
+	at com.freescale.cdt.debug.cw.CWExceptionLogger.logAssert(CWExceptionLogger.java:100)
+	at com.freescale.cdt.debug.cw.CWProgressMonitor.newChild(CWProgressMonitor.java:186)
+	at cwdbg.ProgressMonitorPOA._invoke(ProgressMonitorPOA.java:190)
+	at com.sun.corba.se.impl.protocol.CorbaServerRequestDispatcherImpl.dispatchToServant(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaServerRequestDispatcherImpl.dispatch(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaMessageMediatorImpl.handleRequestRequest(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaMessageMediatorImpl.handleRequest(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaMessageMediatorImpl.handleInput(Unknown Source)
+	at com.sun.corba.se.impl.protocol.giopmsgheaders.RequestMessage_1_2.callback(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaMessageMediatorImpl.handleRequest(Unknown Source)
+	at com.sun.corba.se.impl.transport.SocketOrChannelConnectionImpl.dispatch(Unknown Source)
+	at com.sun.corba.se.impl.transport.SocketOrChannelConnectionImpl.doWork(Unknown Source)
+	at com.sun.corba.se.impl.orbutil.threadpool.ThreadPoolImpl$WorkerThread.performWork(Unknown Source)
+	at com.sun.corba.se.impl.orbutil.threadpool.ThreadPoolImpl$WorkerThread.run(Unknown Source)
+
+!ENTRY org.eclipse.debug.core 4 2 2015-07-14 16:45:33.441
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.debug.core".
+!STACK 0
+org.eclipse.swt.SWTException: Device is disposed
+	at org.eclipse.swt.SWT.error(SWT.java:4361)
+	at org.eclipse.swt.SWT.error(SWT.java:4276)
+	at org.eclipse.swt.SWT.error(SWT.java:4247)
+	at org.eclipse.swt.widgets.Display.error(Display.java:1265)
+	at org.eclipse.swt.widgets.Display.getThread(Display.java:2606)
+	at org.eclipse.debug.internal.ui.stringsubstitution.SelectedResourceManager.getActiveWindow(SelectedResourceManager.java:236)
+	at org.eclipse.debug.ui.DebugUITools.getDebugContext(DebugUITools.java:225)
+	at org.eclipse.cdt.debug.internal.ui.actions.RemoveAllGlobalsActionDelegate.update(RemoveAllGlobalsActionDelegate.java:99)
+	at org.eclipse.cdt.debug.internal.ui.actions.RemoveAllGlobalsActionDelegate.handleDebugEvents(RemoveAllGlobalsActionDelegate.java:131)
+	at org.eclipse.debug.core.DebugPlugin$EventNotifier.run(DebugPlugin.java:1109)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.core.DebugPlugin$EventNotifier.dispatch(DebugPlugin.java:1143)
+	at org.eclipse.debug.core.DebugPlugin$EventDispatchJob.run(DebugPlugin.java:407)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+
+!ENTRY org.eclipse.debug.core 4 125 2015-07-14 16:45:33.447
+!MESSAGE An exception occurred while dispatching debug events.
+!STACK 0
+org.eclipse.swt.SWTException: Device is disposed
+	at org.eclipse.swt.SWT.error(SWT.java:4361)
+	at org.eclipse.swt.SWT.error(SWT.java:4276)
+	at org.eclipse.swt.SWT.error(SWT.java:4247)
+	at org.eclipse.swt.widgets.Display.error(Display.java:1265)
+	at org.eclipse.swt.widgets.Display.getThread(Display.java:2606)
+	at org.eclipse.debug.internal.ui.stringsubstitution.SelectedResourceManager.getActiveWindow(SelectedResourceManager.java:236)
+	at org.eclipse.debug.ui.DebugUITools.getDebugContext(DebugUITools.java:225)
+	at org.eclipse.cdt.debug.internal.ui.actions.RemoveAllGlobalsActionDelegate.update(RemoveAllGlobalsActionDelegate.java:99)
+	at org.eclipse.cdt.debug.internal.ui.actions.RemoveAllGlobalsActionDelegate.handleDebugEvents(RemoveAllGlobalsActionDelegate.java:131)
+	at org.eclipse.debug.core.DebugPlugin$EventNotifier.run(DebugPlugin.java:1109)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.core.DebugPlugin$EventNotifier.dispatch(DebugPlugin.java:1143)
+	at org.eclipse.debug.core.DebugPlugin$EventDispatchJob.run(DebugPlugin.java:407)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+
+!ENTRY org.eclipse.debug.core 4 2 2015-07-14 16:45:33.474
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.debug.core".
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.cdt.debug.internal.ui.views.memory.CMemoryRenderingStore.getMemorySite(CMemoryRenderingStore.java:82)
+	at org.eclipse.cdt.debug.internal.ui.views.memory.CMemoryRenderingStore$2.run(CMemoryRenderingStore.java:220)
+	at org.eclipse.swt.widgets.Synchronizer.syncExec(Synchronizer.java:200)
+	at org.eclipse.swt.widgets.Display.syncExec(Display.java:4702)
+	at org.eclipse.cdt.debug.internal.ui.views.memory.CMemoryRenderingStore.handleDebugEvents(CMemoryRenderingStore.java:218)
+	at org.eclipse.debug.core.DebugPlugin$EventNotifier.run(DebugPlugin.java:1109)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.core.DebugPlugin$EventNotifier.dispatch(DebugPlugin.java:1143)
+	at org.eclipse.debug.core.DebugPlugin$EventDispatchJob.run(DebugPlugin.java:407)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+
+!ENTRY org.eclipse.debug.core 4 125 2015-07-14 16:45:33.478
+!MESSAGE An exception occurred while dispatching debug events.
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.cdt.debug.internal.ui.views.memory.CMemoryRenderingStore.getMemorySite(CMemoryRenderingStore.java:82)
+	at org.eclipse.cdt.debug.internal.ui.views.memory.CMemoryRenderingStore$2.run(CMemoryRenderingStore.java:220)
+	at org.eclipse.swt.widgets.Synchronizer.syncExec(Synchronizer.java:200)
+	at org.eclipse.swt.widgets.Display.syncExec(Display.java:4702)
+	at org.eclipse.cdt.debug.internal.ui.views.memory.CMemoryRenderingStore.handleDebugEvents(CMemoryRenderingStore.java:218)
+	at org.eclipse.debug.core.DebugPlugin$EventNotifier.run(DebugPlugin.java:1109)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.debug.core.DebugPlugin$EventNotifier.dispatch(DebugPlugin.java:1143)
+	at org.eclipse.debug.core.DebugPlugin$EventDispatchJob.run(DebugPlugin.java:407)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+
+!ENTRY com.freescale.core.debugger.cdt 4 120 2015-07-14 16:45:38.386
+!MESSAGE Error logged from CodeWarrior debugger core:
+!STACK 0
+java.lang.AssertionError: Assertion failed: Exhausted shutdown timeout while asking the DE to shut itself down. Proceeding with Eclipse shutdown.
+	at com.freescale.cdt.debug.cw.CWExceptionLogger.logAssert(CWExceptionLogger.java:100)
+	at com.freescale.cdt.debug.cw.CWCorbaMgr$CorbaContext.terminate(CWCorbaMgr.java:528)
+	at com.freescale.cdt.debug.cw.CWCorbaMgr$CorbaContext.access$15(CWCorbaMgr.java:466)
+	at com.freescale.cdt.debug.cw.CWCorbaMgr.stop(CWCorbaMgr.java:1109)
+	at com.freescale.cdt.debug.cw.core.CWPlugin.stop(CWPlugin.java:455)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl$2.run(BundleContextImpl.java:771)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.stop(BundleContextImpl.java:764)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.stopWorker(BundleHost.java:510)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.suspend(AbstractBundle.java:566)
+	at org.eclipse.osgi.framework.internal.core.Framework.suspendBundle(Framework.java:1206)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.decFWSL(StartLevelManager.java:592)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.doSetStartLevel(StartLevelManager.java:257)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.shutdown(StartLevelManager.java:215)
+	at org.eclipse.osgi.framework.internal.core.InternalSystemBundle.suspend(InternalSystemBundle.java:284)
+	at org.eclipse.osgi.framework.internal.core.Framework.shutdown(Framework.java:692)
+	at org.eclipse.osgi.framework.internal.core.Framework.close(Framework.java:600)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.shutdown(EclipseStarter.java:399)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:199)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:630)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:585)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1439)
+
+!ENTRY com.freescale.core.debugger.cdt 4 120 2015-07-14 16:45:39.881
+!MESSAGE Error logged from CodeWarrior debugger core:
+!STACK 0
+java.lang.AssertionError: Assertion failed: Exhausted shutdown timeout while shutting down the ORB. Will destroy DE & ORB nevertheless.
+	at com.freescale.cdt.debug.cw.CWExceptionLogger.logAssert(CWExceptionLogger.java:100)
+	at com.freescale.cdt.debug.cw.CWCorbaMgr$CorbaContext.terminate(CWCorbaMgr.java:567)
+	at com.freescale.cdt.debug.cw.CWCorbaMgr$CorbaContext.access$15(CWCorbaMgr.java:466)
+	at com.freescale.cdt.debug.cw.CWCorbaMgr.stop(CWCorbaMgr.java:1109)
+	at com.freescale.cdt.debug.cw.core.CWPlugin.stop(CWPlugin.java:455)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl$2.run(BundleContextImpl.java:771)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.stop(BundleContextImpl.java:764)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.stopWorker(BundleHost.java:510)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.suspend(AbstractBundle.java:566)
+	at org.eclipse.osgi.framework.internal.core.Framework.suspendBundle(Framework.java:1206)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.decFWSL(StartLevelManager.java:592)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.doSetStartLevel(StartLevelManager.java:257)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.shutdown(StartLevelManager.java:215)
+	at org.eclipse.osgi.framework.internal.core.InternalSystemBundle.suspend(InternalSystemBundle.java:284)
+	at org.eclipse.osgi.framework.internal.core.Framework.shutdown(Framework.java:692)
+	at org.eclipse.osgi.framework.internal.core.Framework.close(Framework.java:600)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.shutdown(EclipseStarter.java:399)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:199)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:630)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:585)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1439)
+
+!ENTRY com.freescale.core.debugger.cdt 4 120 2015-07-14 16:45:40.389
+!MESSAGE Error logged from CodeWarrior debugger core:
+!STACK 0
+java.lang.AssertionError: Assertion failed: Exhausted shutdown timeout while waiting for DE process to go away. Will forcibly kill.
+	at com.freescale.cdt.debug.cw.CWExceptionLogger.logAssert(CWExceptionLogger.java:100)
+	at com.freescale.cdt.debug.cw.CWCorbaMgr$CorbaContext.terminate(CWCorbaMgr.java:617)
+	at com.freescale.cdt.debug.cw.CWCorbaMgr$CorbaContext.access$15(CWCorbaMgr.java:466)
+	at com.freescale.cdt.debug.cw.CWCorbaMgr.stop(CWCorbaMgr.java:1109)
+	at com.freescale.cdt.debug.cw.core.CWPlugin.stop(CWPlugin.java:455)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl$2.run(BundleContextImpl.java:771)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at org.eclipse.osgi.framework.internal.core.BundleContextImpl.stop(BundleContextImpl.java:764)
+	at org.eclipse.osgi.framework.internal.core.BundleHost.stopWorker(BundleHost.java:510)
+	at org.eclipse.osgi.framework.internal.core.AbstractBundle.suspend(AbstractBundle.java:566)
+	at org.eclipse.osgi.framework.internal.core.Framework.suspendBundle(Framework.java:1206)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.decFWSL(StartLevelManager.java:592)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.doSetStartLevel(StartLevelManager.java:257)
+	at org.eclipse.osgi.framework.internal.core.StartLevelManager.shutdown(StartLevelManager.java:215)
+	at org.eclipse.osgi.framework.internal.core.InternalSystemBundle.suspend(InternalSystemBundle.java:284)
+	at org.eclipse.osgi.framework.internal.core.Framework.shutdown(Framework.java:692)
+	at org.eclipse.osgi.framework.internal.core.Framework.close(Framework.java:600)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.shutdown(EclipseStarter.java:399)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:199)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:630)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:585)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1439)
+
+!ENTRY com.freescale.core.debugger.cdt 4 120 2015-07-14 16:45:40.518
+!MESSAGE Error logged from CodeWarrior debugger core:
+!STACK 0
+java.lang.NullPointerException
+	at com.sun.corba.se.impl.orb.ORBImpl.checkShutdownState(Unknown Source)
+	at com.sun.corba.se.impl.orb.ORBImpl.getInvocationInfo(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaClientDelegateImpl.getClientRequestDispatcher(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaClientDelegateImpl.releaseReply(Unknown Source)
+	at org.omg.CORBA.portable.ObjectImpl._releaseReply(Unknown Source)
+	at cwdbg._DebuggerEngineStub.RequestShutdown(_DebuggerEngineStub.java:912)
+	at com.freescale.cdt.debug.cw.CWCorbaMgr$CorbaContext$2.run(CWCorbaMgr.java:512)
+	at com.freescale.cdt.debug.cw.core.CWWaitTimeout$1.run(CWWaitTimeout.java:66)
+!SESSION 2015-07-14 16:48:26.457 -----------------------------------------------
+eclipse.buildId=I20070613-1755
+java.version=1.6.0_15
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en
+Command-line arguments:  -os win32 -ws win32 -arch x86
+
+!ENTRY org.eclipse.core.resources 2 10035 2015-07-14 16:48:27.796
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.osgi 2 1 2015-07-14 16:48:28.942
+!MESSAGE NLS missing message: ContentTypes_errorDialogAlreadyExists in: org.eclipse.ui.internal.messages
+
+!ENTRY org.eclipse.osgi 2 1 2015-07-14 16:48:34.293
+!MESSAGE NLS missing message: DisassemblyPreferencePage_showFunctionOffsets in: org.eclipse.cdt.dsf.debug.internal.ui.disassembly.DisassemblyMessages
+
+!ENTRY org.eclipse.osgi 2 1 2015-07-14 16:48:34.575
+!MESSAGE NLS missing message: DisassemblyPreferencePage_showFunctionOffsetsTooltip in: org.eclipse.cdt.dsf.debug.internal.ui.disassembly.DisassemblyMessages
+
+!ENTRY org.eclipse.osgi 2 1 2015-07-14 16:48:34.580
+!MESSAGE NLS missing message: DisassemblyPreferencePage_showCodeBytes in: org.eclipse.cdt.dsf.debug.internal.ui.disassembly.DisassemblyMessages
+
+!ENTRY org.eclipse.osgi 2 1 2015-07-14 16:48:34.585
+!MESSAGE NLS missing message: DisassemblyPreferencePage_showCodeBytesTooltip in: org.eclipse.cdt.dsf.debug.internal.ui.disassembly.DisassemblyMessages
+
+!ENTRY org.eclipse.osgi 2 1 2015-07-14 16:48:34.587
+!MESSAGE NLS missing message: DisassemblyPreferencePage_showAddress in: org.eclipse.cdt.dsf.debug.internal.ui.disassembly.DisassemblyMessages
+
+!ENTRY org.eclipse.osgi 2 1 2015-07-14 16:48:34.592
+!MESSAGE NLS missing message: DisassemblyPreferencePage_showAddressTooltip in: org.eclipse.cdt.dsf.debug.internal.ui.disassembly.DisassemblyMessages
+
+!ENTRY com.freescale.core.ide.cdt.toolchain 4 0 2015-07-14 16:48:36.798
+!MESSAGE Environment Variable Dependency not resolved for 'ARMGNUDirEnv'.
+
+!ENTRY com.freescale.core.ide.cdt.toolchain 4 0 2015-07-14 16:48:36.805
+!MESSAGE Environment Variable Dependency not resolved for 'ARMSummonDirEnv'.
+
+!ENTRY com.freescale.core.ide.cdt.toolchain 4 0 2015-07-14 16:48:36.811
+!MESSAGE Environment Variable Dependency not resolved for 'ARMYagartoDirEnv'.
+
+!ENTRY com.freescale.core.ide.cdt.toolchain 4 0 2015-07-14 16:48:36.822
+!MESSAGE Environment Variable Dependency not resolved for 'ARMdevkitProDirEnv'.
+
+!ENTRY com.freescale.processorexpert.core 1 0 2015-07-14 16:48:36.858
+!MESSAGE Plugin com.freescale.processorexpert.core.service ProcessorExpertServiceProvider
+
+!ENTRY com.freescale.core.ide.wizard.ui 2 0 2015-07-14 16:48:44.020
+!MESSAGE External elements location 'C:\Freescale\CW MCU v10.6\eclipse\../MCU/lib/wizard_data/mqx/4.0/ppc' does not exist
+
+!ENTRY com.freescale.core.ide.wizard.ui 2 0 2015-07-14 16:48:44.024
+!MESSAGE External elements location 'C:\Freescale\CW MCU v10.6\eclipse\../MCU/lib/wizard_data/mqx/4.0/patches' does not exist
+
+!ENTRY com.freescale.core.ide.wizard.ui 2 0 2015-07-14 16:48:44.256
+!MESSAGE External elements location 'C:\Freescale\CW MCU v10.6\eclipse\../MCU/lib/wizard_data/mqx/4.1/ppc' does not exist
+
+!ENTRY com.freescale.core.ide.wizard.ui 2 0 2015-07-14 16:48:44.262
+!MESSAGE External elements location 'C:\Freescale\CW MCU v10.6\eclipse\../MCU/lib/wizard_data/mqx/4.1/patches' does not exist
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2015-07-14 16:48:53.119
+!MESSAGE No repository found at jar:file:C:%5CUsers%5Cddtdanilo%5CDownloads%5CCW%20for%20MCU%2010.6%5Ccom.freescale.mcu10_6.e200.updatesite.zip!/.
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2015-07-14 16:48:53.164
+!MESSAGE No repository found at jar:file:C:%5CUsers%5Cddtdanilo%5CDownloads%5CCW%20for%20MCU%2010.6%5Ccom.freescale.mcu10_6.coldfire.updatesite.zip!/.
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2015-07-14 16:48:53.194
+!MESSAGE No repository found at jar:file:C:%5CUsers%5Cddtdanilo%5CDownloads%5CCW%20for%20MCU%2010.6%5Ccom.freescale.mcu10_6.hcs08_rs08.updatesite.zip!/.
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2015-07-14 16:49:00.060
+!MESSAGE No repository found at jar:file:C:%5CUsers%5Cddtdanilo%5CDownloads%5CCW%20for%20MCU%2010.6%5Ccom.freescale.mcu10_6.dsc.updatesite.zip!/.
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2015-07-14 16:49:00.091
+!MESSAGE No repository found at jar:file:C:%5CUsers%5Cddtdanilo%5CDownloads%5CCW%20for%20MCU%2010.6%5Ccom.freescale.mcu10_6.kinetis.updatesite.zip!/.
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2015-07-14 16:49:00.116
+!MESSAGE No repository found at jar:file:C:%5CUsers%5Cddtdanilo%5CDownloads%5CCW%20for%20MCU%2010.6%5Ccom.freescale.mcu10_6.s12z.updatesite.zip!/.
+
+!ENTRY com.freescale.core.debugger.cdt 4 120 2015-07-14 17:11:39.870
+!MESSAGE Error logged from CodeWarrior debugger core:
+!STACK 0
+java.lang.AssertionError: Assertion failed: Wrong usage of progress monitor in DE!
+	at com.freescale.cdt.debug.cw.CWExceptionLogger.logAssert(CWExceptionLogger.java:100)
+	at com.freescale.cdt.debug.cw.CWProgressMonitor.newChild(CWProgressMonitor.java:186)
+	at cwdbg.ProgressMonitorPOA._invoke(ProgressMonitorPOA.java:190)
+	at com.sun.corba.se.impl.protocol.CorbaServerRequestDispatcherImpl.dispatchToServant(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaServerRequestDispatcherImpl.dispatch(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaMessageMediatorImpl.handleRequestRequest(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaMessageMediatorImpl.handleRequest(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaMessageMediatorImpl.handleInput(Unknown Source)
+	at com.sun.corba.se.impl.protocol.giopmsgheaders.RequestMessage_1_2.callback(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaMessageMediatorImpl.handleRequest(Unknown Source)
+	at com.sun.corba.se.impl.transport.SocketOrChannelConnectionImpl.dispatch(Unknown Source)
+	at com.sun.corba.se.impl.transport.SocketOrChannelConnectionImpl.doWork(Unknown Source)
+	at com.sun.corba.se.impl.orbutil.threadpool.ThreadPoolImpl$WorkerThread.performWork(Unknown Source)
+	at com.sun.corba.se.impl.orbutil.threadpool.ThreadPoolImpl$WorkerThread.run(Unknown Source)
+
+!ENTRY org.eclipse.osgi 2 1 2015-07-14 17:11:45.964
+!MESSAGE NLS unused message: trace_trigger_dv_error_title in: com.freescale.sa.mcu.analysispoints.nls.ui
+
+!ENTRY org.eclipse.osgi 2 1 2015-07-14 17:11:45.970
+!MESSAGE NLS unused message: trace_trigger_dv_error_message in: com.freescale.sa.mcu.analysispoints.nls.ui
+
+!ENTRY com.freescale.core.debugger.cdt 4 120 2015-07-14 17:15:18.904
+!MESSAGE Error logged from CodeWarrior debugger core:
+!STACK 0
+org.eclipse.cdt.debug.core.cdi.CDIException: ColdFire GDI Protocol Adapter : An invalid preference was passed to the ColdFire GDI protocol. Loss of communications with P&E hardware.[ColdFire GDI Protocol Adapter : An invalid preference was passed to the ColdFire GDI protocol. Loss of communications with P&E hardware.]
+	at com.freescale.cdt.debug.cw.core.DebugErrorUtils.handleDebugError(DebugErrorUtils.java:95)
+	at com.freescale.cdt.debug.cw.core.cdi.model.Target.doTerminate(Target.java:1409)
+	at com.freescale.cdt.debug.cw.core.cdi.model.Target.access$2(Target.java:1344)
+	at com.freescale.cdt.debug.cw.core.cdi.model.Target$TerminateJob.run(Target.java:1302)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+
+!ENTRY com.freescale.core.debugger.cdt 4 120 2015-07-14 17:15:18.910
+!MESSAGE Error logged from CodeWarrior debugger core:
+!STACK 1
+org.eclipse.debug.core.DebugException: Target request failed: ColdFire GDI Protocol Adapter : An invalid preference was passed to the ColdFire GDI protocol. Loss of communications with P&E hardware.
+	at org.eclipse.cdt.debug.internal.core.model.CDebugElement.throwDebugException(CDebugElement.java:295)
+	at org.eclipse.cdt.debug.internal.core.model.CDebugElement.requestFailed(CDebugElement.java:262)
+	at org.eclipse.cdt.debug.internal.core.model.CDebugElement.targetRequestFailed(CDebugElement.java:250)
+	at org.eclipse.cdt.debug.internal.core.model.CDebugTarget.terminate(CDebugTarget.java:589)
+	at com.freescale.cdt.debug.cw.core.TargetConnectionLostHandler.terminateConnection(TargetConnectionLostHandler.java:278)
+	at com.freescale.cdt.debug.cw.core.TargetConnectionLostHandler.access$5(TargetConnectionLostHandler.java:258)
+	at com.freescale.cdt.debug.cw.core.TargetConnectionLostHandler$4.run(TargetConnectionLostHandler.java:344)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+!SUBENTRY 1 org.eclipse.cdt.debug.core 4 5010 2015-07-14 17:15:18.911
+!MESSAGE Target request failed: ColdFire GDI Protocol Adapter : An invalid preference was passed to the ColdFire GDI protocol. Loss of communications with P&E hardware.
+
+!ENTRY com.freescale.core.debugger.cdt 4 120 2015-07-14 17:16:18.712
+!MESSAGE Error logged from CodeWarrior debugger core:
+!STACK 0
+java.lang.AssertionError: Assertion failed: Wrong usage of progress monitor in DE!
+	at com.freescale.cdt.debug.cw.CWExceptionLogger.logAssert(CWExceptionLogger.java:100)
+	at com.freescale.cdt.debug.cw.CWProgressMonitor.newChild(CWProgressMonitor.java:186)
+	at cwdbg.ProgressMonitorPOA._invoke(ProgressMonitorPOA.java:190)
+	at com.sun.corba.se.impl.protocol.CorbaServerRequestDispatcherImpl.dispatchToServant(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaServerRequestDispatcherImpl.dispatch(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaMessageMediatorImpl.handleRequestRequest(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaMessageMediatorImpl.handleRequest(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaMessageMediatorImpl.handleInput(Unknown Source)
+	at com.sun.corba.se.impl.protocol.giopmsgheaders.RequestMessage_1_2.callback(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaMessageMediatorImpl.handleRequest(Unknown Source)
+	at com.sun.corba.se.impl.transport.SocketOrChannelConnectionImpl.dispatch(Unknown Source)
+	at com.sun.corba.se.impl.transport.SocketOrChannelConnectionImpl.doWork(Unknown Source)
+	at com.sun.corba.se.impl.orbutil.threadpool.ThreadPoolImpl$WorkerThread.performWork(Unknown Source)
+	at com.sun.corba.se.impl.orbutil.threadpool.ThreadPoolImpl$WorkerThread.run(Unknown Source)
+
+!ENTRY com.freescale.core.debugger.cdt 4 120 2015-07-14 17:17:05.205
+!MESSAGE Error logged from CodeWarrior debugger core:
+!STACK 0
+org.eclipse.cdt.debug.core.cdi.CDIException: ColdFire GDI Protocol Adapter : An invalid preference was passed to the ColdFire GDI protocol. Loss of communications with P&E hardware.[ColdFire GDI Protocol Adapter : An invalid preference was passed to the ColdFire GDI protocol. Loss of communications with P&E hardware.]
+	at com.freescale.cdt.debug.cw.core.DebugErrorUtils.handleDebugError(DebugErrorUtils.java:95)
+	at com.freescale.cdt.debug.cw.core.cdi.model.Target.doTerminate(Target.java:1409)
+	at com.freescale.cdt.debug.cw.core.cdi.model.Target.access$2(Target.java:1344)
+	at com.freescale.cdt.debug.cw.core.cdi.model.Target$TerminateJob.run(Target.java:1302)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+
+!ENTRY org.eclipse.cdt.debug.core 4 5010 2015-07-14 17:17:05.213
+!MESSAGE Target request failed: ColdFire GDI Protocol Adapter : An invalid preference was passed to the ColdFire GDI protocol. Loss of communications with P&E hardware.
+
+!ENTRY com.freescale.core.debugger.cdt 4 120 2015-07-14 17:17:12.704
+!MESSAGE Error logged from CodeWarrior debugger core:
+!STACK 0
+java.lang.AssertionError: Assertion failed: Wrong usage of progress monitor in DE!
+	at com.freescale.cdt.debug.cw.CWExceptionLogger.logAssert(CWExceptionLogger.java:100)
+	at com.freescale.cdt.debug.cw.CWProgressMonitor.newChild(CWProgressMonitor.java:186)
+	at cwdbg.ProgressMonitorPOA._invoke(ProgressMonitorPOA.java:190)
+	at com.sun.corba.se.impl.protocol.CorbaServerRequestDispatcherImpl.dispatchToServant(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaServerRequestDispatcherImpl.dispatch(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaMessageMediatorImpl.handleRequestRequest(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaMessageMediatorImpl.handleRequest(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaMessageMediatorImpl.handleInput(Unknown Source)
+	at com.sun.corba.se.impl.protocol.giopmsgheaders.RequestMessage_1_2.callback(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaMessageMediatorImpl.handleRequest(Unknown Source)
+	at com.sun.corba.se.impl.transport.SocketOrChannelConnectionImpl.dispatch(Unknown Source)
+	at com.sun.corba.se.impl.transport.SocketOrChannelConnectionImpl.doWork(Unknown Source)
+	at com.sun.corba.se.impl.orbutil.threadpool.ThreadPoolImpl$WorkerThread.performWork(Unknown Source)
+	at com.sun.corba.se.impl.orbutil.threadpool.ThreadPoolImpl$WorkerThread.run(Unknown Source)
+
+!ENTRY com.freescale.core.debugger.cdt 4 16777218 2015-07-14 17:17:18.552
+!MESSAGE Failed to resume target process.
+!STACK 1
+org.eclipse.core.runtime.CoreException: Downloading binary to target...
+	at com.freescale.cdt.debug.cw.core.DebugErrorUtils.handleDebugCoreError(DebugErrorUtils.java:281)
+	at com.freescale.cdt.debug.cw.core.cdi.model.Target.launchComplete(Target.java:4610)
+	at com.freescale.cdt.debug.cw.CWCallback.NotifyTargetLaunchComplete(CWCallback.java:631)
+	at cwdbg.DebuggerCallbackPOA._invoke(DebuggerCallbackPOA.java:399)
+	at com.sun.corba.se.impl.protocol.CorbaServerRequestDispatcherImpl.dispatchToServant(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaServerRequestDispatcherImpl.dispatch(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaMessageMediatorImpl.handleRequestRequest(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaMessageMediatorImpl.handleRequest(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaMessageMediatorImpl.handleInput(Unknown Source)
+	at com.sun.corba.se.impl.protocol.giopmsgheaders.RequestMessage_1_2.callback(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaMessageMediatorImpl.handleRequest(Unknown Source)
+	at com.sun.corba.se.impl.transport.SocketOrChannelConnectionImpl.dispatch(Unknown Source)
+	at com.sun.corba.se.impl.transport.SocketOrChannelConnectionImpl.doWork(Unknown Source)
+	at com.sun.corba.se.impl.orbutil.threadpool.ThreadPoolImpl$WorkerThread.performWork(Unknown Source)
+	at com.sun.corba.se.impl.orbutil.threadpool.ThreadPoolImpl$WorkerThread.run(Unknown Source)
+!SUBENTRY 1 com.freescale.core.debugger.cdt 4 16777218 2015-07-14 17:17:18.552
+!MESSAGE Downloading binary to target...
+
+!ENTRY com.freescale.core.debugger.cdt 4 120 2015-07-14 17:17:55.915
+!MESSAGE Error logged from CodeWarrior debugger core:
+!STACK 0
+java.lang.AssertionError: Assertion failed: Wrong usage of progress monitor in DE!
+	at com.freescale.cdt.debug.cw.CWExceptionLogger.logAssert(CWExceptionLogger.java:100)
+	at com.freescale.cdt.debug.cw.CWProgressMonitor.newChild(CWProgressMonitor.java:186)
+	at cwdbg.ProgressMonitorPOA._invoke(ProgressMonitorPOA.java:190)
+	at com.sun.corba.se.impl.protocol.CorbaServerRequestDispatcherImpl.dispatchToServant(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaServerRequestDispatcherImpl.dispatch(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaMessageMediatorImpl.handleRequestRequest(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaMessageMediatorImpl.handleRequest(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaMessageMediatorImpl.handleInput(Unknown Source)
+	at com.sun.corba.se.impl.protocol.giopmsgheaders.RequestMessage_1_2.callback(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaMessageMediatorImpl.handleRequest(Unknown Source)
+	at com.sun.corba.se.impl.transport.SocketOrChannelConnectionImpl.dispatch(Unknown Source)
+	at com.sun.corba.se.impl.transport.SocketOrChannelConnectionImpl.doWork(Unknown Source)
+	at com.sun.corba.se.impl.orbutil.threadpool.ThreadPoolImpl$WorkerThread.performWork(Unknown Source)
+	at com.sun.corba.se.impl.orbutil.threadpool.ThreadPoolImpl$WorkerThread.run(Unknown Source)
+
+!ENTRY com.freescale.core.debugger.cdt 4 120 2015-07-14 17:18:56.343
+!MESSAGE Error logged from CodeWarrior debugger core:
+!STACK 0
+org.eclipse.cdt.debug.core.cdi.CDIException: ColdFire GDI Protocol Adapter : An invalid preference was passed to the ColdFire GDI protocol. Loss of communications with P&E hardware.[ColdFire GDI Protocol Adapter : An invalid preference was passed to the ColdFire GDI protocol. Loss of communications with P&E hardware.]
+	at com.freescale.cdt.debug.cw.core.DebugErrorUtils.handleDebugError(DebugErrorUtils.java:95)
+	at com.freescale.cdt.debug.cw.core.cdi.model.Target.doTerminate(Target.java:1409)
+	at com.freescale.cdt.debug.cw.core.cdi.model.Target.access$2(Target.java:1344)
+	at com.freescale.cdt.debug.cw.core.cdi.model.Target$TerminateJob.run(Target.java:1302)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+
+!ENTRY org.eclipse.cdt.debug.core 4 5010 2015-07-14 17:18:56.348
+!MESSAGE Target request failed: ColdFire GDI Protocol Adapter : An invalid preference was passed to the ColdFire GDI protocol. Loss of communications with P&E hardware.
+
+!ENTRY com.freescale.core.debugger.cdt 4 120 2015-07-14 17:20:19.561
+!MESSAGE Error logged from CodeWarrior debugger core:
+!STACK 0
+java.lang.AssertionError: Assertion failed: Wrong usage of progress monitor in DE!
+	at com.freescale.cdt.debug.cw.CWExceptionLogger.logAssert(CWExceptionLogger.java:100)
+	at com.freescale.cdt.debug.cw.CWProgressMonitor.newChild(CWProgressMonitor.java:186)
+	at cwdbg.ProgressMonitorPOA._invoke(ProgressMonitorPOA.java:190)
+	at com.sun.corba.se.impl.protocol.CorbaServerRequestDispatcherImpl.dispatchToServant(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaServerRequestDispatcherImpl.dispatch(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaMessageMediatorImpl.handleRequestRequest(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaMessageMediatorImpl.handleRequest(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaMessageMediatorImpl.handleInput(Unknown Source)
+	at com.sun.corba.se.impl.protocol.giopmsgheaders.RequestMessage_1_2.callback(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaMessageMediatorImpl.handleRequest(Unknown Source)
+	at com.sun.corba.se.impl.transport.SocketOrChannelConnectionImpl.dispatch(Unknown Source)
+	at com.sun.corba.se.impl.transport.SocketOrChannelConnectionImpl.doWork(Unknown Source)
+	at com.sun.corba.se.impl.orbutil.threadpool.ThreadPoolImpl$WorkerThread.performWork(Unknown Source)
+	at com.sun.corba.se.impl.orbutil.threadpool.ThreadPoolImpl$WorkerThread.run(Unknown Source)
+
+!ENTRY com.freescale.core.debugger.cdt 4 120 2015-07-14 17:22:31.245
+!MESSAGE Error logged from CodeWarrior debugger core:
+!STACK 0
+org.eclipse.cdt.debug.core.cdi.CDIException: ColdFire GDI Protocol Adapter : An invalid preference was passed to the ColdFire GDI protocol. Loss of communications with P&E hardware.[ColdFire GDI Protocol Adapter : An invalid preference was passed to the ColdFire GDI protocol. Loss of communications with P&E hardware.]
+	at com.freescale.cdt.debug.cw.core.DebugErrorUtils.handleDebugError(DebugErrorUtils.java:95)
+	at com.freescale.cdt.debug.cw.core.cdi.model.Target.doTerminate(Target.java:1409)
+	at com.freescale.cdt.debug.cw.core.cdi.model.Target.access$2(Target.java:1344)
+	at com.freescale.cdt.debug.cw.core.cdi.model.Target$TerminateJob.run(Target.java:1302)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+
+!ENTRY org.eclipse.cdt.debug.core 4 5010 2015-07-14 17:22:31.251
+!MESSAGE Target request failed: ColdFire GDI Protocol Adapter : An invalid preference was passed to the ColdFire GDI protocol. Loss of communications with P&E hardware.
+
+!ENTRY com.freescale.core.debugger.cdt 4 120 2015-07-14 17:23:09.952
+!MESSAGE Error logged from CodeWarrior debugger core:
+!STACK 0
+java.lang.AssertionError: Assertion failed: Wrong usage of progress monitor in DE!
+	at com.freescale.cdt.debug.cw.CWExceptionLogger.logAssert(CWExceptionLogger.java:100)
+	at com.freescale.cdt.debug.cw.CWProgressMonitor.newChild(CWProgressMonitor.java:186)
+	at cwdbg.ProgressMonitorPOA._invoke(ProgressMonitorPOA.java:190)
+	at com.sun.corba.se.impl.protocol.CorbaServerRequestDispatcherImpl.dispatchToServant(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaServerRequestDispatcherImpl.dispatch(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaMessageMediatorImpl.handleRequestRequest(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaMessageMediatorImpl.handleRequest(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaMessageMediatorImpl.handleInput(Unknown Source)
+	at com.sun.corba.se.impl.protocol.giopmsgheaders.RequestMessage_1_2.callback(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaMessageMediatorImpl.handleRequest(Unknown Source)
+	at com.sun.corba.se.impl.transport.SocketOrChannelConnectionImpl.dispatch(Unknown Source)
+	at com.sun.corba.se.impl.transport.SocketOrChannelConnectionImpl.doWork(Unknown Source)
+	at com.sun.corba.se.impl.orbutil.threadpool.ThreadPoolImpl$WorkerThread.performWork(Unknown Source)
+	at com.sun.corba.se.impl.orbutil.threadpool.ThreadPoolImpl$WorkerThread.run(Unknown Source)
+
+!ENTRY com.freescale.core.debugger.cdt 4 120 2015-07-14 17:23:59.677
+!MESSAGE Error logged from CodeWarrior debugger core:
+!STACK 0
+org.eclipse.cdt.debug.core.cdi.CDIException: ColdFire GDI Protocol Adapter : An invalid preference was passed to the ColdFire GDI protocol. Loss of communications with P&E hardware.[ColdFire GDI Protocol Adapter : An invalid preference was passed to the ColdFire GDI protocol. Loss of communications with P&E hardware.]
+	at com.freescale.cdt.debug.cw.core.DebugErrorUtils.handleDebugError(DebugErrorUtils.java:95)
+	at com.freescale.cdt.debug.cw.core.cdi.model.Target.doTerminate(Target.java:1409)
+	at com.freescale.cdt.debug.cw.core.cdi.model.Target.access$2(Target.java:1344)
+	at com.freescale.cdt.debug.cw.core.cdi.model.Target$TerminateJob.run(Target.java:1302)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53)
+
+!ENTRY com.freescale.core.debugger.cdt 4 120 2015-07-14 17:24:38.587
+!MESSAGE Error logged from CodeWarrior debugger core:
+!STACK 0
+java.lang.AssertionError: Assertion failed: Wrong usage of progress monitor in DE!
+	at com.freescale.cdt.debug.cw.CWExceptionLogger.logAssert(CWExceptionLogger.java:100)
+	at com.freescale.cdt.debug.cw.CWProgressMonitor.newChild(CWProgressMonitor.java:186)
+	at cwdbg.ProgressMonitorPOA._invoke(ProgressMonitorPOA.java:190)
+	at com.sun.corba.se.impl.protocol.CorbaServerRequestDispatcherImpl.dispatchToServant(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaServerRequestDispatcherImpl.dispatch(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaMessageMediatorImpl.handleRequestRequest(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaMessageMediatorImpl.handleRequest(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaMessageMediatorImpl.handleInput(Unknown Source)
+	at com.sun.corba.se.impl.protocol.giopmsgheaders.RequestMessage_1_2.callback(Unknown Source)
+	at com.sun.corba.se.impl.protocol.CorbaMessageMediatorImpl.handleRequest(Unknown Source)
+	at com.sun.corba.se.impl.transport.SocketOrChannelConnectionImpl.dispatch(Unknown Source)
+	at com.sun.corba.se.impl.transport.SocketOrChannelConnectionImpl.doWork(Unknown Source)
+	at com.sun.corba.se.impl.orbutil.threadpool.ThreadPoolImpl$WorkerThread.performWork(Unknown Source)
+	at com.sun.corba.se.impl.orbutil.threadpool.ThreadPoolImpl$WorkerThread.run(Unknown Source)
+!SESSION 2015-07-15 08:35:22.134 -----------------------------------------------
+eclipse.buildId=I20070613-1755
+java.version=1.6.0_15
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en
+Command-line arguments:  -os win32 -ws win32 -arch x86
+
+!ENTRY org.eclipse.core.resources 2 10035 2015-07-15 08:35:24.583
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.osgi 2 1 2015-07-15 08:35:27.843
+!MESSAGE NLS missing message: ContentTypes_errorDialogAlreadyExists in: org.eclipse.ui.internal.messages
+
+!ENTRY org.eclipse.osgi 2 1 2015-07-15 08:35:38.842
+!MESSAGE NLS missing message: DisassemblyPreferencePage_showFunctionOffsets in: org.eclipse.cdt.dsf.debug.internal.ui.disassembly.DisassemblyMessages
+
+!ENTRY org.eclipse.osgi 2 1 2015-07-15 08:35:39.269
+!MESSAGE NLS missing message: DisassemblyPreferencePage_showFunctionOffsetsTooltip in: org.eclipse.cdt.dsf.debug.internal.ui.disassembly.DisassemblyMessages
+
+!ENTRY org.eclipse.osgi 2 1 2015-07-15 08:35:39.276
+!MESSAGE NLS missing message: DisassemblyPreferencePage_showCodeBytes in: org.eclipse.cdt.dsf.debug.internal.ui.disassembly.DisassemblyMessages
+
+!ENTRY org.eclipse.osgi 2 1 2015-07-15 08:35:39.282
+!MESSAGE NLS missing message: DisassemblyPreferencePage_showCodeBytesTooltip in: org.eclipse.cdt.dsf.debug.internal.ui.disassembly.DisassemblyMessages
+
+!ENTRY org.eclipse.osgi 2 1 2015-07-15 08:35:39.293
+!MESSAGE NLS missing message: DisassemblyPreferencePage_showAddress in: org.eclipse.cdt.dsf.debug.internal.ui.disassembly.DisassemblyMessages
+
+!ENTRY org.eclipse.osgi 2 1 2015-07-15 08:35:39.300
+!MESSAGE NLS missing message: DisassemblyPreferencePage_showAddressTooltip in: org.eclipse.cdt.dsf.debug.internal.ui.disassembly.DisassemblyMessages
+
+!ENTRY com.freescale.core.ide.cdt.toolchain 4 0 2015-07-15 08:35:43.063
+!MESSAGE Environment Variable Dependency not resolved for 'ARMGNUDirEnv'.
+
+!ENTRY com.freescale.core.ide.cdt.toolchain 4 0 2015-07-15 08:35:43.079
+!MESSAGE Environment Variable Dependency not resolved for 'ARMSummonDirEnv'.
+
+!ENTRY com.freescale.core.ide.cdt.toolchain 4 0 2015-07-15 08:35:43.085
+!MESSAGE Environment Variable Dependency not resolved for 'ARMYagartoDirEnv'.
+
+!ENTRY com.freescale.core.ide.cdt.toolchain 4 0 2015-07-15 08:35:43.094
+!MESSAGE Environment Variable Dependency not resolved for 'ARMdevkitProDirEnv'.
+
+!ENTRY com.freescale.processorexpert.core 1 0 2015-07-15 08:35:43.152
+!MESSAGE Plugin com.freescale.processorexpert.core.service ProcessorExpertServiceProvider

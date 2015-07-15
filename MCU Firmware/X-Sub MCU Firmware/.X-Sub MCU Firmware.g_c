@@ -96,7 +96,7 @@
     </GenFiles>
     <SignalListFile>Documentation\X-Sub MCU Firmware_SIGNALS.txt</SignalListFile>
     <DestinationCompiler>CodeWarriorColdFireV1</DestinationCompiler>
-    <ProjectModificationStamp>30</ProjectModificationStamp>
+    <ProjectModificationStamp>34</ProjectModificationStamp>
   </Options>
   <CpuID_2>
     <Generated>false</Generated>
@@ -1546,8 +1546,8 @@
     <GenComponentVersion>02.611</GenComponentVersion>
     <GenDriverVersion>01.33</GenDriverVersion>
     <GenEventModule>Events</GenEventModule>
-    <HeaderAge>1188647124</HeaderAge>
-    <CodeAge>1188648569</CodeAge>
+    <HeaderAge>1190038215</HeaderAge>
+    <CodeAge>1190038215</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>30</GenNumMethods>
     <Enable>true</Enable>

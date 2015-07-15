@@ -14,6 +14,10 @@
 /*Mis includes*/
 #include "xSub.h"
 
+/*Puerto Serial*/
+byte SIZEBUFFERIN = 5;
+byte SIZEBUFFEROUT = 27;
+
 /*Constantes de Motores*/
 word CENTERDC = 0xED71; //7.2432% = 0xFFFF-0x128A = 65536-4747
 word MAXFORWARD = 59162;

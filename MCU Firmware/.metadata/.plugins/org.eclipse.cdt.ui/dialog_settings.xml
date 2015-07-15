@@ -2,6 +2,7 @@
 <section name="Workbench">
 	<item value="Default C source template" key="LastUsedSourceTemplate"/>
 	<section name="OptionalMessageDialog.hide.">
+		<item value="true" key="com.freescale.cdt.debug.cw.PN_SuppressDialog5d46bed753813c70b12e1d2898dd245ecdd628"/>
 		<item value="2" key="com.freescale.cdt.debug.cw.PN_SuppressDialog927dc758c805ca26e2dd28d96539ba1a20bcf5"/>
 	</section>
 	<section name="completion_proposal_size">
