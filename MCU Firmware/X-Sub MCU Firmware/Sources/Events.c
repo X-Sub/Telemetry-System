@@ -34,7 +34,10 @@
 /*Mis includes*/
 #include "xSub.h"
 
-
+byte err = 0;
+byte data[14];
+byte data2[2];
+byte in;
 
 /*
  * Variables
@@ -48,15 +51,14 @@ bool led0x05 = FALSE; //0x05
 bool led0x06 = FALSE; //0x06
 bool led0x07 = FALSE; //0x07
 
-<<<<<<< HEAD
 byte SerialIn;
-
+wordbyte wordIn;
+byte wordInByte[2];
+word error;
 //Tiempo
 byte tLed = 0x00;
 byte tMotor = 0x00;
 
-=======
->>>>>>> ef6348856dbd10b0d1ac938feeb92755e9868d98
 /*
 ** ===================================================================
 **     Event       :  Aux_Int_OnInterrupt (module Events)
@@ -71,7 +73,6 @@ byte tMotor = 0x00;
 **     Returns     : Nothing
 ** ===================================================================
 */
-<<<<<<< HEAD
 
 //Resolucion de 10 ms
 void Aux_Int_OnInterrupt(void)
@@ -85,11 +86,11 @@ void Aux_Int_OnInterrupt(void)
 	{
 		//Control de leds de status
 					if(led0x00 == TRUE) sMCU_OK_NegVal(); //0x00
-					else sMCU_OK_SetVal();
+					else sMCU_OK_ClrVal();
 					if(led0x01 == TRUE) sCom_In_NegVal(); //0x01
-					else sCom_In_SetVal();
+					else sCom_In_ClrVal();
 					if(led0x02 == TRUE) sPC_OK_NegVal(); //0x02
-					else sPC_OK_SetVal();
+					else sPC_OK_ClrVal();
 					tLed = 0;
 	}
 	
@@ -124,11 +125,11 @@ void Aux_Int_OnInterrupt(void)
 void  SerialCom_OnRxChar(void)
 {
   /* Write your code here ... */
-	sPC_OK_W();
+	//sPC_OK_W();
 	
-	(void)SerialCom_RecvChar(&SerialIn);
-	setMotorSpeed256(SerialIn,1);
-	(void)SerialCom_SendChar(SerialIn);
+	//(void)SerialCom_RecvChar(&SerialIn);
+	//setMotorSpeed256(SerialIn,1);
+	//(void)SerialCom_SendChar(SerialIn);
 	//(void)SerialCom_ClearRxBuf();
 	//(void)SerialCom_ClearTxBuf();
 }
@@ -164,9 +165,25 @@ void  SerialCom_OnTxChar(void)
 void RESET_INTERRUPT_OnInterrupt(void)
 {
   /* place your RESET_INTERRUPT interrupt procedure body here*/
-	setMotorSpeed1024(0,2);
-	delay(2000);
+	//setMotorSpeed1024SW(0,2);
+	//delay(2000);
+	//(void)SerialCom_SendChar(wordIn.byte[0]);
+	//(void)SerialCom_SendChar(wordIn.byte[1]);
+	/*
+	(void)SerialCom_SendChar(data[err]);
+    (void)SerialCom_ClearTxBuf();
 
+    err++;
+    if(err == 14) err = 0;
+    */
+	sCom_In_W;
+	
+	SerialCom_SendChar(0xAA);
+	SerialCom_SendChar(0xEE);
+	
+		
+    delay(500);
+		  
 }
 
 /*
@@ -188,18 +205,55 @@ void ADC_OnEnd(void)
   /* Write your code here ... */
 }
 
-=======
-void Aux_Int_OnInterrupt(void)
+
+/*
+** ===================================================================
+**     Event       :  SerialCom_OnFullRxBuf (module Events)
+**
+**     Component   :  SerialCom [AsynchroSerial]
+**     Description :
+**         This event is called when the input buffer is full;
+**         i.e. after reception of the last character 
+**         that was successfully placed into input buffer.
+**     Parameters  : None
+**     Returns     : Nothing
+** ===================================================================
+*/
+void  SerialCom_OnFullRxBuf(void)
 {
-	//Control de leds de status
-	if(led0x00 == TRUE) sMCU_OK_NegVal(); //0x00
-	else sMCU_OK_ClrVal();
-	if(led0x01 == TRUE) sCom_In_NegVal(); //0x01
-	else sCom_In_ClrVal();
-	if(led0x02 == TRUE) sPC_OK_NegVal(); //0x02
-	else sPC_OK_ClrVal();
+  /* Write your code here ... */
+	sPC_OK_W();
+	//wordIn.byte[0] = 0x00;
+	//wordIn.byte[1] = 0x00;
+	//wordIn.byte[2] = 0x00;
+	(void)SerialCom_RecvBlock(wordIn.byte,2,&error);
+	//wordInByte[0] = wordIn.byte[0];
+	//wordInByte[1] = wordIn.byte[1];
+	setMotorSpeed1024SW(wordIn.word,2);
+	//(void)SerialCom_SendBlock(wordIn.byte,2,&error);
+	//(void)SerialCom_SendChar(wordIn.byte[0]);
+	//(void)SerialCom_SendChar(wordIn.byte[1]);
+	(void)SerialCom_ClearRxBuf();
+	//(void)SerialCom_ClearTxBuf();
+	
 }
->>>>>>> ef6348856dbd10b0d1ac938feeb92755e9868d98
+
+/*
+** ===================================================================
+**     Event       :  SerialCom_OnFreeTxBuf (module Events)
+**
+**     Component   :  SerialCom [AsynchroSerial]
+**     Description :
+**         This event is called after the last character in output
+**         buffer is transmitted.
+**     Parameters  : None
+**     Returns     : Nothing
+** ===================================================================
+*/
+void  SerialCom_OnFreeTxBuf(void)
+{
+  /* Write your code here ... */
+}
 
 /* END Events */
 

@@ -4,9 +4,9 @@
 **     Project     : X-Sub MCU Firmware
 **     Processor   : MCF51QE128CLK
 **     Component   : ADC
-**     Version     : Component 01.690, Driver 01.30, CPU db: 3.00.078
+**     Version     : Component 01.697, Driver 01.30, CPU db: 3.00.078
 **     Compiler    : CodeWarrior ColdFireV1 C Compiler
-**     Date/Time   : 2015-07-11, 20:31, # CodeGen: 32
+**     Date/Time   : 2015-07-22, 08:21, # CodeGen: 60
 **     Abstract    :
 **         This device "ADC" implements an A/D converter,
 **         its control methods and interrupt/event handling procedure.

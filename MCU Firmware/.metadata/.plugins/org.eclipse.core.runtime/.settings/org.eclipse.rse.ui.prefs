@@ -1,2 +1,2 @@
 eclipse.preferences.version=1
-org.eclipse.rse.preferences.order.connections=Asus-DDT.Local;Asus-DDT.X-Sub MCU Firmware_FLASH_PnE Cyclone PRO;Asus-DDT.X-Sub MCU Firmware_FLASH_PnE Cyclone PRO Target;Asus-DDT.X-Sub MCU Firmware_FLASH_PnE U-MultiLink Target;Asus-DDT.X-Sub MCU Firmware_FLASH_PnE U-MultiLink
+org.eclipse.rse.preferences.order.connections=Asus-DDT.Local;Asus-DDT.X-Sub MCU Firmware_FLASH_PnE Cyclone PRO;Asus-DDT.X-Sub MCU Firmware_FLASH_PnE Cyclone PRO Target;Asus-DDT.X-Sub MCU Firmware_FLASH_PnE U-MultiLink;Asus-DDT.X-Sub MCU Firmware_FLASH_PnE U-MultiLink Target

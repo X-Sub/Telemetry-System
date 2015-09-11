@@ -1,0 +1,10 @@
+Added Pin To Net: NetName=RXSERIALCOM2 Pin=D1-1
+Added Pin To Net: NetName=GND Pin=OneWire_Temp-1
+Added Pin To Net: NetName=RXSERIALCOM2 Pin=OneWire_Temp-2
+Added Pin To Net: NetName=+3.3V Pin=OneWire_Temp-3
+Added Room: Name=ADC_PRES
+Added Room: Name=Expansion Board
+Added Room: Name=Fuente
+Added Room: Name=MCU
+Added Room: Name=Presencia_Agua
+Added Room: Name=PWM_OUTS

@@ -6,11 +6,7 @@
 **     Component   : BitIO
 **     Version     : Component 02.086, Driver 03.14, CPU db: 3.00.078
 **     Compiler    : CodeWarrior ColdFireV1 C Compiler
-<<<<<<< HEAD
-**     Date/Time   : 2015-07-11, 23:17, # CodeGen: 34
-=======
-**     Date/Time   : 2015-06-15, 15:15, # CodeGen: 10
->>>>>>> ef6348856dbd10b0d1ac938feeb92755e9868d98
+**     Date/Time   : 2015-07-17, 21:57, # CodeGen: 52
 **     Abstract    :
 **         This component "BitIO" implements an one-bit input/output.
 **         It uses one bit/pin of a port.
@@ -22,32 +18,20 @@
 **             ----------------------------------------------------
 **                Number (on package)  |    Name
 **             ----------------------------------------------------
-<<<<<<< HEAD
-**                       24            |  PTC3_RGPIO11_TPM3CH3
-=======
-**                       33            |  PTC1_RGPIO9_TPM3CH1
->>>>>>> ef6348856dbd10b0d1ac938feeb92755e9868d98
+**                       20            |  PTE6_RGPIO6
 **             ----------------------------------------------------
 **
-**         Port name                   : PTC
+**         Port name                   : PTE
 **
-<<<<<<< HEAD
-**         Bit number (in port)        : 3
-**         Bit mask of the port        : 0x0008
+**         Bit number (in port)        : 6
+**         Bit mask of the port        : 0x0040
 **
 **         Initial direction           : Output (direction cannot be changed)
 **         Initial output value        : 1
-=======
-**         Bit number (in port)        : 1
-**         Bit mask of the port        : 0x0002
-**
-**         Initial direction           : Output (direction cannot be changed)
-**         Initial output value        : 0
->>>>>>> ef6348856dbd10b0d1ac938feeb92755e9868d98
 **         Initial pull option         : off
 **
-**         Port data register          : PTCD      [0xFFFF8004]
-**         Port control register       : PTCDD     [0xFFFF8005]
+**         Port data register          : PTED      [0xFFFF8008]
+**         Port control register       : PTEDD     [0xFFFF8009]
 **
 **         Optimization for            : speed
 **     Contents    :
@@ -154,15 +138,9 @@ bool sCom_In_GetVal(void)
 void sCom_In_PutVal(bool Val)
 {
   if (Val) {
-<<<<<<< HEAD
-    setReg8(PTCSET, 0x08U);            /* PTCSET3=0x01U */
+    setReg8(PTESET, 0x40U);            /* PTESET6=0x01U */
   } else { /* !Val */
-    setReg8(PTCCLR, 0x08U);            /* PTCCLR3=0x01U */
-=======
-    setReg8(PTCSET, 0x02U);            /* PTCSET1=0x01U */
-  } else { /* !Val */
-    setReg8(PTCCLR, 0x02U);            /* PTCCLR1=0x01U */
->>>>>>> ef6348856dbd10b0d1ac938feeb92755e9868d98
+    setReg8(PTECLR, 0x40U);            /* PTECLR6=0x01U */
   } /* !Val */
 }
 

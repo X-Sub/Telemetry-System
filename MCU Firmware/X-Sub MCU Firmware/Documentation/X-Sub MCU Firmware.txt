@@ -171,7 +171,6 @@ Module "sPC_OK"    (component BitIO)
 
 Module "Aux_Int"   (component TimerInt)
 
-<<<<<<< HEAD
 Module "SerialCom" (component AsynchroSerial)
    - SerialCom_Enable -Enables the component - it starts the send and receive functions. Events may be generated 
                 ("DisableEvent"/"EnableEvent").
@@ -186,6 +185,18 @@ Module "SerialCom" (component AsynchroSerial)
                 method only stores data into an output buffer. In case of a zero output buffer size, only one character can be 
                 stored. Enabling the component (Enable method) starts the transmission of the stored data. This method is 
                 available only if the transmitter property is enabled.
+   - SerialCom_RecvBlock -If any data is received, this method returns the block of the data and its length (and incidental 
+                error), otherwise it returns an error code (it does not wait for data).  This method is available only if 
+                non-zero length of the input buffer is defined and the receiver property is enabled.  If less than requested 
+                number of characters is received only the available data is copied from the receive buffer to the user 
+                specified destination. The value ERR_EXEMPTY is returned and the value of variable pointed by the Rcv parameter 
+                is set to the number of received characters.
+   - SerialCom_SendBlock -Sends a block of characters to the channel.  This method is available only if non-zero length of the 
+                output buffer is defined and the transmitter property is enabled.
+   - SerialCom_ClearRxBuf -Clears the receive buffer.  This method is available only if non-zero length of the input buffer is 
+                defined and the receiver property is enabled.
+   - SerialCom_ClearTxBuf -Clears the transmit buffer.  This method is available only if non-zero length of the output buffer 
+                is defined and the receiver property is enabled.
    - SerialCom_GetCharsInRxBuf -Returns the number of characters in the input buffer. This method is available only if the 
                 receiver property is enabled.
    - SerialCom_GetCharsInTxBuf -Returns the number of characters in the output buffer. This method is available only if the 
@@ -253,8 +264,58 @@ Module "LedLight2" (component PWM)
                 16-bit unsigned integer number. The method is available only if it is not selected list of predefined values in 
                 <Starting pulse width> property.
 
-=======
->>>>>>> ef6348856dbd10b0d1ac938feeb92755e9868d98
+Module "CS1"       (component CriticalSection)
+   - CS1_CriticalVariable -Defines a variable if necessary. This is a macro.
+   - CS1_EnterCritical -Enters a critical section
+   - CS1_ExitCritical -Exits a critical section
+
+Module "I2C"       (component InternalI2C)
+   - I2C_SendChar -When working as a MASTER, this method writes one (7-bit addressing) or two (10-bit addressing) slave address 
+                bytes inclusive of R/W bit = 0 to the I2C bus and then writes one character (byte) to the bus. The slave 
+                address must be specified before, by the "SelectSlave" or "SelectSlave10" method or in the component 
+                initialization section, "Target slave address init" property. If interrupt service is enabled and the method 
+                returns ERR_OK, it doesn't mean that transmission was successful. The state of transmission is obtainable from 
+                (OnTransmitData, OnError or OnArbitLost) events.   When working as a SLAVE, this method writes a character to 
+                the internal output slave buffer and, after the master starts the communication, to the I2C bus. If no 
+                character is ready for a transmission (internal output slave buffer is empty), the Empty character will be sent 
+                (see "Empty character" property).
+   - I2C_RecvChar -When working as a MASTER, this method writes one (7-bit addressing) or two (10-bit addressing) slave address 
+                bytes inclusive of R/W bit = 1 to the I2C bus, then reads one character (byte) from the bus and then sends the 
+                stop condition. The slave address must be specified before, by the "SelectSlave" or "SelectSlave10" method or 
+                in component initialization section, property "Target slave address init". If interrupt service is enabled and 
+                the method returns ERR_OK, it doesn't mean that transmission was finished successfully. The state of 
+                transmission must be tested by means of events (OnReceiveData, OnError or OnArbitLost). In case of successful 
+                transmission, received data is ready after OnReceiveData event is called.   When working as a SLAVE, this 
+                method reads a character from the input slave buffer.
+   - I2C_SendBlock -When working as a MASTER, this method writes one (7-bit addressing) or two (10-bit addressing) slave 
+                address bytes inclusive of R/W bit = 0 to the I2C bus and then writes the block of characters to the bus. The 
+                slave address must be specified before, by the "SelectSlave" or "SlaveSelect10" method or in component 
+                initialization section, "Target slave address init" property. If interrupt service is enabled and the method 
+                returns ERR_OK, it doesn't mean that transmission was successful. The state of transmission is detectable by 
+                means of events (OnTransmitData, OnError or OnArbitLost). Data to be send is not copied to an internal buffer 
+                and remains in the original location. Therefore the content of the buffer should not be changed until the 
+                transmission is complete. Event OnTransmitData can be used to detect the end of the transmission.  When working 
+                as a SLAVE, this method writes a block of characters to the internal output slave buffer and then, after the 
+                master starts the communication, to the I2C bus. If no character is ready for a transmission (internal output 
+                slave buffer is empty), the "Empty character" will be sent (see "Empty character" property). In SLAVE mode the 
+                data are copied to an internal buffer, if specified by "Output buffer size" property.
+   - I2C_RecvBlock -When working as a MASTER, this method writes one (7-bit addressing) or two (10-bit addressing) slave 
+                address bytes inclusive of R/W bit = 1 to the I2C bus, then reads the block of characters from the bus and then 
+                sends the stop condition. The slave address must be specified before, by the "SelectSlave" or "SelectSlave10" 
+                method or in component initialization section, "Target slave address init" property. If interrupt service is 
+                enabled and the method returns ERR_OK, it doesn't mean that transmission was finished successfully. The state 
+                of transmission must be tested by means of events (OnReceiveData, OnError or OnArbitLost). In case of 
+                successful transmission, received data is ready after OnReceiveData event is called.   When working as a SLAVE, 
+                this method reads a block of characters from the input slave buffer.
+   - I2C_SelectSlave -This method selects a new slave for communication by its 7-bit slave address value. Any send or receive 
+                method directs to or from selected device, until a new slave device is selected by this method. This method is 
+                not available for the SLAVE mode.
+
+Module "PresenciaAgua" (component BitIO)
+   - PresenciaAgua_GetVal -Returns the input/output value. If the direction is [input] then the input value of the pin is read 
+                and returned. If the direction is [output] then the last written value is returned (see <Safe mode> property 
+                for limitations). This method cannot be disabled if direction is [input].
+
 Module "Cpu"       (component MCF51QE128_80)
    - Cpu_EnableInt -Enables maskable interrupts
    - Cpu_DisableInt -Disables maskable interrupts

@@ -1,0 +1,13 @@
+Removed Pin From Net: NetName=+5V Pin=POWER_IN-2
+Removed Pin From Net: NetName=GND Pin=POWER_IN-3
+Change Component Footprint: Designator=C_3.3V Old Footprint=CAPR5-4X5 New Footprint=RB7.6-15
+Change Component Footprint: Designator=C_5V Old Footprint=CAPR5-4X5 New Footprint=RB7.6-15
+Added Component: Designator=COMPASS(HMC6352_SF)
+Added Pin To Net: NetName=SCL Pin=COMPASS-1
+Added Pin To Net: NetName=SDA Pin=COMPASS-2
+Added Pin To Net: NetName=+3.3V Pin=COMPASS-3
+Added Pin To Net: NetName=GND Pin=COMPASS-4
+Added Pin To Net: NetName=GND Pin=POWER_IN-2
+Added Pin To Net: NetName=+5V Pin=POWER_IN-3
+Added Member To Class: ClassName=MCU Member=Component COMPASS HMC6352
+Added Room: Name=ADC_PRES

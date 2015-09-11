@@ -6,7 +6,7 @@
 **     Component   : ExtInt
 **     Version     : Component 02.105, Driver 01.24, CPU db: 3.00.078
 **     Compiler    : CodeWarrior ColdFireV1 C Compiler
-**     Date/Time   : 2015-06-28, 18:42, # CodeGen: 22
+**     Date/Time   : 2015-07-17, 21:45, # CodeGen: 51
 **     Abstract    :
 **         This component "ExtInt" implements an external 
 **         interrupt, its control methods and interrupt/event 
@@ -14,29 +14,26 @@
 **         The component uses one pin which generates interrupt on 
 **         selected edge.
 **     Settings    :
-**         Interrupt name              : Virq
+**         Interrupt name              : Vkeyboard
 **         User handling procedure     : RESET_INTERRUPT_OnInterrupt
 **
 **         Used pin                    :
 **             ----------------------------------------------------
 **                Number (on package)  |    Name
 **             ----------------------------------------------------
-**                       79            |  PTA5_IRQ_TPM1CLK_RESET
+**                       60            |  PTA2_KBI1P2_SDA1_ADP2
 **             ----------------------------------------------------
 **
 **         Port name                   : PTA
 **
-**         Bit number (in port)        : 5
-**         Bit mask of the port        : 0x0020
+**         Bit number (in port)        : 2
+**         Bit mask of the port        : 0x0004
 **
 **         Signal edge/level           : falling
-**         Priority                    : 735
+**         Priority                    : 670
 **         Pull option                 : up
 **         Initial state               : Enabled
 **
-**         Edge register               : IRQSC     [0xFFFF800F]
-**         Enable register             : IRQSC     [0xFFFF800F]
-**         Request register            : IRQSC     [0xFFFF800F]
 **
 **         Port data register          : PTAD      [0xFFFF8000]
 **         Port control register       : PTADD     [0xFFFF8001]
@@ -119,7 +116,7 @@ __interrupt void RESET_INTERRUPT_Interrupt(void);
 */
 
 #define RESET_INTERRUPT_GetVal() \
-  ((bool)((PTAD) & 0x20U))
+  ((bool)((PTAD) & 0x04U))
 
 /*
 ** ===================================================================

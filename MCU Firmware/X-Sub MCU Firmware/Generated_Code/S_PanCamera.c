@@ -4,13 +4,9 @@
 **     Project     : X-Sub MCU Firmware
 **     Processor   : MCF51QE128CLK
 **     Component   : PWM
-**     Version     : Component 02.240, Driver 01.28, CPU db: 3.00.078
+**     Version     : Component 02.241, Driver 01.28, CPU db: 3.00.078
 **     Compiler    : CodeWarrior ColdFireV1 C Compiler
-<<<<<<< HEAD
-**     Date/Time   : 2015-07-10, 08:37, # CodeGen: 29
-=======
-**     Date/Time   : 2015-06-15, 15:15, # CodeGen: 10
->>>>>>> ef6348856dbd10b0d1ac938feeb92755e9868d98
+**     Date/Time   : 2015-07-22, 08:21, # CodeGen: 60
 **     Abstract    :
 **         This component implements a pulse-width modulation generator
 **         that generates signal with variable duty and fixed cycle. 
@@ -43,22 +39,13 @@
 **              Timer                  : Enabled
 **              Event                  : Enabled
 **         High speed mode
-<<<<<<< HEAD
 **             Prescaler               : divide-by-1
 **             Clock                   : 14942208 Hz
-=======
-**             Prescaler               : divide-by-2
-**             Clock                   : 12582912 Hz
->>>>>>> ef6348856dbd10b0d1ac938feeb92755e9868d98
 **           Initial value of            period     pulse width
 **             Xtal ticks              : 109        0
 **             microseconds            : 3333       0
 **             milliseconds            : 3          0
-<<<<<<< HEAD
 **             seconds (real)          : 0.003333309241 0.0
-=======
-**             seconds (real)          : 0.003333330154 0.0
->>>>>>> ef6348856dbd10b0d1ac938feeb92755e9868d98
 **
 **     Contents    :
 **         Enable     - byte S_PanCamera_Enable(void);
@@ -153,11 +140,7 @@ static void SetRatio(void)
   if (ActualRatio == 0xFFFFU) {        /* Duty = 100%? */
     TPM2C1V = 0xFFFFU;                 /* Store new value to the compare reg. */
   } else {
-<<<<<<< HEAD
     TPM2C1V = (word)(((0xC28FUL * (dword)ActualRatio)  + 0x8000UL) >> 0x10U); /* Calculate new compare value according to the given ratio */
-=======
-    TPM2C1V = (word)(((0xA3D7UL * (dword)ActualRatio)  + 0x8000UL) >> 0x10U); /* Calculate new compare value according to the given ratio */
->>>>>>> ef6348856dbd10b0d1ac938feeb92755e9868d98
   }
 }
 
@@ -289,11 +272,7 @@ byte S_PanCamera_SetDutyUS(word Time)
   if (Time > 0x0D05U) {                /* Is the given value out of range? */
     return ERR_RANGE;                  /* If yes then error */
   }
-<<<<<<< HEAD
   PE_Timer_LngMul((dword)Time, 0x13A93380UL, &rtval); /* Multiply given value and High speed CPU mode coefficient */
-=======
-  PE_Timer_LngMul((dword)Time, 0x13A92B6BUL, &rtval); /* Multiply given value and High speed CPU mode coefficient */
->>>>>>> ef6348856dbd10b0d1ac938feeb92755e9868d98
   if (PE_Timer_LngHi3(rtval[0], rtval[1], &ActualRatio)) { /* Is the result greater or equal than 65536 ? */
     ActualRatio = 0xFFFFU;             /* If yes then use maximal possible value */
   }
@@ -327,11 +306,7 @@ byte S_PanCamera_SetDutyMS(word Time)
   if (Time > 0x03U) {                  /* Is the given value out of range? */
     return ERR_RANGE;                  /* If yes then error */
   }
-<<<<<<< HEAD
   PE_Timer_LngMul((dword)Time, 0x4CCCF12EUL, &rtval); /* Multiply given value and High speed CPU mode coefficient */
-=======
-  PE_Timer_LngMul((dword)Time, 0x4CCCD19AUL, &rtval); /* Multiply given value and High speed CPU mode coefficient */
->>>>>>> ef6348856dbd10b0d1ac938feeb92755e9868d98
   if (PE_Timer_LngHi2(rtval[0], rtval[1], &ActualRatio)) { /* Is the result greater or equal than 65536 ? */
     ActualRatio = 0xFFFFU;             /* If yes then use maximal possible value */
   }

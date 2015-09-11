@@ -14,6 +14,15 @@
 /*Mis includes*/
 #include "xSub.h"
 
+/*I2C*/
+
+byte MPU6050_ACCEL_CONFIG = 0x1C;   // R/W
+byte MPU6050_AFS_SEL_4G = 0x08; //Config para +-4G
+byte MPU6050_GYRO_CONFIG = 0x1B; //R/W
+byte MPU6050_FS_SEL_1000 = 0x10; //Config para +-1000º/s
+byte MPU = 0x68;  // I2C address of the MPU-6050
+byte HMC6352 = 0x21;  // I2C address of the HMC6352 Compass
+
 /*Puerto Serial*/
 byte SIZEBUFFERIN = 5;
 byte SIZEBUFFEROUT = 27;

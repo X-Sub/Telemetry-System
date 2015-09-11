@@ -1,0 +1,258 @@
+Added Component: Designator=*(HDR1X6H)
+Added Component: Designator=C_3.3V(RB7.6-15)
+Added Component: Designator=C_5_Press(RB7.6-15)
+Added Component: Designator=C_5V(RB7.6-15)
+Added Component: Designator=C_Crystal_1(1608[0603])
+Added Component: Designator=C_Crystal_2(1608[0603])
+Added Component: Designator=C_Press(3.2X1.6X1.1)
+Added Component: Designator=D1(DO-35)
+Added Component: Designator=GY-521(GY-521)
+Added Component: Designator=I2C_P_EN_SCL(HDR1X2)
+Added Component: Designator=I2C_P_EN_SDA(HDR1X2)
+Added Component: Designator=JBDM(HDR2X3)
+Added Component: Designator=LED_+3.3V(3.2X1.6X1.1)
+Added Component: Designator=LED_+5V(3.2X1.6X1.1)
+Added Component: Designator=LED_sCom_In(3.2X1.6X1.1)
+Added Component: Designator=LED_sMCU_OK(3.2X1.6X1.1)
+Added Component: Designator=LED_sPC_OK(3.2X1.6X1.1)
+Added Component: Designator=LEDLIGHT1(HDR1X3)
+Added Component: Designator=LEDLIGHT2(HDR1X3)
+Added Component: Designator=M1(HDR1X3)
+Added Component: Designator=M2(HDR1X3)
+Added Component: Designator=M3(HDR1X3)
+Added Component: Designator=M4(HDR1X3)
+Added Component: Designator=MCU(840F-02_N)
+Added Component: Designator=OneWire_Temp(SCREWTERMINAL-5MM-3)
+Added Component: Designator=OPAMP_1(TI-DBV5_N)
+Added Component: Designator=P_Expansion(HDR2X5)
+Added Component: Designator=POWER_IN(HDR1X3)
+Added Component: Designator=Pres_Agua1(HDR1X2H)
+Added Component: Designator=Pres_Agua2(HDR1X2H)
+Added Component: Designator=Q1(SOT-23B_N)
+Added Component: Designator=Q2(SOT-23B_N)
+Added Component: Designator=R_3.3V(RESC6332)
+Added Component: Designator=R_5V(RESC6332)
+Added Component: Designator=R_A1(AXIAL-0.4)
+Added Component: Designator=R_A2(AXIAL-0.4)
+Added Component: Designator=R_BDM1(RESC6332)
+Added Component: Designator=R_BDM2(RESC6332)
+Added Component: Designator=R_I2C_1(RESC6332)
+Added Component: Designator=R_I2C_2(RESC6332)
+Added Component: Designator=R_OW(RESC6332)
+Added Component: Designator=R_P1(J1-0603)
+Added Component: Designator=R_P2(J1-0603)
+Added Component: Designator=R_sCom_In(RESC6332)
+Added Component: Designator=R_sMCU_OK(RESC6332)
+Added Component: Designator=sPC_OK(RESC6332)
+Added Component: Designator=toPC(RJ45-8)
+Added Component: Designator=UART(HDR1X4)
+Added Component: Designator=Y1(R38)
+Added Pin To Net: NetName=+3.3V Pin=C_3.3V-1
+Added Pin To Net: NetName=+3.3V Pin=GY-521-1
+Added Pin To Net: NetName=+3.3V Pin=JBDM-6
+Added Pin To Net: NetName=+3.3V Pin=OPAMP_1-5
+Added Pin To Net: NetName=+3.3V Pin=P_Expansion-7
+Added Pin To Net: NetName=+3.3V Pin=POWER_IN-1
+Added Pin To Net: NetName=+3.3V Pin=R_3.3V-2
+Added Pin To Net: NetName=+3.3V Pin=R_A1-2
+Added Pin To Net: NetName=+3.3V Pin=R_A2-2
+Added Pin To Net: NetName=+3.3V Pin=R_BDM1-2
+Added Pin To Net: NetName=+3.3V Pin=R_BDM2-1
+Added Pin To Net: NetName=+3.3V Pin=R_I2C_1-2
+Added Pin To Net: NetName=+3.3V Pin=R_I2C_2-2
+Added Pin To Net: NetName=+3.3V Pin=R_OW-2
+Added Pin To Net: NetName=+3.3V Pin=UART-2
+Added Net: Name=+3.3V
+Added Pin To Net: NetName=+5V Pin=C_5_Press-1
+Added Pin To Net: NetName=+5V Pin=C_5V-1
+Added Pin To Net: NetName=+5V Pin=LEDLIGHT1-2
+Added Pin To Net: NetName=+5V Pin=LEDLIGHT2-2
+Added Pin To Net: NetName=+5V Pin=M1-2
+Added Pin To Net: NetName=+5V Pin=M2-2
+Added Pin To Net: NetName=+5V Pin=M3-2
+Added Pin To Net: NetName=+5V Pin=M4-2
+Added Pin To Net: NetName=+5V Pin=P_Expansion-5
+Added Pin To Net: NetName=+5V Pin=POWER_IN-2
+Added Pin To Net: NetName=+5V Pin=R_5V-2
+Added Pin To Net: NetName=+5V Pin=toPC-4
+Added Pin To Net: NetName=+5V Pin=toPC-5
+Added Net: Name=+5V
+Added Pin To Net: NetName=AD1 Pin=MCU-42
+Added Pin To Net: NetName=AD1 Pin=P_Expansion-2
+Added Net: Name=AD1
+Added Pin To Net: NetName=AD2 Pin=MCU-36
+Added Pin To Net: NetName=AD2 Pin=P_Expansion-4
+Added Net: Name=AD2
+Added Pin To Net: NetName=AD3 Pin=MCU-35
+Added Pin To Net: NetName=AD3 Pin=P_Expansion-6
+Added Net: Name=AD3
+Added Pin To Net: NetName=AD4 Pin=MCU-30
+Added Pin To Net: NetName=AD4 Pin=P_Expansion-8
+Added Net: Name=AD4
+Added Pin To Net: NetName=ADC_PRESSURE_3.3V Pin=MCU-43
+Added Pin To Net: NetName=ADC_PRESSURE_3.3V Pin=OPAMP_1-1
+Added Pin To Net: NetName=ADC_PRESSURE_3.3V Pin=OPAMP_1-4
+Added Net: Name=ADC_PRESSURE_3.3V
+Added Pin To Net: NetName=BKGD Pin=JBDM-1
+Added Pin To Net: NetName=BKGD Pin=MCU-64
+Added Pin To Net: NetName=BKGD Pin=R_BDM1-1
+Added Net: Name=BKGD
+Added Pin To Net: NetName=GND Pin=C_3.3V-2
+Added Pin To Net: NetName=GND Pin=C_5_Press-2
+Added Pin To Net: NetName=GND Pin=C_5V-2
+Added Pin To Net: NetName=GND Pin=C_Crystal_1-1
+Added Pin To Net: NetName=GND Pin=C_Crystal_2-1
+Added Pin To Net: NetName=GND Pin=C_Press-1
+Added Pin To Net: NetName=GND Pin=GY-521-2
+Added Pin To Net: NetName=GND Pin=JBDM-2
+Added Pin To Net: NetName=GND Pin=LED_+3.3V-2
+Added Pin To Net: NetName=GND Pin=LED_+5V-2
+Added Pin To Net: NetName=GND Pin=LED_sCom_In-2
+Added Pin To Net: NetName=GND Pin=LED_sMCU_OK-2
+Added Pin To Net: NetName=GND Pin=LED_sPC_OK-2
+Added Pin To Net: NetName=GND Pin=LEDLIGHT1-1
+Added Pin To Net: NetName=GND Pin=LEDLIGHT2-1
+Added Pin To Net: NetName=GND Pin=M1-1
+Added Pin To Net: NetName=GND Pin=M2-1
+Added Pin To Net: NetName=GND Pin=M3-1
+Added Pin To Net: NetName=GND Pin=M4-1
+Added Pin To Net: NetName=GND Pin=OPAMP_1-2
+Added Pin To Net: NetName=GND Pin=P_Expansion-9
+Added Pin To Net: NetName=GND Pin=P_Expansion-10
+Added Pin To Net: NetName=GND Pin=POWER_IN-3
+Added Pin To Net: NetName=GND Pin=Pres_Agua1-1
+Added Pin To Net: NetName=GND Pin=Pres_Agua2-1
+Added Pin To Net: NetName=GND Pin=Q1-1
+Added Pin To Net: NetName=GND Pin=Q2-1
+Added Pin To Net: NetName=GND Pin=R_P2-1
+Added Pin To Net: NetName=GND Pin=toPC-7
+Added Pin To Net: NetName=GND Pin=toPC-8
+Added Pin To Net: NetName=GND Pin=UART-1
+Added Net: Name=GND
+Added Pin To Net: NetName=LEDLIGHT1 Pin=LEDLIGHT1-3
+Added Pin To Net: NetName=LEDLIGHT1 Pin=MCU-26
+Added Net: Name=LEDLIGHT1
+Added Pin To Net: NetName=LEDLIGHT2 Pin=LEDLIGHT2-3
+Added Pin To Net: NetName=LEDLIGHT2 Pin=MCU-25
+Added Net: Name=LEDLIGHT2
+Added Pin To Net: NetName=M1_ESC Pin=M1-3
+Added Pin To Net: NetName=M1_ESC Pin=MCU-50
+Added Net: Name=M1_ESC
+Added Pin To Net: NetName=M2_ESC Pin=M2-3
+Added Pin To Net: NetName=M2_ESC Pin=MCU-18
+Added Net: Name=M2_ESC
+Added Pin To Net: NetName=M3_ESC Pin=M3-3
+Added Pin To Net: NetName=M3_ESC Pin=MCU-38
+Added Net: Name=M3_ESC
+Added Pin To Net: NetName=M4_ESC Pin=M4-3
+Added Pin To Net: NetName=M4_ESC Pin=MCU-49
+Added Net: Name=M4_ESC
+Added Pin To Net: NetName=NetC_Crystal_1_2 Pin=C_Crystal_1-2
+Added Pin To Net: NetName=NetC_Crystal_1_2 Pin=MCU-13
+Added Pin To Net: NetName=NetC_Crystal_1_2 Pin=Y1-2
+Added Net: Name=NetC_Crystal_1_2
+Added Pin To Net: NetName=NetC_Crystal_2_2 Pin=C_Crystal_2-2
+Added Pin To Net: NetName=NetC_Crystal_2_2 Pin=MCU-12
+Added Pin To Net: NetName=NetC_Crystal_2_2 Pin=Y1-1
+Added Net: Name=NetC_Crystal_2_2
+Added Pin To Net: NetName=NetD1_1 Pin=D1-1
+Added Net: Name=NetD1_1
+Added Pin To Net: NetName=NetI2C_P_EN_SCL_1 Pin=I2C_P_EN_SCL-1
+Added Pin To Net: NetName=NetI2C_P_EN_SCL_1 Pin=R_I2C_2-1
+Added Net: Name=NetI2C_P_EN_SCL_1
+Added Pin To Net: NetName=NetI2C_P_EN_SDA_1 Pin=I2C_P_EN_SDA-1
+Added Pin To Net: NetName=NetI2C_P_EN_SDA_1 Pin=R_I2C_1-1
+Added Net: Name=NetI2C_P_EN_SDA_1
+Added Pin To Net: NetName=NetLED_+3.3V_1 Pin=LED_+3.3V-1
+Added Pin To Net: NetName=NetLED_+3.3V_1 Pin=R_3.3V-1
+Added Net: Name=NetLED_+3.3V_1
+Added Pin To Net: NetName=NetLED_+5V_1 Pin=LED_+5V-1
+Added Pin To Net: NetName=NetLED_+5V_1 Pin=R_5V-1
+Added Net: Name=NetLED_+5V_1
+Added Pin To Net: NetName=NetLED_sCom_In_1 Pin=LED_sCom_In-1
+Added Pin To Net: NetName=NetLED_sCom_In_1 Pin=R_sCom_In-1
+Added Net: Name=NetLED_sCom_In_1
+Added Pin To Net: NetName=NetLED_sMCU_OK_1 Pin=LED_sMCU_OK-1
+Added Pin To Net: NetName=NetLED_sMCU_OK_1 Pin=R_sMCU_OK-1
+Added Net: Name=NetLED_sMCU_OK_1
+Added Pin To Net: NetName=NetLED_sPC_OK_1 Pin=LED_sPC_OK-1
+Added Pin To Net: NetName=NetLED_sPC_OK_1 Pin=sPC_OK-1
+Added Net: Name=NetLED_sPC_OK_1
+Added Pin To Net: NetName=NetOPAMP_1_3 Pin=OPAMP_1-3
+Added Pin To Net: NetName=NetOPAMP_1_3 Pin=R_P1-1
+Added Pin To Net: NetName=NetOPAMP_1_3 Pin=R_P2-2
+Added Net: Name=NetOPAMP_1_3
+Added Pin To Net: NetName=NetPres_Agua1_2 Pin=Pres_Agua1-2
+Added Pin To Net: NetName=NetPres_Agua1_2 Pin=Q1-2
+Added Net: Name=NetPres_Agua1_2
+Added Pin To Net: NetName=NetPres_Agua2_2 Pin=Pres_Agua2-2
+Added Pin To Net: NetName=NetPres_Agua2_2 Pin=Q2-2
+Added Net: Name=NetPres_Agua2_2
+Added Pin To Net: NetName=P_OUT Pin=C_Press-2
+Added Pin To Net: NetName=P_OUT Pin=R_P1-2
+Added Net: Name=P_OUT
+Added Pin To Net: NetName=PRESENCIAAGUA1 Pin=MCU-58
+Added Pin To Net: NetName=PRESENCIAAGUA1 Pin=Q1-3
+Added Pin To Net: NetName=PRESENCIAAGUA1 Pin=R_A1-1
+Added Net: Name=PRESENCIAAGUA1
+Added Pin To Net: NetName=PRESENCIAAGUA2 Pin=MCU-57
+Added Pin To Net: NetName=PRESENCIAAGUA2 Pin=Q2-3
+Added Pin To Net: NetName=PRESENCIAAGUA2 Pin=R_A2-1
+Added Net: Name=PRESENCIAAGUA2
+Added Pin To Net: NetName=RESET Pin=JBDM-4
+Added Pin To Net: NetName=RESET Pin=MCU-63
+Added Pin To Net: NetName=RESET Pin=R_BDM2-2
+Added Net: Name=RESET
+Added Pin To Net: NetName=RXSERIALCOM2 Pin=MCU-52
+Added Pin To Net: NetName=RXSERIALCOM2 Pin=R_OW-1
+Added Net: Name=RXSERIALCOM2
+Added Pin To Net: NetName=RXSERIALCOM Pin=MCU-34
+Added Pin To Net: NetName=RXSERIALCOM Pin=toPC-1
+Added Pin To Net: NetName=RXSERIALCOM Pin=toPC-1
+Added Pin To Net: NetName=RXSERIALCOM Pin=toPC-1
+Added Pin To Net: NetName=RXSERIALCOM Pin=UART-3
+Added Net: Name=RXSERIALCOM
+Added Pin To Net: NetName=S_PANCAMERA Pin=MCU-19
+Added Net: Name=S_PANCAMERA
+Added Pin To Net: NetName=S_TILTCAMERA Pin=MCU-37
+Added Net: Name=S_TILTCAMERA
+Added Pin To Net: NetName=SCL Pin=GY-521-3
+Added Pin To Net: NetName=SCL Pin=I2C_P_EN_SCL-2
+Added Pin To Net: NetName=SCL Pin=MCU-4
+Added Pin To Net: NetName=SCL Pin=P_Expansion-3
+Added Pin To Net: NetName=SCL Pin=toPC-6
+Added Net: Name=SCL
+Added Pin To Net: NetName=SCOM_IN Pin=MCU-16
+Added Pin To Net: NetName=SCOM_IN Pin=R_sCom_In-2
+Added Net: Name=SCOM_IN
+Added Pin To Net: NetName=SDA Pin=GY-521-4
+Added Pin To Net: NetName=SDA Pin=I2C_P_EN_SDA-2
+Added Pin To Net: NetName=SDA Pin=MCU-3
+Added Pin To Net: NetName=SDA Pin=P_Expansion-1
+Added Pin To Net: NetName=SDA Pin=toPC-3
+Added Net: Name=SDA
+Added Pin To Net: NetName=SMCU_OK Pin=MCU-21
+Added Pin To Net: NetName=SMCU_OK Pin=R_sMCU_OK-2
+Added Net: Name=SMCU_OK
+Added Pin To Net: NetName=SPC_OK Pin=MCU-62
+Added Pin To Net: NetName=SPC_OK Pin=sPC_OK-2
+Added Net: Name=SPC_OK
+Added Pin To Net: NetName=TXSERIALCOM2 Pin=D1-2
+Added Pin To Net: NetName=TXSERIALCOM2 Pin=MCU-51
+Added Net: Name=TXSERIALCOM2
+Added Pin To Net: NetName=TXSERIALCOM Pin=MCU-33
+Added Pin To Net: NetName=TXSERIALCOM Pin=toPC-2
+Added Pin To Net: NetName=TXSERIALCOM Pin=UART-4
+Added Net: Name=TXSERIALCOM
+Added Class: Name=ADC_PRES
+Added Class: Name=Expansion Board
+Added Class: Name=Fuente
+Added Class: Name=MCU
+Added Class: Name=Presencia_Agua
+Added Class: Name=PWM_OUTS
+Added Room: Name=ADC_PRES
+Added Room: Name=Expansion Board
+Added Room: Name=Fuente
+Added Room: Name=MCU
+Added Room: Name=Presencia_Agua
+Added Room: Name=PWM_OUTS

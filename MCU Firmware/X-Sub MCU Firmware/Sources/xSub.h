@@ -8,7 +8,6 @@
 #ifndef XSUB_H_
 #define XSUB_H_
 
-<<<<<<< HEAD
 
 
 /*Definiciones de tipos*/
@@ -34,12 +33,9 @@ typedef struct{
  * Variables Globales
  */
 
+extern byte data[14];
+extern byte data2[2];
 /*STATUS*/
-=======
-/*
- * Variables Globales
- */
->>>>>>> ef6348856dbd10b0d1ac938feeb92755e9868d98
 extern bool led0x00; //0x00 sMCU_OK Led
 extern bool led0x01; //0x01 sCom_In Led
 extern bool led0x02; //0x02 sPC_OK  Led
@@ -48,11 +44,20 @@ extern bool led0x04; //0x04
 extern bool led0x05; //0x05
 extern bool led0x06; //0x06
 extern bool led0x07; //0x07
-<<<<<<< HEAD
 
 /*Puerto Serial*/
 extern byte SIZEBUFFERIN;
 extern byte SIZEBUFFEROUT;
+
+/*I2C*/
+
+extern byte MPU6050_ACCEL_CONFIG;   // R/W
+extern byte MPU6050_AFS_SEL_4G; //Config para +-4G
+extern byte MPU6050_GYRO_CONFIG; //R/W
+extern byte MPU6050_FS_SEL_1000; //Config para +-1000º/s
+extern byte MPU;  // I2C address of the MPU-6050
+extern byte HMC6352;
+
 
 /*Variables*/
 extern byte  SIZEPACKAGE;
@@ -82,8 +87,6 @@ extern vFisica8  finTrama;
 
 
 
-=======
->>>>>>> ef6348856dbd10b0d1ac938feeb92755e9868d98
 //Se encarga de inicializar el xSub
 void initMxSub(byte tipo);
 void initVFisicas();//Genera la numeración de la posición
@@ -121,7 +124,6 @@ long map(long x, long in_min,long in_max,long out_min, long out_max);
 //***************Motores :D **********************************
 void initMxSub(byte tipo);
 
-<<<<<<< HEAD
 //Coloca un DC a todos los motores
 void setDC(word Speed);
 
@@ -129,20 +131,8 @@ void setDC(word Speed);
 void setMotorSpeed1024(word Speed,byte Motor);
 //Setea la velocidad de los motores de manera individual. Rango de 8 bits-> 0 - 255
 void setMotorSpeed256(byte Speed,byte Motor);
-=======
-//Activa a sMCU_OK
-void sMCU_OK_W();
-//Desactiva a sMCU_OK
-void sMCU_OK_NW();
-//Muestra titilando a sPC_OK
-void sCom_In_W();
-//Muestra titilando a sPC_OK
-void sCom_In_NW();
-//Muestra titilando a sPC_OK
-void sPC_OK_W();
-//Muestra titilando a sPC_OK
-void sPC_OK_NW();
->>>>>>> ef6348856dbd10b0d1ac938feeb92755e9868d98
+//Setea la velocidad de los motores de manera individual. Rango de 10 bits-> 0 - 1023 SKYWING
+void setMotorSpeed1024SW(word Speed,byte Motor);
 
 /***SERVOS*/
 void servoPanAngle(word Angle);//Resolución de 0 - 179
@@ -154,5 +144,22 @@ void servoTilt1024(word In);//Resolución de 0 - 1023 (0 - 0x1023)
  void setLEDPWM(word PWM);//Setea los dos leds
  void setLED1PWM(word PWM);
  void setLED2PWM(word PWM);
+ 
+ 
+ /*I2C*/
+
+ byte writeRegisterI2C(byte reg, byte data);//manera sencilla de editar un registro
+
+
+void initMPU();//Inicializa la IMU
+
+//Obtener data de la IMU. data debe ser de tamaño 14
+void dataMPU(byte dataIn[]);
+
+void initHMC6352();//Inicializa la IMU
+
+//Obtener data del magnetometro. data debe ser de tamaño 2
+void dataHMC6352(byte dataIn[]);
+
 
 #endif /* XSUB_H_ */

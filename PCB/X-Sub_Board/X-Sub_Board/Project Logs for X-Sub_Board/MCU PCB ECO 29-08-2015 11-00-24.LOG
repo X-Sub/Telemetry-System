@@ -1,0 +1,5 @@
+Change Component Footprint: Designator=COMPASS Old Footprint=HMC6352_SF New Footprint=HDR1X4
+Added Room: Name=ADC_PRES
+Added Room: Name=Expansion Board
+Added Room: Name=Fuente
+Added Room: Name=Presencia_Agua

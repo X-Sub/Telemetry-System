@@ -2,7 +2,7 @@
 # Automatically-generated file. Do not edit!
 ################################################################################
 
-#Progress monitor hint: 24
+#Progress monitor hint: 27
 first : all
 -include ../makefile.init
 
@@ -90,14 +90,14 @@ endif
 # Tool invocations
 X-SubMCUFirmware.elf: $(OBJS) $(USER_OBJS) ../Project_Settings/Linker_Files/ProcessorExpert.lcf
 	@echo 'Building target: $@'
-	@echo 'Executing target #25 $@'
+	@echo 'Executing target #28 $@'
 	@echo 'Invoking: ColdFire Linker'
 	"$(CF_ToolsDirEnv)/mwldmcf" -o "X-SubMCUFirmware.elf" @@"X-SubMCUFirmware.args"  $(USER_OBJS_QUOTED) $(LIBS_QUOTED)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
 X-SubMCUFirmware.elf.s19: $(BBL_SRCS) $(EXECUTABLES)
-	@echo 'Executing target #26 $@'
+	@echo 'Executing target #29 $@'
 	@echo 'Invoking: Burner'
 	"$(HC08ToolsEnv)/burner.exe"  -f="$<" -env"ABS_FILE=$(strip $(EXECUTABLES_OS_FORMAT))"
 	@echo 'Finished building: $@'
@@ -105,7 +105,7 @@ X-SubMCUFirmware.elf.s19: $(BBL_SRCS) $(EXECUTABLES)
 
 # Other Targets
 clean:
-	-$(RM) $(S_DEPS_QUOTED) "./*/*.obj" "./*.obj" "./*/*/*.obj"  $(CPP_DEPS_QUOTED) $(CC_DEPS_QUOTED) $(_OUTPUTTYPE_NAME_BURNER_OUTPUT_OUTPUTS_QUOTED) $(S_UPPER_DEPS_QUOTED) $(CXX_DEPS_QUOTED) $(ASM_DEPS_QUOTED) $(ASM_UPPER_DEPS_QUOTED) $(C_UPPER_DEPS_QUOTED) $(C++_DEPS_QUOTED) $(EXECUTABLES_QUOTED) "./*/*.d" "./*.d" "./*/*/*.d"  $(ProjDirPath)/FLASH/X-SubMCUFirmware.elf $(ProjDirPath)/FLASH/X-SubMCUFirmware.args
+	-$(RM) $(S_DEPS_QUOTED) "./*/*.obj" "./*.obj" "./*/*/*.obj"  $(CPP_DEPS_QUOTED) $(CC_DEPS_QUOTED) $(_OUTPUTTYPE_NAME_BURNER_OUTPUT_OUTPUTS_QUOTED) $(S_UPPER_DEPS_QUOTED) $(CXX_DEPS_QUOTED) $(ASM_DEPS_QUOTED) $(ASM_UPPER_DEPS_QUOTED) $(C_UPPER_DEPS_QUOTED) $(C++_DEPS_QUOTED) $(EXECUTABLES_QUOTED) "./*/*.d" "./*.d" "./*/*/*.d"  $(ProjDirPath)/FLASH/X-SubMCUFirmware.elf $(ProjDirPath)/FLASH/X-SubMCUFirmware.args $(ProjDirPath)/FLASH/X-SubMCUFirmware.elf.S19 $(ProjDirPath)/FLASH/X-SubMCUFirmware.elf.xMAP
 	-@echo ' '
 
 .PHONY: all clean dependents explicit-dependencies warning-messages

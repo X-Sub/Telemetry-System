@@ -6,7 +6,7 @@
 **     Component   : AsynchroSerial
 **     Version     : Component 02.611, Driver 01.33, CPU db: 3.00.078
 **     Compiler    : CodeWarrior ColdFireV1 C Compiler
-**     Date/Time   : 2015-07-14, 17:22, # CodeGen: 41
+**     Date/Time   : 2015-07-17, 22:39, # CodeGen: 54
 **     Abstract    :
 **         This component "AsynchroSerial" implements an asynchronous serial
 **         communication. The component supports different settings of
@@ -23,8 +23,8 @@
 **             Stop bits               : 1
 **             Parity                  : none
 **             Breaks                  : Disabled
-**             Input buffer size       : 0
-**             Output buffer size      : 0
+**             Input buffer size       : 2
+**             Output buffer size      : 14
 **
 **         Registers
 **             Input buffer            : SCI1D     [0xFFFF8027]
@@ -57,6 +57,10 @@
 **         Disable         - byte SerialCom_Disable(void);
 **         RecvChar        - byte SerialCom_RecvChar(SerialCom_TComData *Chr);
 **         SendChar        - byte SerialCom_SendChar(SerialCom_TComData Chr);
+**         RecvBlock       - byte SerialCom_RecvBlock(SerialCom_TComData *Ptr, word Size, word *Rcv);
+**         SendBlock       - byte SerialCom_SendBlock(SerialCom_TComData *Ptr, word Size, word *Snd);
+**         ClearRxBuf      - byte SerialCom_ClearRxBuf(void);
+**         ClearTxBuf      - byte SerialCom_ClearTxBuf(void);
 **         GetCharsInRxBuf - word SerialCom_GetCharsInRxBuf(void);
 **         GetCharsInTxBuf - word SerialCom_GetCharsInTxBuf(void);
 **
@@ -119,16 +123,27 @@
 #define OVERRUN_ERR      0x01U         /* Overrun error flag bit   */
 #define COMMON_ERR       0x02U         /* Common error of RX       */
 #define CHAR_IN_RX       0x04U         /* Char is in RX buffer     */
-#define FULL_TX          0x08U         /* Full transmit buffer     */
+#define RUNINT_FROM_TX   0x08U         /* Interrupt is in progress */
+#define FULL_RX          0x10U         /* Full receive buffer      */
+#define FULL_TX          0x20U         /* Full transmit buffer     */
 
 static volatile byte SerFlag;          /* Flags for serial communication */
                                        /* Bit 0 - Overrun error */
                                        /* Bit 1 - Common error of RX */
                                        /* Bit 2 - Char in RX buffer */
-                                       /* Bit 3 - Full TX buffer */
+                                       /* Bit 3 - Interrupt is in progress */
+                                       /* Bit 4 - Full RX buffer */
+                                       /* Bit 5 - Full TX buffer */
 static bool EnUser;                    /* Enable/Disable SCI */
-static SerialCom_TComData BufferRead;  /* Input char for SCI commmunication */
-static SerialCom_TComData BufferWrite; /* Output char for SCI commmunication */
+byte SerialCom_InpLen;                 /* Length of the input buffer content */
+static byte InpIndxR;                  /* Index for reading from input buffer */
+static byte InpIndxW;                  /* Index for writing to input buffer */
+static SerialCom_TComData InpBuffer[SerialCom_INP_BUF_SIZE]; /* Input buffer for SCI commmunication */
+byte SerialCom_OutLen;                 /* Length of the output buffer content */
+static byte OutIndxR;                  /* Index for reading from output buffer */
+static byte OutIndxW;                  /* Index for writing to output buffer */
+static SerialCom_TComData OutBuffer[SerialCom_OUT_BUF_SIZE]; /* Output buffer for SCI commmunication */
+static bool OnFreeTxBuf_semaphore;     /* Disable the false calling of the OnFreeTxBuf event */
 
 /*
 ** ===================================================================
@@ -154,10 +169,7 @@ byte SerialCom_Enable(void)
       /* SCI1C3: ORIE=1,NEIE=1,FEIE=1,PEIE=1 */
     SCI1C3 |= 0x0FU;                   /* Enable error interrupts */
     SCI1C2 |= (SCI1C2_TE_MASK | SCI1C2_RE_MASK | SCI1C2_RIE_MASK); /*  Enable transmitter, Enable receiver, Enable receiver interrupt */
-    if (SerFlag & FULL_TX) {           /* Is any char in the transmit buffer? */
-      (void)SCI1S1;                    /* Reset interrupt request flag */
-      while(SCI1S1_TDRE == 0U) {}      /* Wait for transmitter empty */
-      SCI1D = (byte)BufferWrite;       /* Store char to the transmitter register */
+    if (SerialCom_OutLen) {            /* Is number of bytes in the transmit buffer greater then 0? */
       SCI1C2_TIE = 0x01U;              /* Enable transmit interrupt */
     }
   }
@@ -227,14 +239,17 @@ byte SerialCom_RecvChar(SerialCom_TComData *Chr)
 {
   byte Result = ERR_OK;                /* Prepare default error code */
 
-  if ((SerFlag & CHAR_IN_RX) == 0U) {  /* Is any char in RX buffer? */
-    return ERR_RXEMPTY;                /* If no then error */
+  if (SerialCom_InpLen > 0U) {         /* Is number of received chars greater than 0? */
+    EnterCritical();                   /* Save the PS register */
+    SerialCom_InpLen--;                /* Decrease number of received chars */
+    *Chr = InpBuffer[InpIndxR];        /* Received char */
+    InpIndxR = (byte)((InpIndxR + 1U) & (SerialCom_INP_BUF_SIZE - 1U)); /* Update index */
+    Result = (byte)((SerFlag & (OVERRUN_ERR|COMMON_ERR|FULL_RX)) ? ERR_COMMON : ERR_OK);
+    SerFlag &= (byte)(~(byte)(OVERRUN_ERR|COMMON_ERR|FULL_RX|CHAR_IN_RX)); /* Clear all errors in the status variable */
+    ExitCritical();                    /* Restore the PS register */
+  } else {
+    return ERR_RXEMPTY;                /* Receiver is empty */
   }
-  EnterCritical();                     /* Save the PS register */
-  *Chr = BufferRead;                   /* Received char */
-  Result = (byte)((SerFlag & (OVERRUN_ERR|COMMON_ERR)) ? ERR_COMMON : ERR_OK);
-  SerFlag &= (byte)(~(byte)(OVERRUN_ERR|COMMON_ERR|CHAR_IN_RX)); /* Clear all errors in the status variable */
-  ExitCritical();                      /* Restore the PS register */
   return Result;                       /* Return error code */
 }
 
@@ -262,18 +277,184 @@ byte SerialCom_RecvChar(SerialCom_TComData *Chr)
 */
 byte SerialCom_SendChar(SerialCom_TComData Chr)
 {
-  if (SerFlag & FULL_TX) {             /* Is any char in TX buffer? */
+  if (SerialCom_OutLen == SerialCom_OUT_BUF_SIZE) { /* Is number of chars in buffer the same as a size of the transmit buffer */
     return ERR_TXFULL;                 /* If yes then error */
   }
   EnterCritical();                     /* Save the PS register */
-  if (EnUser) {                        /* Is the device enabled by user? */
-    (void)SCI1S1;                      /* Reset interrupt request flag */
-    SCI1D = (byte)Chr;                 /* Store char to the transmitter register */
-    SCI1C2_TIE = 0x01U;                /* Enable transmit interrupt */
-  } else {
-    BufferWrite = Chr;                 /* Store char to temporary variable */
+  SerialCom_OutLen++;                  /* Increase number of bytes in the transmit buffer */
+  OutBuffer[OutIndxW] = Chr;           /* Store char to buffer */
+  if (++OutIndxW >= SerialCom_OUT_BUF_SIZE) { /* Is the index out of the buffer? */
+    OutIndxW = 0U;                     /* Set the index to the start of the buffer */
   }
-  SerFlag |= FULL_TX;                  /* Set the flag "full TX buffer" */
+  if (EnUser) {                        /* Is the device enabled by user? */
+    if (SCI1C2_TIE == 0U) {            /* Is the transmit interrupt already enabled? */
+      SCI1C2_TIE = 0x01U;              /* If no than enable transmit interrupt */
+    }
+  }
+  ExitCritical();                      /* Restore the PS register */
+  return ERR_OK;                       /* OK */
+}
+
+/*
+** ===================================================================
+**     Method      :  SerialCom_RecvBlock (component AsynchroSerial)
+**     Description :
+**         If any data is received, this method returns the block of
+**         the data and its length (and incidental error), otherwise it
+**         returns an error code (it does not wait for data).
+**         This method is available only if non-zero length of the
+**         input buffer is defined and the receiver property is enabled.
+**         If less than requested number of characters is received only
+**         the available data is copied from the receive buffer to the
+**         user specified destination. The value ERR_EXEMPTY is
+**         returned and the value of variable pointed by the Rcv
+**         parameter is set to the number of received characters.
+**     Parameters  :
+**         NAME            - DESCRIPTION
+**       * Ptr             - Pointer to the block of received data
+**         Size            - Size of the block
+**       * Rcv             - Pointer to real number of the received data
+**     Returns     :
+**         ---             - Error code, possible codes:
+**                           ERR_OK - OK
+**                           ERR_SPEED - This device does not work in
+**                           the active speed mode
+**                           ERR_RXEMPTY - The receive buffer didn't
+**                           contain the requested number of data. Only
+**                           available data has been returned.
+**                           ERR_COMMON - common error occurred (the
+**                           GetError method can be used for error
+**                           specification)
+** ===================================================================
+*/
+byte SerialCom_RecvBlock(SerialCom_TComData *Ptr, word Size, word *Rcv)
+{
+  word count;                          /* Number of received chars */
+  byte result = ERR_OK;                /* Last error */
+
+  for (count = 0U; count < Size; count++) {
+    switch (SerialCom_RecvChar(Ptr++)) { /* Receive data and test the return value*/
+    case ERR_RXEMPTY:                  /* No data in the buffer */
+      if (result == ERR_OK) {          /* If no receiver error reported */
+        result = ERR_RXEMPTY;          /* Return info that requested number of data is not available */
+      }
+     *Rcv = count;                     /* Return number of received chars */
+      return result;
+    case ERR_COMMON:                   /* Receiver error reported */
+      result = ERR_COMMON;             /* Return info that an error was detected */
+      break;
+    default:
+      break;
+    }
+  }
+  *Rcv = count;                        /* Return the number of received chars */
+  return result;                       /* Return the last error code*/
+}
+
+/*
+** ===================================================================
+**     Method      :  SerialCom_SendBlock (component AsynchroSerial)
+**     Description :
+**         Sends a block of characters to the channel.
+**         This method is available only if non-zero length of the
+**         output buffer is defined and the transmitter property is
+**         enabled.
+**     Parameters  :
+**         NAME            - DESCRIPTION
+**       * Ptr             - Pointer to the block of data to send
+**         Size            - Size of the block
+**       * Snd             - Pointer to number of data that are sent
+**                           (moved to buffer)
+**     Returns     :
+**         ---             - Error code, possible codes:
+**                           ERR_OK - OK
+**                           ERR_SPEED - This device does not work in
+**                           the active speed mode
+**                           ERR_TXFULL - It was not possible to send
+**                           requested number of bytes
+** ===================================================================
+*/
+byte SerialCom_SendBlock(const SerialCom_TComData * Ptr, word Size, word *Snd)
+{
+  word count = 0x00U;                  /* Number of sent chars */
+  bool local_OnFreeTxBuf_semaphore = OnFreeTxBuf_semaphore; /* Local copy of OnFreeTxBuf_semaphore state */
+
+  while((count < Size) && (SerialCom_OutLen < SerialCom_OUT_BUF_SIZE)) { /* While there is some char desired to send left and output buffer is not full do */
+    EnterCritical();                   /* Save the PS register */
+    OnFreeTxBuf_semaphore = TRUE;      /* Set the OnFreeTxBuf_semaphore to block OnFreeTxBuf calling */
+    SerialCom_OutLen++;                /* Increase number of bytes in the transmit buffer */
+    OutBuffer[OutIndxW] = *Ptr++;      /* Store char to buffer */
+    if (++OutIndxW >= SerialCom_OUT_BUF_SIZE) { /* Is the index out of the buffer? */
+      OutIndxW = 0U;                   /* Set the index to the start of the buffer */
+    }
+    count++;                           /* Increase the count of sent data */
+    if ((count == Size) || (SerialCom_OutLen == SerialCom_OUT_BUF_SIZE)) { /* Is the last desired char put into buffer or the buffer is full? */
+      if (!local_OnFreeTxBuf_semaphore) { /* Was the OnFreeTxBuf_semaphore clear before enter the method? */
+        OnFreeTxBuf_semaphore = FALSE; /* If yes then clear the OnFreeTxBuf_semaphore */
+      }
+    }
+    if (EnUser) {                      /* Is the device enabled by user? */
+      if (SCI1C2_TIE == 0U) {          /* Is the transmit interrupt already enabled? */
+        SCI1C2_TIE = 0x01U;            /* If no than enable transmit interrupt */
+      }
+    }
+    ExitCritical();                    /* Restore the PS register */
+  }
+  *Snd = count;                        /* Return the number of sent chars */
+  if (count != Size) {                 /* Is the number of sent chars less then desired number of chars */
+    return ERR_TXFULL;                 /* If yes then error */
+  }
+  return ERR_OK;                       /* OK */
+}
+
+/*
+** ===================================================================
+**     Method      :  SerialCom_ClearRxBuf (component AsynchroSerial)
+**     Description :
+**         Clears the receive buffer.
+**         This method is available only if non-zero length of the
+**         input buffer is defined and the receiver property is enabled.
+**     Parameters  : None
+**     Returns     :
+**         ---             - Error code, possible codes:
+**                           ERR_OK - OK
+**                           ERR_SPEED - This device does not work in
+**                           the active speed mode
+** ===================================================================
+*/
+byte SerialCom_ClearRxBuf(void)
+{
+  EnterCritical();                     /* Save the PS register */
+  SerialCom_InpLen = 0x00U;            /* Set number of chars in the receive buffer to 0 */
+  InpIndxR = 0x00U;                    /* Reset read index to the receive buffer */
+  InpIndxW = 0x00U;                    /* Reset write index to the receive buffer */
+  SerFlag &= (byte)(~(byte)(CHAR_IN_RX | FULL_RX)); /* Clear the flags indicating a char in buffer */
+  ExitCritical();                      /* Restore the PS register */
+  return ERR_OK;                       /* OK */
+}
+
+/*
+** ===================================================================
+**     Method      :  SerialCom_ClearTxBuf (component AsynchroSerial)
+**     Description :
+**         Clears the transmit buffer.
+**         This method is available only if non-zero length of the
+**         output buffer is defined and the receiver property is
+**         enabled.
+**     Parameters  : None
+**     Returns     :
+**         ---             - Error code, possible codes:
+**                           ERR_OK - OK
+**                           ERR_SPEED - This device does not work in
+**                           the active speed mode
+** ===================================================================
+*/
+byte SerialCom_ClearTxBuf(void)
+{
+  EnterCritical();                     /* Save the PS register */
+  SerialCom_OutLen = 0x00U;            /* Set number of chars in the transmit buffer to 0 */
+  OutIndxR = 0x00U;                    /* Reset read index to the transmit buffer */
+  OutIndxW = 0x00U;                    /* Reset read index to the transmit buffer */
   ExitCritical();                      /* Restore the PS register */
   return ERR_OK;                       /* OK */
 }
@@ -290,10 +471,11 @@ byte SerialCom_SendChar(SerialCom_TComData Chr)
 **                           buffer.
 ** ===================================================================
 */
+/*
 word SerialCom_GetCharsInRxBuf(void)
-{
-  return ((SerFlag & CHAR_IN_RX) ? (word)1U : (word)0U); /* Return number of chars in the receive buffer */
-}
+
+**      This method is implemented as a macro. See header module. **
+*/
 
 /*
 ** ===================================================================
@@ -308,10 +490,11 @@ word SerialCom_GetCharsInRxBuf(void)
 **                           buffer.
 ** ===================================================================
 */
+/*
 word SerialCom_GetCharsInTxBuf(void)
-{
-  return ((SerFlag & FULL_TX) ? (word)1U : (word)0U); /* Return number of chars in the transmitter buffer */
-}
+
+**      This method is implemented as a macro. See header module. **
+*/
 
 /*
 ** ===================================================================
@@ -334,15 +517,22 @@ ISR(SerialCom_InterruptRx)
   byte StatReg = SCI1S1;               /* Temporary variable for status flags */
   SerialCom_TComData Data = SCI1D;     /* Read data from the receiver into temporary variable for data */
 
-  if (SerFlag & CHAR_IN_RX) {          /* Is any char already present in the receive buffer? */
-    SerFlag |= OVERRUN_ERR;            /* If yes then set flag OVERRUN_ERR */
+  if (SerialCom_InpLen < SerialCom_INP_BUF_SIZE) { /* Is number of bytes in the receive buffer lower than size of buffer? */
+    SerialCom_InpLen++;                /* Increse number of chars in the receive buffer */
+    InpBuffer[InpIndxW] = Data;        /* Save received char to the receive buffer */
+    InpIndxW = (byte)((InpIndxW + 1U) & (SerialCom_INP_BUF_SIZE - 1U)); /* Update index */
+    OnFlags |= ON_RX_CHAR;             /* Set flag "OnRXChar" */
+    if (SerialCom_InpLen== SerialCom_INP_BUF_SIZE) { /* Is number of bytes in the receive buffer equal as a size of buffer? */
+      OnFlags |= ON_FULL_RX;           /* If yes then set flag "OnFullRxBuff" */
+    }
   } else {
-    BufferRead = Data;                 /* Copy data into global buffer variable */
-    SerFlag |= CHAR_IN_RX;             /* Set flag "char in RX buffer" */
-    OnFlags |= ON_RX_CHAR;             /* Set flag "OnRxChar" */
+    SerFlag |= FULL_RX;                /* If yes then set flag buffer overflow */
   }
   if (OnFlags & ON_RX_CHAR) {          /* Is OnRxChar flag set? */
     SerialCom_OnRxChar();              /* If yes then invoke user event */
+  }
+  if (OnFlags & ON_FULL_RX) {          /* Is OnFullRxBuf flag set? */
+    SerialCom_OnFullRxBuf();           /* If yes then invoke user event */
   }
 }
 
@@ -362,13 +552,29 @@ ISR(SerialCom_InterruptTx)
 {
   byte OnFlags = 0x00U;                /* Temporary variable for flags */
 
-  if (SerFlag & FULL_TX) {             /* Is a char already present in the transmit buffer? */
+  if (SerFlag & RUNINT_FROM_TX) {      /* Is flag "running int from TX" set? */
     OnFlags |= ON_TX_CHAR;             /* Set flag "OnTxChar" */
   }
-  SerFlag &= (byte)(~(byte)FULL_TX);   /* Reset flag "full TX buffer" */
-  SCI1C2_TIE = 0x00U;                  /* Disable transmit interrupt */
+  SerFlag &= (byte)(~(byte)RUNINT_FROM_TX); /* Reset flag "running int from TX" */
+  if (SerialCom_OutLen) {              /* Is number of bytes in the transmit buffer greater than 0? */
+    SerialCom_OutLen--;                /* Decrease number of chars in the transmit buffer */
+    SerFlag |= RUNINT_FROM_TX;         /* Set flag "running int from TX" */
+    (void)SCI1S1;                      /* Reset interrupt request flag */
+    SCI1D = OutBuffer[OutIndxR];       /* Store char to transmitter register */
+    if (++OutIndxR >= SerialCom_OUT_BUF_SIZE) { /* Is the index out of the buffer? */
+      OutIndxR = 0U;                   /* Set the index to the start of the buffer */
+    }
+  } else {
+    if (!OnFreeTxBuf_semaphore) {
+      OnFlags |= ON_FREE_TX;           /* Set flag "OnFreeTxBuf" */
+    }
+    SCI1C2_TIE = 0x00U;                /* Disable transmit interrupt */
+  }
   if (OnFlags & ON_TX_CHAR) {          /* Is flag "OnTxChar" set? */
     SerialCom_OnTxChar();              /* If yes then invoke user event */
+  }
+  if (OnFlags & ON_FREE_TX) {          /* Is flag "OnFreeTxBuf" set? */
+    SerialCom_OnFreeTxBuf();           /* If yes then invoke user event */
   }
 }
 
@@ -404,7 +610,14 @@ ISR(SerialCom_InterruptError)
 void SerialCom_Init(void)
 {
   SerFlag = 0x00U;                     /* Reset flags */
+  OnFreeTxBuf_semaphore = FALSE;       /* Clear the OnFreeTxBuf_semaphore */
   EnUser = TRUE;                       /* Enable device */
+  SerialCom_InpLen = 0x00U;            /* No char in the receive buffer */
+  InpIndxR = 0x00U;                    /* Reset read index to the receive buffer */
+  InpIndxW = 0x00U;                    /* Reset write index to the receive buffer */
+  SerialCom_OutLen = 0x00U;            /* No char in the transmit buffer */
+  OutIndxR = 0x00U;                    /* Reset read index to the transmit buffer */
+  OutIndxW = 0x00U;                    /* Reset write index to the transmit buffer */
   /* SCI1C1: LOOPS=0,SCISWAI=0,RSRC=0,M=0,WAKE=0,ILT=0,PE=0,PT=0 */
   setReg8(SCI1C1, 0x00U);              /* Configure the SCI */ 
   /* SCI1C3: R8=0,T8=0,TXDIR=0,TXINV=0,ORIE=0,NEIE=0,FEIE=0,PEIE=0 */

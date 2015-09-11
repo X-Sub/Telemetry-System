@@ -7,11 +7,7 @@
 **     Version     : Component 01.014, Driver 01.12, CPU db: 3.00.078
 **     Datasheet   : MCF51QE128RM, Rev. 3, 9/2007
 **     Compiler    : CodeWarrior ColdFireV1 C Compiler
-<<<<<<< HEAD
-**     Date/Time   : 2015-07-11, 23:17, # CodeGen: 34
-=======
-**     Date/Time   : 2015-06-15, 16:23, # CodeGen: 15
->>>>>>> ef6348856dbd10b0d1ac938feeb92755e9868d98
+**     Date/Time   : 2015-07-21, 17:35, # CodeGen: 59
 **     Abstract    :
 **         This component "MCF51QE128_80" contains initialization of the
 **         CPU and provides basic methods and events for CPU core
@@ -78,14 +74,14 @@
 #include "sCom_In.h"
 #include "sPC_OK.h"
 #include "Aux_Int.h"
-<<<<<<< HEAD
 #include "SerialCom.h"
 #include "RESET_INTERRUPT.h"
 #include "ADC.h"
 #include "LedLight1.h"
 #include "LedLight2.h"
-=======
->>>>>>> ef6348856dbd10b0d1ac938feeb92755e9868d98
+#include "CS1.h"
+#include "I2C.h"
+#include "PresenciaAgua.h"
 #include "PE_Types.h"
 #include "PE_Error.h"
 #include "PE_Const.h"
@@ -228,6 +224,8 @@ void __initialize_hardware(void)
   /* Common initialization of the write once registers */
   /* SOPT1: COPE=0,COPT=1,STOPE=0,WAITE=1,??=0,RSTOPE=0,BKGDPE=1,RSTPE=0 */
   setReg8(SOPT1, 0x52U);                
+  /* SOPT2: COPCLKS=0,??=0,??=0,??=0,SPI1PS=0,ACIC2=0,IIC1PS=1,ACIC1=0 */
+  setReg8(SOPT2, 0x02U);                
   /* SPMSC1: LVDF=0,LVDACK=0,LVDIE=0,LVDRE=1,LVDSE=1,LVDE=1,??=0,BGBE=0 */
   setReg8(SPMSC1, 0x1CU);               
   /* SPMSC2: LPR=0,LPRS=0,LPWUI=0,??=0,PPDF=0,PPDACK=0,PPDE=1,PPDC=0 */
@@ -287,41 +285,34 @@ void PE_low_level_init(void)
   /* SCGC2: ??=1,FLS=1,IRQ=1,KBI=1,ACMP=1,RTC=1,SPI2=1,SPI1=1 */
   setReg8(SCGC2, 0xFFU);                
   /* Common initialization of the CPU registers */
-<<<<<<< HEAD
-  /* PTADD: PTADD7=1,PTADD6=1,PTADD5=0,PTADD1=1,PTADD0=1 */
-  clrSetReg8Bits(PTADD, 0x20U, 0xC3U);  
+  /* PTADD: PTADD7=1,PTADD6=1,PTADD2=0,PTADD1=1,PTADD0=1 */
+  clrSetReg8Bits(PTADD, 0x04U, 0xC3U);  
   /* PTAD: PTAD7=0,PTAD6=0,PTAD1=0,PTAD0=0 */
   clrReg8Bits(PTAD, 0xC3U);             
-  /* PTBDD: PTBDD5=1,PTBDD4=1,PTBDD1=1,PTBDD0=0 */
-  clrSetReg8Bits(PTBDD, 0x01U, 0x32U);  
+  /* PTBDD: PTBDD7=0,PTBDD6=0,PTBDD5=1,PTBDD4=1,PTBDD1=1,PTBDD0=0 */
+  clrSetReg8Bits(PTBDD, 0xC1U, 0x32U);  
   /* PTBD: PTBD5=0,PTBD4=0,PTBD1=1 */
   clrSetReg8Bits(PTBD, 0x30U, 0x02U);   
-  /* PTCD: PTCD4=1,PTCD3=1,PTCD2=1,PTCD1=0,PTCD0=0 */
-  clrSetReg8Bits(PTCD, 0x03U, 0x1CU);   
-  /* PTCPE: PTCPE4=0,PTCPE3=0,PTCPE2=0 */
-  clrReg8Bits(PTCPE, 0x1CU);            
-  /* PTCDD: PTCDD4=1,PTCDD3=1,PTCDD2=1,PTCDD1=1,PTCDD0=1 */
-  setReg8Bits(PTCDD, 0x1FU);            
-  /* PTAPE: PTAPE5=1 */
-  setReg8Bits(PTAPE, 0x20U);            
+  /* PTCD: PTCD4=1,PTCD2=1,PTCD1=0,PTCD0=0 */
+  clrSetReg8Bits(PTCD, 0x03U, 0x14U);   
+  /* PTCPE: PTCPE4=0,PTCPE2=0 */
+  clrReg8Bits(PTCPE, 0x14U);            
+  /* PTCDD: PTCDD4=1,PTCDD2=1,PTCDD1=1,PTCDD0=1 */
+  setReg8Bits(PTCDD, 0x17U);            
+  /* PTED: PTED6=1 */
+  setReg8Bits(PTED, 0x40U);             
+  /* PTEPE: PTEPE6=0 */
+  clrReg8Bits(PTEPE, 0x40U);            
+  /* PTEDD: PTEDD6=1 */
+  setReg8Bits(PTEDD, 0x40U);            
+  /* PTAPE: PTAPE2=1 */
+  setReg8Bits(PTAPE, 0x04U);            
   /* APCTL2: ADPC10=1 */
   setReg8Bits(APCTL2, 0x04U);           
-=======
-  /* PTADD: PTADD7=1,PTADD6=1,PTADD1=1,PTADD0=1 */
-  setReg8Bits(PTADD, 0xC3U);            
-  /* PTAD: PTAD7=0,PTAD6=0,PTAD1=0,PTAD0=0 */
-  clrReg8Bits(PTAD, 0xC3U);             
-  /* PTBDD: PTBDD5=1,PTBDD4=1 */
-  setReg8Bits(PTBDD, 0x30U);            
-  /* PTBD: PTBD5=0,PTBD4=0 */
-  clrReg8Bits(PTBD, 0x30U);             
-  /* PTCD: PTCD2=0,PTCD1=0,PTCD0=0 */
-  clrReg8Bits(PTCD, 0x07U);             
-  /* PTCPE: PTCPE2=0,PTCPE1=0,PTCPE0=0 */
-  clrReg8Bits(PTCPE, 0x07U);            
-  /* PTCDD: PTCDD2=1,PTCDD1=1,PTCDD0=1 */
-  setReg8Bits(PTCDD, 0x07U);            
->>>>>>> ef6348856dbd10b0d1ac938feeb92755e9868d98
+  /* PTDPE: PTDPE0=1 */
+  setReg8Bits(PTDPE, 0x01U);            
+  /* PTDDD: PTDDD0=0 */
+  clrReg8Bits(PTDDD, 0x01U);            
   /* PTASE: PTASE7=0,PTASE6=0,PTASE4=0,PTASE3=0,PTASE2=0,PTASE1=0,PTASE0=0 */
   clrReg8Bits(PTASE, 0xDFU);            
   /* PTBSE: PTBSE7=0,PTBSE6=0,PTBSE5=0,PTBSE4=0,PTBSE3=0,PTBSE2=0,PTBSE1=0,PTBSE0=0 */
@@ -376,22 +367,25 @@ void PE_low_level_init(void)
   /* ### BitIO "sPC_OK" init code ... */
   /* ### TimerInt "Aux_Int" init code ... */
   Aux_Int_Init();
-<<<<<<< HEAD
   /* ### Asynchro serial "SerialCom" init code ... */
   SerialCom_Init();
   /* ### External interrupt "RESET_INTERRUPT" init code ... */
-  /* IRQSC: ??=0,IRQPDD=0,IRQEDG=0,IRQPE=1,IRQF=0,IRQACK=0,IRQIE=0,IRQMOD=0 */
-  setReg8(IRQSC, 0x10U);                
-  /* IRQSC: IRQACK=1 */
-  setReg8Bits(IRQSC, 0x04U);            
-  /* IRQSC: IRQIE=1 */
-  setReg8Bits(IRQSC, 0x02U);            
+  /* KBI1PE: KBIPE2=1 */
+  KBI1PE |= 0x04U;
+  /* KBI1SC: ??=0,??=0,??=0,??=0,KBF=0,KBACK=0,KBIE=0,KBIMOD=0 */
+  setReg8(KBI1SC, 0x00U);               
+  KBI1SC_KBACK = 0x01U;                /* Clear Interrupt flag */
+  KBI1SC_KBIE = 0x01U;
   /* ###  "ADC" init code ... */
   ADC_Init();
   /* ### Programable pulse generation "LedLight1" init code ... */
   LedLight1_Init();
   /* ### Programable pulse generation "LedLight2" init code ... */
   LedLight2_Init();
+  /* ### CriticalSection "CS1" init code ... */
+  /* ### InternalI2C "I2C" init code ... */
+  I2C_Init();
+  /* ### BitIO "PresenciaAgua" init code ... */
   /* Common peripheral initialization - ENABLE */
   /* TPM1SC: CLKSB=0,CLKSA=1,PS1=1,PS0=1 */
   clrSetReg8Bits(TPM1SC, 0x10U, 0x0BU); 
@@ -405,13 +399,9 @@ void PE_low_level_init(void)
   /* Initialize priority of ivVsci1tx interrupt */
   /* INTC_PL6P6: ??=0,??=0,??=0,REQN=0x0E */
   setReg8(INTC_PL6P6, 0x0EU);           
-=======
-  /* Common peripheral initialization - ENABLE */
-  /* TPM1SC: CLKSB=0,CLKSA=1,PS0=1 */
-  clrSetReg8Bits(TPM1SC, 0x10U, 0x09U); 
-  /* TPM2SC: CLKSB=0,CLKSA=1,PS0=1 */
-  clrSetReg8Bits(TPM2SC, 0x10U, 0x09U); 
->>>>>>> ef6348856dbd10b0d1ac938feeb92755e9868d98
+  /* Initialize priority of ivVkeyboard interrupt */
+  /* INTC_PL6P7: ??=0,??=0,??=0,REQN=0x10 */
+  setReg8(INTC_PL6P7, 0x10U);           
   /* Initialize priority of ivVrtc interrupt */
   /* INTC_PL6P6: ??=0,??=0,??=0,REQN=0x16 */
   setReg8(INTC_PL6P6, 0x16U);           

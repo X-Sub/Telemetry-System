@@ -6,7 +6,7 @@
 **     Component   : AsynchroSerial
 **     Version     : Component 02.611, Driver 01.33, CPU db: 3.00.078
 **     Compiler    : CodeWarrior ColdFireV1 C Compiler
-**     Date/Time   : 2015-07-14, 17:22, # CodeGen: 41
+**     Date/Time   : 2015-07-17, 22:39, # CodeGen: 54
 **     Abstract    :
 **         This component "AsynchroSerial" implements an asynchronous serial
 **         communication. The component supports different settings of
@@ -23,8 +23,8 @@
 **             Stop bits               : 1
 **             Parity                  : none
 **             Breaks                  : Disabled
-**             Input buffer size       : 0
-**             Output buffer size      : 0
+**             Input buffer size       : 2
+**             Output buffer size      : 14
 **
 **         Registers
 **             Input buffer            : SCI1D     [0xFFFF8027]
@@ -57,6 +57,10 @@
 **         Disable         - byte SerialCom_Disable(void);
 **         RecvChar        - byte SerialCom_RecvChar(SerialCom_TComData *Chr);
 **         SendChar        - byte SerialCom_SendChar(SerialCom_TComData Chr);
+**         RecvBlock       - byte SerialCom_RecvBlock(SerialCom_TComData *Ptr, word Size, word *Rcv);
+**         SendBlock       - byte SerialCom_SendBlock(SerialCom_TComData *Ptr, word Size, word *Snd);
+**         ClearRxBuf      - byte SerialCom_ClearRxBuf(void);
+**         ClearTxBuf      - byte SerialCom_ClearTxBuf(void);
 **         GetCharsInRxBuf - word SerialCom_GetCharsInRxBuf(void);
 **         GetCharsInTxBuf - word SerialCom_GetCharsInTxBuf(void);
 **
@@ -143,7 +147,11 @@
   typedef byte SerialCom_TComData ;    /* User type for communication. Size of this type depends on the communication data width. */
 #endif
 
+#define SerialCom_INP_BUF_SIZE 0x02U   /* Input buffer size */
+#define SerialCom_OUT_BUF_SIZE 0x0EU   /* Output buffer size */
 
+extern byte SerialCom_OutLen;          /* Length of the output buffer content */
+extern byte SerialCom_InpLen;          /* Length of the input buffer content */
 
 byte SerialCom_Enable(void);
 /*
@@ -236,7 +244,102 @@ byte SerialCom_SendChar(SerialCom_TComData Chr);
 ** ===================================================================
 */
 
-word SerialCom_GetCharsInRxBuf(void);
+byte SerialCom_RecvBlock(SerialCom_TComData *Ptr,word Size,word *Rcv);
+/*
+** ===================================================================
+**     Method      :  SerialCom_RecvBlock (component AsynchroSerial)
+**     Description :
+**         If any data is received, this method returns the block of
+**         the data and its length (and incidental error), otherwise it
+**         returns an error code (it does not wait for data).
+**         This method is available only if non-zero length of the
+**         input buffer is defined and the receiver property is enabled.
+**         If less than requested number of characters is received only
+**         the available data is copied from the receive buffer to the
+**         user specified destination. The value ERR_EXEMPTY is
+**         returned and the value of variable pointed by the Rcv
+**         parameter is set to the number of received characters.
+**     Parameters  :
+**         NAME            - DESCRIPTION
+**       * Ptr             - Pointer to the block of received data
+**         Size            - Size of the block
+**       * Rcv             - Pointer to real number of the received data
+**     Returns     :
+**         ---             - Error code, possible codes:
+**                           ERR_OK - OK
+**                           ERR_SPEED - This device does not work in
+**                           the active speed mode
+**                           ERR_RXEMPTY - The receive buffer didn't
+**                           contain the requested number of data. Only
+**                           available data has been returned.
+**                           ERR_COMMON - common error occurred (the
+**                           GetError method can be used for error
+**                           specification)
+** ===================================================================
+*/
+
+byte SerialCom_SendBlock(const SerialCom_TComData * Ptr,word Size,word *Snd);
+/*
+** ===================================================================
+**     Method      :  SerialCom_SendBlock (component AsynchroSerial)
+**     Description :
+**         Sends a block of characters to the channel.
+**         This method is available only if non-zero length of the
+**         output buffer is defined and the transmitter property is
+**         enabled.
+**     Parameters  :
+**         NAME            - DESCRIPTION
+**       * Ptr             - Pointer to the block of data to send
+**         Size            - Size of the block
+**       * Snd             - Pointer to number of data that are sent
+**                           (moved to buffer)
+**     Returns     :
+**         ---             - Error code, possible codes:
+**                           ERR_OK - OK
+**                           ERR_SPEED - This device does not work in
+**                           the active speed mode
+**                           ERR_TXFULL - It was not possible to send
+**                           requested number of bytes
+** ===================================================================
+*/
+
+byte SerialCom_ClearRxBuf(void);
+/*
+** ===================================================================
+**     Method      :  SerialCom_ClearRxBuf (component AsynchroSerial)
+**     Description :
+**         Clears the receive buffer.
+**         This method is available only if non-zero length of the
+**         input buffer is defined and the receiver property is enabled.
+**     Parameters  : None
+**     Returns     :
+**         ---             - Error code, possible codes:
+**                           ERR_OK - OK
+**                           ERR_SPEED - This device does not work in
+**                           the active speed mode
+** ===================================================================
+*/
+
+byte SerialCom_ClearTxBuf(void);
+/*
+** ===================================================================
+**     Method      :  SerialCom_ClearTxBuf (component AsynchroSerial)
+**     Description :
+**         Clears the transmit buffer.
+**         This method is available only if non-zero length of the
+**         output buffer is defined and the receiver property is
+**         enabled.
+**     Parameters  : None
+**     Returns     :
+**         ---             - Error code, possible codes:
+**                           ERR_OK - OK
+**                           ERR_SPEED - This device does not work in
+**                           the active speed mode
+** ===================================================================
+*/
+
+#define SerialCom_GetCharsInRxBuf() \
+((word) SerialCom_InpLen)              /* Return number of chars in receive buffer */
 /*
 ** ===================================================================
 **     Method      :  SerialCom_GetCharsInRxBuf (component AsynchroSerial)
@@ -250,7 +353,8 @@ word SerialCom_GetCharsInRxBuf(void);
 ** ===================================================================
 */
 
-word SerialCom_GetCharsInTxBuf(void);
+#define SerialCom_GetCharsInTxBuf() \
+((word) SerialCom_OutLen)              /* Return number of chars in the transmitter buffer */
 /*
 ** ===================================================================
 **     Method      :  SerialCom_GetCharsInTxBuf (component AsynchroSerial)

@@ -45,14 +45,14 @@
 #include "sPC_OK.h"
 #include "sCom_In.h"
 #include "Aux_Int.h"
-<<<<<<< HEAD
 #include "SerialCom.h"
 #include "RESET_INTERRUPT.h"
 #include "ADC.h"
 #include "LedLight1.h"
 #include "LedLight2.h"
-=======
->>>>>>> ef6348856dbd10b0d1ac938feeb92755e9868d98
+#include "CS1.h"
+#include "I2C.h"
+#include "PresenciaAgua.h"
 
 
 void Aux_Int_OnInterrupt(void);
@@ -71,7 +71,6 @@ void Aux_Int_OnInterrupt(void);
 ** ===================================================================
 */
 
-<<<<<<< HEAD
 void SerialCom_OnRxChar(void);
 /*
 ** ===================================================================
@@ -132,8 +131,35 @@ void ADC_OnEnd(void);
 ** ===================================================================
 */
 
-=======
->>>>>>> ef6348856dbd10b0d1ac938feeb92755e9868d98
+void SerialCom_OnFullRxBuf(void);
+/*
+** ===================================================================
+**     Event       :  SerialCom_OnFullRxBuf (module Events)
+**
+**     Component   :  SerialCom [AsynchroSerial]
+**     Description :
+**         This event is called when the input buffer is full;
+**         i.e. after reception of the last character 
+**         that was successfully placed into input buffer.
+**     Parameters  : None
+**     Returns     : Nothing
+** ===================================================================
+*/
+
+void SerialCom_OnFreeTxBuf(void);
+/*
+** ===================================================================
+**     Event       :  SerialCom_OnFreeTxBuf (module Events)
+**
+**     Component   :  SerialCom [AsynchroSerial]
+**     Description :
+**         This event is called after the last character in output
+**         buffer is transmitted.
+**     Parameters  : None
+**     Returns     : Nothing
+** ===================================================================
+*/
+
 /* END Events */
 #endif /* __Events_H*/
 

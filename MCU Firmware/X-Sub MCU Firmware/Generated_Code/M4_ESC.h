@@ -4,13 +4,9 @@
 **     Project     : X-Sub MCU Firmware
 **     Processor   : MCF51QE128CLK
 **     Component   : PWM
-**     Version     : Component 02.240, Driver 01.28, CPU db: 3.00.078
+**     Version     : Component 02.241, Driver 01.28, CPU db: 3.00.078
 **     Compiler    : CodeWarrior ColdFireV1 C Compiler
-<<<<<<< HEAD
-**     Date/Time   : 2015-07-10, 08:37, # CodeGen: 29
-=======
-**     Date/Time   : 2015-06-15, 15:15, # CodeGen: 10
->>>>>>> ef6348856dbd10b0d1ac938feeb92755e9868d98
+**     Date/Time   : 2015-07-22, 08:21, # CodeGen: 60
 **     Abstract    :
 **         This component implements a pulse-width modulation generator
 **         that generates signal with variable duty and fixed cycle. 

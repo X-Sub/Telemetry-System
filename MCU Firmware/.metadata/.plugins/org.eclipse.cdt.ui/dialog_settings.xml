@@ -1,15 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
-	<item value="Default C source template" key="LastUsedSourceTemplate"/>
-	<section name="OptionalMessageDialog.hide.">
-		<item value="true" key="com.freescale.cdt.debug.cw.PN_SuppressDialog5d46bed753813c70b12e1d2898dd245ecdd628"/>
-		<item value="2" key="com.freescale.cdt.debug.cw.PN_SuppressDialog927dc758c805ca26e2dd28d96539ba1a20bcf5"/>
-	</section>
 	<section name="completion_proposal_size">
-	</section>
-	<section name="org.eclipse.cdt.ui.text.hover.CMacroExpansionExploration.internal">
-		<item value="561" key="size.width"/>
-		<item value="180" key="size.height"/>
 	</section>
 	<section name="org.eclipse.cdt.ui.text.hover.CMacroExpansionExploration">
 	</section>

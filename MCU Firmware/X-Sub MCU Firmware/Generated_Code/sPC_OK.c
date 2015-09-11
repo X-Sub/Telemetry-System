@@ -6,11 +6,7 @@
 **     Component   : BitIO
 **     Version     : Component 02.086, Driver 03.14, CPU db: 3.00.078
 **     Compiler    : CodeWarrior ColdFireV1 C Compiler
-<<<<<<< HEAD
 **     Date/Time   : 2015-07-11, 23:17, # CodeGen: 34
-=======
-**     Date/Time   : 2015-06-15, 16:08, # CodeGen: 14
->>>>>>> ef6348856dbd10b0d1ac938feeb92755e9868d98
 **     Abstract    :
 **         This component "BitIO" implements an one-bit input/output.
 **         It uses one bit/pin of a port.
@@ -22,28 +18,16 @@
 **             ----------------------------------------------------
 **                Number (on package)  |    Name
 **             ----------------------------------------------------
-<<<<<<< HEAD
 **                       78            |  PTC4_RGPIO12_TPM3CH4_RSTO
-=======
-**                       25            |  PTC2_RGPIO10_TPM3CH2
->>>>>>> ef6348856dbd10b0d1ac938feeb92755e9868d98
 **             ----------------------------------------------------
 **
 **         Port name                   : PTC
 **
-<<<<<<< HEAD
 **         Bit number (in port)        : 4
 **         Bit mask of the port        : 0x0010
 **
 **         Initial direction           : Output (direction cannot be changed)
 **         Initial output value        : 1
-=======
-**         Bit number (in port)        : 2
-**         Bit mask of the port        : 0x0004
-**
-**         Initial direction           : Output (direction cannot be changed)
-**         Initial output value        : 0
->>>>>>> ef6348856dbd10b0d1ac938feeb92755e9868d98
 **         Initial pull option         : off
 **
 **         Port data register          : PTCD      [0xFFFF8004]
@@ -154,15 +138,9 @@ bool sPC_OK_GetVal(void)
 void sPC_OK_PutVal(bool Val)
 {
   if (Val) {
-<<<<<<< HEAD
     setReg8(PTCSET, 0x10U);            /* PTCSET4=0x01U */
   } else { /* !Val */
     setReg8(PTCCLR, 0x10U);            /* PTCCLR4=0x01U */
-=======
-    setReg8(PTCSET, 0x04U);            /* PTCSET2=0x01U */
-  } else { /* !Val */
-    setReg8(PTCCLR, 0x04U);            /* PTCCLR2=0x01U */
->>>>>>> ef6348856dbd10b0d1ac938feeb92755e9868d98
   } /* !Val */
 }
 

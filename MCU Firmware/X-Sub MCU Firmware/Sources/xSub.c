@@ -75,7 +75,7 @@ void sMCU_OK_W()
 //Desactiva a sMCU_OK
 void sMCU_OK_NW()
 {
-	lStatus(0x01,FALSE);
+	lStatus(0x00,FALSE);
 }
 
 //Muestra titilando a sPC_OK
@@ -119,13 +119,28 @@ void initMxSub(byte tipo){
 	M2_ESC_Enable();
 	M3_ESC_Enable();
 	M4_ESC_Enable();
-	spDC = (CENTERDC); //0xED71 = 7.24% = 60788
+	spDC = CENTERDC; //0xED71 = 7.24% = 60788
 	M1_ESC_SetRatio16(spDC);
 	M2_ESC_SetRatio16(spDC);
 	M3_ESC_SetRatio16(spDC);
 	M4_ESC_SetRatio16(spDC);
 	delay(5000);
 	}
+	
+	if(tipo == 2)//Skywing
+		{
+		word spDC;
+		M1_ESC_Enable();
+		M2_ESC_Enable();
+		M3_ESC_Enable();
+		M4_ESC_Enable();
+		spDC = MAXFORWARD;
+		M1_ESC_SetRatio16(spDC);
+		M2_ESC_SetRatio16(spDC);
+		M3_ESC_SetRatio16(spDC);
+		M4_ESC_SetRatio16(spDC);
+		delay(5000);
+		}
 	
 
 }
@@ -182,6 +197,28 @@ void setMotorSpeed256(byte Speed,byte Motor){
 			(void)M4_ESC_SetRatio8(Speed);	
 	}
 }
+
+//Setea la velocidad de los motores de manera individual. Rango de 10 bits-> 0 - 1023 SKYWING
+void setMotorSpeed1024SW(word Speed,byte Motor){
+	
+	Speed = map(Speed,0,1023,MAXBACKWARD,CENTERDC);
+	
+	switch(Motor){
+	
+	case 1:
+		    
+			(void)M1_ESC_SetRatio16(Speed);
+	case 2:
+		    
+			(void)M2_ESC_SetRatio16(Speed);
+	case 3:
+		    
+			(void)M3_ESC_SetRatio16(Speed);
+	case 4:
+		    
+			(void)M4_ESC_SetRatio16(Speed);	
+	}
+}
 //SERVOS
 
   /*Pan*/
@@ -231,11 +268,58 @@ long map(long x, long in_min,long in_max,long out_min, long out_max){
 }
 
 
+/*I2C*/
+
+byte writeRegisterI2C(byte reg, byte data)//manera sencilla de editar un registro
+{
+	byte DATA[2];
+	byte MPU = 0x68;
+	word Sent;
+	byte err;
+	DATA[0] = reg; // registro a editar
+	DATA[1] = data; // data a enviar
+	err = I2C_SendBlock(DATA,2,&Sent);
+	return err;
+}
+
+void initMPU()//Inicializa la IMU
+{
+	byte err;
+	byte reg = 0x6B; // PWR_MGMT_1 register
+	byte data = 0x00; // set to zero (wakes up the MPU-6050)
+	(void)I2C_SelectSlave(MPU);
+	while(writeRegisterI2C(reg,data) != ERR_OK);
+	delay(10);
+	while(writeRegisterI2C(MPU6050_ACCEL_CONFIG,MPU6050_AFS_SEL_4G) != ERR_OK);//+-4G
+	while(writeRegisterI2C(MPU6050_GYRO_CONFIG,MPU6050_FS_SEL_1000) != ERR_OK);//+-1000º/s
+}
 
 
+//Obtener data de la IMU. data debe ser de tamaño 14
+void dataMPU(byte dataIn[])
+{
+	word Sent;
+	(void)I2C_SelectSlave(MPU);
+	while(I2C_SendChar(0x3B) != ERR_OK);
+	while(I2C_RecvBlock(dataIn,14,&Sent) != ERR_OK);
+}
 
+void initHMC6352()//Inicializa la IMU
+{
+	byte err;
+	byte reg = 0x6B; // PWR_MGMT_1 register
+	byte data = 0x00; // set to zero (wakes up the MPU-6050)
+	(void)I2C_SelectSlave(HMC6352);
+}
 
-
+//Obtener data del magnetometro. data debe ser de tamaño 2
+void dataHMC6352(byte dataIn[])
+{
+	word Sent;
+	(void)I2C_SelectSlave(HMC6352);
+	while(I2C_SendChar('A') != ERR_OK){(void)SerialCom_SendChar(0xFF);};
+	while(I2C_RecvBlock(dataIn,2,&Sent) != ERR_OK);
+}
 
 
 

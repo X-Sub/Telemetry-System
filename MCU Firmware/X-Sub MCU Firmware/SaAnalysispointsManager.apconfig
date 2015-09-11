@@ -1,6 +1,6 @@
 <Analysispoints>
 	<Name>AnalysispointsManager</Name>
-	<ProjectPath>C:/Users/ddtdanilo/Dropbox/X-Sub/MCU Firmware/X-Sub MCU Firmware/SaAnalysispointsManager.apconfig</ProjectPath>
+	<ProjectPath>C:/Users/ddtdanilo/Dropbox/Tesis/X-Sub/MCU Firmware/X-Sub MCU Firmware/SaAnalysispointsManager.apconfig</ProjectPath>
 	<MaxNumberOfCores>1</MaxNumberOfCores>
 	<Comments>Analysispoints Manager</Comments>
 	<IgnoreAll>false</IgnoreAll>

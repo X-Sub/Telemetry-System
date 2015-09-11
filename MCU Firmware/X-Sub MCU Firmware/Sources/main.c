@@ -48,6 +48,9 @@
 #include "ADC.h"
 #include "LedLight1.h"
 #include "LedLight2.h"
+#include "CS1.h"
+#include "I2C.h"
+#include "PresenciaAgua.h"
 /* Include shared modules, which are used for whole project */
 #include "PE_Types.h"
 #include "PE_Error.h"
@@ -61,9 +64,12 @@
 void main(void)
 {
   /* Write your local variable definition here */
-	word DC = 0x0000;
+	byte byteDC = 0x00;
+	word DC = 0;
 	word DC2 = 0x0000;
 	byte pDC = 0; //%
+	word err = 0x00;
+	
   /*** Processor Expert internal initialization. DON'T REMOVE THIS CODE!!! ***/
   PE_low_level_init();
   /*** End of Processor Expert internal initialization.                    ***/
@@ -71,27 +77,125 @@ void main(void)
   /* Write your code here */
   /* For example: for(;;) { } */
   //delay(5000);
-  (void)SerialCom_SendChar(0xFF);
-  initMxSub(1);
-  
   sMCU_OK_W();
-  //sMCU_OK_NW();
-  //sCom_In_NW();
-  //sPC_OK_NW();
-  //setDC(0x19C8);
+  sCom_In_W();
+  sPC_OK_NW();
+  initMxSub(1);
+ //delay(100);
+  
+  
+  /**********I2C test********/
+  initMPU();
+  initHMC6352();
+  sMCU_OK_NW();
+
+
   
   for(;;)
   {
-	 ADC_Measure(TRUE);
+	  
+
+
+	  //Obtener data de la IMU. data debe ser de tamaño 14
+	 dataMPU(data);
+	 dataHMC6352(data2);
+	   
+	    //(void)SerialCom_SendBlock(data,14,&err);
+	    (void)SerialCom_SendChar(data2[0]);
+	    (void)SerialCom_SendChar(data2[1]);
+	    (void)SerialCom_SendChar(0xFE);
+	    (void)SerialCom_SendChar(data[0]);
+	    (void)SerialCom_SendChar(data[1]);
+	    (void)SerialCom_SendChar(0xFF);
+	    //(void)SerialCom_SendChar(0xAA);
+	    delay(20);
+	  //I2C_RecvBlock();
+	  //I2C_SendBlock();
+	  
+	  
+	  /*
+	    AcXH = Wire.read();
+	    AcXL = Wire.read();
+
+	    AcYH = Wire.read();
+	    AcYL = Wire.read();
+
+	    AcZH = Wire.read();
+	    AcZL = Wire.read();
+
+	    // 0x41 (TEMP_OUT_H) & 0x42 (TEMP_OUT_L)
+	    TmpH = Wire.read();
+	    TmpL = Wire.read();
+
+
+	   GyXH = Wire.read();
+	   GyXL = Wire.read();
+
+	   GyYH = Wire.read();
+	   GyYL = Wire.read();
+
+	   GyZH = Wire.read();
+	   GyZL = Wire.read();
+
+	   
+
+	    Serial.write(AcZL);
+	    Serial.write(AcZH);
+	    Serial.write('\0');
+	    */
+	  /*
+	  
+	  for(err = 0;err < 14;err++){
+		  (void)SerialCom_SendChar(data[err]);
+		  delay(50);
+	  }
+	  
+	  (void)SerialCom_SendChar(0xAA);
+	  delay(500);
+	  
+*/
+	  
+	  	  
+	  /*
+	  (void)SerialCom_SendChar(data[0x01]);
+	  (void)SerialCom_ClearTxBuf();
+	  (void)SerialCom_SendChar(data[0x00]);
+	  (void)SerialCom_ClearTxBuf();
+	  */
+	  /*
+	  (void)SerialCom_SendChar(0xEE);
+	  delay(500);
+	  (void)SerialCom_SendChar(0xAA);
+	  delay(500);
+	  */
+	    
+	 /*ADC_Measure(TRUE);
 	 ADC_GetValue16(&DC);
 	 DC = DC >> 4;
+	 */
 	 //DC2 = (0xFFFF-0xFFFF*0.0535 - 0xFFFF-0xFFFF*0.0915)/2;
 	 //setDC(DC2);
-	 //DC2 = map(DC,0,0xFFF,0,179);
+	 //DC2 = map(DC,0,0xFFF,0,1023);
 	 //DC2 = map(DC,0,0xFFF,0xED71,62200);
 	 //setDC(DC2);
 	 
-	  //setMotorSpeed(1023,2);
+	  //******setMotorSpeed1024(DC2,2);
+	  //byteDC = DC2 >> 8;
+	  //(void)SerialCom_SendChar(0xFE);
+	  //(void)SerialCom_ClearTxBuf();
+	  
+	  
+	  /*
+	  (void)SerialCom_SendChar(byteDC);
+	  (void)SerialCom_ClearTxBuf();
+	  (void)SerialCom_SendChar(DC2);
+	  (void)SerialCom_ClearTxBuf();
+	  */
+	  
+	  
+	  //(void)SerialCom_SendChar(0xFF);
+	  //(void)SerialCom_ClearTxBuf();
+	  //delay(50);
 	  //delay(2000);
 	  //S_PanCamera_SetRatio16(520);
 	 //servoPanAngle(DC2);
