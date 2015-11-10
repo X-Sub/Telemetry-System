@@ -1,0 +1,11 @@
+Change Component Footprint: Designator=R_I2C_1 Old Footprint=RESC6332 New Footprint=6-0805_L
+Change Component Footprint: Designator=R_I2C_2 Old Footprint=RESC6332 New Footprint=6-0805_L
+Change Component Footprint: Designator=R_OW Old Footprint=RESC6332 New Footprint=6-0805_L
+Change Component Footprint: Designator=R_sMCU_OK Old Footprint=RESC6332 New Footprint=6-0805_L
+Change Component Footprint: Designator=sPC_OK Old Footprint=RESC6332 New Footprint=6-0805_L
+Added Room: Name=ADC_PRES
+Added Room: Name=Expansion Board
+Added Room: Name=Fuente
+Added Room: Name=MCU
+Added Room: Name=Presencia_Agua
+Added Room: Name=PWM_OUTS

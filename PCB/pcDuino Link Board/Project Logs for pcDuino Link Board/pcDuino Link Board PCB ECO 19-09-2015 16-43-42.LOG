@@ -1,0 +1,4 @@
+Removed Pin From Net: NetName=NetDuino Conn_RES Pin=pcDuino Power-7
+Removed Pin From Net: NetName=NetDuino Conn_IOREF Pin=pcDuino Power-8
+Added Pin To Net: NetName=NetDuino Conn_RES Pin=pcDuino Power-6
+Added Pin To Net: NetName=NetDuino Conn_IOREF Pin=pcDuino Power-7

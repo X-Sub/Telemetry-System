@@ -1,0 +1,3 @@
+Change Component Footprint: Designator=C_5V Old Footprint=CAPR5-4X5 New Footprint=C Panasonic Size Cap Pol
+Change Component Footprint: Designator=C_12V Old Footprint=CAPR5-4X5 New Footprint=C Panasonic Size Cap Pol
+Added Member To Class: ClassName=Power_In Member=Component C_5V Cap Pol1

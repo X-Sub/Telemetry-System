@@ -52,7 +52,9 @@
 #include "LedLight2.h"
 #include "CS1.h"
 #include "I2C.h"
-#include "PresenciaAgua.h"
+#include "PresenciaAgua2.h"
+#include "PresenciaAgua1.h"
+#include "S_Wire.h"
 
 
 void Aux_Int_OnInterrupt(void);
@@ -155,6 +157,53 @@ void SerialCom_OnFreeTxBuf(void);
 **     Description :
 **         This event is called after the last character in output
 **         buffer is transmitted.
+**     Parameters  : None
+**     Returns     : Nothing
+** ===================================================================
+*/
+
+void S_Wire_OnError(void);
+/*
+** ===================================================================
+**     Event       :  S_Wire_OnError (module Events)
+**
+**     Component   :  S_Wire [AsynchroSerial]
+**     Description :
+**         This event is called when a channel error (not the error
+**         returned by a given method) occurs. The errors can be read
+**         using <GetError> method.
+**         The event is available only when the <Interrupt
+**         service/event> property is enabled.
+**     Parameters  : None
+**     Returns     : Nothing
+** ===================================================================
+*/
+
+void S_Wire_OnRxChar(void);
+/*
+** ===================================================================
+**     Event       :  S_Wire_OnRxChar (module Events)
+**
+**     Component   :  S_Wire [AsynchroSerial]
+**     Description :
+**         This event is called after a correct character is received.
+**         The event is available only when the <Interrupt
+**         service/event> property is enabled and either the <Receiver>
+**         property is enabled or the <SCI output mode> property (if
+**         supported) is set to Single-wire mode.
+**     Parameters  : None
+**     Returns     : Nothing
+** ===================================================================
+*/
+
+void S_Wire_OnTxChar(void);
+/*
+** ===================================================================
+**     Event       :  S_Wire_OnTxChar (module Events)
+**
+**     Component   :  S_Wire [AsynchroSerial]
+**     Description :
+**         This event is called after a character is transmitted.
 **     Parameters  : None
 **     Returns     : Nothing
 ** ===================================================================

@@ -1,0 +1,12 @@
+Removed Pin From Net: NetName=AD5_BAT Pin=MCU-29
+Added Component: Designator=Batt(5.08mm 200 mil Screw Terminal SF)
+Added Pin To Net: NetName=NetBatR1_1 Pin=MCU-29
+Change Net Name : Old Net Name=AD5_BAT New Net Name=NetBatR1_2
+Change Net Name : Old Net Name=NetBatR1_1 New Net Name=AD5_BAT
+Added Member To Class: ClassName=MCU Member=Component Batt 
+Added Room: Name=ADC_PRES
+Added Room: Name=Expansion Board
+Added Room: Name=Fuente
+Added Room: Name=MCU
+Added Room: Name=Presencia_Agua
+Added Room: Name=PWM_OUTS

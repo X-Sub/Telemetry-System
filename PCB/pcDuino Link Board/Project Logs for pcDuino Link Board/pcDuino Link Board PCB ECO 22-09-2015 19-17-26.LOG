@@ -1,0 +1,14 @@
+Added Component: Designator=D_S(LED-1)
+Added Component: Designator=R_S(RESC6332)
+Added Pin To Net: NetName=GND Pin=R_S-1
+Added Pin To Net: NetName=LED_STATUS Pin=D_S-1
+Added Pin To Net: NetName=LED_STATUS Pin=Duino Conn-D13
+Added Pin To Net: NetName=LED_STATUS Pin=pcDuino Digital (8-13)-6
+Added Net: Name=LED_STATUS
+Added Pin To Net: NetName=NetD_S_2 Pin=D_S-2
+Added Pin To Net: NetName=NetD_S_2 Pin=R_S-2
+Added Net: Name=NetD_S_2
+Added Member To Class: ClassName=pcDuino Link Board Member=Component D_S LED1
+Added Member To Class: ClassName=pcDuino Link Board Member=Component R_S Res
+Added Room: Name=pcDuino Link Board
+Added Room: Name=Power_In

@@ -1,0 +1,5 @@
+Removed Pin From Net: NetName=NetDuino Conn_SDA Pin=pcDuino Digital (8-13)-7
+Removed Pin From Net: NetName=NetDuino Conn_GND@0 Pin=pcDuino Digital (8-13)-9
+Added Pin To Net: NetName=NetDuino Conn_GND@0 Pin=pcDuino Digital (8-13)-7
+Added Pin To Net: NetName=NetDuino Conn_SDA Pin=pcDuino Digital (8-13)-9
+Added Room: Name=pcDuino Link Board

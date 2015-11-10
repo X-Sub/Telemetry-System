@@ -1,0 +1,10 @@
+Change Component DesignItemId : Designator=Batt Old DesignItemId=M022.54MM_SCREWTERM New DesignItemId=Header 2
+Change Component Comment : Designator=Batt Old Comment= New Comment=Header 2
+Change Component Designator: OldDesignator=D1 NewDesignator=D2
+Change Component Description : Designator=Batt Old Description= New Description=Header, 2-Pin
+Change Component Library : Designator=Batt Old Library=SparkFun-Connectors.SCHLIB New Library=Miscellaneous Connectors.IntLib
+Added Pin To Net: NetName=GND Pin=Batt-1
+Added Pin To Net: NetName=+3.3V Pin=MCU-8
+Added Pin To Net: NetName=GND Pin=MCU-9
+Added Member To Class: ClassName=MCU Member=Component D2 Diode Zenner 3.3V
+Added Room: Name=MCU

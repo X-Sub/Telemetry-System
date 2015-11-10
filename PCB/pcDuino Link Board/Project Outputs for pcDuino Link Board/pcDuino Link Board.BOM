@@ -1,0 +1,19 @@
+Bill of Material for 
+On 30/09/2015 at 8:26:46
+
+ Comment             Pattern     Quantity  Components
+------------------------------------------------------------------------------
+ Cap Pol1            CAPR5-4X5        2    C_5V, C_12V                  Polarized Capacitor (Radial) 
+ Header 10           HDR1X10          1    pcDuino Digital (8-13)       Header, 10-Pin       
+ Header 2H           HDR1X2H          1    5V_Sel                       Header, 2-Pin, Right Angle 
+ Header 2X2          HDR2X2           2    GPIO2, GPIO2_OUT             Header, 2-Pin, Dual row 
+ Header 3            HDR1X3           1    Serial1                      Header, 3-Pin        
+ Header 3X2          HDR2X3           2    GPIO1, ICSP                  Header, 3-Pin, Dual row 
+ Header 6            HDR1X6           1    pcDuinoADC                   Header, 6-Pin        
+ Header 8            HDR1X8           2    pcDuino Digital (0 - 7)      Header, 8-Pin        
+                                           pcDuino Power
+ LED1                LED-1            3    D_3.3, D_5, D_S              Typical RED GaAs LED 
+ Res                 RESC6332         3    R_3.3, R_5, R_S              Resistor             
+ Shield form compatible with the Arduino Uno R3. UNO_R3_SHIELD    1    Duino Conn                                        
+ Switching Power Source X-Sub Fuente_Switching    1    PS                                                
+ VCC_In              Vcc_In           1    Vin                                               

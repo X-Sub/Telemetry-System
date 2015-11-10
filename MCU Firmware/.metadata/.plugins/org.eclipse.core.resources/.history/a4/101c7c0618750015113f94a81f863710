@@ -1,0 +1,105 @@
+/*
+ * OneWire.c
+ *
+ *  Created on: Oct 17, 2015
+ *      Author: ddtdanilo
+ */
+
+/*Includes*/
+#include "Cpu.h"
+#include "Events.h"
+#include "M1_ESC.h"
+#include "M2_ESC.h"
+#include "M3_ESC.h"
+#include "M4_ESC.h"
+/* Include shared modules, which are used for whole project */
+#include "PE_Types.h"
+#include "PE_Error.h"
+#include "PE_Const.h"
+#include "IO_Map.h"
+
+/*Mis includes*/
+#include "xSub.h"
+
+
+byte onewireReset() {
+    // Configure UART for 1-Wire RESET timing
+    (void)S_Wire_SetBaudRateMode(1);
+    S_Wire_SendChar(0xF0);
+    byte read;
+    S_Wire_RecvChar(&read);
+    if (read == -1) {
+        // No UART data at all
+        //server.log("No circuit connected to UART.");
+        return false;
+    } else if (read == 0xF0) {
+        // UART RX will read TX if there's no device connected
+        //server.log("No 1-Wire devices are present.");
+        return false;
+    } else {
+        // Switch UART to 1-Wire data speed timing 115200
+       (void)S_Wire_SetBaudRateMode(0);
+        return true;
+    }
+}
+ 
+byte onewireWriteByte(byte) {
+    byte i;
+    for (i = 0 ; i < 8 ; i++, byte = byte >> 1) {
+        // Run through the bits in the byte, extracting the
+        // LSB (bit 0) and sending it to the bus
+        onewireBit(byte & 0x01);
+    }
+} 
+ 
+byte onewireReadByte() {
+    byte byteIn = 0;
+    for (byte i = 0 ; i < 8 ; i++) {
+        // Build up byte bit by bit, LSB first
+        byteIn = (byteIn >> 1) + 0x80 * onewireBit(1);
+    }
+    return byteIn;
+}
+ 
+byte onewireBit(bit) {
+    bit = bit ? 0xFF : 0x00;
+    S_Wire_SendChar(bit);
+    byte read;
+    S_Wire_RecvChar(&read);
+    byte returnVal = read == 0xFF ? 1 : 0;
+    return returnVal;
+}
+ 
+// Wake up every 5 seconds and write to the server
+ 
+byte awakeAndGetTemp() {
+    byte tempLSB = 0;
+    byte tempMSB = 0;
+    word tempCelsius = 0;
+ 
+    if (onewireReset()) {
+        onewireWriteByte(0xCC);
+        onewireWriteByte(0x44);
+
+        // Wait for at least 750ms for data to be collated
+        delay(800);
+
+        // Get the data
+        onewireReset();
+        onewireWriteByte(0xCC);
+        onewireWriteByte(0xBE);
+
+        tempLSB = onewireReadByte();
+        tempMSB = onewireReadByte();
+
+        // Reset bus to stop sensor sending unwanted data
+        onewireReset();
+    
+        // Log the Celsius temperature
+        tempCelsius = ((tempMSB * 256) + tempLSB) / 16.0;
+        //server.log(format("Temperature: %3.2f degrees C", tempCelsius));
+    }
+}
+ 
+// PROGRAM STARTS HERE
+

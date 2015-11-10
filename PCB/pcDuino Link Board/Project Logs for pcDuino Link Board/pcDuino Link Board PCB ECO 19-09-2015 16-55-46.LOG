@@ -1,0 +1,37 @@
+Added Pin To Net: NetName=NetDuino Conn_GND@0 Pin=pcDuino Digital (8-13)-9
+Added Pin To Net: NetName=NetDuino Conn_AREF Pin=Duino Conn-AREF
+Added Pin To Net: NetName=NetDuino Conn_AREF Pin=pcDuino Digital (8-13)-8
+Added Net: Name=NetDuino Conn_AREF
+Added Pin To Net: NetName=NetDuino Conn_D5 Pin=Duino Conn-D5
+Added Pin To Net: NetName=NetDuino Conn_D5 Pin=pcDuino Digital (0 - 7)-6
+Added Net: Name=NetDuino Conn_D5
+Added Pin To Net: NetName=NetDuino Conn_D6 Pin=Duino Conn-D6
+Added Pin To Net: NetName=NetDuino Conn_D6 Pin=pcDuino Digital (0 - 7)-7
+Added Net: Name=NetDuino Conn_D6
+Added Pin To Net: NetName=NetDuino Conn_D7 Pin=Duino Conn-D7
+Added Pin To Net: NetName=NetDuino Conn_D7 Pin=pcDuino Digital (0 - 7)-8
+Added Net: Name=NetDuino Conn_D7
+Added Pin To Net: NetName=NetDuino Conn_D8 Pin=Duino Conn-D8
+Added Pin To Net: NetName=NetDuino Conn_D8 Pin=pcDuino Digital (8-13)-1
+Added Net: Name=NetDuino Conn_D8
+Added Pin To Net: NetName=NetDuino Conn_D9 Pin=Duino Conn-D9
+Added Pin To Net: NetName=NetDuino Conn_D9 Pin=pcDuino Digital (8-13)-2
+Added Net: Name=NetDuino Conn_D9
+Added Pin To Net: NetName=NetDuino Conn_D10 Pin=Duino Conn-D10
+Added Pin To Net: NetName=NetDuino Conn_D10 Pin=pcDuino Digital (8-13)-3
+Added Net: Name=NetDuino Conn_D10
+Added Pin To Net: NetName=NetDuino Conn_D11 Pin=Duino Conn-D11
+Added Pin To Net: NetName=NetDuino Conn_D11 Pin=pcDuino Digital (8-13)-4
+Added Net: Name=NetDuino Conn_D11
+Added Pin To Net: NetName=NetDuino Conn_D12 Pin=Duino Conn-D12
+Added Pin To Net: NetName=NetDuino Conn_D12 Pin=pcDuino Digital (8-13)-5
+Added Net: Name=NetDuino Conn_D12
+Added Pin To Net: NetName=NetDuino Conn_D13 Pin=Duino Conn-D13
+Added Pin To Net: NetName=NetDuino Conn_D13 Pin=pcDuino Digital (8-13)-6
+Added Net: Name=NetDuino Conn_D13
+Added Pin To Net: NetName=NetDuino Conn_SCL Pin=Duino Conn-SCL
+Added Pin To Net: NetName=NetDuino Conn_SCL Pin=pcDuino Digital (8-13)-10
+Added Net: Name=NetDuino Conn_SCL
+Added Pin To Net: NetName=NetDuino Conn_SDA Pin=Duino Conn-SDA
+Added Pin To Net: NetName=NetDuino Conn_SDA Pin=pcDuino Digital (8-13)-7
+Added Net: Name=NetDuino Conn_SDA

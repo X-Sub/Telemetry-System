@@ -1,0 +1,19 @@
+Removed Pin From Net: NetName=GND Pin=Servo_Out-2
+Removed Pin From Net: NetName=GND Pin=Servo_Out-3
+Removed Pin From Net: NetName=GND Pin=Servo_Out-4
+Removed Pin From Net: NetName=+V_SERVO Pin=Servo_Out-7
+Removed Pin From Net: NetName=S_PANCAMERA Pin=Servo_Out-8
+Removed Member From Class: ClassName=MCU Member=S2
+Change Component Footprint: Designator=R_P1 Old Footprint=RESC6332 New Footprint=J1-0603
+Change Component Footprint: Designator=R_P2 Old Footprint=RESC6332 New Footprint=J1-0603
+Added Pin To Net: NetName=S_PANCAMERA Pin=Servo_Out-2
+Added Pin To Net: NetName=GND Pin=Servo_Out-7
+Added Pin To Net: NetName=GND Pin=Servo_Out-8
+Added Member To Class: ClassName=ADC_PRES Member=Component OPAMP_1 OPA345NA/250
+Added Member To Class: ClassName=MCU Member=Component sPC_OK Res
+Added Room: Name=ADC_PRES
+Added Room: Name=Expansion Board
+Added Room: Name=Fuente
+Added Room: Name=MCU
+Added Room: Name=Presencia_Agua
+Added Room: Name=PWM_OUTS

@@ -1,0 +1,8 @@
+Change Component Footprint: Designator=D1 Old Footprint=DO-35 New Footprint=miniMELF
+Change Component Footprint: Designator=D2 Old Footprint=DO-35 New Footprint=miniMELF
+Added Room: Name=ADC_PRES
+Added Room: Name=Expansion Board
+Added Room: Name=Fuente
+Added Room: Name=MCU
+Added Room: Name=Presencia_Agua
+Added Room: Name=PWM_OUTS

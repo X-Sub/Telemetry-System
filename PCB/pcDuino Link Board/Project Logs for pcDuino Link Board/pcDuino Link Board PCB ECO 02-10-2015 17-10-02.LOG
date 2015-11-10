@@ -1,0 +1,4 @@
+Change Component Footprint: Designator=R_3.3 Old Footprint=RESC6332 New Footprint=J1-0603
+Change Component Footprint: Designator=R_5 Old Footprint=RESC6332 New Footprint=J1-0603
+Added Room: Name=pcDuino Link Board
+Added Room: Name=Power_In

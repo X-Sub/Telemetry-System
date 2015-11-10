@@ -50,7 +50,9 @@
 #include "LedLight2.h"
 #include "CS1.h"
 #include "I2C.h"
-#include "PresenciaAgua.h"
+#include "PresenciaAgua2.h"
+#include "PresenciaAgua1.h"
+#include "S_Wire.h"
 /* Include shared modules, which are used for whole project */
 #include "PE_Types.h"
 #include "PE_Error.h"
@@ -60,6 +62,7 @@
 /* User includes (#include below this line is not maintained by Processor Expert) */
 /*Mis includes*/
 #include "xSub.h"
+#include "OneWire.h"
 
 void main(void)
 {
@@ -77,30 +80,64 @@ void main(void)
   /* Write your code here */
   /* For example: for(;;) { } */
   //delay(5000);
+  /*
   sMCU_OK_W();
   sCom_In_W();
   sPC_OK_NW();
   initMxSub(1);
+  */
+ 
  //delay(100);
   
   
   /**********I2C test********/
-  initMPU();
-  initHMC6352();
-  sMCU_OK_NW();
-
-
+  //initMPU();
+  //initHMC6352();
+  //sMCU_OK_NW();
+  STATUS.data = initxSub();
+ 
   
   for(;;)
   {
 	  
-
-
-	  //Obtener data de la IMU. data debe ser de tamaño 14
-	 dataMPU(data);
-	 dataHMC6352(data2);
+	  wordbyte Temp;
+	  //Temp.word = awakeAndGetTemp();
+	  byte tempLSB = 0;
+	      byte tempMSB = 0;
+	      float tempCelsius = 0;
 	   
+	      if (onewireReset()) {
+	          onewireWriteByte(0xCC);
+	          onewireWriteByte(0x44);
+
+	          // Wait for at least 750ms for data to be collated
+	          delay(800);
+
+	          // Get the data
+	          onewireReset();
+	          onewireWriteByte(0xCC);
+	          onewireWriteByte(0xBE);
+
+	          tempLSB = onewireReadByte();
+	          tempMSB = onewireReadByte();
+
+	          // Reset bus to stop sensor sending unwanted data
+	          onewireReset();
+	      
+	          // Log the Celsius temperature
+	          tempCelsius = ((tempMSB * 256) + tempLSB) / 16.0;
+	          Temp.word = tempCelsius;
+	          //server.log(format("Temperature: %3.2f degrees C", tempCelsius));
+	      }else{
+	    	  Temp.word = 0xF0FA;}
+	  
+	  (void)SerialCom_SendChar(tempCelsius);
+	  //Obtener data de la IMU. data debe ser de tamaño 14
+	 //dataMPU(data);
+	 //dataHMC6352(data2);
+	   /*
 	    //(void)SerialCom_SendBlock(data,14,&err);
+	 
 	    (void)SerialCom_SendChar(data2[0]);
 	    (void)SerialCom_SendChar(data2[1]);
 	    (void)SerialCom_SendChar(0xFE);
@@ -111,15 +148,15 @@ void main(void)
 	    delay(20);
 	  //I2C_RecvBlock();
 	  //I2C_SendBlock();
-	  
-	  
+	  */
+	  //(void)SerialCom_SendChar(0xFF);
 	  /*
 	    AcXH = Wire.read();
 	    AcXL = Wire.read();
 
 	    AcYH = Wire.read();
 	    AcYL = Wire.read();
-
+		
 	    AcZH = Wire.read();
 	    AcZL = Wire.read();
 
@@ -143,6 +180,9 @@ void main(void)
 	    Serial.write(AcZH);
 	    Serial.write('\0');
 	    */
+	  sMCU_OK_W();
+	  
+	  
 	  /*
 	  
 	  for(err = 0;err < 14;err++){

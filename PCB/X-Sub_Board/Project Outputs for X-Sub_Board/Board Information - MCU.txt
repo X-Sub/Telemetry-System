@@ -1,0 +1,177 @@
+Board Information Report
+Filename     : C:\Users\ddtdanilo\Dropbox\Tesis\X-Sub\PCB\X-Sub_Board\MCU.PcbDoc
+Date         : 02/11/2015
+Time         : 9:50:49
+Time Elapsed : 00:00:00
+
+General
+    Board Size, 3664.37milsx2121.064mils
+    Components on board, 36
+count : 2
+
+Routing Information
+    Routing completion, 70,09%
+    Connections, 107
+    Connections routed, 75
+    Connections remaining, 32
+count : 4
+
+Layer, Arcs, Pads, Vias, Tracks, Texts, Fills, Regions, ComponentBodies
+    Top Layer, 0, 99, 0, 392, 0, 0, 0, 0
+    Bottom Layer, 0, 0, 0, 141, 3, 0, 0, 0
+    Mechanical 1, 0, 0, 0, 0, 0, 0, 0, 0
+    Mechanical 2, 0, 0, 0, 0, 0, 0, 0, 0
+    Mechanical 4, 0, 0, 0, 0, 0, 0, 0, 0
+    Mechanical 13, 1, 0, 0, 64, 0, 0, 0, 16
+    Mechanical 15, 0, 0, 0, 96, 0, 0, 0, 0
+    Mechanical 16, 0, 0, 0, 50, 4, 0, 0, 0
+    Multi-Layer, 0, 113, 14, 0, 0, 0, 1, 0
+    Top Paste, 0, 0, 0, 0, 0, 0, 0, 0
+    Top Overlay, 12, 0, 0, 132, 76, 1, 0, 0
+    Top Solder, 0, 0, 0, 0, 0, 0, 0, 0
+    Bottom Solder, 0, 0, 0, 0, 0, 0, 0, 0
+    Bottom Overlay, 1, 0, 0, 4, 2, 0, 0, 0
+    Bottom Paste, 0, 0, 0, 0, 0, 0, 0, 0
+    Drill Guide, 0, 0, 0, 0, 0, 0, 0, 0
+    Keep-Out Layer, 0, 0, 0, 0, 0, 0, 0, 0
+    Drill Drawing, 0, 0, 0, 0, 0, 0, 0, 0
+count : 18
+
+Layer Pairs, Vias
+    Top Layer - Bottom Layer, 14
+count : 1
+
+Non-Plated Hole Size, Pads, Vias
+count : 0
+
+Plated Hole Size, Pads, Vias
+    0mils, 99, 0
+    25mils, 0, 14
+    35mils, 104, 0
+    102.362mils, 2, 0
+    126mils, 4, 0
+    149.606mils, 3, 0
+count : 6
+
+Non-Plated Slot Size / Length, Pads
+count : 0
+
+Plated Slot Size / Length, Pads
+count : 0
+
+Non-Plated Square Hole Size, Pads
+count : 0
+
+Plated Square Hole Size, Pads
+count : 0
+
+Top Layer Annular Ring Size, Count
+    -89.606mils, 3
+    -42.362mils, 2
+    0mils, 4
+    25mils, 14
+    35mils, 104
+count : 5
+
+Mid Layer Annular Ring Size, Count
+    -89.606mils, 3
+    -42.362mils, 2
+    0mils, 4
+    25mils, 14
+    35mils, 104
+count : 5
+
+Bottom Layer Annular Ring Size, Count
+    -89.606mils, 3
+    -42.362mils, 2
+    0mils, 4
+    25mils, 14
+    35mils, 104
+count : 5
+
+Pad Solder Mask, Count
+    4mils, 212
+count : 1
+
+Pad Paste Mask, Count
+    0mils, 212
+count : 1
+
+Pad Pwr/Gnd Expansion, Count
+    20mils, 212
+count : 1
+
+Pad Relief Conductor Width, Count
+    10mils, 212
+count : 1
+
+Pad Relief Air Gap, Count
+    10mils, 212
+count : 1
+
+Pad Relief Entries, Count
+    2, 212
+count : 1
+
+Via Solder Mask, Count
+    4mils, 14
+count : 1
+
+Via Pwr/Gnd Expansion, Count
+    20mils, 14
+count : 1
+
+Track Width, Count
+    1.969mils, 8
+    3.937mils, 152
+    5mils, 16
+    7.874mils, 122
+    8mils, 15
+    10mils, 72
+    12mils, 356
+    19.685mils, 97
+    39.37mils, 41
+count : 9
+
+Arc Line Width, Count
+    3.937mils, 1
+    7.874mils, 8
+    9.843mils, 4
+    23.622mils, 1
+count : 4
+
+Arc Radius, Count
+    4.921mils, 4
+    11.811mils, 1
+    19.685mils, 1
+    78.74mils, 8
+count : 4
+
+Arc Degrees, Count
+    122, 8
+    360, 6
+count : 2
+
+Text Height, Count
+    17mils, 2
+    19.685mils, 4
+    31mils, 2
+    39.37mils, 52
+    60mils, 20
+    78.74mils, 1
+    118.11mils, 4
+count : 7
+
+Text Width, Count
+    2.55mils, 2
+    8mils, 4
+    10mils, 79
+count : 3
+
+Net Track Width, Count
+    77780.886mils, 37
+count : 1
+
+Net Via Size, Count
+    50mils, 37
+count : 1

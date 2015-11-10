@@ -1,0 +1,73 @@
+<CodeGenerationInfo>
+  <ToolchainSettings>
+    <option>
+      <name>PE_G_4PEx_ToolChain_Compiler_SearchUserPaths</name>
+      <values lines_count="2">
+        <Line>"${ProjDirPath}/Sources"</Line>
+        <Line>"${ProjDirPath}/Generated_Code"</Line>
+      </values>
+    </option>
+  </ToolchainSettings>
+  <GeneratedFilesList>
+    <GeneratedByPE>
+      <File Name="Sources/Events.c" FileDate="2015-10-17, 16:50:49" FileAge="1445116849088" FileType="131328" />
+      <File Name="Generated_Code/sPC_OK.h" FileDate="2015-10-10, 10:46:52" FileAge="1444490212833" FileType="45637" CompNumb="30" />
+      <File Name="Generated_Code/IO_Map.h" FileDate="2015-10-10, 10:46:52" FileAge="1444490212554" FileType="45637" />
+      <File Name="Generated_Code/ADC.h" FileDate="2015-10-10, 10:46:52" FileAge="1444490212766" FileType="45637" CompNumb="47" />
+      <File Name="Sources/main.c" FileDate="2015-10-13, 04:56:24" FileAge="1444728384954" FileType="128" />
+      <File Name="Generated_Code/sPC_OK.c" FileDate="2015-10-10, 10:46:52" FileAge="1444490212827" FileType="45637" CompNumb="30" />
+      <File Name="Generated_Code/IO_Map.c" FileDate="2015-10-10, 10:46:52" FileAge="1444490212543" FileType="45637" />
+      <File Name="Generated_Code/ADC.c" FileDate="2015-10-10, 10:46:52" FileAge="1444490212755" FileType="45637" CompNumb="47" />
+      <File Name="Documentation/X-Sub MCU Firmware.txt" FileDate="2015-10-17, 16:50:49" FileAge="1445116849626" FileType="3072" />
+      <File Name="Generated_Code/M1_ESC.h" FileDate="2015-10-10, 10:46:53" FileAge="1444490213047" FileType="45637" CompNumb="8" />
+      <File Name="Generated_Code/M3_ESC.h" FileDate="2015-10-10, 10:46:52" FileAge="1444490212982" FileType="45637" CompNumb="13" />
+      <File Name="Generated_Code/M2_ESC.h" FileDate="2015-10-10, 10:46:53" FileAge="1444490213013" FileType="45637" CompNumb="12" />
+      <File Name="Generated_Code/M4_ESC.h" FileDate="2015-10-10, 10:46:52" FileAge="1444490212951" FileType="45637" CompNumb="14" />
+      <File Name="Generated_Code/M1_ESC.c" FileDate="2015-10-10, 10:46:53" FileAge="1444490213030" FileType="45637" CompNumb="8" />
+      <File Name="Documentation/X-Sub MCU Firmware_Settings.xml" FileDate="2015-10-17, 16:50:49" FileAge="1445116849540" FileType="3072" />
+      <File Name="Generated_Code/S_PanCamera.h" FileDate="2015-10-10, 10:46:52" FileAge="1444490212919" FileType="45637" CompNumb="22" />
+      <File Name="Generated_Code/M3_ESC.c" FileDate="2015-10-10, 10:46:52" FileAge="1444490212966" FileType="45637" CompNumb="13" />
+      <File Name="Documentation/X-Sub MCU Firmware_SIGNALS.txt" FileDate="2015-10-17, 16:50:49" FileAge="1445116849206" FileType="3072" />
+      <File Name="Generated_Code/M2_ESC.c" FileDate="2015-10-10, 10:46:52" FileAge="1444490212997" FileType="45637" CompNumb="12" />
+      <File Name="Generated_Code/I2C.h" FileDate="2015-10-10, 10:46:52" FileAge="1444490212662" FileType="45637" CompNumb="77" />
+      <File Name="Generated_Code/M4_ESC.c" FileDate="2015-10-10, 10:46:52" FileAge="1444490212936" FileType="45637" CompNumb="14" />
+      <File Name="Generated_Code/S_TiltCamera.h" FileDate="2015-10-10, 10:46:52" FileAge="1444490212888" FileType="45637" CompNumb="24" />
+      <File Name="Generated_Code/Cpu.h" FileDate="2015-10-10, 10:46:52" FileAge="1444490212507" FileType="45637" CompNumb="4" />
+      <File Name="Generated_Code/S_PanCamera.c" FileDate="2015-10-10, 10:46:52" FileAge="1444490212904" FileType="45637" CompNumb="22" />
+      <File Name="Generated_Code/I2C.c" FileDate="2015-10-10, 10:46:52" FileAge="1444490212644" FileType="45637" CompNumb="77" />
+      <File Name="Generated_Code/sMCU_OK.h" FileDate="2015-10-10, 10:46:52" FileAge="1444490212858" FileType="45637" CompNumb="21" />
+      <File Name="Generated_Code/SerialCom.h" FileDate="2015-10-12, 17:29:49" FileAge="1444687189303" FileType="45637" CompNumb="36" />
+      <File Name="Generated_Code/S_TiltCamera.c" FileDate="2015-10-10, 10:46:52" FileAge="1444490212873" FileType="45637" CompNumb="24" />
+      <File Name="Generated_Code/Cpu.c" FileDate="2015-10-10, 10:46:52" FileAge="1444490212501" FileType="45637" CompNumb="4" />
+      <File Name="Generated_Code/sMCU_OK.c" FileDate="2015-10-10, 10:46:52" FileAge="1444490212853" FileType="45637" CompNumb="21" />
+      <File Name="Generated_Code/SerialCom.c" FileDate="2015-10-12, 17:29:49" FileAge="1444687189317" FileType="45637" CompNumb="36" />
+      <File Name="Generated_Code/CS1.h" FileDate="2015-10-10, 10:46:52" FileAge="1444490212680" FileType="45637" CompNumb="75" />
+      <File Name="Generated_Code/Vectors.c" FileDate="2015-10-17, 16:50:49" FileAge="1445116849028" FileType="45637" CompNumb="4" />
+      <File Name="Generated_Code/CS1.c" FileDate="2015-10-10, 10:46:52" FileAge="1444490212669" FileType="45637" CompNumb="75" />
+      <File Name="Generated_Code/S_Wire.h" FileDate="2015-10-17, 16:50:48" FileAge="1445116848986" FileType="45637" CompNumb="91" />
+      <File Name="Generated_Code/LedLight2.h" FileDate="2015-10-10, 10:46:52" FileAge="1444490212712" FileType="45637" CompNumb="52" />
+      <File Name="Generated_Code/S_Wire.c" FileDate="2015-10-17, 16:50:49" FileAge="1445116849008" FileType="45637" CompNumb="91" />
+      <File Name="Generated_Code/PE_Timer.h" FileDate="2015-10-10, 10:46:52" FileAge="1444490212534" FileType="45637" />
+      <File Name="Generated_Code/LedLight2.c" FileDate="2015-10-10, 10:46:52" FileAge="1444490212696" FileType="45637" CompNumb="52" />
+      <File Name="Project_Settings/Linker_Files/ProcessorExpert.lcf" FileDate="2015-07-15, 06:10:20" FileAge="1436956820000" FileType="8" CompNumb="4" />
+      <File Name="Generated_Code/PE_Timer.c" FileDate="2015-10-10, 10:46:52" FileAge="1444490212528" FileType="45637" />
+      <File Name="Generated_Code/RESET_INTERRUPT.h" FileDate="2015-10-10, 10:46:52" FileAge="1444490212778" FileType="45637" CompNumb="43" />
+      <File Name="Generated_Code/sCom_In.h" FileDate="2015-10-10, 10:46:52" FileAge="1444490212847" FileType="45637" CompNumb="23" />
+      <File Name="Generated_Code/LedLight1.h" FileDate="2015-10-10, 10:46:52" FileAge="1444490212745" FileType="45637" CompNumb="51" />
+      <File Name="Generated_Code/RESET_INTERRUPT.c" FileDate="2015-10-10, 10:46:52" FileAge="1444490212772" FileType="45637" CompNumb="43" />
+      <File Name="Generated_Code/sCom_In.c" FileDate="2015-10-10, 10:46:52" FileAge="1444490212840" FileType="45637" CompNumb="23" />
+      <File Name="Generated_Code/LedLight1.c" FileDate="2015-10-10, 10:46:52" FileAge="1444490212728" FileType="45637" CompNumb="51" />
+      <File Name="Generated_Code/PresenciaAgua2.h" FileDate="2015-10-10, 10:46:52" FileAge="1444490212626" FileType="45637" CompNumb="88" />
+      <File Name="Generated_Code/PresenciaAgua2.c" FileDate="2015-10-10, 10:46:52" FileAge="1444490212611" FileType="45637" CompNumb="88" />
+      <File Name="Generated_Code/PresenciaAgua1.h" FileDate="2015-10-10, 10:46:52" FileAge="1444490212600" FileType="45637" CompNumb="90" />
+      <File Name="Generated_Code/Aux_Int.h" FileDate="2015-10-11, 21:47:20" FileAge="1444616240131" FileType="45637" CompNumb="29" />
+      <File Name="Generated_Code/PE_Const.h" FileDate="2015-10-10, 10:46:52" FileAge="1444490212559" FileType="45637" />
+      <File Name="Generated_Code/PresenciaAgua1.c" FileDate="2015-10-10, 10:46:52" FileAge="1444490212596" FileType="45637" CompNumb="90" />
+      <File Name="Sources/Events.h" FileDate="2015-10-17, 16:50:49" FileAge="1445116849051" FileType="131328" />
+      <File Name="Generated_Code/Aux_Int.c" FileDate="2015-10-11, 21:47:20" FileAge="1444616240146" FileType="45637" CompNumb="29" />
+      <File Name="Generated_Code/PE_Types.h" FileDate="2015-10-10, 10:46:52" FileAge="1444490212575" FileType="45637" />
+      <File Name="Generated_Code/PE_Error.h" FileDate="2015-10-10, 10:46:52" FileAge="1444490212565" FileType="45637" />
+    </GeneratedByPE>
+  </GeneratedFilesList>
+  <CodeGenReference>72</CodeGenReference>
+</CodeGenerationInfo>

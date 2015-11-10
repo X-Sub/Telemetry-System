@@ -1,0 +1,7 @@
+Added Pin To Net: NetName=NetDuino Conn_RES Pin=Shield Power-1
+Added Pin To Net: NetName=NetDuino Conn_3.3V Pin=Shield Power-2
+Added Pin To Net: NetName=NetDuino Conn_5V Pin=Shield Power-3
+Added Pin To Net: NetName=NetDuino Conn_GND@0 Pin=Shield Power-4
+Added Pin To Net: NetName=NetDuino Conn_5V Pin=Shield Power-5
+Added Pin To Net: NetName=NetDuino Conn_GND@0 Pin=Shield Power-6
+Added Pin To Net: NetName=NetDuino Conn_GND@0 Pin=Shield Power-7

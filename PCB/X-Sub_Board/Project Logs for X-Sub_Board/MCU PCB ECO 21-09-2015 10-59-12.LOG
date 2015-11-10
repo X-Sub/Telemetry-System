@@ -1,0 +1,10 @@
+Removed Pin From Net: NetName=RXSERIALCOM Pin=Duino Conn-RX
+Removed Pin From Net: NetName=TXSERIALCOM Pin=Duino Conn-TX
+Added Pin To Net: NetName=TXSERIALCOM Pin=Duino Conn-RX
+Added Pin To Net: NetName=RXSERIALCOM Pin=Duino Conn-TX
+Added Room: Name=ADC_PRES
+Added Room: Name=Expansion Board
+Added Room: Name=Fuente
+Added Room: Name=MCU
+Added Room: Name=Presencia_Agua
+Added Room: Name=PWM_OUTS

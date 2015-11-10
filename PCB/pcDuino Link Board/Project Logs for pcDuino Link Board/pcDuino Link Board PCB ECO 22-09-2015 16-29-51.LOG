@@ -1,0 +1,4 @@
+Change Component Designator: OldDesignator=* NewDesignator=Vin
+Change Net Name : Old Net Name=Net*_4 New Net Name=Net5V_Sel_1
+Added Room: Name=pcDuino Link Board
+Added Room: Name=Power_In

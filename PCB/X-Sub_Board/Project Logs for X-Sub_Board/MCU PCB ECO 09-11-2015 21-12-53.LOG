@@ -1,0 +1,7 @@
+Change Component Footprint: Designator=C_5_Press Old Footprint=CAPR5-4X5 New Footprint=Capacitor S Panasonic
+Added Room: Name=ADC_PRES
+Added Room: Name=Expansion Board
+Added Room: Name=Fuente
+Added Room: Name=MCU
+Added Room: Name=Presencia_Agua
+Added Room: Name=PWM_OUTS

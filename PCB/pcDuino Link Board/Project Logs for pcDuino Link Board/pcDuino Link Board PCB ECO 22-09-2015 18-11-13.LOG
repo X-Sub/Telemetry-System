@@ -1,0 +1,6 @@
+Removed Pin From Net: NetName=RX Pin=Serial1-1
+Removed Pin From Net: NetName=TX Pin=Serial1-3
+Added Pin To Net: NetName=TX Pin=Serial1-1
+Added Pin To Net: NetName=RX Pin=Serial1-3
+Added Room: Name=pcDuino Link Board
+Added Room: Name=Power_In

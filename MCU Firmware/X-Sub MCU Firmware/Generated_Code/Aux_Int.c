@@ -6,7 +6,7 @@
 **     Component   : TimerInt
 **     Version     : Component 02.161, Driver 01.23, CPU db: 3.00.078
 **     Compiler    : CodeWarrior ColdFireV1 C Compiler
-**     Date/Time   : 2015-06-25, 10:24, # CodeGen: 19
+**     Date/Time   : 2015-10-11, 21:47, # CodeGen: 65
 **     Abstract    :
 **         This component "TimerInt" implements a periodic interrupt.
 **         When the component and its events are enabled, the "OnInterrupt"
@@ -21,13 +21,13 @@
 **
 **         High speed mode
 **             Prescaler               : divide-by-1
-**             Clock                   : 16384 Hz
+**             Clock                   : 4096 Hz
 **           Initial period/frequency
-**             Xtal ticks              : 328
-**             microseconds            : 10010
-**             milliseconds            : 10
-**             seconds (real)          : 0.010009765625
-**             Hz                      : 100
+**             Xtal ticks              : 1088
+**             microseconds            : 33203
+**             milliseconds            : 33
+**             seconds (real)          : 0.033203125
+**             Hz                      : 30
 **
 **         Runtime setting             : none
 **
@@ -46,7 +46,8 @@
 **
 **         Flip-flop registers
 **     Contents    :
-**         No public methods
+**         Enable  - byte Aux_Int_Enable(void);
+**         Disable - byte Aux_Int_Disable(void);
 **
 **     Copyright : 1997 - 2014 Freescale Semiconductor, Inc. 
 **     All Rights Reserved.
@@ -101,6 +102,7 @@
 #include "PE_Error.h"
 #include "Aux_Int.h"
 
+static bool EnUser;                    /* Enable device by user */
 /*** Internal macros and method prototypes ***/
 
 /*
@@ -116,8 +118,89 @@
 #define Aux_Int_SetCV(_Val) \
   (RTCMOD = (byte)(_Val))
 
+/*
+** ===================================================================
+**     Method      :  HWEnDi (component TimerInt)
+**
+**     Description :
+**         Enables or disables the peripheral(s) associated with the 
+**         component. The method is called automatically as a part of the 
+**         Enable and Disable methods and several internal methods.
+**         This method is internal. It is used by Processor Expert only.
+** ===================================================================
+*/
+static void HWEnDi(void);
+
 
 /*** End of internal method prototypes ***/
+
+/*
+** ===================================================================
+**     Method      :  HWEnDi (component TimerInt)
+**
+**     Description :
+**         Enables or disables the peripheral(s) associated with the 
+**         component. The method is called automatically as a part of the 
+**         Enable and Disable methods and several internal methods.
+**         This method is internal. It is used by Processor Expert only.
+** ===================================================================
+*/
+static void HWEnDi(void)
+{
+  if (EnUser) {
+    /* RTCSC: RTIF=1,RTCLKS=2,RTIE=1,RTCPS=1 */
+    setReg8(RTCSC, 0xD1U);             /* Run RTC (select clock source; set frequency and enable interrupt) */ 
+  } else {
+    /* RTCSC: RTCPS=0 */
+    clrReg8Bits(RTCSC, 0x0FU);         /* Stop counter */ 
+  }
+}
+
+/*
+** ===================================================================
+**     Method      :  Aux_Int_Enable (component TimerInt)
+**     Description :
+**         This method enables the component - it starts the timer.
+**         Events may be generated (<DisableEvent>/<EnableEvent>).
+**     Parameters  : None
+**     Returns     :
+**         ---             - Error code, possible codes:
+**                           ERR_OK - OK
+**                           ERR_SPEED - This device does not work in
+**                           the active speed mode
+** ===================================================================
+*/
+byte Aux_Int_Enable(void)
+{
+  if (!EnUser) {                       /* Is the device disabled by user? */
+    EnUser = TRUE;                     /* If yes then set the flag "device enabled" */
+    HWEnDi();                          /* Enable the device */
+  }
+  return ERR_OK;                       /* OK */
+}
+
+/*
+** ===================================================================
+**     Method      :  Aux_Int_Disable (component TimerInt)
+**     Description :
+**         This method disables the component - it stops the timer. No
+**         events will be generated.
+**     Parameters  : None
+**     Returns     :
+**         ---             - Error code, possible codes:
+**                           ERR_OK - OK
+**                           ERR_SPEED - This device does not work in
+**                           the active speed mode
+** ===================================================================
+*/
+byte Aux_Int_Disable(void)
+{
+  if (EnUser) {                        /* Is the device enabled by user? */
+    EnUser = FALSE;                    /* If yes then set the flag "device disabled" */
+    HWEnDi();                          /* Disable the device */
+  }
+  return ERR_OK;                       /* OK */
+}
 
 /*
 ** ===================================================================
@@ -134,10 +217,10 @@ void Aux_Int_Init(void)
 {
   /* RTCSC: RTIF=0,RTCLKS=0,RTIE=0,RTCPS=0 */
   setReg8(RTCSC, 0x00U);               /* Stop HW */ 
-  Aux_Int_SetCV(0xA3U);                /* Initialize appropriate value to the compare/modulo/reload register */
+  EnUser = TRUE;                       /* Enable device */
+  Aux_Int_SetCV(0x87U);                /* Initialize appropriate value to the compare/modulo/reload register */
   RTCMOD = RTCMOD;                     /* Reset HW counter */
-  /* RTCSC: RTIF=1,RTCLKS=2,RTIE=1,RTCPS=9 */
-  setReg8(RTCSC, 0xD9U);               /* Run RTC (select clock source, set frequency and enable interrupt) */ 
+  HWEnDi();
 }
 
 

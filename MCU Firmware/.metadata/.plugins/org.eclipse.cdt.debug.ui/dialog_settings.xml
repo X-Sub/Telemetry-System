@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.cdt.debug.internal.ui.dialogs.FilteredGlobalsDialog">
+		<item value="true" key="ShowStatusLine"/>
+		<item value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0D;&#x0A;&lt;History AllGlobals=&quot;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot; standalone=&amp;quot;no&amp;quot;?&amp;gt;&amp;#x0D;&amp;#x0A;&amp;lt;globalVariableList&amp;gt;&amp;#x0D;&amp;#x0A;&amp;lt;globalVariable name=&amp;quot;finTrama&amp;quot; path=&amp;quot;&amp;quot;/&amp;gt;&amp;#x0D;&amp;#x0A;&amp;lt;globalVariable name=&amp;quot;STATUS&amp;quot; path=&amp;quot;&amp;quot;/&amp;gt;&amp;#x0D;&amp;#x0A;&amp;lt;globalVariable name=&amp;quot;data&amp;quot; path=&amp;quot;&amp;quot;/&amp;gt;&amp;#x0D;&amp;#x0A;&amp;lt;/globalVariableList&amp;gt;&amp;#x0D;&amp;#x0A;&quot;/&gt;" key="History"/>
+		<item value="false" key="ShowAdded"/>
+		<section name="DialogBoundsSettings">
+			<item value="600" key="DIALOG_WIDTH"/>
+			<item value="39" key="DIALOG_Y_ORIGIN"/>
+			<item value="391" key="DIALOG_X_ORIGIN"/>
+			<item value="500" key="DIALOG_HEIGHT"/>
+			<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
+		</section>
+	</section>
+</section>

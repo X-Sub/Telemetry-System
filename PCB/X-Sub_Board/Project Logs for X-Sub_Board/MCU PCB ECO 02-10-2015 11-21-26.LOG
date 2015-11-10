@@ -1,0 +1,6 @@
+Change Component Footprint: Designator=LED_sMCU_OK Old Footprint=3.2X1.6X1.1 New Footprint=6-0805_L
+Change Component Footprint: Designator=LED_sPC_OK Old Footprint=3.2X1.6X1.1 New Footprint=6-0805_L
+Change Component Footprint: Designator=S1 Old Footprint=RESC6332 New Footprint=6-0805_L
+Change Component Footprint: Designator=S2 Old Footprint=RESC6332 New Footprint=6-0805_L
+Change Component Footprint: Designator=R_P1 Old Footprint=RESC6332 New Footprint=J1-0603
+Change Component Footprint: Designator=R_P2 Old Footprint=RESC6332 New Footprint=J1-0603

@@ -1,0 +1,17 @@
+Removed Pin From Net: NetName=NetDuino Conn_RES Pin=Shield Power-1
+Removed Pin From Net: NetName=NetDuino Conn_3.3V Pin=Shield Power-2
+Removed Pin From Net: NetName=NetDuino Conn_5V Pin=Shield Power-3
+Removed Pin From Net: NetName=NetDuino Conn_GND@0 Pin=Shield Power-4
+Removed Pin From Net: NetName=NetDuino Conn_5V Pin=Shield Power-5
+Removed Pin From Net: NetName=NetDuino Conn_GND@0 Pin=Shield Power-6
+Removed Pin From Net: NetName=NetDuino Conn_GND@0 Pin=Shield Power-7
+Added Pin To Net: NetName=NetDuino Conn_VIN Pin=Shield Power-1
+Added Pin To Net: NetName=NetDuino Conn_GND@0 Pin=Shield Power-2
+Added Pin To Net: NetName=NetDuino Conn_GND@0 Pin=Shield Power-3
+Added Pin To Net: NetName=NetDuino Conn_5V Pin=Shield Power-4
+Added Pin To Net: NetName=NetDuino Conn_3.3V Pin=Shield Power-5
+Added Pin To Net: NetName=NetDuino Conn_RES Pin=Shield Power-6
+Added Pin To Net: NetName=NetDuino Conn_IOREF Pin=Shield Power-7
+Added Pin To Net: NetName=NetpcDuino Power_8 Pin=pcDuino Power-8
+Added Pin To Net: NetName=NetpcDuino Power_8 Pin=Shield Power-8
+Added Net: Name=NetpcDuino Power_8

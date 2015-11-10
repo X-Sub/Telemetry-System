@@ -1,0 +1,17 @@
+*************************************************************
+FileName = MCU.GBR
+AutoAperture = True
+*************************************************************
+Generating : Drill Drawing
+      File : MCU.GD1
+
+    Adding Drill Pair : Bottom Layer-Top Layer
+
+    Adding Layer      : Drill Drawing
+
+
+Used DCodes :
+    D10
+    D11
+*************************************************************
+

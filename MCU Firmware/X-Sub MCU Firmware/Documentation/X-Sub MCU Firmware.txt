@@ -170,6 +170,9 @@ Module "sPC_OK"    (component BitIO)
                 only if the direction = _[output]_ or _[input/output]_.
 
 Module "Aux_Int"   (component TimerInt)
+   - Aux_Int_Enable -This method enables the component - it starts the timer. Events may be generated 
+                (<DisableEvent>/<EnableEvent>).
+   - Aux_Int_Disable -This method disables the component - it stops the timer. No events will be generated.
 
 Module "SerialCom" (component AsynchroSerial)
    - SerialCom_Enable -Enables the component - it starts the send and receive functions. Events may be generated 
@@ -311,10 +314,37 @@ Module "I2C"       (component InternalI2C)
                 method directs to or from selected device, until a new slave device is selected by this method. This method is 
                 not available for the SLAVE mode.
 
-Module "PresenciaAgua" (component BitIO)
-   - PresenciaAgua_GetVal -Returns the input/output value. If the direction is [input] then the input value of the pin is read 
+Module "PresenciaAgua2" (component BitIO)
+   - PresenciaAgua2_GetVal -Returns the input/output value. If the direction is [input] then the input value of the pin is read 
                 and returned. If the direction is [output] then the last written value is returned (see <Safe mode> property 
                 for limitations). This method cannot be disabled if direction is [input].
+
+Module "PresenciaAgua1" (component BitIO)
+   - PresenciaAgua1_GetVal -Returns the input/output value. If the direction is [input] then the input value of the pin is read 
+                and returned. If the direction is [output] then the last written value is returned (see <Safe mode> property 
+                for limitations). This method cannot be disabled if direction is [input].
+
+Module "S_Wire"    (component AsynchroSerial)
+   - S_Wire_RecvChar -If any data is received, this method returns one character, otherwise it returns an error code (it does 
+                not wait for data). This method is enabled only if the receiver property is enabled.  [Note:] Because the 
+                preferred method to handle error and break exception in the interrupt mode is to use events <OnError> and 
+                <OnBreak> the return value ERR_RXEMPTY has higher priority than other error codes. As a consequence the 
+                information about an exception in interrupt mode is returned only if there is a valid character ready to be 
+                read.
+   - S_Wire_SendChar -Sends one character to the channel. If the component is temporarily disabled (Disable method) SendChar 
+                method only stores data into an output buffer. In case of a zero output buffer size, only one character can be 
+                stored. Enabling the component (Enable method) starts the transmission of the stored data. This method is 
+                available only if the transmitter property is enabled.
+   - S_Wire_GetCharsInRxBuf -Returns the number of characters in the input buffer. This method is available only if the 
+                receiver property is enabled.
+   - S_Wire_GetCharsInTxBuf -Returns the number of characters in the output buffer. This method is available only if the 
+                transmitter property is enabled.
+   - S_Wire_SetBaudRateMode -This method changes the channel communication speed (baud rate). This method is enabled only if 
+                the user specifies a list of possible period settings at design time (see <Timing dialog box> - Runtime setting 
+                - from a list of values). Each of these settings constitutes a _/mode/_ and Processor Expert assigns them a 
+                _/mode identifier/_. The prescaler and compare values corresponding to each mode are calculated at design time. 
+                The user may switch modes at runtime by referring to a mode identifier. No run-time calculations are performed, 
+                all the calculations are performed at design time.
 
 Module "Cpu"       (component MCF51QE128_80)
    - Cpu_EnableInt -Enables maskable interrupts

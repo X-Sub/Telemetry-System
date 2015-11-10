@@ -1,0 +1,9 @@
+Added Component: Designator=U5(MULTIWATT15)
+Added Pin To Net: NetName=GND Pin=U5-7
+Added Member To Class: ClassName=MCU Member=Component U5 L298 Dual Full Bridge Driver
+Added Room: Name=ADC_PRES
+Added Room: Name=Expansion Board
+Added Room: Name=Fuente
+Added Room: Name=MCU
+Added Room: Name=Presencia_Agua
+Added Room: Name=PWM_OUTS

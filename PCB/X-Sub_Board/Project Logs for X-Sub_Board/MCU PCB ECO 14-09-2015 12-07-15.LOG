@@ -1,0 +1,7 @@
+Change Component Footprint: Designator=Duino Conn Old Footprint=UNO_R3_SHIELD New Footprint=UNO_R3_SHIELD_NOLABELS
+Added Room: Name=ADC_PRES
+Added Room: Name=Expansion Board
+Added Room: Name=Fuente
+Added Room: Name=MCU
+Added Room: Name=Presencia_Agua
+Added Room: Name=PWM_OUTS

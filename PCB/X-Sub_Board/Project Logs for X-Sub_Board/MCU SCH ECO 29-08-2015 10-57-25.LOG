@@ -1,0 +1,4 @@
+Change Component Footprint: Designator=C_3.3V Old Footprint=RB7.6-15 New Footprint=CAPR5-4X5
+Change Component Footprint: Designator=C_5V Old Footprint=RB7.6-15 New Footprint=CAPR5-4X5
+Change Component Footprint: Designator=Q1 Old Footprint=SOT-23B_N New Footprint=TO-92A
+Change Component Footprint: Designator=Q2 Old Footprint=SOT-23B_N New Footprint=TO-92A

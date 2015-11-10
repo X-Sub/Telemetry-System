@@ -1,0 +1,35 @@
+﻿
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Your branch is ahead of 'origin/master' by 1 commit.
+#   (use "git push" to publish your local commits)
+#
+# Untracked files:
+#	PCB/X-Sub_Board/001.SchLib
+#	PCB/X-Sub_Board/Expansion Board.SchDoc
+#	PCB/X-Sub_Board/Expansion_In.SchDoc
+#	PCB/X-Sub_Board/Footprints_NEW/
+#	PCB/X-Sub_Board/Fuente_Conn.SchDoc
+#	PCB/X-Sub_Board/History/
+#	PCB/X-Sub_Board/LOGOS.PcbDoc
+#	"PCB/X-Sub_Board/Librer\303\255as/"
+#	PCB/X-Sub_Board/MCU.PcbDoc
+#	PCB/X-Sub_Board/MCU.PcbLib
+#	PCB/X-Sub_Board/MCU.SchDoc
+#	PCB/X-Sub_Board/PCB1.PcbDoc
+#	PCB/X-Sub_Board/PWM_OUTS.SchDoc
+#	PCB/X-Sub_Board/PcbLib1.PcbLib
+#	PCB/X-Sub_Board/Presencia_Agua.SchDoc
+#	PCB/X-Sub_Board/Pressure ADC.SchDoc
+#	PCB/X-Sub_Board/Project Logs for X-Sub_Board/
+#	PCB/X-Sub_Board/Project Outputs for X-Sub_Board/
+#	PCB/X-Sub_Board/Sheet_PCB.SchDoc
+#	PCB/X-Sub_Board/Tarjeta Principal.SchDoc
+#	PCB/X-Sub_Board/X-Sub_Board.PrjPcb
+#	PCB/X-Sub_Board/X-Sub_Board.PrjPcbStructure
+#	PCB/X-Sub_Board/XSUB_COMP.PcbLib
+#	PCB/X-Sub_Board/XSUB_COMP.SchLib
+#	PCB/X-Sub_Board/__Previews/
+#
+

@@ -33,10 +33,10 @@
 /* User includes (#include below this line is not maintained by Processor Expert) */
 /*Mis includes*/
 #include "xSub.h"
+#include "OneWire.h"
 
 byte err = 0;
-byte data[14];
-byte data2[2];
+byte data[27];
 byte in;
 
 /*
@@ -105,6 +105,16 @@ void Aux_Int_OnInterrupt(void)
 		
 	}
 	
+	
+	
+	/*TRANSMISION DE DATA*/
+	
+	//Transmitir DATA
+	
+	//if(STATUS.data == 0xFF)  envioData();
+	
+	
+	
 } 
 
 /*
@@ -125,8 +135,8 @@ void Aux_Int_OnInterrupt(void)
 void  SerialCom_OnRxChar(void)
 {
   /* Write your code here ... */
-	//sPC_OK_W();
-	
+	sPC_OK_W();
+	//(void)SerialCom_SendChar(0x01);
 	//(void)SerialCom_RecvChar(&SerialIn);
 	//setMotorSpeed256(SerialIn,1);
 	//(void)SerialCom_SendChar(SerialIn);
@@ -251,6 +261,62 @@ void  SerialCom_OnFullRxBuf(void)
 ** ===================================================================
 */
 void  SerialCom_OnFreeTxBuf(void)
+{
+  /* Write your code here ... */
+}
+
+/*
+** ===================================================================
+**     Event       :  S_Wire_OnError (module Events)
+**
+**     Component   :  S_Wire [AsynchroSerial]
+**     Description :
+**         This event is called when a channel error (not the error
+**         returned by a given method) occurs. The errors can be read
+**         using <GetError> method.
+**         The event is available only when the <Interrupt
+**         service/event> property is enabled.
+**     Parameters  : None
+**     Returns     : Nothing
+** ===================================================================
+*/
+void  S_Wire_OnError(void)
+{
+  /* Write your code here ... */
+}
+
+/*
+** ===================================================================
+**     Event       :  S_Wire_OnRxChar (module Events)
+**
+**     Component   :  S_Wire [AsynchroSerial]
+**     Description :
+**         This event is called after a correct character is received.
+**         The event is available only when the <Interrupt
+**         service/event> property is enabled and either the <Receiver>
+**         property is enabled or the <SCI output mode> property (if
+**         supported) is set to Single-wire mode.
+**     Parameters  : None
+**     Returns     : Nothing
+** ===================================================================
+*/
+void  S_Wire_OnRxChar(void)
+{
+  /* Write your code here ... */
+}
+
+/*
+** ===================================================================
+**     Event       :  S_Wire_OnTxChar (module Events)
+**
+**     Component   :  S_Wire [AsynchroSerial]
+**     Description :
+**         This event is called after a character is transmitted.
+**     Parameters  : None
+**     Returns     : Nothing
+** ===================================================================
+*/
+void  S_Wire_OnTxChar(void)
 {
   /* Write your code here ... */
 }

@@ -5,7 +5,7 @@
 **     Processor   : MCF51QE128CLK
 **     Version     : Component 01.014, Driver 01.12, CPU db: 3.00.078
 **     Compiler    : CodeWarrior ColdFireV1 C Compiler
-**     Date/Time   : 2015-07-21, 17:35, # CodeGen: 59
+**     Date/Time   : 2015-10-17, 16:50, # CodeGen: 71
 **     Abstract    :
 **         This component "MCF51QE128_80" contains initialization of the
 **         CPU and provides basic methods and events for CPU core
@@ -74,7 +74,9 @@
 #include "LedLight2.h"
 #include "CS1.h"
 #include "I2C.h"
-#include "PresenciaAgua.h"
+#include "PresenciaAgua2.h"
+#include "PresenciaAgua1.h"
+#include "S_Wire.h"
 #include "startcf.h"
 
 extern unsigned long far _SP_INIT[];
@@ -167,9 +169,9 @@ const tIsrFunc _InterruptVectorTable[103] @0x00000000 = { /* Interrupt vector ta
   RESET_INTERRUPT_Interrupt,           /* 0x50  0x00000140   6   7   ivVkeyboard   used by PE */
   ADC_Interrupt,                       /* 0x51  0x00000144   3   5   ivVadc        used by PE */
   Cpu_Interrupt,                       /* 0x52  0x00000148   -   -   ivVacmpx      unused by PE */
-  Cpu_Interrupt,                       /* 0x53  0x0000014C   -   -   ivVsci2err    unused by PE */
-  Cpu_Interrupt,                       /* 0x54  0x00000150   -   -   ivVsci2rx     unused by PE */
-  Cpu_Interrupt,                       /* 0x55  0x00000154   -   -   ivVsci2tx     unused by PE */
+  S_Wire_InterruptError,               /* 0x53  0x0000014C   2   5   ivVsci2err    used by PE */
+  S_Wire_InterruptRx,                  /* 0x54  0x00000150   2   4   ivVsci2rx     used by PE */
+  S_Wire_InterruptTx,                  /* 0x55  0x00000154   2   3   ivVsci2tx     used by PE */
   Aux_Int_Interrupt,                   /* 0x56  0x00000158   6   6   ivVrtc        used by PE */
   Cpu_Interrupt,                       /* 0x57  0x0000015C   -   -   ivVtpm3ch0    unused by PE */
   Cpu_Interrupt,                       /* 0x58  0x00000160   -   -   ivVtpm3ch1    unused by PE */

@@ -1,0 +1,13 @@
+Removed Pin From Net: NetName=+3.3V Pin=C_3V3_T-1
+Added Component: Designator=reg3V3(TI-D8_N)
+Added Pin To Net: NetName=Net5V_Sel_1 Pin=C_3V3_T-1
+Added Pin To Net: NetName=GND Pin=reg3V3-1
+Added Pin To Net: NetName=GND Pin=reg3V3-2
+Added Pin To Net: NetName=Net5V_Sel_1 Pin=reg3V3-3
+Added Pin To Net: NetName=Net5V_Sel_1 Pin=reg3V3-4
+Added Pin To Net: NetName=+3.3V Pin=reg3V3-5
+Added Pin To Net: NetName=+3.3V Pin=reg3V3-6
+Change Net Name : Old Net Name=Net5V_Sel_1 New Net Name=+5V_OP
+Added Member To Class: ClassName=Power_In Member=Component reg3V3 TPS76833QD
+Added Room: Name=pcDuino Link Board
+Added Room: Name=Power_In

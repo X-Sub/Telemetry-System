@@ -1,0 +1,24 @@
+Removed Pin From Net: NetName=PRESENCIAAGUA1 Pin=R_A1-1
+Removed Pin From Net: NetName=+3.3V Pin=R_A1-2
+Removed Pin From Net: NetName=PRESENCIAAGUA2 Pin=R_A2-1
+Removed Pin From Net: NetName=+3.3V Pin=R_A2-2
+Removed Pin From Net: NetName=GND Pin=sPC_OK-1
+Removed Pin From Net: NetName=NetLED_sPC_OK_2 Pin=sPC_OK-2
+Removed Member From Class: ClassName=Presencia_Agua Member=R_A1
+Removed Member From Class: ClassName=Presencia_Agua Member=R_A2
+Added Component: Designator=sPC_OK(RESC6332)
+Added Component: Designator=sPC_OK(RESC6332)
+Added Pin To Net: NetName=GND Pin=sPC_OK-1
+Added Pin To Net: NetName=PRESENCIAAGUA1 Pin=sPC_OK-1
+Added Pin To Net: NetName=PRESENCIAAGUA2 Pin=sPC_OK-1
+Added Pin To Net: NetName=+3.3V Pin=sPC_OK-2
+Added Pin To Net: NetName=+3.3V Pin=sPC_OK-2
+Added Pin To Net: NetName=NetLED_sPC_OK_2 Pin=sPC_OK-2
+Added Member To Class: ClassName=Presencia_Agua Member=Component Q1 PNP
+Added Member To Class: ClassName=Presencia_Agua Member=Component sPC_OK Res
+Added Room: Name=ADC_PRES
+Added Room: Name=Expansion Board
+Added Room: Name=Fuente
+Added Room: Name=MCU
+Added Room: Name=Presencia_Agua
+Added Room: Name=PWM_OUTS

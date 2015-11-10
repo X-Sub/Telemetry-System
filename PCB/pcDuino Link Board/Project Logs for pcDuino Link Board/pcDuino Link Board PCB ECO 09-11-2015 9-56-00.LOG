@@ -1,0 +1,7 @@
+Change Component Footprint: Designator=C_12V Old Footprint=C Panasonic Size Cap Pol New Footprint=CAPR5-4X5
+Change Component Designator: OldDesignator=C_5V NewDesignator=C_3V3
+Change Component Designator: OldDesignator=C_5V_T NewDesignator=C_3V3_T
+Added Member To Class: ClassName=Power_In Member=Component C_3V3 Cap Pol1
+Added Member To Class: ClassName=Power_In Member=Component C_5V_T Cap Pol1
+Added Room: Name=pcDuino Link Board
+Added Room: Name=Power_In

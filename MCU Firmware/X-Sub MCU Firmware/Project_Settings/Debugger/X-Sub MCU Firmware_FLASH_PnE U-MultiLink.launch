@@ -83,10 +83,10 @@
 <booleanAttribute key="com.freescale.cdt.debug.cw.Symbolics.UseExecutableCopy" value="false"/>
 <stringAttribute key="com.freescale.cdt.debug.cw.UDPPort" value="1234"/>
 <booleanAttribute key="com.freescale.cdt.debug.cw.UseApplication" value="true"/>
-<booleanAttribute key="com.freescale.cdt.debug.cw.core.settings.ConnectionCommonData.TargetConnectionLost.RetryConnectionOn" value="true"/>
+<booleanAttribute key="com.freescale.cdt.debug.cw.core.settings.ConnectionCommonData.TargetConnectionLost.RetryConnectionOn" value="false"/>
 <intAttribute key="com.freescale.cdt.debug.cw.core.settings.ConnectionCommonData.TargetConnectionLost.RetryTimeout" value="0"/>
 <booleanAttribute key="com.freescale.cdt.debug.cw.core.settings.ConnectionCommonData.TargetConnectionLost.RetryWithTimeoutOn" value="false"/>
-<booleanAttribute key="com.freescale.cdt.debug.cw.core.settings.ConnectionCommonData.TargetConnectionLost.TerminateConnectionOn" value="false"/>
+<booleanAttribute key="com.freescale.cdt.debug.cw.core.settings.ConnectionCommonData.TargetConnectionLost.TerminateConnectionOn" value="true"/>
 <booleanAttribute key="com.freescale.cdt.debug.cw.core.settings.ConnectionCommonData.TargetConnectionLost.promptUserActionOn" value="false"/>
 <stringAttribute key="com.freescale.cdt.debug.cw.core.settings.DebuggerCommonData.Connection Protocol Plugin Name" value="CF - GDI"/>
 <stringAttribute key="com.freescale.cdt.debug.cw.core.settings.DebuggerCommonData.Connection Type" value="com.pemicro.mcu.debug.connections.pne.cfv1"/>
@@ -204,7 +204,7 @@
 <stringAttribute key="com.pemicro.mcu.debug.connections.pne.cfv1.STARTUP_SPECIFY_NETWORKCARD_ENABLED" value="0"/>
 <stringAttribute key="com.pemicro.mcu.debug.connections.pne.cfv1.STARTUP_USE_CYCLONEPRO_RELAYS" value="0"/>
 <stringAttribute key="com.pemicro.mcu.debug.connections.pne.cfv1.STARTUP_interface_selection" value="3"/>
-<stringAttribute key="com.pemicro.mcu.debug.connections.pne.cfv1.UUID" value="fa0bb730-5aff-407a-a9dc-b5bdf05cd338"/>
+<stringAttribute key="com.pemicro.mcu.debug.connections.pne.cfv1.UUID" value="fad0c6b3-f6db-4e9b-9cf2-e582e89470eb"/>
 <intAttribute key="org.eclipse.cdt.launch.ATTR_BUILD_BEFORE_LAUNCH_ATTR" value="2"/>
 <stringAttribute key="org.eclipse.cdt.launch.DEBUGGER_ID" value="com.freescale.cdt.debug.cw.coldfire.ColdFireDebugger"/>
 <stringAttribute key="org.eclipse.cdt.launch.DEBUGGER_REGISTER_GROUPS" value=""/>
@@ -214,7 +214,7 @@
 <booleanAttribute key="org.eclipse.cdt.launch.ENABLE_REGISTER_BOOKKEEPING" value="false"/>
 <booleanAttribute key="org.eclipse.cdt.launch.ENABLE_RESTORE_WATCHPOINTS" value="true"/>
 <booleanAttribute key="org.eclipse.cdt.launch.ENABLE_VARIABLE_BOOKKEEPING" value="false"/>
-<stringAttribute key="org.eclipse.cdt.launch.FORMAT" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;&lt;contentList&gt;&lt;content id=&quot;byteDC-main-(format)&quot; val=&quot;1&quot;/&gt;&lt;/contentList&gt;"/>
+<stringAttribute key="org.eclipse.cdt.launch.FORMAT" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;&lt;contentList&gt;&lt;content id=&quot;data--(format)&quot; val=&quot;4&quot;/&gt;&lt;content id=&quot;[26]-data--(format)&quot; val=&quot;4&quot;/&gt;&lt;content id=&quot;[25]-data--(format)&quot; val=&quot;4&quot;/&gt;&lt;content id=&quot;[24]-data--(format)&quot; val=&quot;4&quot;/&gt;&lt;content id=&quot;[23]-data--(format)&quot; val=&quot;4&quot;/&gt;&lt;content id=&quot;[22]-data--(format)&quot; val=&quot;4&quot;/&gt;&lt;content id=&quot;[21]-data--(format)&quot; val=&quot;4&quot;/&gt;&lt;content id=&quot;[20]-data--(format)&quot; val=&quot;4&quot;/&gt;&lt;content id=&quot;[19]-data--(format)&quot; val=&quot;4&quot;/&gt;&lt;content id=&quot;[18]-data--(format)&quot; val=&quot;4&quot;/&gt;&lt;content id=&quot;[17]-data--(format)&quot; val=&quot;4&quot;/&gt;&lt;content id=&quot;[16]-data--(format)&quot; val=&quot;4&quot;/&gt;&lt;content id=&quot;[15]-data--(format)&quot; val=&quot;4&quot;/&gt;&lt;content id=&quot;[14]-data--(format)&quot; val=&quot;4&quot;/&gt;&lt;content id=&quot;[13]-data--(format)&quot; val=&quot;4&quot;/&gt;&lt;content id=&quot;[12]-data--(format)&quot; val=&quot;4&quot;/&gt;&lt;content id=&quot;[11]-data--(format)&quot; val=&quot;4&quot;/&gt;&lt;content id=&quot;[10]-data--(format)&quot; val=&quot;4&quot;/&gt;&lt;content id=&quot;[9]-data--(format)&quot; val=&quot;4&quot;/&gt;&lt;content id=&quot;[8]-data--(format)&quot; val=&quot;4&quot;/&gt;&lt;content id=&quot;[7]-data--(format)&quot; val=&quot;4&quot;/&gt;&lt;content id=&quot;[6]-data--(format)&quot; val=&quot;4&quot;/&gt;&lt;content id=&quot;[5]-data--(format)&quot; val=&quot;4&quot;/&gt;&lt;content id=&quot;[4]-data--(format)&quot; val=&quot;4&quot;/&gt;&lt;content id=&quot;[3]-data--(format)&quot; val=&quot;4&quot;/&gt;&lt;content id=&quot;[2]-data--(format)&quot; val=&quot;4&quot;/&gt;&lt;content id=&quot;[1]-data--(format)&quot; val=&quot;4&quot;/&gt;&lt;content id=&quot;[0]-data--(format)&quot; val=&quot;4&quot;/&gt;&lt;content id=&quot;data-STATUS--(format)&quot; val=&quot;4&quot;/&gt;&lt;content id=&quot;pos-STATUS--(format)&quot; val=&quot;4&quot;/&gt;&lt;content id=&quot;byteDC-main-(format)&quot; val=&quot;1&quot;/&gt;&lt;/contentList&gt;"/>
 <stringAttribute key="org.eclipse.cdt.launch.GLOBAL_VARIABLES" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;&#13;&#10;&lt;globalVariableList/&gt;&#13;&#10;"/>
 <stringAttribute key="org.eclipse.cdt.launch.MEMORY_BLOCKS" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?&gt;&#13;&#10;&lt;memoryBlockExpressionList/&gt;&#13;&#10;"/>
 <stringAttribute key="org.eclipse.cdt.launch.PROGRAM_NAME" value="FLASH/X-SubMCUFirmware.elf"/>

@@ -1,0 +1,113 @@
+Removed Pin From Net: NetName=RXSERIALCOM Pin=Exp_In-1
+Removed Pin From Net: NetName=TXSERIALCOM Pin=Exp_In-2
+Removed Pin From Net: NetName=SDA Pin=Exp_In-3
+Removed Pin From Net: NetName=SCL Pin=Exp_In-4
+Removed Pin From Net: NetName=+3.3V Pin=Exp_In-5
+Removed Pin From Net: NetName=GND Pin=Exp_In-6
+Removed Pin From Net: NetName=GND Pin=LEDLIGHT1-1
+Removed Pin From Net: NetName=+5V Pin=LEDLIGHT1-2
+Removed Pin From Net: NetName=LEDLIGHT1 Pin=LEDLIGHT1-3
+Removed Pin From Net: NetName=GND Pin=LEDLIGHT2-1
+Removed Pin From Net: NetName=+5V Pin=LEDLIGHT2-2
+Removed Pin From Net: NetName=LEDLIGHT2 Pin=LEDLIGHT2-3
+Removed Pin From Net: NetName=GND Pin=M1-1
+Removed Pin From Net: NetName=+5V Pin=M1-2
+Removed Pin From Net: NetName=M1_ESC Pin=M1-3
+Removed Pin From Net: NetName=GND Pin=M2-1
+Removed Pin From Net: NetName=+5V Pin=M2-2
+Removed Pin From Net: NetName=M2_ESC Pin=M2-3
+Removed Pin From Net: NetName=GND Pin=M3-1
+Removed Pin From Net: NetName=+5V Pin=M3-2
+Removed Pin From Net: NetName=M3_ESC Pin=M3-3
+Removed Pin From Net: NetName=GND Pin=M4-1
+Removed Pin From Net: NetName=+5V Pin=M4-2
+Removed Pin From Net: NetName=M4_ESC Pin=M4-3
+Removed Pin From Net: NetName=SDA Pin=P_Expansion-1
+Removed Pin From Net: NetName=AD1 Pin=P_Expansion-2
+Removed Pin From Net: NetName=SCL Pin=P_Expansion-3
+Removed Pin From Net: NetName=AD2 Pin=P_Expansion-4
+Removed Pin From Net: NetName=+5V Pin=P_Expansion-5
+Removed Pin From Net: NetName=AD3 Pin=P_Expansion-6
+Removed Pin From Net: NetName=+3.3V Pin=P_Expansion-7
+Removed Pin From Net: NetName=AD4 Pin=P_Expansion-8
+Removed Pin From Net: NetName=GND Pin=P_Expansion-9
+Removed Pin From Net: NetName=GND Pin=P_Expansion-10
+Removed Pin From Net: NetName=GND Pin=Servo1-1
+Removed Pin From Net: NetName=+5V Pin=Servo1-2
+Removed Pin From Net: NetName=S_TILTCAMERA Pin=Servo1-3
+Removed Pin From Net: NetName=GND Pin=Servo2-1
+Removed Pin From Net: NetName=+5V Pin=Servo2-2
+Removed Pin From Net: NetName=S_PANCAMERA Pin=Servo2-3
+Removed Member From Class: ClassName=MCU Member=Exp_In
+Removed Member From Class: ClassName=PWM_OUTS Member=LEDLIGHT1
+Removed Member From Class: ClassName=PWM_OUTS Member=LEDLIGHT2
+Removed Member From Class: ClassName=PWM_OUTS Member=M1
+Removed Member From Class: ClassName=PWM_OUTS Member=M2
+Removed Member From Class: ClassName=PWM_OUTS Member=M3
+Removed Member From Class: ClassName=PWM_OUTS Member=M4
+Removed Member From Class: ClassName=Expansion Board Member=P_Expansion
+Removed Member From Class: ClassName=PWM_OUTS Member=Servo1
+Removed Member From Class: ClassName=PWM_OUTS Member=Servo2
+Added Component: Designator=Duino Conn(UNO_R3_SHIELD)
+Added Component: Designator=Jumper_V_Ser(HDR1X3)
+Added Component: Designator=LED_L1(HDR1X2)
+Added Component: Designator=LED_L2(HDR1X2)
+Added Component: Designator=Motor_Out(RJ45-8)
+Added Component: Designator=Servo_Out(RJ45-8)
+Added Component: Designator=V_Servo_In(HDR1X2)
+Added Pin To Net: NetName=+3.3V Pin=Duino Conn-3.3V
+Added Pin To Net: NetName=+5V Pin=Duino Conn-5V
+Added Pin To Net: NetName=AD1 Pin=Duino Conn-A1
+Added Pin To Net: NetName=AD2 Pin=Duino Conn-A2
+Added Pin To Net: NetName=AD3 Pin=Duino Conn-A3
+Added Pin To Net: NetName=AD4 Pin=Duino Conn-A4
+Added Pin To Net: NetName=GND Pin=Duino Conn-GND@0
+Added Pin To Net: NetName=GND Pin=Duino Conn-GND@1
+Added Pin To Net: NetName=GND Pin=Duino Conn-GND@2
+Added Pin To Net: NetName=RXSERIALCOM Pin=Duino Conn-RX
+Added Pin To Net: NetName=SCL Pin=Duino Conn-SCL
+Added Pin To Net: NetName=SDA Pin=Duino Conn-SDA
+Added Pin To Net: NetName=TXSERIALCOM Pin=Duino Conn-TX
+Added Pin To Net: NetName=+5V Pin=Jumper_V_Ser-1
+Added Pin To Net: NetName=GND Pin=Jumper_V_Ser-2
+Added Pin To Net: NetName=LEDLIGHT1 Pin=LED_L1-1
+Added Pin To Net: NetName=GND Pin=LED_L1-2
+Added Pin To Net: NetName=LEDLIGHT2 Pin=LED_L2-1
+Added Pin To Net: NetName=GND Pin=LED_L2-2
+Added Pin To Net: NetName=M1_ESC Pin=Motor_Out-1
+Added Pin To Net: NetName=M1_ESC Pin=Motor_Out-1
+Added Pin To Net: NetName=M1_ESC Pin=Motor_Out-1
+Added Pin To Net: NetName=M2_ESC Pin=Motor_Out-2
+Added Pin To Net: NetName=M3_ESC Pin=Motor_Out-3
+Added Pin To Net: NetName=M4_ESC Pin=Motor_Out-4
+Added Pin To Net: NetName=+5V Pin=Motor_Out-5
+Added Pin To Net: NetName=+5V Pin=Motor_Out-6
+Added Pin To Net: NetName=GND Pin=Motor_Out-7
+Added Pin To Net: NetName=GND Pin=Motor_Out-8
+Added Pin To Net: NetName=S_TILTCAMERA Pin=Servo_Out-1
+Added Pin To Net: NetName=S_TILTCAMERA Pin=Servo_Out-1
+Added Pin To Net: NetName=S_TILTCAMERA Pin=Servo_Out-1
+Added Pin To Net: NetName=GND Pin=Servo_Out-2
+Added Pin To Net: NetName=GND Pin=Servo_Out-3
+Added Pin To Net: NetName=GND Pin=Servo_Out-4
+Added Pin To Net: NetName=S_PANCAMERA Pin=Servo_Out-8
+Added Pin To Net: NetName=GND Pin=V_Servo_In-2
+Added Pin To Net: NetName=+V_SERVO Pin=Jumper_V_Ser-3
+Added Pin To Net: NetName=+V_SERVO Pin=Servo_Out-5
+Added Pin To Net: NetName=+V_SERVO Pin=Servo_Out-6
+Added Pin To Net: NetName=+V_SERVO Pin=Servo_Out-7
+Added Pin To Net: NetName=+V_SERVO Pin=V_Servo_In-1
+Added Net: Name=+V_SERVO
+Added Member To Class: ClassName=Expansion Board Member=Component Duino Conn 
+Added Member To Class: ClassName=PWM_OUTS Member=Component Jumper_V_Ser Header 3
+Added Member To Class: ClassName=PWM_OUTS Member=Component LED_L1 Header 1
+Added Member To Class: ClassName=PWM_OUTS Member=Component LED_L2 Header 2
+Added Member To Class: ClassName=PWM_OUTS Member=Component Motor_Out 
+Added Member To Class: ClassName=PWM_OUTS Member=Component Servo_Out 
+Added Member To Class: ClassName=PWM_OUTS Member=Component V_Servo_In Header 2
+Added Room: Name=ADC_PRES
+Added Room: Name=Expansion Board
+Added Room: Name=Fuente
+Added Room: Name=MCU
+Added Room: Name=Presencia_Agua
+Added Room: Name=PWM_OUTS

@@ -1,0 +1,16 @@
+Added Component: Designator=Servo1(HDR1X3)
+Added Component: Designator=Servo2(HDR1X3)
+Added Pin To Net: NetName=GND Pin=Servo1-1
+Added Pin To Net: NetName=+5V Pin=Servo1-2
+Added Pin To Net: NetName=S_TILTCAMERA Pin=Servo1-3
+Added Pin To Net: NetName=GND Pin=Servo2-1
+Added Pin To Net: NetName=+5V Pin=Servo2-2
+Added Pin To Net: NetName=S_PANCAMERA Pin=Servo2-3
+Added Member To Class: ClassName=PWM_OUTS Member=Component Servo1 PWMServoTypeOut
+Added Member To Class: ClassName=PWM_OUTS Member=Component Servo2 PWMServoTypeOut
+Added Room: Name=ADC_PRES
+Added Room: Name=Expansion Board
+Added Room: Name=Fuente
+Added Room: Name=MCU
+Added Room: Name=Presencia_Agua
+Added Room: Name=PWM_OUTS

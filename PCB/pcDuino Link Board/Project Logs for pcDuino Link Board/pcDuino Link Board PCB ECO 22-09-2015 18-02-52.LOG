@@ -1,0 +1,100 @@
+Removed Pin From Net: NetName=+12V Pin=Vin-1
+Removed Pin From Net: NetName=GND Pin=Vin-3
+Added Pin To Net: NetName=+3.3V Pin=IDE Conn-4
+Added Pin To Net: NetName=+3.3V Pin=IDE Conn-6
+Added Pin To Net: NetName=+3.3V Pin=IDE Conn-8
+Added Pin To Net: NetName=+3.3V Pin=IDE Conn-10
+Added Pin To Net: NetName=+3.3V Pin=IDE Conn-12
+Added Pin To Net: NetName=+3.3V Pin=IDE Conn-14
+Added Pin To Net: NetName=GND Pin=IDE Conn-19
+Added Pin To Net: NetName=GND Pin=IDE Conn-22
+Added Pin To Net: NetName=GND Pin=IDE Conn-24
+Added Pin To Net: NetName=GND Pin=IDE Conn-26
+Added Pin To Net: NetName=GND Pin=IDE Conn-30
+Added Pin To Net: NetName=+3.3V Pin=IDE Conn-39
+Added Pin To Net: NetName=GND Pin=IDE Conn-40
+Added Pin To Net: NetName=+12V Pin=Vin-0
+Added Pin To Net: NetName=GND Pin=Vin-1
+Added Pin To Net: NetName=Net5V_Sel_1 Pin=Vin-3
+Change Net Name : Old Net Name=NetDuino Conn_A0 New Net Name=AD6
+Change Net Name : Old Net Name=NetDuino Conn_A5 New Net Name=AD1
+Added Pin To Net: NetName=AD2 Pin=Duino Conn-A4
+Added Pin To Net: NetName=AD2 Pin=IDE Conn-32
+Added Pin To Net: NetName=AD2 Pin=pcDuinoADC-2
+Added Net: Name=AD2
+Added Pin To Net: NetName=AD3 Pin=Duino Conn-A3
+Added Pin To Net: NetName=AD3 Pin=IDE Conn-34
+Added Pin To Net: NetName=AD3 Pin=pcDuinoADC-3
+Added Net: Name=AD3
+Added Pin To Net: NetName=AD4 Pin=Duino Conn-A2
+Added Pin To Net: NetName=AD4 Pin=IDE Conn-36
+Added Pin To Net: NetName=AD4 Pin=pcDuinoADC-4
+Added Net: Name=AD4
+Added Pin To Net: NetName=AD5 Pin=Duino Conn-A1
+Added Pin To Net: NetName=AD5 Pin=IDE Conn-38
+Added Pin To Net: NetName=AD5 Pin=pcDuinoADC-5
+Added Net: Name=AD5
+Added Pin To Net: NetName=GPIO_1_1 Pin=GPIO1-1
+Added Pin To Net: NetName=GPIO_1_1 Pin=IDE Conn-1
+Added Net: Name=GPIO_1_1
+Added Pin To Net: NetName=GPIO_1_2 Pin=GPIO1-2
+Added Pin To Net: NetName=GPIO_1_2 Pin=IDE Conn-3
+Added Net: Name=GPIO_1_2
+Added Pin To Net: NetName=GPIO_1_3 Pin=GPIO1-3
+Added Pin To Net: NetName=GPIO_1_3 Pin=IDE Conn-5
+Added Net: Name=GPIO_1_3
+Added Pin To Net: NetName=GPIO_1_4 Pin=GPIO1-4
+Added Pin To Net: NetName=GPIO_1_4 Pin=IDE Conn-7
+Added Net: Name=GPIO_1_4
+Added Pin To Net: NetName=GPIO_1_5 Pin=GPIO1-5
+Added Pin To Net: NetName=GPIO_1_5 Pin=IDE Conn-9
+Added Net: Name=GPIO_1_5
+Added Pin To Net: NetName=GPIO_1_6 Pin=GPIO1-6
+Added Pin To Net: NetName=GPIO_1_6 Pin=IDE Conn-11
+Added Net: Name=GPIO_1_6
+Added Pin To Net: NetName=GPIO_2_1 Pin=GPIO2-1
+Added Pin To Net: NetName=GPIO_2_1 Pin=IDE Conn-13
+Added Net: Name=GPIO_2_1
+Added Pin To Net: NetName=GPIO_2_2 Pin=GPIO2-2
+Added Pin To Net: NetName=GPIO_2_2 Pin=IDE Conn-15
+Added Net: Name=GPIO_2_2
+Added Pin To Net: NetName=GPIO_2_3 Pin=GPIO2-3
+Added Pin To Net: NetName=GPIO_2_3 Pin=IDE Conn-17
+Added Net: Name=GPIO_2_3
+Added Pin To Net: NetName=GPIO_2_4 Pin=GPIO2-4
+Added Pin To Net: NetName=GPIO_2_4 Pin=IDE Conn-21
+Added Net: Name=GPIO_2_4
+Added Pin To Net: NetName=ICSP_1 Pin=ICSP-1
+Added Pin To Net: NetName=ICSP_1 Pin=IDE Conn-23
+Added Net: Name=ICSP_1
+Added Pin To Net: NetName=ICSP_2 Pin=ICSP-2
+Added Pin To Net: NetName=ICSP_2 Pin=IDE Conn-25
+Added Net: Name=ICSP_2
+Added Pin To Net: NetName=ICSP_3 Pin=ICSP-3
+Added Pin To Net: NetName=ICSP_3 Pin=IDE Conn-27
+Added Net: Name=ICSP_3
+Added Pin To Net: NetName=ICSP_4 Pin=ICSP-4
+Added Pin To Net: NetName=ICSP_4 Pin=IDE Conn-29
+Added Net: Name=ICSP_4
+Added Pin To Net: NetName=ICSP_5 Pin=ICSP-5
+Added Pin To Net: NetName=ICSP_5 Pin=IDE Conn-31
+Added Net: Name=ICSP_5
+Added Pin To Net: NetName=ICSP_6 Pin=ICSP-6
+Added Pin To Net: NetName=ICSP_6 Pin=IDE Conn-33
+Added Net: Name=ICSP_6
+Added Pin To Net: NetName=NC Pin=IDE Conn-20
+Added Net: Name=NC
+Added Pin To Net: NetName=RX Pin=IDE Conn-35
+Added Pin To Net: NetName=RX Pin=Serial1-1
+Added Net: Name=RX
+Added Pin To Net: NetName=SCL_PCDUINO Pin=Duino Conn-SCL
+Added Pin To Net: NetName=SCL_PCDUINO Pin=IDE Conn-18
+Added Pin To Net: NetName=SCL_PCDUINO Pin=pcDuino Digital (8-13)-10
+Added Net: Name=SCL_PCDUINO
+Added Pin To Net: NetName=SDA_PCDUINO Pin=Duino Conn-SDA
+Added Pin To Net: NetName=SDA_PCDUINO Pin=IDE Conn-16
+Added Pin To Net: NetName=SDA_PCDUINO Pin=pcDuino Digital (8-13)-9
+Added Net: Name=SDA_PCDUINO
+Added Pin To Net: NetName=TX Pin=IDE Conn-37
+Added Pin To Net: NetName=TX Pin=Serial1-3
+Added Net: Name=TX

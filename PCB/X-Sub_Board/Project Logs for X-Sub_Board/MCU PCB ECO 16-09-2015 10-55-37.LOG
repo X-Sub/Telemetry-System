@@ -1,0 +1,3 @@
+Added Pin To Net: NetName=P_OUT Pin=Sensor_Pres-1
+Added Pin To Net: NetName=GND Pin=Sensor_Pres-2
+Added Pin To Net: NetName=+5V Pin=Sensor_Pres-3

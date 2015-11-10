@@ -1,0 +1,13 @@
+Removed Pin From Net: NetName=GND Pin=C_Crystal_1-1
+Removed Pin From Net: NetName=GND Pin=C_Crystal_2-1
+Removed Member From Class: ClassName=MCU Member=C_Crystal_1
+Removed Member From Class: ClassName=MCU Member=C_Crystal_2
+Removed Member From Class: ClassName=MCU Member=Y1
+Change Component Footprint: Designator=Q1 Old Footprint=TO-92A New Footprint=SOT-23B_L
+Change Component Footprint: Designator=Q2 Old Footprint=TO-92A New Footprint=SOT-23B_L
+Added Room: Name=ADC_PRES
+Added Room: Name=Expansion Board
+Added Room: Name=Fuente
+Added Room: Name=MCU
+Added Room: Name=Presencia_Agua
+Added Room: Name=PWM_OUTS

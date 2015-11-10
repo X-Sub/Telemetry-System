@@ -1,0 +1,7 @@
+Change Component Footprint: Designator=Batt_Measure Old Footprint=HDR1X2 New Footprint=5.08mm 200 mil Screw Terminal SF
+Added Room: Name=ADC_PRES
+Added Room: Name=Expansion Board
+Added Room: Name=Fuente
+Added Room: Name=MCU
+Added Room: Name=Presencia_Agua
+Added Room: Name=PWM_OUTS

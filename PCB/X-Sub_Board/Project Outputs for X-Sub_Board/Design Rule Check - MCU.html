@@ -1,0 +1,872 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 {
+			font-family : sans-serif;
+			color : white;
+			background-color : #21489e;
+			padding: 0.3em;
+		}
+		body {
+			font-family : verdana;
+		}
+		td, th {
+			padding: 0.5em;
+			text-align : center;
+			width : 18%;
+		}
+		th {
+			background-color : #A6CAF0;
+
+		}
+		th.column1, td.column1 {
+			text-align: left;
+			width : auto;
+		}
+		table {
+			width : 100%;
+		}
+		
+		.DRC_summary_header {							
+			padding-bottom : 0.1em;
+			border : 0px solid black;							
+			width: 100%;
+                        align: right;
+                        
+		}
+
+		.DRC_summary_header_col1, 
+		.DRC_summary_header_col2, 
+		.DRC_summary_header_col3
+		{
+			color : black;
+			font-size:150%;
+                        padding : 0em;
+			padding-top : 0.2em;
+			padding-bottom 0.2: 0em;
+			border : 0px solid black;
+			width : auto;
+			vertical-align: top;
+			font-weight: bold;				
+		}
+		
+		.DRC_summary_header_col1 	
+		{		                       
+			text-align: right;
+                        width: auto;	
+		}
+
+		.DRC_summary_header_col2 	
+		{		
+			text-align: center;	
+		}
+
+		.DRC_summary_header_col3 	
+		{		
+			text-align: left;	
+		}
+
+
+		
+		.header_holder
+		{
+		Width = 100%;
+		border = 0px solid green;
+		padding = 0;
+		}
+		
+		
+		
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+                {
+			left:0;
+			top:0;
+			padding-top : 0.1em;			
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top
+
+		}
+		.front_matter {	
+			
+			margin-top: 5px;
+ 			margin-left: 0px;					 			
+ 			horizontal-align: left;
+		}
+				
+		
+		.front_matter_column1 {
+			width : 10em;	
+			text-align  : right;
+			padding-right:0.1em;
+			
+		}
+		
+		.front_matter_column2 {
+                        width: 0.1em;
+			align: center;
+			text-align : center;
+			margin-right  : 0.1em;	
+			margin-left   : 0.1em;
+		}
+		.front_matter_column3 {
+			width         : auto;  
+			text-align    : left;	
+			margin-right  : 0.5em;				
+		}
+		
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : right;
+		}
+		.warning, .error {
+			color : red;
+			font-weight : bold;
+		}
+		tr.onmouseout_odd {
+			background-color : #EEEEE0 
+		}
+		tr.onmouseout_even { 
+			background-color : #F3F3E3   
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : lightYellow
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #008000 
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}
+	</script><title>Design Rule Verification Report</title>
+</head>
+<body onload=""><img ALT="Altium" src="
+			file://C:\Users\Public\Documents\Altium\AD15\Templates\AD-rgb_logo_223x64.gif
+		"><a href="dxpprocess://Client:SetupPreferences?Server=PCB|PageName=Reports" class="customize"><acronym title="dxpprocess://Client:SetupPreferences?Server=PCB|PageName=Reports">customize</acronym></a><h1>Design Rule Verification Report</h1>
+<table class="header_holder">
+<td Style="width:70%">
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date</td>
+<td class="front_matter_column2">:</td>
+<td class="front_matter_column3">29/08/2015</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time</td>
+<td class="front_matter_column2">:</td>
+<td class="front_matter_column3">12:16:01</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time</td>
+<td class="front_matter_column2">:</td>
+<td class="front_matter_column3">00:00:01</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename</td>
+<td class="front_matter_column2">:</td>
+<td class="front_matter_column3"><a href="file:///C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc" class="file"><acronym title="C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc">C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc</acronym></a></td>
+</tr>
+</table>
+</td>
+<td Style="Width:30%">
+<table class="DRC_summary_header">
+<tr>
+<td class="DRC_summary_header_col1">Warnings</td>
+<td class="DRC_summary_header_col2">:</td>
+<td class="DRC_summary_header_col3">0</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Rule Violations</td>
+<td class="DRC_summary_header_col2">:</td>
+<td class="DRC_summary_header_col3" style="color : red">158</td></tr>
+</table>
+</td>
+</table>
+<hr><a name="IDYPY2HWUFC34HFHNHY1XS2VMIPKJUWMFP0B1BNOOKFICNPMUNSDC"><h2>Summary</h2></a><table>
+<tr>
+<th class="column1">Warnings</th>
+<th class="column2">Count</th>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">0</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Rule Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDYX0UNSE5MAM1EQJLUXGHOEWOHF3RX5VU2L50CAHSGVXYXZTJZW3I">Short-Circuit Constraint (Allowed=No) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID3EPXR5FZU4C3CZGROTKL1P0LBI3Y2SF2MVDCGINGDUKONRCBQZ3I">Un-Routed Net Constraint ( (All) )</a></td>
+<td class="column2">116</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDWFWD2L1RJPERDSWHZFTBOLOQGNZ5CHSLDZWR4WICPAYJYRCTLDNM">Clearance Constraint (Gap=0.1mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDKEQC5I3DG4QBMT1IULBQPMNLFEERTBHT3K3HXNPCU3WCKZE4VKVK">Power Plane Connect Rule(Relief Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDG4YDBR34MUY2MNRSMZAWNLPLVMX2VXIIGMLVUYJK44TU3SPXLWYH">Width Constraint (Min=0.254mm) (Max=0.254mm) (Preferred=0.254mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID132QZY1AXM3EGUOELO4AKLEAIGH34PX0NI4PIVME3WC0ZIHID3HC">Height Constraint (Min=0mm) (Max=25.4mm) (Prefered=12.7mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDDRTMVBXEPIIMJPVGFCVZQ1B22PUFDARBF10L1UJYBYKWTT23MKKD">Hole Size Constraint (Min=0.025mm) (Max=2.54mm) (All)</a></td>
+<td class="column2">4</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDNREIWZJ5HX4IFFW0KF2TOWXHBM0WCSXFVUCQQ5GR0JGN50U1COVG">Hole To Hole Clearance (Gap=0.254mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID1I2FK3WUB1LLC5R5XYQCLBZ3W1E4UINZQFYHIP2UGDMB5GREULG">Minimum Solder Mask Sliver (Gap=0.254mm) (All),(All)</a></td>
+<td class="column2">6</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDBJLZ4WHLKICEGNEHG2IODFEUZBRWXPAWGW4CLSOSMYYI0L4CAIZP">Silk To Solder Mask (Clearance=0.254mm) (IsPad),(All)</a></td>
+<td class="column2">22</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDWHQGXWJ4UL32E3JOKJQO5YCQ1HDTJ5FBM0KERQGLL0DPJA5I4PAI">Silk to Silk (Clearance=0.254mm) (All),(All)</a></td>
+<td class="column2">10</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID3CCZ3W1YAJUMJ33VQIE1PFEM3GDRJWE5YTKZA4IW20NKFFVHBPSK">Silk primitive without silk layer</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDVO2HRX2PIWRSINCDA2HN5NSLXJK3Z5GKVEYKAUHHYUZDJK21YZW">Net Antennae (Tolerance=0mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDAI5LAAQDEZ2XMN14IZMBJJKB5KJK21X2C5JWSTOSVTIZSLJSDEPE">Modified Polygon (Allow modified: No), (Allow shelved: No)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">158</td>
+</tr>
+</table><br><hr><a name="ID3EPXR5FZU4C3CZGROTKL1P0LBI3Y2SF2MVDCGINGDUKONRCBQZ3I"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Un-Routed Net Constraint ( (All) )</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1068.835mil|Location2.X=1486.866mil|Location1.Y=1482.228mil|Location2.Y=1790.22mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1068.835mil|Location2.X=1486.866mil|Location1.Y=1482.228mil|Location2.Y=1790.22mil|Absolute=True">Un-Routed Net Constraint: Net TXSERIALCOM Between Pad UART-4 (28,44.62mm) And Pad toPC-2 (36.725,38.69mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1404.866mil|Location2.X=3059.118mil|Location1.Y=1482.228mil|Location2.Y=2376.047mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1404.866mil|Location2.X=3059.118mil|Location1.Y=1482.228mil|Location2.Y=2376.047mil|Absolute=True">Un-Routed Net Constraint: Net TXSERIALCOM Between Pad toPC-2 (36.725,38.69mm) And Pad MCU-33 (77.45,59.35mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2643.638mil|Location2.X=3397.701mil|Location1.Y=1533.402mil|Location2.Y=2236.284mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2643.638mil|Location2.X=3397.701mil|Location1.Y=1533.402mil|Location2.Y=2236.284mil|Absolute=True">Un-Routed Net Constraint: Net TXSERIALCOM2 Between Pad MCU-51 (68.15,56.55mm) And Pad D1-2 (85.45,39.8mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2643.638mil|Location2.X=4202.819mil|Location1.Y=1999.937mil|Location2.Y=2736.283mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2643.638mil|Location2.X=4202.819mil|Location1.Y=1999.937mil|Location2.Y=2736.283mil|Absolute=True">Un-Routed Net Constraint: Net SPC_OK Between Pad MCU-62 (68.15,51.05mm) And Pad sPC_OK-2 (105,68.85mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3080.646mil|Location2.X=3584.709mil|Location1.Y=2039.307mil|Location2.Y=2515.811mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3080.646mil|Location2.X=3584.709mil|Location1.Y=2039.307mil|Location2.Y=2515.811mil|Absolute=True">Un-Routed Net Constraint: Net SMCU_OK Between Pad MCU-21 (79.25,52.05mm) And Pad R_sMCU_OK-2 (89.3,63.25mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5365.842mil|Location2.X=5600.457mil|Location1.Y=2323.323mil|Location2.Y=2820.929mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5365.842mil|Location2.X=5600.457mil|Location1.Y=2323.323mil|Location2.Y=2820.929mil|Absolute=True">Un-Routed Net Constraint: Net SDA Between Pad GY-521-4 (137.156,59.876mm) And Pad P_Expansion-1 (141.4,70.8mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4533.402mil|Location2.X=5433.842mil|Location1.Y=2323.323mil|Location2.Y=2571.323mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4533.402mil|Location2.X=5433.842mil|Location1.Y=2323.323mil|Location2.Y=2571.323mil|Absolute=True">Un-Routed Net Constraint: Net SDA Between Pad I2C_P_EN_SDA-2 (116,64.46mm) And Pad GY-521-4 (137.156,59.876mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3811.827mil|Location2.X=4600.457mil|Location1.Y=2123.323mil|Location2.Y=2571.323mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3811.827mil|Location2.X=4600.457mil|Location1.Y=2123.323mil|Location2.Y=2571.323mil|Absolute=True">Un-Routed Net Constraint: Net SDA Between Pad COMPASS-2 (97.684,54.796mm) And Pad I2C_P_EN_SDA-2 (116,64.46mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2783.401mil|Location2.X=3879.827mil|Location1.Y=1860.173mil|Location2.Y=2191.323mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2783.401mil|Location2.X=3879.827mil|Location1.Y=1860.173mil|Location2.Y=2191.323mil|Absolute=True">Un-Routed Net Constraint: Net SDA Between Pad MCU-3 (70.95,48.25mm) And Pad COMPASS-2 (97.684,54.796mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1454.866mil|Location2.X=2803.213mil|Location1.Y=1382.228mil|Location2.Y=1939.039mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1454.866mil|Location2.X=2803.213mil|Location1.Y=1382.228mil|Location2.Y=1939.039mil|Absolute=True">Un-Routed Net Constraint: Net SDA Between Pad toPC-3 (37.995,36.15mm) And Pad MCU-3 (70.95,48.25mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3039.307mil|Location2.X=3887.858mil|Location1.Y=1860.173mil|Location2.Y=2511.874mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3039.307mil|Location2.X=3887.858mil|Location1.Y=1860.173mil|Location2.Y=2511.874mil|Absolute=True">Un-Routed Net Constraint: Net SCOM_IN Between Pad MCU-16 (77.45,48.25mm) And Pad R_sCom_In-2 (97,63.15mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5123.953mil|Location2.X=5533.842mil|Location1.Y=2323.323mil|Location2.Y=2571.323mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5123.953mil|Location2.X=5533.842mil|Location1.Y=2323.323mil|Location2.Y=2571.323mil|Absolute=True">Un-Routed Net Constraint: Net SCL Between Pad I2C_P_EN_SCL-2 (131,64.46mm) And Pad GY-521-3 (139.696,59.876mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5465.842mil|Location2.X=5700.457mil|Location1.Y=2323.323mil|Location2.Y=2820.929mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5465.842mil|Location2.X=5700.457mil|Location1.Y=2323.323mil|Location2.Y=2820.929mil|Absolute=True">Un-Routed Net Constraint: Net SCL Between Pad GY-521-3 (139.696,59.876mm) And Pad P_Expansion-3 (143.94,70.8mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2803.087mil|Location2.X=3879.827mil|Location1.Y=1860.173mil|Location2.Y=2291.323mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2803.087mil|Location2.X=3879.827mil|Location1.Y=1860.173mil|Location2.Y=2291.323mil|Absolute=True">Un-Routed Net Constraint: Net SCL Between Pad MCU-4 (71.45,48.25mm) And Pad COMPASS-1 (97.684,57.336mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1604.866mil|Location2.X=2822.898mil|Location1.Y=1482.228mil|Location2.Y=1939.039mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1604.866mil|Location2.X=2822.898mil|Location1.Y=1482.228mil|Location2.Y=1939.039mil|Absolute=True">Un-Routed Net Constraint: Net SCL Between Pad toPC-6 (41.805,38.69mm) And Pad MCU-4 (71.45,48.25mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3811.827mil|Location2.X=5191.008mil|Location1.Y=2223.323mil|Location2.Y=2571.323mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3811.827mil|Location2.X=5191.008mil|Location1.Y=2223.323mil|Location2.Y=2571.323mil|Absolute=True">Un-Routed Net Constraint: Net SCL Between Pad COMPASS-1 (97.684,57.336mm) And Pad I2C_P_EN_SCL-2 (131,64.46mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1278.866mil|Location2.X=1436.866mil|Location1.Y=1106.228mil|Location2.Y=1464.228mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1278.866mil|Location2.X=1436.866mil|Location1.Y=1106.228mil|Location2.Y=1464.228mil|Absolute=True">Un-Routed Net Constraint: Net RXSERIALCOM Between Pad toPC-1 (34.185,29.8mm) And Pad toPC-1 (35.455,36.15mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1278.866mil|Location2.X=1862.866mil|Location1.Y=1106.228mil|Location2.Y=1240.228mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1278.866mil|Location2.X=1862.866mil|Location1.Y=1106.228mil|Location2.Y=1240.228mil|Absolute=True">Un-Routed Net Constraint: Net RXSERIALCOM Between Pad toPC-1 (34.185,29.8mm) And Pad toPC-1 (45.615,29.8mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1068.835mil|Location2.X=1436.866mil|Location1.Y=1382.228mil|Location2.Y=1690.22mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1068.835mil|Location2.X=1436.866mil|Location1.Y=1382.228mil|Location2.Y=1690.22mil|Absolute=True">Un-Routed Net Constraint: Net RXSERIALCOM Between Pad UART-3 (28,42.08mm) And Pad toPC-1 (35.455,36.15mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1728.866mil|Location2.X=3039.433mil|Location1.Y=1106.228mil|Location2.Y=2376.047mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1728.866mil|Location2.X=3039.433mil|Location1.Y=1106.228mil|Location2.Y=2376.047mil|Absolute=True">Un-Routed Net Constraint: Net RXSERIALCOM Between Pad toPC-1 (45.615,29.8mm) And Pad MCU-34 (76.95,59.35mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2643.638mil|Location2.X=4163.449mil|Location1.Y=1161.354mil|Location2.Y=2216.598mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2643.638mil|Location2.X=4163.449mil|Location1.Y=1161.354mil|Location2.Y=2216.598mil|Absolute=True">Un-Routed Net Constraint: Net RXSERIALCOM2 Between Pad MCU-52 (68.15,56.05mm) And Pad R_OW-1 (104,30.15mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2181.039mil|Location2.X=2355.764mil|Location1.Y=1365.685mil|Location2.Y=1659.512mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2181.039mil|Location2.X=2355.764mil|Location1.Y=1365.685mil|Location2.Y=1659.512mil|Absolute=True">Un-Routed Net Constraint: Net RESET Between Pad R_BDM2-2 (56.05,40.4mm) And Pad JBDM-4 (58.985,35.54mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2181.039mil|Location2.X=2722.504mil|Location1.Y=1521.591mil|Location2.Y=2000.063mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2181.039mil|Location2.X=2722.504mil|Location1.Y=1521.591mil|Location2.Y=2000.063mil|Absolute=True">Un-Routed Net Constraint: Net RESET Between Pad R_BDM2-2 (56.05,40.4mm) And Pad MCU-63 (68.15,50.55mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4581.433mil|Location2.X=4737.071mil|Location1.Y=1452.693mil|Location2.Y=1547.307mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4581.433mil|Location2.X=4737.071mil|Location1.Y=1452.693mil|Location2.Y=1547.307mil|Absolute=True">Un-Routed Net Constraint: Net PRESENCIAAGUA2 Between Pad Q2-3 (116.97,38.2mm) And Pad R_A2-1 (119.52,37.7mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2643.638mil|Location2.X=4628.803mil|Location1.Y=1460.567mil|Location2.Y=2118.173mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2643.638mil|Location2.X=4628.803mil|Location1.Y=1460.567mil|Location2.Y=2118.173mil|Absolute=True">Un-Routed Net Constraint: Net PRESENCIAAGUA2 Between Pad MCU-57 (68.15,53.55mm) And Pad Q2-3 (116.97,38.2mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5286.158mil|Location2.X=5469.354mil|Location1.Y=1456.63mil|Location2.Y=1543.37mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5286.158mil|Location2.X=5469.354mil|Location1.Y=1456.63mil|Location2.Y=1543.37mil|Absolute=True">Un-Routed Net Constraint: Net PRESENCIAAGUA1 Between Pad Q1-3 (134.87,38.1mm) And Pad R_A1-1 (138.12,37.9mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2643.638mil|Location2.X=5333.528mil|Location1.Y=1456.63mil|Location2.Y=2098.488mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2643.638mil|Location2.X=5333.528mil|Location1.Y=1456.63mil|Location2.Y=2098.488mil|Absolute=True">Un-Routed Net Constraint: Net PRESENCIAAGUA1 Between Pad MCU-58 (68.15,53.05mm) And Pad Q1-3 (134.87,38.1mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2401.512mil|Location2.X=2553.213mil|Location1.Y=2265.685mil|Location2.Y=2468.567mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2401.512mil|Location2.X=2553.213mil|Location1.Y=2265.685mil|Location2.Y=2468.567mil|Absolute=True">Un-Routed Net Constraint: Net P_OUT Between Pad C_Press-2 (61.85,58.4mm) And Pad R_P1-2 (64.3,62.25mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4531.433mil|Location2.X=4621.717mil|Location1.Y=1265.685mil|Location2.Y=1547.307mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4531.433mil|Location2.X=4621.717mil|Location1.Y=1265.685mil|Location2.Y=1547.307mil|Absolute=True">Un-Routed Net Constraint: Net NetPres_Agua2_2 Between Pad Q2-2 (115.7,38.2mm) And Pad Pres_Agua2-2 (116.54,33mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5236.158mil|Location2.X=5330.378mil|Location1.Y=1265.685mil|Location2.Y=1543.37mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5236.158mil|Location2.X=5330.378mil|Location1.Y=1265.685mil|Location2.Y=1543.37mil|Absolute=True">Un-Routed Net Constraint: Net NetPres_Agua1_2 Between Pad Q1-2 (133.6,38.1mm) And Pad Pres_Agua1-2 (134.54,33mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2509.78mil|Location2.X=2553.213mil|Location1.Y=2492.063mil|Location2.Y=2653.606mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2509.78mil|Location2.X=2553.213mil|Location1.Y=2492.063mil|Location2.Y=2653.606mil|Absolute=True">Un-Routed Net Constraint: Net NetOPAMP_1_3 Between Pad R_P2-2 (64.3,66.95mm) And Pad R_P1-1 (64.3,63.75mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2391.669mil|Location2.X=2553.213mil|Location1.Y=2492.063mil|Location2.Y=2557.15mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2391.669mil|Location2.X=2553.213mil|Location1.Y=2492.063mil|Location2.Y=2557.15mil|Absolute=True">Un-Routed Net Constraint: Net NetOPAMP_1_3 Between Pad OPAMP_1-3 (61.15,64.3mm) And Pad R_P1-1 (64.3,63.75mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4064.898mil|Location2.X=4202.819mil|Location1.Y=2460.567mil|Location2.Y=2893.764mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4064.898mil|Location2.X=4202.819mil|Location1.Y=2460.567mil|Location2.Y=2893.764mil|Absolute=True">Un-Routed Net Constraint: Net NetLED_sPC_OK_1 Between Pad sPC_OK-1 (105,63.15mm) And Pad LED_sPC_OK-1 (105.4,72.65mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3446.787mil|Location2.X=3584.709mil|Location1.Y=2688.913mil|Location2.Y=2874.079mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3446.787mil|Location2.X=3584.709mil|Location1.Y=2688.913mil|Location2.Y=2874.079mil|Absolute=True">Un-Routed Net Constraint: Net NetLED_sMCU_OK_1 Between Pad R_sMCU_OK-1 (89.3,68.95mm) And Pad LED_sMCU_OK-1 (89.7,72.15mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3749.937mil|Location2.X=3887.858mil|Location1.Y=2684.976mil|Location2.Y=2885.89mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3749.937mil|Location2.X=3887.858mil|Location1.Y=2684.976mil|Location2.Y=2885.89mil|Absolute=True">Un-Routed Net Constraint: Net NetLED_sCom_In_1 Between Pad LED_sCom_In-1 (96.9,72.45mm) And Pad R_sCom_In-1 (97,68.85mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1555.055mil|Location2.X=1687.071mil|Location1.Y=2755.843mil|Location2.Y=3049.276mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1555.055mil|Location2.X=1687.071mil|Location1.Y=2755.843mil|Location2.Y=3049.276mil|Absolute=True">Un-Routed Net Constraint: Net NetLED_+5V_1 Between Pad R_5V-1 (40.15,75.7mm) And Pad LED_+5V-1 (42,70.85mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1570.803mil|Location2.X=1683.134mil|Location1.Y=1832.614mil|Location2.Y=2279.59mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1570.803mil|Location2.X=1683.134mil|Location1.Y=1832.614mil|Location2.Y=2279.59mil|Absolute=True">Un-Routed Net Constraint: Net NetLED_+3.3V_1 Between Pad R_3.3V-1 (40.55,48.3mm) And Pad LED_+3.3V-1 (41.9,57.05mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4497.968mil|Location2.X=4635.89mil|Location1.Y=2604.268mil|Location2.Y=2826.835mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4497.968mil|Location2.X=4635.89mil|Location1.Y=2604.268mil|Location2.Y=2826.835mil|Absolute=True">Un-Routed Net Constraint: Net NetI2C_P_EN_SDA_1 Between Pad I2C_P_EN_SDA-1 (116,67mm) And Pad R_I2C_1-1 (116,71.15mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5088.52mil|Location2.X=5226.441mil|Location1.Y=2604.268mil|Location2.Y=2826.835mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5088.52mil|Location2.X=5226.441mil|Location1.Y=2604.268mil|Location2.Y=2826.835mil|Absolute=True">Un-Routed Net Constraint: Net NetI2C_P_EN_SCL_1 Between Pad I2C_P_EN_SCL-1 (131,67mm) And Pad R_I2C_2-1 (131,71.15mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2797.181mil|Location2.X=2870.142mil|Location1.Y=1448.756mil|Location2.Y=1706.756mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2797.181mil|Location2.X=2870.142mil|Location1.Y=1448.756mil|Location2.Y=1706.756mil|Absolute=True">Un-Routed Net Constraint: Net NetC_Crystal_2_2 Between Pad C_Crystal_2-2 (71.6,37.3mm) And Pad Y1-1 (72.15,42.6mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2810.961mil|Location2.X=2980.378mil|Location1.Y=1647.575mil|Location2.Y=1939.039mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2810.961mil|Location2.X=2980.378mil|Location1.Y=1647.575mil|Location2.Y=1939.039mil|Absolute=True">Un-Routed Net Constraint: Net NetC_Crystal_2_2 Between Pad Y1-1 (72.15,42.6mm) And Pad MCU-12 (75.45,48.25mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2933.008mil|Location2.X=3009.905mil|Location1.Y=1448.756mil|Location2.Y=1706.756mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2933.008mil|Location2.X=3009.905mil|Location1.Y=1448.756mil|Location2.Y=1706.756mil|Absolute=True">Un-Routed Net Constraint: Net NetC_Crystal_1_2 Between Pad Y1-2 (75.25,42.6mm) And Pad C_Crystal_1-2 (75.9,37.3mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2933.008mil|Location2.X=3000.063mil|Location1.Y=1647.575mil|Location2.Y=1939.039mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2933.008mil|Location2.X=3000.063mil|Location1.Y=1647.575mil|Location2.Y=1939.039mil|Absolute=True">Un-Routed Net Constraint: Net NetC_Crystal_1_2 Between Pad Y1-2 (75.25,42.6mm) And Pad MCU-13 (75.95,48.25mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2643.638mil|Location2.X=6293.37mil|Location1.Y=2174.347mil|Location2.Y=2275.653mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2643.638mil|Location2.X=6293.37mil|Location1.Y=2174.347mil|Location2.Y=2275.653mil|Absolute=True">Un-Routed Net Constraint: Net M4_ESC Between Pad MCU-49 (68.15,57.55mm) And Pad M4-3 (159,56.08mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1186.945mil|Location2.X=2960.693mil|Location1.Y=2174.347mil|Location2.Y=2376.047mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1186.945mil|Location2.X=2960.693mil|Location1.Y=2174.347mil|Location2.Y=2376.047mil|Absolute=True">Un-Routed Net Constraint: Net M3_ESC Between Pad M3-3 (31,56.08mm) And Pad MCU-38 (74.95,59.35mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2797.969mil|Location2.X=3159.512mil|Location1.Y=1980.252mil|Location2.Y=3065.024mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2797.969mil|Location2.X=3159.512mil|Location1.Y=1980.252mil|Location2.Y=3065.024mil|Absolute=True">Un-Routed Net Constraint: Net M2_ESC Between Pad M2-3 (71.92,77mm) And Pad MCU-18 (79.25,50.55mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2643.638mil|Location2.X=2865.024mil|Location1.Y=1068.835mil|Location2.Y=2255.968mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2643.638mil|Location2.X=2865.024mil|Location1.Y=1068.835mil|Location2.Y=2255.968mil|Absolute=True">Un-Routed Net Constraint: Net M1_ESC Between Pad MCU-50 (68.15,57.05mm) And Pad M1-3 (71.92,28mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3080.646mil|Location2.X=6293.37mil|Location1.Y=1780.646mil|Location2.Y=2137.858mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3080.646mil|Location2.X=6293.37mil|Location1.Y=1780.646mil|Location2.Y=2137.858mil|Absolute=True">Un-Routed Net Constraint: Net LEDLIGHT2 Between Pad MCU-25 (79.25,54.05mm) And Pad LEDLIGHT2-3 (159,46.08mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3080.646mil|Location2.X=6293.37mil|Location1.Y=2137.732mil|Location2.Y=2635.102mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3080.646mil|Location2.X=6293.37mil|Location1.Y=2137.732mil|Location2.Y=2635.102mil|Absolute=True">Un-Routed Net Constraint: Net LEDLIGHT1 Between Pad MCU-26 (79.25,54.55mm) And Pad LEDLIGHT1-3 (159,66.08mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5933.402mil|Location2.X=6000.457mil|Location1.Y=2753.874mil|Location2.Y=2920.929mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5933.402mil|Location2.X=6000.457mil|Location1.Y=2753.874mil|Location2.Y=2920.929mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad P_Expansion-9 (151.56,70.8mm) And Pad P_Expansion-10 (151.56,73.34mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1654.866mil|Location2.X=1786.866mil|Location1.Y=1382.228mil|Location2.Y=1564.228mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1654.866mil|Location2.X=1786.866mil|Location1.Y=1382.228mil|Location2.Y=1564.228mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad toPC-7 (43.075,36.15mm) And Pad toPC-8 (44.345,38.69mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2797.181mil|Location2.X=3009.905mil|Location1.Y=1503.874mil|Location2.Y=1543.37mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2797.181mil|Location2.X=3009.905mil|Location1.Y=1503.874mil|Location2.Y=1543.37mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad C_Crystal_2-1 (71.6,38.7mm) And Pad C_Crystal_1-1 (75.9,38.7mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5163.323mil|Location2.X=5233.528mil|Location1.Y=1265.685mil|Location2.Y=1543.37mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5163.323mil|Location2.X=5233.528mil|Location1.Y=1265.685mil|Location2.Y=1543.37mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Pres_Agua1-1 (132,33mm) And Pad Q1-1 (132.33,38.1mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4454.662mil|Location2.X=4528.803mil|Location1.Y=1265.685mil|Location2.Y=1547.307mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4454.662mil|Location2.X=4528.803mil|Location1.Y=1265.685mil|Location2.Y=1547.307mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Pres_Agua2-1 (114,33mm) And Pad Q2-1 (114.43,38.2mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1616.079mil|Location2.X=1687.071mil|Location1.Y=2350.331mil|Location2.Y=2685.102mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1616.079mil|Location2.X=1687.071mil|Location1.Y=2350.331mil|Location2.Y=2685.102mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad LED_+3.3V-2 (41.9,60.55mm) And Pad LED_+5V-2 (42,67.35mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3497.969mil|Location2.X=3848.488mil|Location1.Y=2944.819mil|Location2.Y=3023.685mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3497.969mil|Location2.X=3848.488mil|Location1.Y=2944.819mil|Location2.Y=3023.685mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad LED_sMCU_OK-2 (89.7,75.65mm) And Pad LED_sCom_In-2 (96.9,75.95mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2263.717mil|Location2.X=2385.89mil|Location1.Y=2265.685mil|Location2.Y=2557.15mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2263.717mil|Location2.X=2385.89mil|Location1.Y=2265.685mil|Location2.Y=2557.15mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad C_Press-1 (58.35,58.4mm) And Pad OPAMP_1-2 (60.2,64.3mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1323.756mil|Location2.X=1392.78mil|Location1.Y=2520.606mil|Location2.Y=2880.968mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1323.756mil|Location2.X=1392.78mil|Location1.Y=2520.606mil|Location2.Y=2880.968mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad C_5V-2 (34.4,72.4mm) And Pad C_3.3V-2 (34.6,64.8mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2107.22mil|Location2.X=2385.89mil|Location1.Y=2505.843mil|Location2.Y=2652.622mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2107.22mil|Location2.X=2385.89mil|Location1.Y=2505.843mil|Location2.Y=2652.622mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad C_5_Press-2 (54.3,66.6mm) And Pad OPAMP_1-2 (60.2,64.3mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2354.268mil|Location2.X=2553.213mil|Location1.Y=2505.843mil|Location2.Y=2712.661mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2354.268mil|Location2.X=2553.213mil|Location1.Y=2505.843mil|Location2.Y=2712.661mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad OPAMP_1-2 (60.2,64.3mm) And Pad R_P2-1 (64.3,68.45mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3781.433mil|Location2.X=4183.134mil|Location1.Y=2956.63mil|Location2.Y=3031.559mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3781.433mil|Location2.X=4183.134mil|Location1.Y=2956.63mil|Location2.Y=3031.559mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad LED_sCom_In-2 (96.9,75.95mm) And Pad LED_sPC_OK-2 (105.4,76.15mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1041.276mil|Location2.X=1392.78mil|Location1.Y=2520.606mil|Location2.Y=2676.835mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1041.276mil|Location2.X=1392.78mil|Location1.Y=2520.606mil|Location2.Y=2676.835mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad POWER_IN-2 (27.3,67.14mm) And Pad C_3.3V-2 (34.6,64.8mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6226.315mil|Location2.X=6293.37mil|Location1.Y=1580.646mil|Location2.Y=2041.401mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6226.315mil|Location2.X=6293.37mil|Location1.Y=1580.646mil|Location2.Y=2041.401mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad LEDLIGHT2-1 (159,41mm) And Pad M4-1 (159,51mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6226.315mil|Location2.X=6293.37mil|Location1.Y=1974.347mil|Location2.Y=2435.102mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6226.315mil|Location2.X=6293.37mil|Location1.Y=1974.347mil|Location2.Y=2435.102mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad M4-1 (159,51mm) And Pad LEDLIGHT1-1 (159,61mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2966.472mil|Location2.X=3065.024mil|Location1.Y=1068.835mil|Location2.Y=1543.37mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2966.472mil|Location2.X=3065.024mil|Location1.Y=1068.835mil|Location2.Y=1543.37mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad C_Crystal_1-1 (75.9,38.7mm) And Pad M1-1 (77,28mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1654.866mil|Location2.X=2255.764mil|Location1.Y=1365.685mil|Location2.Y=1464.228mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1654.866mil|Location2.X=2255.764mil|Location1.Y=1365.685mil|Location2.Y=1464.228mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad toPC-7 (43.075,36.15mm) And Pad JBDM-2 (56.445,35.54mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2997.969mil|Location2.X=3565.024mil|Location1.Y=2944.819mil|Location2.Y=3065.024mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2997.969mil|Location2.X=3565.024mil|Location1.Y=2944.819mil|Location2.Y=3065.024mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad M2-1 (77,77mm) And Pad LED_sMCU_OK-2 (89.7,75.65mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1068.835mil|Location2.X=1736.866mil|Location1.Y=1382.228mil|Location2.Y=1490.22mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1068.835mil|Location2.X=1736.866mil|Location1.Y=1382.228mil|Location2.Y=1490.22mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad UART-1 (28,37mm) And Pad toPC-7 (43.075,36.15mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1068.835mil|Location2.X=1254mil|Location1.Y=1423.165mil|Location2.Y=2041.401mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1068.835mil|Location2.X=1254mil|Location1.Y=1423.165mil|Location2.Y=2041.401mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad UART-1 (28,37mm) And Pad M3-1 (31,51mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5565.842mil|Location2.X=6293.37mil|Location1.Y=2323.323mil|Location2.Y=2435.102mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5565.842mil|Location2.X=6293.37mil|Location1.Y=2323.323mil|Location2.Y=2435.102mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad GY-521-2 (142.236,59.876mm) And Pad LEDLIGHT1-1 (159,61mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3781.433mil|Location2.X=3879.827mil|Location1.Y=1923.323mil|Location2.Y=3023.685mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3781.433mil|Location2.X=3879.827mil|Location1.Y=1923.323mil|Location2.Y=3023.685mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad LED_sCom_In-2 (96.9,75.95mm) And Pad COMPASS-4 (97.684,49.716mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1331.63mil|Location2.X=1687.071mil|Location1.Y=2520.606mil|Location2.Y=2685.102mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1331.63mil|Location2.X=1687.071mil|Location1.Y=2520.606mil|Location2.Y=2685.102mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad C_3.3V-2 (34.6,64.8mm) And Pad LED_+5V-2 (42,67.35mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1620.016mil|Location2.X=2168.37mil|Location1.Y=2591.472mil|Location2.Y=2685.102mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1620.016mil|Location2.X=2168.37mil|Location1.Y=2591.472mil|Location2.Y=2685.102mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad LED_+5V-2 (42,67.35mm) And Pad C_5_Press-2 (54.3,66.6mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5933.402mil|Location2.X=6293.37mil|Location1.Y=2368.047mil|Location2.Y=2820.929mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5933.402mil|Location2.X=6293.37mil|Location1.Y=2368.047mil|Location2.Y=2820.929mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad P_Expansion-9 (151.56,70.8mm) And Pad LEDLIGHT1-1 (159,61mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1186.945mil|Location2.X=1392.78mil|Location1.Y=1974.347mil|Location2.Y=2581.756mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1186.945mil|Location2.X=1392.78mil|Location1.Y=1974.347mil|Location2.Y=2581.756mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad M3-1 (31,51mm) And Pad C_3.3V-2 (34.6,64.8mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4454.662mil|Location2.X=5230.378mil|Location1.Y=1265.685mil|Location2.Y=1332.74mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4454.662mil|Location2.X=5230.378mil|Location1.Y=1265.685mil|Location2.Y=1332.74mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Pres_Agua2-1 (114,33mm) And Pad Pres_Agua1-1 (132,33mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2188.709mil|Location2.X=2840.614mil|Location1.Y=1365.685mil|Location2.Y=1543.37mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2188.709mil|Location2.X=2840.614mil|Location1.Y=1365.685mil|Location2.Y=1543.37mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad JBDM-2 (56.445,35.54mm) And Pad C_Crystal_2-1 (71.6,38.7mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2509.78mil|Location2.X=3065.024mil|Location1.Y=2677.102mil|Location2.Y=3065.024mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2509.78mil|Location2.X=3065.024mil|Location1.Y=2677.102mil|Location2.Y=3065.024mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad R_P2-1 (64.3,68.45mm) And Pad M2-1 (77,77mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3811.827mil|Location2.X=4528.803mil|Location1.Y=1460.567mil|Location2.Y=1991.323mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3811.827mil|Location2.X=4528.803mil|Location1.Y=1460.567mil|Location2.Y=1991.323mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad COMPASS-4 (97.684,49.716mm) And Pad Q2-1 (114.43,38.2mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5186.158mil|Location2.X=6293.37mil|Location1.Y=1456.63mil|Location2.Y=1647.701mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5186.158mil|Location2.X=6293.37mil|Location1.Y=1456.63mil|Location2.Y=1647.701mil|Absolute=True">Un-Routed Net Constraint: Net GND Between Pad Q1-1 (132.33,38.1mm) And Pad LEDLIGHT2-1 (159,41mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2181.039mil|Location2.X=2255.764mil|Location1.Y=1064.898mil|Location2.Y=1332.74mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2181.039mil|Location2.X=2255.764mil|Location1.Y=1064.898mil|Location2.Y=1332.74mil|Absolute=True">Un-Routed Net Constraint: Net BKGD Between Pad R_BDM1-1 (56.05,28.8mm) And Pad JBDM-1 (56.445,33mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2188.709mil|Location2.X=2722.504mil|Location1.Y=1265.685mil|Location2.Y=1980.378mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2188.709mil|Location2.X=2722.504mil|Location1.Y=1265.685mil|Location2.Y=1980.378mil|Absolute=True">Un-Routed Net Constraint: Net BKGD Between Pad JBDM-1 (56.445,33mm) And Pad MCU-64 (68.15,50.05mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2316.866mil|Location2.X=2423.291mil|Location1.Y=2505.843mil|Location2.Y=2651.638mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2316.866mil|Location2.X=2423.291mil|Location1.Y=2505.843mil|Location2.Y=2651.638mil|Absolute=True">Un-Routed Net Constraint: Net ADC_PRESSURE_3.3V Between Pad OPAMP_1-1 (59.25,64.3mm) And Pad OPAMP_1-4 (61.15,66.7mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2316.866mil|Location2.X=2862.268mil|Location1.Y=2297.181mil|Location2.Y=2557.15mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2316.866mil|Location2.X=2862.268mil|Location1.Y=2297.181mil|Location2.Y=2557.15mil|Absolute=True">Un-Routed Net Constraint: Net ADC_PRESSURE_3.3V Between Pad OPAMP_1-1 (59.25,64.3mm) And Pad MCU-43 (72.45,59.35mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3080.646mil|Location2.X=5900.457mil|Location1.Y=2216.472mil|Location2.Y=2920.929mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3080.646mil|Location2.X=5900.457mil|Location1.Y=2216.472mil|Location2.Y=2920.929mil|Absolute=True">Un-Routed Net Constraint: Net AD4 Between Pad MCU-30 (79.25,56.55mm) And Pad P_Expansion-8 (149.02,73.34mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2999.937mil|Location2.X=5800.457mil|Location1.Y=2297.181mil|Location2.Y=2920.929mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2999.937mil|Location2.X=5800.457mil|Location1.Y=2297.181mil|Location2.Y=2920.929mil|Absolute=True">Un-Routed Net Constraint: Net AD3 Between Pad MCU-35 (76.45,59.35mm) And Pad P_Expansion-6 (146.48,73.34mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2980.252mil|Location2.X=5700.457mil|Location1.Y=2297.181mil|Location2.Y=2920.929mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2980.252mil|Location2.X=5700.457mil|Location1.Y=2297.181mil|Location2.Y=2920.929mil|Absolute=True">Un-Routed Net Constraint: Net AD2 Between Pad MCU-36 (75.95,59.35mm) And Pad P_Expansion-4 (143.94,73.34mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2862.142mil|Location2.X=5600.457mil|Location1.Y=2297.181mil|Location2.Y=2920.929mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2862.142mil|Location2.X=5600.457mil|Location1.Y=2297.181mil|Location2.Y=2920.929mil|Absolute=True">Un-Routed Net Constraint: Net AD1 Between Pad MCU-42 (72.95,59.35mm) And Pad P_Expansion-2 (141.4,73.34mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1504.866mil|Location2.X=1636.866mil|Location1.Y=1382.228mil|Location2.Y=1564.228mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1504.866mil|Location2.X=1636.866mil|Location1.Y=1382.228mil|Location2.Y=1564.228mil|Absolute=True">Un-Routed Net Constraint: Net +5V Between Pad toPC-4 (39.265,38.69mm) And Pad toPC-5 (40.535,36.15mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1323.756mil|Location2.X=1384.905mil|Location1.Y=2622.968mil|Location2.Y=3049.276mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1323.756mil|Location2.X=1384.905mil|Location1.Y=2622.968mil|Location2.Y=3049.276mil|Absolute=True">Un-Routed Net Constraint: Net +5V Between Pad C_5V-1 (34.4,67.4mm) And Pad R_5V-2 (34.45,75.7mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1041.276mil|Location2.X=1384.905mil|Location1.Y=2622.968mil|Location2.Y=2776.835mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1041.276mil|Location2.X=1384.905mil|Location1.Y=2622.968mil|Location2.Y=2776.835mil|Absolute=True">Un-Routed Net Constraint: Net +5V Between Pad POWER_IN-3 (27.3,69.68mm) And Pad C_5V-1 (34.4,67.4mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6226.315mil|Location2.X=6293.37mil|Location1.Y=1680.646mil|Location2.Y=2141.401mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6226.315mil|Location2.X=6293.37mil|Location1.Y=1680.646mil|Location2.Y=2141.401mil|Absolute=True">Un-Routed Net Constraint: Net +5V Between Pad LEDLIGHT2-2 (159,43.54mm) And Pad M4-2 (159,53.54mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6226.315mil|Location2.X=6293.37mil|Location1.Y=2074.347mil|Location2.Y=2535.102mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6226.315mil|Location2.X=6293.37mil|Location1.Y=2074.347mil|Location2.Y=2535.102mil|Absolute=True">Un-Routed Net Constraint: Net +5V Between Pad M4-2 (159,53.54mm) And Pad LEDLIGHT1-2 (159,63.54mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1323.756mil|Location2.X=1971.52mil|Location1.Y=2591.473mil|Location2.Y=2684.118mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1323.756mil|Location2.X=1971.52mil|Location1.Y=2591.473mil|Location2.Y=2684.118mil|Absolute=True">Un-Routed Net Constraint: Net +5V Between Pad C_5V-1 (34.4,67.4mm) And Pad C_5_Press-1 (49.3,66.6mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1186.945mil|Location2.X=1384.905mil|Location1.Y=2074.347mil|Location2.Y=2684.118mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1186.945mil|Location2.X=1384.905mil|Location1.Y=2074.347mil|Location2.Y=2684.118mil|Absolute=True">Un-Routed Net Constraint: Net +5V Between Pad M3-2 (31,53.54mm) And Pad C_5V-1 (34.4,67.4mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5733.402mil|Location2.X=6293.37mil|Location1.Y=2468.047mil|Location2.Y=2820.929mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5733.402mil|Location2.X=6293.37mil|Location1.Y=2468.047mil|Location2.Y=2820.929mil|Absolute=True">Un-Routed Net Constraint: Net +5V Between Pad P_Expansion-5 (146.48,70.8mm) And Pad LEDLIGHT1-2 (159,63.54mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1910.37mil|Location2.X=2965.024mil|Location1.Y=2591.473mil|Location2.Y=3065.024mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1910.37mil|Location2.X=2965.024mil|Location1.Y=2591.473mil|Location2.Y=3065.024mil|Absolute=True">Un-Routed Net Constraint: Net +5V Between Pad C_5_Press-1 (49.3,66.6mm) And Pad M2-2 (74.46,77mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1554.866mil|Location2.X=2965.024mil|Location1.Y=1068.835mil|Location2.Y=1464.228mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1554.866mil|Location2.X=2965.024mil|Location1.Y=1068.835mil|Location2.Y=1464.228mil|Absolute=True">Un-Routed Net Constraint: Net +5V Between Pad toPC-5 (40.535,36.15mm) And Pad M1-2 (74.46,28mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1186.945mil|Location2.X=1586.866mil|Location1.Y=1482.228mil|Location2.Y=2141.401mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1186.945mil|Location2.X=1586.866mil|Location1.Y=1482.228mil|Location2.Y=2141.401mil|Absolute=True">Un-Routed Net Constraint: Net +5V Between Pad M3-2 (31,53.54mm) And Pad toPC-4 (39.265,38.69mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2897.969mil|Location2.X=5800.457mil|Location1.Y=2753.874mil|Location2.Y=3065.024mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2897.969mil|Location2.X=5800.457mil|Location1.Y=2753.874mil|Location2.Y=3065.024mil|Absolute=True">Un-Routed Net Constraint: Net +5V Between Pad M2-2 (74.46,77mm) And Pad P_Expansion-5 (146.48,70.8mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2388.709mil|Location2.X=2456.756mil|Location1.Y=1365.685mil|Location2.Y=1659.512mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2388.709mil|Location2.X=2456.756mil|Location1.Y=1365.685mil|Location2.Y=1659.512mil|Absolute=True">Un-Routed Net Constraint: Net +3.3V Between Pad JBDM-6 (61.525,35.54mm) And Pad R_BDM2-1 (61.75,40.4mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3695.827mil|Location2.X=3945.827mil|Location1.Y=1757.323mil|Location2.Y=2157.323mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3695.827mil|Location2.X=3945.827mil|Location1.Y=1757.323mil|Location2.Y=2157.323mil|Absolute=True">Un-Routed Net Constraint: Net +3.3V Between Track on layer Top Layer (96.414,47.176mm) And Pad COMPASS-3 (97.684,52.256mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2388.709mil|Location2.X=2456.756mil|Location1.Y=1064.898mil|Location2.Y=1432.74mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2388.709mil|Location2.X=2456.756mil|Location1.Y=1064.898mil|Location2.Y=1432.74mil|Absolute=True">Un-Routed Net Constraint: Net +3.3V Between Pad JBDM-6 (61.525,35.54mm) And Pad R_BDM1-2 (61.75,28.8mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1331.63mil|Location2.X=1397.701mil|Location1.Y=1832.614mil|Location2.Y=2384.905mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1331.63mil|Location2.X=1397.701mil|Location1.Y=1832.614mil|Location2.Y=2384.905mil|Absolute=True">Un-Routed Net Constraint: Net +3.3V Between Pad C_3.3V-1 (34.6,59.8mm) And Pad R_3.3V-2 (34.85,48.3mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1041.276mil|Location2.X=1392.779mil|Location1.Y=2323.756mil|Location2.Y=2576.835mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1041.276mil|Location2.X=1392.779mil|Location1.Y=2323.756mil|Location2.Y=2576.835mil|Absolute=True">Un-Routed Net Constraint: Net +3.3V Between Pad POWER_IN-1 (27.3,64.6mm) And Pad C_3.3V-1 (34.6,59.8mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4497.968mil|Location2.X=5226.441mil|Location1.Y=2999.937mil|Location2.Y=3051.244mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4497.968mil|Location2.X=5226.441mil|Location1.Y=2999.937mil|Location2.Y=3051.244mil|Absolute=True">Un-Routed Net Constraint: Net +3.3V Between Pad R_I2C_1-2 (116,76.85mm) And Pad R_I2C_2-2 (131,76.85mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5665.842mil|Location2.X=5900.457mil|Location1.Y=2323.323mil|Location2.Y=2820.929mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5665.842mil|Location2.X=5900.457mil|Location1.Y=2323.323mil|Location2.Y=2820.929mil|Absolute=True">Un-Routed Net Constraint: Net +3.3V Between Pad GY-521-1 (144.776,59.876mm) And Pad P_Expansion-7 (149.02,70.8mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1068.835mil|Location2.X=1397.701mil|Location1.Y=1523.165mil|Location2.Y=1970.535mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1068.835mil|Location2.X=1397.701mil|Location1.Y=1523.165mil|Location2.Y=1970.535mil|Absolute=True">Un-Routed Net Constraint: Net +3.3V Between Pad UART-2 (28,39.54mm) And Pad R_3.3V-2 (34.85,48.3mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3745.827mil|Location2.X=4194.488mil|Location1.Y=1707.323mil|Location2.Y=1511.417mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3745.827mil|Location2.X=4194.488mil|Location1.Y=1707.323mil|Location2.Y=1511.417mil|Absolute=True">Un-Routed Net Constraint: Net +3.3V Between Track on layer Top Layer (97.684,45.906mm) And Pad R_OW-2 (104,35.85mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5073.953mil|Location2.X=5869.354mil|Location1.Y=1452.693mil|Location2.Y=1523.685mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5073.953mil|Location2.X=5869.354mil|Location1.Y=1452.693mil|Location2.Y=1523.685mil|Absolute=True">Un-Routed Net Constraint: Net +3.3V Between Pad R_A2-2 (129.68,37.7mm) And Pad R_A1-2 (148.28,37.9mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2316.866mil|Location2.X=2456.756mil|Location1.Y=1521.591mil|Location2.Y=2651.638mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2316.866mil|Location2.X=2456.756mil|Location1.Y=1521.591mil|Location2.Y=2651.638mil|Absolute=True">Un-Routed Net Constraint: Net +3.3V Between Pad OPAMP_1-5 (59.25,66.7mm) And Pad R_BDM2-1 (61.75,40.4mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4295.827mil|Location2.X=4666.929mil|Location1.Y=2307.323mil|Location2.Y=3125.59mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4295.827mil|Location2.X=4666.929mil|Location1.Y=2307.323mil|Location2.Y=3125.59mil|Absolute=True">Un-Routed Net Constraint: Net +3.3V Between Track on layer Top Layer (111.654,61.146mm) And Pad R_I2C_1-2 (116,76.85mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5088.52mil|Location2.X=5900.457mil|Location1.Y=2753.874mil|Location2.Y=3051.244mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5088.52mil|Location2.X=5900.457mil|Location1.Y=2753.874mil|Location2.Y=3051.244mil|Absolute=True">Un-Routed Net Constraint: Net +3.3V Between Pad R_I2C_2-2 (131,76.85mm) And Pad P_Expansion-7 (149.02,70.8mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5665.842mil|Location2.X=5869.354mil|Location1.Y=1460.567mil|Location2.Y=2391.323mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5665.842mil|Location2.X=5869.354mil|Location1.Y=1460.567mil|Location2.Y=2391.323mil|Absolute=True">Un-Routed Net Constraint: Net +3.3V Between Pad GY-521-1 (144.776,59.876mm) And Pad R_A1-2 (148.28,37.9mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1331.63mil|Location2.X=2348.488mil|Location1.Y=2323.756mil|Location2.Y=2651.638mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1331.63mil|Location2.X=2348.488mil|Location1.Y=2323.756mil|Location2.Y=2651.638mil|Absolute=True">Un-Routed Net Constraint: Net +3.3V Between Pad C_3.3V-1 (34.6,59.8mm) And Pad OPAMP_1-5 (59.25,66.7mm)</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2331.102mil|Location2.X=3895.827mil|Location1.Y=1490.551mil|Location2.Y=1957.323mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2331.102mil|Location2.X=3895.827mil|Location1.Y=1490.551mil|Location2.Y=1957.323mil|Absolute=True">Un-Routed Net Constraint: Net +3.3V Between Pad R_BDM2-1 (61.75,40.4mm) And Track on layer Top Layer (96.414,47.176mm)</acronym></a><br></td>
+</tr>
+</table></a><a href="#top">Back to top</a><br><br><a name="IDDRTMVBXEPIIMJPVGFCVZQ1B22PUFDARBF10L1UJYBYKWTT23MKKD"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Hole Size Constraint (Min=0.025mm) (Max=2.54mm) (All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4998.036mil|Location2.X=5101.648mil|Location1.Y=1875.517mil|Location2.Y=1979.129mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4998.036mil|Location2.X=5101.648mil|Location1.Y=1875.517mil|Location2.Y=1979.129mil|Absolute=True">Hole Size Constraint (2.6mm &gt; 2.54mm) : Pad GY-521-SCREW2(128.266mm,48.954mm)  Multi-Layer</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5598.036mil|Location2.X=5701.648mil|Location1.Y=1875.517mil|Location2.Y=1979.129mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5598.036mil|Location2.X=5701.648mil|Location1.Y=1875.517mil|Location2.Y=1979.129mil|Absolute=True">Hole Size Constraint (2.6mm &gt; 2.54mm) : Pad GY-521-SCREW1(143.506mm,48.954mm)  Multi-Layer</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1732.241mil|Location2.X=1859.491mil|Location1.Y=1109.603mil|Location2.Y=1236.853mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1732.241mil|Location2.X=1859.491mil|Location1.Y=1109.603mil|Location2.Y=1236.853mil|Absolute=True">Hole Size Constraint (3.2mm &gt; 2.54mm) : Pad toPC-1(45.615mm,29.8mm)  Multi-Layer</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1282.241mil|Location2.X=1409.491mil|Location1.Y=1109.603mil|Location2.Y=1236.853mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1282.241mil|Location2.X=1409.491mil|Location1.Y=1109.603mil|Location2.Y=1236.853mil|Absolute=True">Hole Size Constraint (3.2mm &gt; 2.54mm) : Pad toPC-1(34.185mm,29.8mm)  Multi-Layer</acronym></a><br></td>
+</tr>
+</table></a><a href="#top">Back to top</a><br><br><a name="ID1I2FK3WUB1LLC5R5XYQCLBZ3W1E4UINZQFYHIP2UGDMB5GREULG"><table>
+<tr>
+<th style="text-align : left" colspan="2" class="rule">Minimum Solder Mask Sliver (Gap=0.254mm) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5236.158mil|Location2.X=5283.528mil|Location1.Y=1456.63mil|Location2.Y=1543.37mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5236.158mil|Location2.X=5283.528mil|Location1.Y=1456.63mil|Location2.Y=1543.37mil|Absolute=True">Pad Q1-2(133.6mm,38.1mm)  Multi-Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5286.158mil|Location2.X=5333.528mil|Location1.Y=1456.63mil|Location2.Y=1543.37mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5286.158mil|Location2.X=5333.528mil|Location1.Y=1456.63mil|Location2.Y=1543.37mil|Absolute=True">Pad Q1-3(134.87mm,38.1mm)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5186.158mil|Location2.X=5233.528mil|Location1.Y=1456.63mil|Location2.Y=1543.37mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5186.158mil|Location2.X=5233.528mil|Location1.Y=1456.63mil|Location2.Y=1543.37mil|Absolute=True">Pad Q1-1(132.33mm,38.1mm)  Multi-Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5236.158mil|Location2.X=5283.528mil|Location1.Y=1456.63mil|Location2.Y=1543.37mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5236.158mil|Location2.X=5283.528mil|Location1.Y=1456.63mil|Location2.Y=1543.37mil|Absolute=True">Pad Q1-2(133.6mm,38.1mm)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4531.433mil|Location2.X=4578.803mil|Location1.Y=1460.567mil|Location2.Y=1547.307mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4531.433mil|Location2.X=4578.803mil|Location1.Y=1460.567mil|Location2.Y=1547.307mil|Absolute=True">Pad Q2-2(115.7mm,38.2mm)  Multi-Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4581.433mil|Location2.X=4628.803mil|Location1.Y=1460.567mil|Location2.Y=1547.307mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4581.433mil|Location2.X=4628.803mil|Location1.Y=1460.567mil|Location2.Y=1547.307mil|Absolute=True">Pad Q2-3(116.97mm,38.2mm)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4481.433mil|Location2.X=4528.803mil|Location1.Y=1460.567mil|Location2.Y=1547.307mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4481.433mil|Location2.X=4528.803mil|Location1.Y=1460.567mil|Location2.Y=1547.307mil|Absolute=True">Pad Q2-1(114.43mm,38.2mm)  Multi-Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4531.433mil|Location2.X=4578.803mil|Location1.Y=1460.567mil|Location2.Y=1547.307mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4531.433mil|Location2.X=4578.803mil|Location1.Y=1460.567mil|Location2.Y=1547.307mil|Absolute=True">Pad Q2-2(115.7mm,38.2mm)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2354.268mil|Location2.X=2385.89mil|Location1.Y=2505.843mil|Location2.Y=2557.15mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2354.268mil|Location2.X=2385.89mil|Location1.Y=2505.843mil|Location2.Y=2557.15mil|Absolute=True">Pad OPAMP_1-2(60.2mm,64.3mm)  Top Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2391.669mil|Location2.X=2423.291mil|Location1.Y=2505.843mil|Location2.Y=2557.15mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2391.669mil|Location2.X=2423.291mil|Location1.Y=2505.843mil|Location2.Y=2557.15mil|Absolute=True">Pad OPAMP_1-3(61.15mm,64.3mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2316.866mil|Location2.X=2348.488mil|Location1.Y=2505.843mil|Location2.Y=2557.15mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2316.866mil|Location2.X=2348.488mil|Location1.Y=2505.843mil|Location2.Y=2557.15mil|Absolute=True">Pad OPAMP_1-1(59.25mm,64.3mm)  Top Layer</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2354.268mil|Location2.X=2385.89mil|Location1.Y=2505.843mil|Location2.Y=2557.15mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2354.268mil|Location2.X=2385.89mil|Location1.Y=2505.843mil|Location2.Y=2557.15mil|Absolute=True">Pad OPAMP_1-2(60.2mm,64.3mm)  Top Layer</acronym></a></td>
+</tr>
+</table></a><a href="#top">Back to top</a><br><br><a name="IDBJLZ4WHLKICEGNEHG2IODFEUZBRWXPAWGW4CLSOSMYYI0L4CAIZP"><table>
+<tr>
+<th style="text-align : left" colspan="2" class="rule">Silk To Solder Mask (Clearance=0.254mm) (IsPad),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5473.858mil|Location2.X=5521.732mil|Location1.Y=1488.189mil|Location2.Y=1496.063mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5473.858mil|Location2.X=5521.732mil|Location1.Y=1488.189mil|Location2.Y=1496.063mil|Absolute=True">Track (139.136mm,37.9mm)(140.152mm,37.9mm)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5406.236mil|Location2.X=5469.354mil|Location1.Y=1460.567mil|Location2.Y=1523.685mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5406.236mil|Location2.X=5469.354mil|Location1.Y=1460.567mil|Location2.Y=1523.685mil|Absolute=True">Pad R_A1-1(138.12mm,37.9mm)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5753.858mil|Location2.X=5801.732mil|Location1.Y=1488.189mil|Location2.Y=1496.063mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5753.858mil|Location2.X=5801.732mil|Location1.Y=1488.189mil|Location2.Y=1496.063mil|Absolute=True">Track (146.248mm,37.9mm)(147.264mm,37.9mm)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5806.236mil|Location2.X=5869.354mil|Location1.Y=1460.567mil|Location2.Y=1523.685mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5806.236mil|Location2.X=5869.354mil|Location1.Y=1460.567mil|Location2.Y=1523.685mil|Absolute=True">Pad R_A1-2(148.28mm,37.9mm)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4741.575mil|Location2.X=4789.449mil|Location1.Y=1480.315mil|Location2.Y=1488.189mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4741.575mil|Location2.X=4789.449mil|Location1.Y=1480.315mil|Location2.Y=1488.189mil|Absolute=True">Track (120.536mm,37.7mm)(121.552mm,37.7mm)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4673.953mil|Location2.X=4737.071mil|Location1.Y=1452.693mil|Location2.Y=1515.811mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4673.953mil|Location2.X=4737.071mil|Location1.Y=1452.693mil|Location2.Y=1515.811mil|Absolute=True">Pad R_A2-1(119.52mm,37.7mm)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5021.575mil|Location2.X=5069.449mil|Location1.Y=1480.315mil|Location2.Y=1488.189mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5021.575mil|Location2.X=5069.449mil|Location1.Y=1480.315mil|Location2.Y=1488.189mil|Absolute=True">Track (127.648mm,37.7mm)(128.664mm,37.7mm)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5073.953mil|Location2.X=5137.071mil|Location1.Y=1452.693mil|Location2.Y=1515.811mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5073.953mil|Location2.X=5137.071mil|Location1.Y=1452.693mil|Location2.Y=1515.811mil|Absolute=True">Pad R_A2-2(129.68mm,37.7mm)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5029.37mil|Location2.X=5609.189mil|Location1.Y=1308.589mil|Location2.Y=1408.563mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5029.37mil|Location2.X=5609.189mil|Location1.Y=1308.589mil|Location2.Y=1408.563mil|Absolute=True">Text "Pres_Agua1" (128mm,34mm)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5263.323mil|Location2.X=5330.378mil|Location1.Y=1265.685mil|Location2.Y=1332.74mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5263.323mil|Location2.X=5330.378mil|Location1.Y=1265.685mil|Location2.Y=1332.74mil|Absolute=True">Pad Pres_Agua1-2(134.54mm,33mm)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5029.37mil|Location2.X=5609.189mil|Location1.Y=1308.589mil|Location2.Y=1408.563mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5029.37mil|Location2.X=5609.189mil|Location1.Y=1308.589mil|Location2.Y=1408.563mil|Absolute=True">Text "Pres_Agua1" (128mm,34mm)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5163.323mil|Location2.X=5230.378mil|Location1.Y=1265.685mil|Location2.Y=1332.74mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5163.323mil|Location2.X=5230.378mil|Location1.Y=1265.685mil|Location2.Y=1332.74mil|Absolute=True">Pad Pres_Agua1-1(132mm,33mm)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4281.339mil|Location2.X=4881.151mil|Location1.Y=1308.589mil|Location2.Y=1408.563mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4281.339mil|Location2.X=4881.151mil|Location1.Y=1308.589mil|Location2.Y=1408.563mil|Absolute=True">Text "Pres_Agua2" (109mm,34mm)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4554.662mil|Location2.X=4621.717mil|Location1.Y=1265.685mil|Location2.Y=1332.74mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4554.662mil|Location2.X=4621.717mil|Location1.Y=1265.685mil|Location2.Y=1332.74mil|Absolute=True">Pad Pres_Agua2-2(116.54mm,33mm)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4281.339mil|Location2.X=4881.151mil|Location1.Y=1308.589mil|Location2.Y=1408.563mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4281.339mil|Location2.X=4881.151mil|Location1.Y=1308.589mil|Location2.Y=1408.563mil|Absolute=True">Text "Pres_Agua2" (109mm,34mm)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4454.662mil|Location2.X=4521.717mil|Location1.Y=1265.685mil|Location2.Y=1332.74mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4454.662mil|Location2.X=4521.717mil|Location1.Y=1265.685mil|Location2.Y=1332.74mil|Absolute=True">Pad Pres_Agua2-1(114mm,33mm)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1866.866mil|Location2.X=1874.866mil|Location1.Y=1051.118mil|Location2.Y=1571.228mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1866.866mil|Location2.X=1874.866mil|Location1.Y=1051.118mil|Location2.Y=1571.228mil|Absolute=True">Track (47.52mm,26.8mm)(47.52mm,39.808mm)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1728.866mil|Location2.X=1862.866mil|Location1.Y=1106.228mil|Location2.Y=1240.228mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1728.866mil|Location2.X=1862.866mil|Location1.Y=1106.228mil|Location2.Y=1240.228mil|Absolute=True">Pad toPC-1(45.615mm,29.8mm)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1266.866mil|Location2.X=1274.866mil|Location1.Y=1051.118mil|Location2.Y=1571.228mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1266.866mil|Location2.X=1274.866mil|Location1.Y=1051.118mil|Location2.Y=1571.228mil|Absolute=True">Track (32.28mm,26.8mm)(32.28mm,39.808mm)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1278.866mil|Location2.X=1412.866mil|Location1.Y=1106.228mil|Location2.Y=1240.228mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1278.866mil|Location2.X=1412.866mil|Location1.Y=1106.228mil|Location2.Y=1240.228mil|Absolute=True">Pad toPC-1(34.185mm,29.8mm)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1266.866mil|Location2.X=1874.866mil|Location1.Y=1563.228mil|Location2.Y=1571.228mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1266.866mil|Location2.X=1874.866mil|Location1.Y=1563.228mil|Location2.Y=1571.228mil|Absolute=True">Track (32.28mm,39.808mm)(47.52mm,39.808mm)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1404.866mil|Location2.X=1486.866mil|Location1.Y=1482.228mil|Location2.Y=1564.228mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1404.866mil|Location2.X=1486.866mil|Location1.Y=1482.228mil|Location2.Y=1564.228mil|Absolute=True">Pad toPC-2(36.725mm,38.69mm)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1266.866mil|Location2.X=1874.866mil|Location1.Y=1563.228mil|Location2.Y=1571.228mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1266.866mil|Location2.X=1874.866mil|Location1.Y=1563.228mil|Location2.Y=1571.228mil|Absolute=True">Track (32.28mm,39.808mm)(47.52mm,39.808mm)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1504.866mil|Location2.X=1586.866mil|Location1.Y=1482.228mil|Location2.Y=1564.228mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1504.866mil|Location2.X=1586.866mil|Location1.Y=1482.228mil|Location2.Y=1564.228mil|Absolute=True">Pad toPC-4(39.265mm,38.69mm)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1266.866mil|Location2.X=1874.866mil|Location1.Y=1563.228mil|Location2.Y=1571.228mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1266.866mil|Location2.X=1874.866mil|Location1.Y=1563.228mil|Location2.Y=1571.228mil|Absolute=True">Track (32.28mm,39.808mm)(47.52mm,39.808mm)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1604.866mil|Location2.X=1686.866mil|Location1.Y=1482.228mil|Location2.Y=1564.228mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1604.866mil|Location2.X=1686.866mil|Location1.Y=1482.228mil|Location2.Y=1564.228mil|Absolute=True">Pad toPC-6(41.805mm,38.69mm)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1266.866mil|Location2.X=1874.866mil|Location1.Y=1563.228mil|Location2.Y=1571.228mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1266.866mil|Location2.X=1874.866mil|Location1.Y=1563.228mil|Location2.Y=1571.228mil|Absolute=True">Track (32.28mm,39.808mm)(47.52mm,39.808mm)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1704.866mil|Location2.X=1786.866mil|Location1.Y=1482.228mil|Location2.Y=1564.228mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1704.866mil|Location2.X=1786.866mil|Location1.Y=1482.228mil|Location2.Y=1564.228mil|Absolute=True">Pad toPC-8(44.345mm,38.69mm)  Multi-Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2513.78mil|Location2.X=2521.654mil|Location1.Y=2468.504mil|Location2.Y=2492.126mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2513.78mil|Location2.X=2521.654mil|Location1.Y=2468.504mil|Location2.Y=2492.126mil|Absolute=True">Track (63.95mm,62.8mm)(63.95mm,63.2mm)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2509.78mil|Location2.X=2553.213mil|Location1.Y=2492.063mil|Location2.Y=2527.622mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2509.78mil|Location2.X=2553.213mil|Location1.Y=2492.063mil|Location2.Y=2527.622mil|Absolute=True">Pad R_P1-1(64.3mm,63.75mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2541.339mil|Location2.X=2549.213mil|Location1.Y=2468.504mil|Location2.Y=2492.126mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2541.339mil|Location2.X=2549.213mil|Location1.Y=2468.504mil|Location2.Y=2492.126mil|Absolute=True">Track (64.65mm,62.8mm)(64.65mm,63.2mm)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2509.78mil|Location2.X=2553.213mil|Location1.Y=2492.063mil|Location2.Y=2527.622mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2509.78mil|Location2.X=2553.213mil|Location1.Y=2492.063mil|Location2.Y=2527.622mil|Absolute=True">Pad R_P1-1(64.3mm,63.75mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2513.78mil|Location2.X=2521.654mil|Location1.Y=2468.504mil|Location2.Y=2492.126mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2513.78mil|Location2.X=2521.654mil|Location1.Y=2468.504mil|Location2.Y=2492.126mil|Absolute=True">Track (63.95mm,62.8mm)(63.95mm,63.2mm)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2509.78mil|Location2.X=2553.213mil|Location1.Y=2433.008mil|Location2.Y=2468.567mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2509.78mil|Location2.X=2553.213mil|Location1.Y=2433.008mil|Location2.Y=2468.567mil|Absolute=True">Pad R_P1-2(64.3mm,62.25mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2541.339mil|Location2.X=2549.213mil|Location1.Y=2468.504mil|Location2.Y=2492.126mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2541.339mil|Location2.X=2549.213mil|Location1.Y=2468.504mil|Location2.Y=2492.126mil|Absolute=True">Track (64.65mm,62.8mm)(64.65mm,63.2mm)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2509.78mil|Location2.X=2553.213mil|Location1.Y=2433.008mil|Location2.Y=2468.567mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2509.78mil|Location2.X=2553.213mil|Location1.Y=2433.008mil|Location2.Y=2468.567mil|Absolute=True">Pad R_P1-2(64.3mm,62.25mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2513.78mil|Location2.X=2521.653mil|Location1.Y=2653.543mil|Location2.Y=2677.165mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2513.78mil|Location2.X=2521.653mil|Location1.Y=2653.543mil|Location2.Y=2677.165mil|Absolute=True">Track (63.95mm,67.5mm)(63.95mm,67.9mm)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2509.78mil|Location2.X=2553.213mil|Location1.Y=2677.102mil|Location2.Y=2712.661mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2509.78mil|Location2.X=2553.213mil|Location1.Y=2677.102mil|Location2.Y=2712.661mil|Absolute=True">Pad R_P2-1(64.3mm,68.45mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2541.339mil|Location2.X=2549.213mil|Location1.Y=2653.543mil|Location2.Y=2677.165mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2541.339mil|Location2.X=2549.213mil|Location1.Y=2653.543mil|Location2.Y=2677.165mil|Absolute=True">Track (64.65mm,67.5mm)(64.65mm,67.9mm)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2509.78mil|Location2.X=2553.213mil|Location1.Y=2677.102mil|Location2.Y=2712.661mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2509.78mil|Location2.X=2553.213mil|Location1.Y=2677.102mil|Location2.Y=2712.661mil|Absolute=True">Pad R_P2-1(64.3mm,68.45mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2513.78mil|Location2.X=2521.653mil|Location1.Y=2653.543mil|Location2.Y=2677.165mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2513.78mil|Location2.X=2521.653mil|Location1.Y=2653.543mil|Location2.Y=2677.165mil|Absolute=True">Track (63.95mm,67.5mm)(63.95mm,67.9mm)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2509.78mil|Location2.X=2553.213mil|Location1.Y=2618.047mil|Location2.Y=2653.606mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2509.78mil|Location2.X=2553.213mil|Location1.Y=2618.047mil|Location2.Y=2653.606mil|Absolute=True">Pad R_P2-2(64.3mm,66.95mm)  Top Layer</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2541.339mil|Location2.X=2549.213mil|Location1.Y=2653.543mil|Location2.Y=2677.165mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2541.339mil|Location2.X=2549.213mil|Location1.Y=2653.543mil|Location2.Y=2677.165mil|Absolute=True">Track (64.65mm,67.5mm)(64.65mm,67.9mm)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2509.78mil|Location2.X=2553.213mil|Location1.Y=2618.047mil|Location2.Y=2653.606mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2509.78mil|Location2.X=2553.213mil|Location1.Y=2618.047mil|Location2.Y=2653.606mil|Absolute=True">Pad R_P2-2(64.3mm,66.95mm)  Top Layer</acronym></a></td>
+</tr>
+</table></a><a href="#top">Back to top</a><br><br><a name="IDWHQGXWJ4UL32E3JOKJQO5YCQ1HDTJ5FBM0KERQGLL0DPJA5I4PAI"><table>
+<tr>
+<th style="text-align : left" colspan="2" class="rule">Silk to Silk (Clearance=0.254mm) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2100.236mil|Location2.X=2369.5mil|Location1.Y=2660.606mil|Location2.Y=2726.523mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2100.236mil|Location2.X=2369.5mil|Location1.Y=2660.606mil|Location2.Y=2726.523mil|Absolute=True">Text "OPAMP_1" (53.6mm,68mm)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1969.035mil|Location2.X=2114.917mil|Location1.Y=2650.853mil|Location2.Y=2704.724mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1969.035mil|Location2.X=2114.917mil|Location1.Y=2650.853mil|Location2.Y=2704.724mil|Absolute=True">Arc (51.8mm,66.6mm)  Top Overlay</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2474.236mil|Location2.X=2516.474mil|Location1.Y=1371.213mil|Location2.Y=1426.57mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2474.236mil|Location2.X=2516.474mil|Location1.Y=1371.213mil|Location2.Y=1426.57mil|Absolute=True">Text "6" (63.049mm,35.032mm)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2468.299mil|Location2.X=2476.173mil|Location1.Y=1245.276mil|Location2.Y=1453.15mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2468.299mil|Location2.X=2476.173mil|Location1.Y=1245.276mil|Location2.Y=1453.15mil|Absolute=True">Track (62.795mm,31.73mm)(62.795mm,36.81mm)  Top Overlay</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2474.236mil|Location2.X=2516.474mil|Location1.Y=1271.213mil|Location2.Y=1326.57mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2474.236mil|Location2.X=2516.474mil|Location1.Y=1271.213mil|Location2.Y=1326.57mil|Absolute=True">Text "5" (63.049mm,32.492mm)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2468.299mil|Location2.X=2476.173mil|Location1.Y=1245.276mil|Location2.Y=1453.15mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2468.299mil|Location2.X=2476.173mil|Location1.Y=1245.276mil|Location2.Y=1453.15mil|Absolute=True">Track (62.795mm,31.73mm)(62.795mm,36.81mm)  Top Overlay</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2134.236mil|Location2.X=2163.355mil|Location1.Y=1271.213mil|Location2.Y=1326.57mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2134.236mil|Location2.X=2163.355mil|Location1.Y=1271.213mil|Location2.Y=1326.57mil|Absolute=True">Text "1" (54.413mm,32.492mm)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2168.299mil|Location2.X=2176.173mil|Location1.Y=1245.276mil|Location2.Y=1453.15mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2168.299mil|Location2.X=2176.173mil|Location1.Y=1245.276mil|Location2.Y=1453.15mil|Absolute=True">Track (55.175mm,31.73mm)(55.175mm,36.81mm)  Top Overlay</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1529.383mil|Location2.X=1595.3mil|Location1.Y=2100.236mil|Location2.Y=2454.774mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1529.383mil|Location2.X=1595.3mil|Location1.Y=2100.236mil|Location2.Y=2454.774mil|Absolute=True">Text "LED_+3.3V" (40.1mm,53.6mm)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1600.394mil|Location2.X=1608.268mil|Location1.Y=2196.85mil|Location2.Y=2279.528mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1600.394mil|Location2.X=1608.268mil|Location1.Y=2196.85mil|Location2.Y=2279.528mil|Absolute=True">Track (40.75mm,55.9mm)(40.75mm,57.8mm)  Top Overlay</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5478.929mil|Location2.X=5511.59mil|Location1.Y=2759.402mil|Location2.Y=2825.385mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5478.929mil|Location2.X=5511.59mil|Location1.Y=2759.402mil|Location2.Y=2825.385mil|Absolute=True">Text "1" (139.368mm,70.292mm)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5512.992mil|Location2.X=5520.866mil|Location1.Y=2733.465mil|Location2.Y=2941.339mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5512.992mil|Location2.X=5520.866mil|Location1.Y=2733.465mil|Location2.Y=2941.339mil|Absolute=True">Track (140.13mm,69.53mm)(140.13mm,74.61mm)  Top Overlay</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5458.929mil|Location2.X=5508.252mil|Location1.Y=2859.402mil|Location2.Y=2925.385mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5458.929mil|Location2.X=5508.252mil|Location1.Y=2859.402mil|Location2.Y=2925.385mil|Absolute=True">Text "2" (138.86mm,72.832mm)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5512.992mil|Location2.X=5520.866mil|Location1.Y=2733.465mil|Location2.Y=2941.339mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5512.992mil|Location2.X=5520.866mil|Location1.Y=2733.465mil|Location2.Y=2941.339mil|Absolute=True">Track (140.13mm,69.53mm)(140.13mm,74.61mm)  Top Overlay</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6018.929mil|Location2.X=6068.252mil|Location1.Y=2759.402mil|Location2.Y=2825.385mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6018.929mil|Location2.X=6068.252mil|Location1.Y=2759.402mil|Location2.Y=2825.385mil|Absolute=True">Text "9" (153.084mm,70.292mm)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6012.992mil|Location2.X=6020.866mil|Location1.Y=2733.465mil|Location2.Y=2941.339mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6012.992mil|Location2.X=6020.866mil|Location1.Y=2733.465mil|Location2.Y=2941.339mil|Absolute=True">Track (152.83mm,69.53mm)(152.83mm,74.61mm)  Top Overlay</acronym></a></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6018.929mil|Location2.X=6109.905mil|Location1.Y=2859.402mil|Location2.Y=2925.385mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6018.929mil|Location2.X=6109.905mil|Location1.Y=2859.402mil|Location2.Y=2925.385mil|Absolute=True">Text "10" (153.084mm,72.832mm)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6012.992mil|Location2.X=6020.866mil|Location1.Y=2733.465mil|Location2.Y=2941.339mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=6012.992mil|Location2.X=6020.866mil|Location1.Y=2733.465mil|Location2.Y=2941.339mil|Absolute=True">Track (152.83mm,69.53mm)(152.83mm,74.61mm)  Top Overlay</acronym></a></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td style="width:50%; text-align:left" class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2508mil|Location2.X=2672.31mil|Location1.Y=2734.44mil|Location2.Y=2800.357mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2508mil|Location2.X=2672.31mil|Location1.Y=2734.44mil|Location2.Y=2800.357mil|Absolute=True">Text "R_P2" (63.957mm,69.875mm)  Top Overlay</acronym></a></td>
+<td style="width:50%; text-align:left" class="column2"><a href="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2627.795mil|Location2.X=3287.588mil|Location1.Y=2775.279mil|Location2.Y=2865.256mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2627.795mil|Location2.X=3287.588mil|Location1.Y=2775.279mil|Location2.Y=2865.256mil|Absolute=True">Text "Sensor_Pres" (67mm,71mm)  Top Overlay</acronym></a></td>
+</tr>
+</table></a><a href="#top">Back to top</a><br><br></body>
+</html>

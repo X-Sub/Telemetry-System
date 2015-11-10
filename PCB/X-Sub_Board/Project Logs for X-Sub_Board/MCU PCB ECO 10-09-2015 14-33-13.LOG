@@ -1,0 +1,7 @@
+Change Room Name: Old Name=Leds New Name=MCU
+Change Room Scope: Old Scope=InComponentClass('Components Class 2') New Scope=InComponentClass('MCU')
+Added Room: Name=ADC_PRES
+Added Room: Name=Expansion Board
+Added Room: Name=Fuente
+Added Room: Name=Presencia_Agua
+Added Room: Name=PWM_OUTS

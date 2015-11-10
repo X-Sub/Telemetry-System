@@ -1,0 +1,4 @@
+Remove Pin=COMPASS-1 From Net=SCL
+Remove Pin=COMPASS-2 From Net=SDA
+Change Component Footprint: Designator=C_5_Press Old Footprint=RB7.6-15 New Footprint=CAPR5-4X5
+Change Component Designator: OldDesignator=* NewDesignator=Sensor_Pres

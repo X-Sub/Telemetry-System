@@ -7,7 +7,7 @@
 **     Version     : Component 01.014, Driver 01.12, CPU db: 3.00.078
 **     Datasheet   : MCF51QE128RM, Rev. 3, 9/2007
 **     Compiler    : CodeWarrior ColdFireV1 C Compiler
-**     Date/Time   : 2015-07-21, 17:35, # CodeGen: 59
+**     Date/Time   : 2015-10-10, 10:46, # CodeGen: 61
 **     Abstract    :
 **         This component "MCF51QE128_80" contains initialization of the
 **         CPU and provides basic methods and events for CPU core
@@ -81,7 +81,9 @@
 #include "LedLight2.h"
 #include "CS1.h"
 #include "I2C.h"
-#include "PresenciaAgua.h"
+#include "PresenciaAgua2.h"
+#include "PresenciaAgua1.h"
+#include "S_Wire.h"
 #include "PE_Types.h"
 #include "PE_Error.h"
 #include "PE_Const.h"
@@ -293,12 +295,12 @@ void PE_low_level_init(void)
   clrSetReg8Bits(PTBDD, 0xC1U, 0x32U);  
   /* PTBD: PTBD5=0,PTBD4=0,PTBD1=1 */
   clrSetReg8Bits(PTBD, 0x30U, 0x02U);   
-  /* PTCD: PTCD4=1,PTCD2=1,PTCD1=0,PTCD0=0 */
-  clrSetReg8Bits(PTCD, 0x03U, 0x14U);   
+  /* PTCD: PTCD7=1,PTCD4=1,PTCD2=1,PTCD1=0,PTCD0=0 */
+  clrSetReg8Bits(PTCD, 0x03U, 0x94U);   
   /* PTCPE: PTCPE4=0,PTCPE2=0 */
   clrReg8Bits(PTCPE, 0x14U);            
-  /* PTCDD: PTCDD4=1,PTCDD2=1,PTCDD1=1,PTCDD0=1 */
-  setReg8Bits(PTCDD, 0x17U);            
+  /* PTCDD: PTCDD7=1,PTCDD6=0,PTCDD4=1,PTCDD2=1,PTCDD1=1,PTCDD0=1 */
+  clrSetReg8Bits(PTCDD, 0x40U, 0x97U);  
   /* PTED: PTED6=1 */
   setReg8Bits(PTED, 0x40U);             
   /* PTEPE: PTEPE6=0 */
@@ -307,12 +309,12 @@ void PE_low_level_init(void)
   setReg8Bits(PTEDD, 0x40U);            
   /* PTAPE: PTAPE2=1 */
   setReg8Bits(PTAPE, 0x04U);            
-  /* APCTL2: ADPC10=1 */
-  setReg8Bits(APCTL2, 0x04U);           
-  /* PTDPE: PTDPE0=1 */
-  setReg8Bits(PTDPE, 0x01U);            
-  /* PTDDD: PTDDD0=0 */
-  clrReg8Bits(PTDDD, 0x01U);            
+  /* APCTL2: ADPC14=1,ADPC13=1,ADPC12=1,ADPC11=1,ADPC10=1 */
+  setReg8Bits(APCTL2, 0x7CU);           
+  /* PTGPE: PTGPE1=0,PTGPE0=0 */
+  clrReg8Bits(PTGPE, 0x03U);            
+  /* PTGDD: PTGDD1=0,PTGDD0=0 */
+  clrReg8Bits(PTGDD, 0x03U);            
   /* PTASE: PTASE7=0,PTASE6=0,PTASE4=0,PTASE3=0,PTASE2=0,PTASE1=0,PTASE0=0 */
   clrReg8Bits(PTASE, 0xDFU);            
   /* PTBSE: PTBSE7=0,PTBSE6=0,PTBSE5=0,PTBSE4=0,PTBSE3=0,PTBSE2=0,PTBSE1=0,PTBSE0=0 */
@@ -385,7 +387,10 @@ void PE_low_level_init(void)
   /* ### CriticalSection "CS1" init code ... */
   /* ### InternalI2C "I2C" init code ... */
   I2C_Init();
-  /* ### BitIO "PresenciaAgua" init code ... */
+  /* ### BitIO "PresenciaAgua2" init code ... */
+  /* ### BitIO "PresenciaAgua1" init code ... */
+  /* ### Asynchro serial "S_Wire" init code ... */
+  S_Wire_Init();
   /* Common peripheral initialization - ENABLE */
   /* TPM1SC: CLKSB=0,CLKSA=1,PS1=1,PS0=1 */
   clrSetReg8Bits(TPM1SC, 0x10U, 0x0BU); 

@@ -1,0 +1,8 @@
+Added Pin To Net: NetName=+3.3V Pin=MCU-6
+Added Pin To Net: NetName=GND Pin=MCU-11
+Added Room: Name=ADC_PRES
+Added Room: Name=Expansion Board
+Added Room: Name=Fuente
+Added Room: Name=MCU
+Added Room: Name=Presencia_Agua
+Added Room: Name=PWM_OUTS

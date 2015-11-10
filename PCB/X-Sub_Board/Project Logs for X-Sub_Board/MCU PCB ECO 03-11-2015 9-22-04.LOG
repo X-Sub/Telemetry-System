@@ -1,0 +1,4 @@
+Change Component Footprint: Designator=Batt_Measure Old Footprint=5.08mm 200 mil Screw Terminal SF New Footprint=HDR1X2
+Added Pin To Net: NetName=NetBatR1_2 Pin=BatR1-2
+Added Pin To Net: NetName=NetBatR1_2 Pin=Batt_Measure-2
+Added Net: Name=NetBatR1_2

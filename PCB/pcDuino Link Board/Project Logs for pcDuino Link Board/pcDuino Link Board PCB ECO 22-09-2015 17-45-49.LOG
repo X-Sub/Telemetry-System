@@ -1,0 +1,17 @@
+Removed Pin From Net: NetName=NetDuino Conn_A5 Pin=Shield_ADC-1
+Removed Pin From Net: NetName=NetDuino Conn_A4 Pin=Shield_ADC-2
+Removed Pin From Net: NetName=NetDuino Conn_A3 Pin=Shield_ADC-3
+Removed Pin From Net: NetName=NetDuino Conn_A2 Pin=Shield_ADC-4
+Removed Pin From Net: NetName=NetDuino Conn_A1 Pin=Shield_ADC-5
+Removed Pin From Net: NetName=NetDuino Conn_A0 Pin=Shield_ADC-6
+Removed Pin From Net: NetName=NetDuino Conn_VIN Pin=Shield Power-1
+Removed Pin From Net: NetName=GND Pin=Shield Power-2
+Removed Pin From Net: NetName=GND Pin=Shield Power-3
+Removed Pin From Net: NetName=+5V Pin=Shield Power-4
+Removed Pin From Net: NetName=+3.3V Pin=Shield Power-5
+Removed Pin From Net: NetName=NetDuino Conn_RES Pin=Shield Power-6
+Removed Pin From Net: NetName=NetDuino Conn_IOREF Pin=Shield Power-7
+Removed Member From Class: ClassName=pcDuino Link Board Member=Shield_ADC
+Removed Member From Class: ClassName=pcDuino Link Board Member=Shield Power
+Added Pin To Net: NetName=GND Pin=IDE Conn-2
+Added Room: Name=pcDuino Link Board

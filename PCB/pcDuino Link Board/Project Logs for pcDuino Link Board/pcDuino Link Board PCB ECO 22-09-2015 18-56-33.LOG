@@ -1,0 +1,47 @@
+Removed Pin From Net: NetName=GPIO_1_1 Pin=IDE Conn-1
+Removed Pin From Net: NetName=GND Pin=IDE Conn-2
+Removed Pin From Net: NetName=GPIO_1_2 Pin=IDE Conn-3
+Removed Pin From Net: NetName=+3.3V Pin=IDE Conn-4
+Removed Pin From Net: NetName=GPIO_1_3 Pin=IDE Conn-5
+Removed Pin From Net: NetName=+3.3V Pin=IDE Conn-6
+Removed Pin From Net: NetName=GPIO_1_4 Pin=IDE Conn-7
+Removed Pin From Net: NetName=+3.3V Pin=IDE Conn-8
+Removed Pin From Net: NetName=GPIO_1_5 Pin=IDE Conn-9
+Removed Pin From Net: NetName=+3.3V Pin=IDE Conn-10
+Removed Pin From Net: NetName=GPIO_1_6 Pin=IDE Conn-11
+Removed Pin From Net: NetName=+3.3V Pin=IDE Conn-12
+Removed Pin From Net: NetName=GPIO_2_1 Pin=IDE Conn-13
+Removed Pin From Net: NetName=+3.3V Pin=IDE Conn-14
+Removed Pin From Net: NetName=GPIO_2_2 Pin=IDE Conn-15
+Removed Pin From Net: NetName=SDA_PCDUINO Pin=IDE Conn-16
+Removed Pin From Net: NetName=GPIO_2_3 Pin=IDE Conn-17
+Removed Pin From Net: NetName=SCL_PCDUINO Pin=IDE Conn-18
+Removed Pin From Net: NetName=GND Pin=IDE Conn-19
+Removed Pin From Net: NetName=GPIO_2_4 Pin=IDE Conn-21
+Removed Pin From Net: NetName=GND Pin=IDE Conn-22
+Removed Pin From Net: NetName=ICSP_1 Pin=IDE Conn-23
+Removed Pin From Net: NetName=GND Pin=IDE Conn-24
+Removed Pin From Net: NetName=ICSP_2 Pin=IDE Conn-25
+Removed Pin From Net: NetName=GND Pin=IDE Conn-26
+Removed Pin From Net: NetName=ICSP_3 Pin=IDE Conn-27
+Removed Pin From Net: NetName=ICSP_4 Pin=IDE Conn-29
+Removed Pin From Net: NetName=GND Pin=IDE Conn-30
+Removed Pin From Net: NetName=ICSP_5 Pin=IDE Conn-31
+Removed Pin From Net: NetName=AD2 Pin=IDE Conn-32
+Removed Pin From Net: NetName=ICSP_6 Pin=IDE Conn-33
+Removed Pin From Net: NetName=AD3 Pin=IDE Conn-34
+Removed Pin From Net: NetName=RX Pin=IDE Conn-35
+Removed Pin From Net: NetName=AD4 Pin=IDE Conn-36
+Removed Pin From Net: NetName=TX Pin=IDE Conn-37
+Removed Pin From Net: NetName=AD5 Pin=IDE Conn-38
+Removed Pin From Net: NetName=+3.3V Pin=IDE Conn-39
+Removed Pin From Net: NetName=GND Pin=IDE Conn-40
+Removed Member From Class: ClassName=pcDuino Link Board Member=IDE Conn
+Added Component: Designator=GPIO2_OUT(HDR2X2)
+Added Pin To Net: NetName=GPIO_2_1 Pin=GPIO2_OUT-1
+Added Pin To Net: NetName=GPIO_2_2 Pin=GPIO2_OUT-2
+Added Pin To Net: NetName=GPIO_2_3 Pin=GPIO2_OUT-3
+Added Pin To Net: NetName=GPIO_2_4 Pin=GPIO2_OUT-4
+Added Member To Class: ClassName=pcDuino Link Board Member=Component GPIO2_OUT Header 2X2
+Added Room: Name=pcDuino Link Board
+Added Room: Name=Power_In

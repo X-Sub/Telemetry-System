@@ -1,0 +1,15 @@
+Added Pin To Net: NetName=NetDuino Conn_D2 Pin=Duino Conn-D2
+Added Pin To Net: NetName=NetDuino Conn_D2 Pin=pcDuino Digital (0 - 7)-3
+Added Net: Name=NetDuino Conn_D2
+Added Pin To Net: NetName=NetDuino Conn_D3 Pin=Duino Conn-D3
+Added Pin To Net: NetName=NetDuino Conn_D3 Pin=pcDuino Digital (0 - 7)-4
+Added Net: Name=NetDuino Conn_D3
+Added Pin To Net: NetName=NetDuino Conn_D4 Pin=Duino Conn-D4
+Added Pin To Net: NetName=NetDuino Conn_D4 Pin=pcDuino Digital (0 - 7)-5
+Added Net: Name=NetDuino Conn_D4
+Added Pin To Net: NetName=NetDuino Conn_RX Pin=Duino Conn-RX
+Added Pin To Net: NetName=NetDuino Conn_RX Pin=pcDuino Digital (0 - 7)-1
+Added Net: Name=NetDuino Conn_RX
+Added Pin To Net: NetName=NetDuino Conn_TX Pin=Duino Conn-TX
+Added Pin To Net: NetName=NetDuino Conn_TX Pin=pcDuino Digital (0 - 7)-2
+Added Net: Name=NetDuino Conn_TX

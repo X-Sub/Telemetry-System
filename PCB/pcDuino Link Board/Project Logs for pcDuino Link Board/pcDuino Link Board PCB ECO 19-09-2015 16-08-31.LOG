@@ -1,0 +1,25 @@
+Removed Pin From Net: NetName=NetDuino Conn_A0 Pin=pcDuinoADC-1
+Removed Pin From Net: NetName=NetDuino Conn_A1 Pin=pcDuinoADC-2
+Removed Pin From Net: NetName=NetDuino Conn_A2 Pin=pcDuinoADC-3
+Removed Pin From Net: NetName=NetDuino Conn_A3 Pin=pcDuinoADC-4
+Removed Pin From Net: NetName=NetDuino Conn_A4 Pin=pcDuinoADC-5
+Removed Pin From Net: NetName=NetDuino Conn_A5 Pin=pcDuinoADC-6
+Removed Pin From Net: NetName=NetDuino Conn_A0 Pin=Shield_ADC-1
+Removed Pin From Net: NetName=NetDuino Conn_A1 Pin=Shield_ADC-2
+Removed Pin From Net: NetName=NetDuino Conn_A2 Pin=Shield_ADC-3
+Removed Pin From Net: NetName=NetDuino Conn_A3 Pin=Shield_ADC-4
+Removed Pin From Net: NetName=NetDuino Conn_A4 Pin=Shield_ADC-5
+Removed Pin From Net: NetName=NetDuino Conn_A5 Pin=Shield_ADC-6
+Added Pin To Net: NetName=NetDuino Conn_A5 Pin=pcDuinoADC-1
+Added Pin To Net: NetName=NetDuino Conn_A4 Pin=pcDuinoADC-2
+Added Pin To Net: NetName=NetDuino Conn_A3 Pin=pcDuinoADC-3
+Added Pin To Net: NetName=NetDuino Conn_A2 Pin=pcDuinoADC-4
+Added Pin To Net: NetName=NetDuino Conn_A1 Pin=pcDuinoADC-5
+Added Pin To Net: NetName=NetDuino Conn_A0 Pin=pcDuinoADC-6
+Added Pin To Net: NetName=NetDuino Conn_A5 Pin=Shield_ADC-1
+Added Pin To Net: NetName=NetDuino Conn_A4 Pin=Shield_ADC-2
+Added Pin To Net: NetName=NetDuino Conn_A3 Pin=Shield_ADC-3
+Added Pin To Net: NetName=NetDuino Conn_A2 Pin=Shield_ADC-4
+Added Pin To Net: NetName=NetDuino Conn_A1 Pin=Shield_ADC-5
+Added Pin To Net: NetName=NetDuino Conn_A0 Pin=Shield_ADC-6
+Added Room: Name=pcDuino Link Board

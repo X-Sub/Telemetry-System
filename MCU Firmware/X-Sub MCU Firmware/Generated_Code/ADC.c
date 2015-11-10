@@ -6,7 +6,7 @@
 **     Component   : ADC
 **     Version     : Component 01.697, Driver 01.30, CPU db: 3.00.078
 **     Compiler    : CodeWarrior ColdFireV1 C Compiler
-**     Date/Time   : 2015-07-22, 08:21, # CodeGen: 60
+**     Date/Time   : 2015-10-10, 10:46, # CodeGen: 61
 **     Abstract    :
 **         This device "ADC" implements an A/D converter,
 **         its control methods and interrupt/event handling procedure.
@@ -17,10 +17,22 @@
 **          Interrupt service/event                        : Enabled
 **            A/D interrupt                                : Vadc
 **            A/D interrupt priority                       : medium priority
-**          A/D channels                                   : 1
+**          A/D channels                                   : 5
 **            Channel0                                     : 
 **              A/D channel (pin)                          : PTF0_ADP10
-**              A/D channel (pin) signal                   : Pot
+**              A/D channel (pin) signal                   : Press_In
+**            Channel1                                     : 
+**              A/D channel (pin)                          : PTF1_ADP11
+**              A/D channel (pin) signal                   : AD1
+**            Channel2                                     : 
+**              A/D channel (pin)                          : PTF2_ADP12
+**              A/D channel (pin) signal                   : AD2
+**            Channel3                                     : 
+**              A/D channel (pin)                          : PTF3_ADP13
+**              A/D channel (pin) signal                   : AD3
+**            Channel4                                     : 
+**              A/D channel (pin)                          : PTF4_ADP14
+**              A/D channel (pin) signal                   : AD4
 **          A/D resolution                                 : 12 bits
 **          Conversion time                                : 3.078528 µs
 **          Low-power mode                                 : Disabled
@@ -98,18 +110,31 @@
 
 
 
+static void ClrSumV(void);
+/*
+** ===================================================================
+**     Method      :  ClrSumV (component ADC)
+**
+**     Description :
+**         The method clears the internal buffers used to store sum of a 
+**         number of last conversions.
+**         This method is internal. It is used by Processor Expert only.
+** ===================================================================
+*/
 #define STOP            0x00U          /* STOP state           */
 #define MEASURE         0x01U          /* MESURE state         */
 #define CONTINUOUS      0x02U          /* CONTINUOS state      */
 #define SINGLE          0x03U          /* SINGLE state         */
 
+static const  byte Table[5] = {0x01U,0x02U,0x04U,0x08U,0x10U};  /* Table of mask constants */
 
-static const  byte Channels = 0x4AU;   /* Content for the device control register */
+static const  byte Channels[5] = {0x4AU,0x4BU,0x4CU,0x4DU,0x4EU};  /* Contents for the device control register */
 
-static volatile bool OutFlg;           /* Measurement finish flag */
+static volatile byte OutFlg;           /* Measurement finish flag */
+static volatile byte SumChan;          /* Number of measured channels */
 static volatile byte ModeFlg;          /* Current state of device */
 
-volatile word ADC_OutV;                /* Sum of measured values */
+volatile word ADC_OutV[5];             /* Sum of measured values */
 
 
 
@@ -127,13 +152,51 @@ volatile word ADC_OutV;                /* Sum of measured values */
 */
 ISR(ADC_Interrupt)
 {
-  /*lint -save  -e926 -e927 -e928 -e929 Disable MISRA rule (11.4) checking. */
-  ((TWREG volatile*)(&ADC_OutV))->b.high = ADCRH; /* Save measured value */
-  ((TWREG volatile*)(&ADC_OutV))->b.low = ADCRL; /* Save measured value */
-  /*lint -restore Enable MISRA rule (11.4) checking. */
-  OutFlg = TRUE;                       /* Measured value is available */
-  ADC_OnEnd();                         /* Invoke user event */
-  ModeFlg = STOP;                      /* Set the device to the stop mode */
+  if (ModeFlg != SINGLE) {
+    /*lint -save  -e926 -e927 -e928 -e929 Disable MISRA rule (11.4) checking. */
+    ((TWREG volatile*)(&ADC_OutV[SumChan]))->b.high = ADCRH; /* Save measured value */
+    ((TWREG volatile*)(&ADC_OutV[SumChan]))->b.low = ADCRL; /* Save measured value */
+    /*lint -restore Enable MISRA rule (11.4) checking. */
+    SumChan++;                         /* Number of measurement */
+    if (SumChan == 5U) {               /* Is number of measurement equal to the number of conversions? */
+      SumChan = 0U;                    /* If yes then set the number of measurement to 0 */
+      OutFlg = 0x1FU;                  /* Measured values are available */
+      ADC_OnEnd();                     /* Invoke user event */
+      ModeFlg = STOP;                  /* Set the device to the stop mode */
+      return;                          /* Return from interrupt */
+    }
+    ADCSC1 = Channels[SumChan];        /* Start measurement of next channel */
+  }
+  else {
+    /*lint -save  -e926 -e927 -e928 -e929 Disable MISRA rule (11.4) checking. */
+    ((TWREG volatile*)(&ADC_OutV[SumChan]))->b.high = ADCRH; /* Save measured value */
+    ((TWREG volatile*)(&ADC_OutV[SumChan]))->b.low = ADCRL; /* Save measured value */
+    /*lint -restore Enable MISRA rule (11.4) checking. */
+    /*lint -save  -e740 -e931 Disable MISRA rule (1.2) checking. */
+    OutFlg |= Table[SumChan];          /* Value of measured channel is available */
+    /*lint -restore Enable MISRA rule (1.2) checking. */
+    ADC_OnEnd();                       /* Invoke user event */
+    ModeFlg = STOP;                    /* Set the device to the stop mode */
+  }
+}
+
+/*
+** ===================================================================
+**     Method      :  ClrSumV (component ADC)
+**
+**     Description :
+**         The method clears the internal buffers used to store sum of a 
+**         number of last conversions.
+**         This method is internal. It is used by Processor Expert only.
+** ===================================================================
+*/
+static void ClrSumV(void)
+{
+  ADC_OutV[0] = 0U;                    /* Set variable for storing measured values to 0 */
+  ADC_OutV[1] = 0U;                    /* Set variable for storing measured values to 0 */
+  ADC_OutV[2] = 0U;                    /* Set variable for storing measured values to 0 */
+  ADC_OutV[3] = 0U;                    /* Set variable for storing measured values to 0 */
+  ADC_OutV[4] = 0U;                    /* Set variable for storing measured values to 0 */
 }
 
 /*
@@ -150,8 +213,18 @@ ISR(ADC_Interrupt)
 void ADC_HWEnDi(void)
 {
   if (ModeFlg) {                       /* Start or stop measurement? */
-    OutFlg = FALSE;                    /* Output value isn't available */
-    ADCSC1 = Channels;                 /* If yes then start the conversion */
+    if (ModeFlg != SINGLE) {
+      OutFlg = 0U;                     /* Output values aren't available */
+      SumChan = 0U;                    /* Set the number of measured channels to 0 */
+      ClrSumV();                       /* Clear measured values */
+    }
+    else {
+      /*lint -save  -e740 -e931 Disable MISRA rule (1.2) checking. */
+      OutFlg &= (byte)(~(byte)Table[SumChan]); /* Output value isn't available */
+      /*lint -restore Enable MISRA rule (1.2) checking. */
+      ADC_OutV[SumChan] = 0U;          /* Set variable for storing measured values to 0 */
+    }
+    ADCSC1 = Channels[SumChan];        /* If yes then start the conversion */
   }
 }
 
@@ -232,12 +305,16 @@ byte ADC_Measure(bool WaitForResult)
 **                           ERR_RANGE - Parameter "Channel" out of range
 */
 /* ===================================================================*/
-byte PE_ADC_MeasureChan(bool WaitForResult)
+byte ADC_MeasureChan(bool WaitForResult,byte Channel)
 {
+  if (Channel >= 5U) {                 /* Is channel number greater than or equal to 5 */
+    return ERR_RANGE;                  /* If yes then error */
+  }
   if (ModeFlg != STOP) {               /* Is the device in different mode than "stop"? */
     return ERR_BUSY;                   /* If yes then error */
   }
   ModeFlg = SINGLE;                    /* Set state of device to the measure mode */
+  SumChan = Channel;                   /* Set required channel */
   ADC_HWEnDi();                        /* Enable the device */
   if (WaitForResult) {                 /* Is WaitForResult TRUE? */
     while (ModeFlg == SINGLE) {}       /* If yes then wait for end of measurement */
@@ -277,10 +354,14 @@ byte PE_ADC_MeasureChan(bool WaitForResult)
 /* ===================================================================*/
 byte ADC_GetValue(void *Values)
 {
-  if (OutFlg == 0U) {                  /* Is output flag set? */
+  if (OutFlg != 0x1FU) {               /* Is output flag set? */
     return ERR_NOTAVAIL;               /* If no then error */
   }
-  *(word*)Values = ADC_OutV;           /* Save measured values to the output buffer */
+  ((word*)Values)[0] = ADC_OutV[0];    /* Save measured values to the output buffer */
+  ((word*)Values)[1] = ADC_OutV[1];    /* Save measured values to the output buffer */
+  ((word*)Values)[2] = ADC_OutV[2];    /* Save measured values to the output buffer */
+  ((word*)Values)[3] = ADC_OutV[3];    /* Save measured values to the output buffer */
+  ((word*)Values)[4] = ADC_OutV[4];    /* Save measured values to the output buffer */
   return ERR_OK;                       /* OK */
 }
 
@@ -322,12 +403,13 @@ byte ADC_GetValue(void *Values)
 /* ===================================================================*/
 byte ADC_GetChanValue(byte Channel,void* Value)
 {
-  #pragma unused (Channel)
-
-  if (OutFlg == 0U) {                  /* Is output flag set? */
+  if (Channel >= 5U) {                 /* Is channel number greater than or equal to 5 */
+    return ERR_RANGE;                  /* If yes then error */
+  }
+  if ((OutFlg & Table[Channel]) == 0U) { /* Is output flag set? */
     return ERR_NOTAVAIL;               /* If no then error */
   }
-  *(word*)Value = ADC_OutV;            /* Save measured values to the output buffer */
+  *(word*)Value = ADC_OutV[Channel];   /* Save measured values to the output buffer */
   return ERR_OK;                       /* OK */
 }
 
@@ -361,10 +443,14 @@ byte ADC_GetChanValue(byte Channel,void* Value)
 /* ===================================================================*/
 byte ADC_GetValue8(byte *Values)
 {
-  if (OutFlg == 0U) {                  /* Is output flag set? */
+  if (OutFlg != 0x1FU) {               /* Is output flag set? */
     return ERR_NOTAVAIL;               /* If no then error */
   }
-  *Values = (byte)(ADC_OutV >> 4);     /* Save measured values to the output buffer */
+  Values[0] = (byte)(ADC_OutV[0] >> 4); /* Save measured values to the output buffer */
+  Values[1] = (byte)(ADC_OutV[1] >> 4); /* Save measured values to the output buffer */
+  Values[2] = (byte)(ADC_OutV[2] >> 4); /* Save measured values to the output buffer */
+  Values[3] = (byte)(ADC_OutV[3] >> 4); /* Save measured values to the output buffer */
+  Values[4] = (byte)(ADC_OutV[4] >> 4); /* Save measured values to the output buffer */
   return ERR_OK;                       /* OK */
 }
 
@@ -398,10 +484,14 @@ byte ADC_GetValue8(byte *Values)
 /* ===================================================================*/
 byte ADC_GetValue16(word *Values)
 {
-  if (OutFlg == 0U) {                  /* Is output flag set? */
+  if (OutFlg != 0x1FU) {               /* Is output flag set? */
     return ERR_NOTAVAIL;               /* If no then error */
   }
-  *Values = (word)((ADC_OutV) << 4);   /* Save measured values to the output buffer */
+  Values[0] = (word)((ADC_OutV[0]) << 4); /* Save measured values to the output buffer */
+  Values[1] = (word)((ADC_OutV[1]) << 4); /* Save measured values to the output buffer */
+  Values[2] = (word)((ADC_OutV[2]) << 4); /* Save measured values to the output buffer */
+  Values[3] = (word)((ADC_OutV[3]) << 4); /* Save measured values to the output buffer */
+  Values[4] = (word)((ADC_OutV[4]) << 4); /* Save measured values to the output buffer */
   return ERR_OK;                       /* OK */
 }
 
@@ -441,12 +531,13 @@ byte ADC_GetValue16(word *Values)
 /* ===================================================================*/
 byte ADC_GetChanValue16(byte Channel,word *Value)
 {
-  #pragma unused (Channel)
-
-  if (OutFlg == 0U) {                  /* Is output flag set? */
+  if (Channel >= 5U) {                 /* Is channel number greater than or equal to 5 */
+    return ERR_RANGE;                  /* If yes then error */
+  }
+  if ((OutFlg & Table[Channel]) == 0U) { /* Is output flag set? */
     return ERR_NOTAVAIL;               /* If no then error */
   }
-  *Value = (word)((ADC_OutV) << 4);    /* Save measured values to the output buffer */
+  *Value = (word)((ADC_OutV[Channel]) << 4); /* Save measured values to the output buffer */
   return ERR_OK;                       /* OK */
 }
 
@@ -467,7 +558,7 @@ void ADC_Init(void)
   setReg8(ADCSC1, 0x1FU);              /* Disable the module */ 
   /* ADCSC2: ADACT=0,ADTRG=0,ACFE=0,ACFGT=0,??=0,??=0,??=0,??=0 */
   setReg8(ADCSC2, 0x00U);              /* Disable HW trigger and autocompare */ 
-  OutFlg = FALSE;                      /* No measured value */
+  OutFlg = 0U;                         /* No measured value */
   ModeFlg = STOP;                      /* Device isn't running */
   /* ADCCFG: ADLPC=0,ADIV1=0,ADIV0=1,ADLSMP=0,MODE1=0,MODE0=1,ADICLK1=0,ADICLK0=0 */
   setReg8(ADCCFG, 0x24U);              /* Set prescaler bits */ 

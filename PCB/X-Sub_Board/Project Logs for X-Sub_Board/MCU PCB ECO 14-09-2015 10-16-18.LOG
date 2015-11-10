@@ -1,0 +1,49 @@
+Removed Pin From Net: NetName=SCL Pin=I2C_P_EN_SCL-2
+Removed Pin From Net: NetName=SDA Pin=I2C_P_EN_SDA-2
+Removed Pin From Net: NetName=GND Pin=LED_+3.3V-2
+Removed Pin From Net: NetName=GND Pin=LED_+5V-2
+Removed Pin From Net: NetName=GND Pin=LED_sCom_In-2
+Removed Pin From Net: NetName=+3.3V Pin=R_3.3V-2
+Removed Pin From Net: NetName=+5V Pin=R_5V-2
+Removed Pin From Net: NetName=BKGD Pin=R_BDM1-1
+Removed Pin From Net: NetName=+3.3V Pin=R_BDM1-2
+Removed Pin From Net: NetName=+3.3V Pin=R_BDM2-1
+Removed Pin From Net: NetName=RESET Pin=R_BDM2-2
+Removed Pin From Net: NetName=SCOM_IN Pin=R_sCom_In-2
+Removed Pin From Net: NetName=RXSERIALCOM Pin=toPC-1
+Removed Pin From Net: NetName=RXSERIALCOM Pin=toPC-1
+Removed Pin From Net: NetName=RXSERIALCOM Pin=toPC-1
+Removed Pin From Net: NetName=TXSERIALCOM Pin=toPC-2
+Removed Pin From Net: NetName=SDA Pin=toPC-3
+Removed Pin From Net: NetName=+5V Pin=toPC-4
+Removed Pin From Net: NetName=+5V Pin=toPC-5
+Removed Pin From Net: NetName=SCL Pin=toPC-6
+Removed Pin From Net: NetName=GND Pin=toPC-7
+Removed Pin From Net: NetName=GND Pin=toPC-8
+Removed Member From Class: ClassName=MCU Member=I2C_P_EN_SCL
+Removed Member From Class: ClassName=MCU Member=I2C_P_EN_SDA
+Removed Member From Class: ClassName=MCU Member=LED_+3.3V
+Removed Member From Class: ClassName=MCU Member=LED_+5V
+Removed Member From Class: ClassName=MCU Member=LED_sCom_In
+Removed Member From Class: ClassName=MCU Member=R_3.3V
+Removed Member From Class: ClassName=MCU Member=R_5V
+Removed Member From Class: ClassName=MCU Member=R_BDM1
+Removed Member From Class: ClassName=MCU Member=R_BDM2
+Removed Member From Class: ClassName=MCU Member=R_sCom_In
+Removed Member From Class: ClassName=MCU Member=toPC
+Added Component: Designator=Exp_In(HDR1X6)
+Added Pin To Net: NetName=RXSERIALCOM Pin=Exp_In-1
+Added Pin To Net: NetName=TXSERIALCOM Pin=Exp_In-2
+Added Pin To Net: NetName=SDA Pin=Exp_In-3
+Added Pin To Net: NetName=SCL Pin=Exp_In-4
+Added Pin To Net: NetName=+3.3V Pin=Exp_In-5
+Added Pin To Net: NetName=GND Pin=Exp_In-6
+Added Pin To Net: NetName=SDA Pin=R_I2C_1-1
+Added Pin To Net: NetName=SCL Pin=R_I2C_2-1
+Added Member To Class: ClassName=MCU Member=Component Exp_In Header 6
+Added Room: Name=ADC_PRES
+Added Room: Name=Expansion Board
+Added Room: Name=Fuente
+Added Room: Name=MCU
+Added Room: Name=Presencia_Agua
+Added Room: Name=PWM_OUTS

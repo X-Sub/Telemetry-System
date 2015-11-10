@@ -1,0 +1,7 @@
+Added Pin To Net: NetName=NetDuino Conn_IOREF Pin=Duino Conn-IOREF
+Added Pin To Net: NetName=NetDuino Conn_IOREF Pin=pcDuino Power-8
+Added Net: Name=NetDuino Conn_IOREF
+Added Pin To Net: NetName=NetDuino Conn_RES Pin=Duino Conn-RES
+Added Pin To Net: NetName=NetDuino Conn_RES Pin=pcDuino Power-7
+Added Net: Name=NetDuino Conn_RES
+Added Room: Name=pcDuino Link Board

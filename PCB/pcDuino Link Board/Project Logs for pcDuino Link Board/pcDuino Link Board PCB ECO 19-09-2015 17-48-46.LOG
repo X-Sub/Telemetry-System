@@ -1,0 +1,13 @@
+Added Component: Designator=GPIO1(HDR2X3)
+Added Component: Designator=GPIO2(HDR2X2)
+Added Component: Designator=ICSP(HDR2X3)
+Added Component: Designator=Serial1(HDR1X3)
+Added Pin To Net: NetName=NetDuino Conn_GND@0 Pin=Serial1-2
+Change Net Name : Old Net Name=NetDuino Conn_3.3V New Net Name=+3.3V
+Change Net Name : Old Net Name=NetDuino Conn_5V New Net Name=+5V
+Change Net Name : Old Net Name=NetDuino Conn_GND@0 New Net Name=GND
+Added Member To Class: ClassName=pcDuino Link Board Member=Component GPIO1 Header 3X2
+Added Member To Class: ClassName=pcDuino Link Board Member=Component GPIO2 Header 2X2
+Added Member To Class: ClassName=pcDuino Link Board Member=Component ICSP Header 3X2
+Added Member To Class: ClassName=pcDuino Link Board Member=Component Serial1 Header 3
+Added Room: Name=pcDuino Link Board

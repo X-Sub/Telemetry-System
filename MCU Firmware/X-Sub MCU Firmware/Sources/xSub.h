@@ -32,8 +32,10 @@ typedef struct{
 /*
  * Variables Globales
  */
+extern byte  SIZEPACKAGE;
 
-extern byte data[14];
+
+extern byte data[27];
 extern byte data2[2];
 /*STATUS*/
 extern bool led0x00; //0x00 sMCU_OK Led
@@ -60,7 +62,7 @@ extern byte HMC6352;
 
 
 /*Variables*/
-extern byte  SIZEPACKAGE;
+
 
 extern vFisica8  STATUS;
 extern vFisica16 tempExterna;
@@ -90,7 +92,7 @@ extern vFisica8  finTrama;
 //Se encarga de inicializar el xSub
 void initMxSub(byte tipo);
 void initVFisicas();//Genera la numeración de la posición
-void vFisicas2Array(byte paquete[]);
+void vFisicas2Array();
 
 
 //MOTORES***************
@@ -150,7 +152,14 @@ void servoTilt1024(word In);//Resolución de 0 - 1023 (0 - 0x1023)
 
  byte writeRegisterI2C(byte reg, byte data);//manera sencilla de editar un registro
 
+/*Tranmisión de Data*/
 
+ 
+ 
+
+//Inicialización MCU
+byte initxSub();
+ 
 void initMPU();//Inicializa la IMU
 
 //Obtener data de la IMU. data debe ser de tamaño 14
@@ -160,6 +169,11 @@ void initHMC6352();//Inicializa la IMU
 
 //Obtener data del magnetometro. data debe ser de tamaño 2
 void dataHMC6352(byte dataIn[]);
+
+//Envio de data a PC
+void dataTrans(byte dataOut[], byte tam);
+//envio de paquetes
+void envioData();
 
 
 #endif /* XSUB_H_ */

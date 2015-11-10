@@ -1,0 +1,10 @@
+Removed Pin From Net: NetName=+3.3V Pin=POWER_IN-1
+Removed Pin From Net: NetName=GND Pin=POWER_IN-2
+Removed Pin From Net: NetName=+5V Pin=POWER_IN-3
+Removed Member From Class: ClassName=Fuente Member=POWER_IN
+Added Room: Name=ADC_PRES
+Added Room: Name=Expansion Board
+Added Room: Name=Fuente
+Added Room: Name=MCU
+Added Room: Name=Presencia_Agua
+Added Room: Name=PWM_OUTS

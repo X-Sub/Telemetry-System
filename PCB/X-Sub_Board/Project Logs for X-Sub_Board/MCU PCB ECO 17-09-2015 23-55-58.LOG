@@ -1,0 +1,13 @@
+Removed Pin From Net: NetName=GND Pin=Jumper_V_Ser-2
+Removed Pin From Net: NetName=+V_SERVO Pin=Servo_Out-5
+Removed Pin From Net: NetName=+V_SERVO Pin=Servo_Out-6
+Added Pin To Net: NetName=+V_SERVO_IN Pin=Jumper_V_Ser-2
+Added Pin To Net: NetName=+V_SERVO_IN Pin=Servo_Out-5
+Added Pin To Net: NetName=+V_SERVO_IN Pin=Servo_Out-6
+Added Net: Name=+V_SERVO_IN
+Added Room: Name=ADC_PRES
+Added Room: Name=Expansion Board
+Added Room: Name=Fuente
+Added Room: Name=MCU
+Added Room: Name=Presencia_Agua
+Added Room: Name=PWM_OUTS

@@ -1,0 +1,6 @@
+Removed Pin From Net: NetName=GND Pin=Batt-1
+Removed Member From Class: ClassName=MCU Member=Batt
+Added Component: Designator=Batt_Measure(5.08mm 200 mil Screw Terminal SF)
+Added Pin To Net: NetName=GND Pin=Batt_Measure-1
+Added Member To Class: ClassName=MCU Member=Component Batt_Measure Header Batt
+Added Member To Class: ClassName=MCU Member=Component D1 Diode 1N4148

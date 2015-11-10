@@ -6,7 +6,7 @@
 **     Component   : ADC
 **     Version     : Component 01.697, Driver 01.30, CPU db: 3.00.078
 **     Compiler    : CodeWarrior ColdFireV1 C Compiler
-**     Date/Time   : 2015-07-22, 08:21, # CodeGen: 60
+**     Date/Time   : 2015-10-10, 10:46, # CodeGen: 61
 **     Abstract    :
 **         This device "ADC" implements an A/D converter,
 **         its control methods and interrupt/event handling procedure.
@@ -17,10 +17,22 @@
 **          Interrupt service/event                        : Enabled
 **            A/D interrupt                                : Vadc
 **            A/D interrupt priority                       : medium priority
-**          A/D channels                                   : 1
+**          A/D channels                                   : 5
 **            Channel0                                     : 
 **              A/D channel (pin)                          : PTF0_ADP10
-**              A/D channel (pin) signal                   : Pot
+**              A/D channel (pin) signal                   : Press_In
+**            Channel1                                     : 
+**              A/D channel (pin)                          : PTF1_ADP11
+**              A/D channel (pin) signal                   : AD1
+**            Channel2                                     : 
+**              A/D channel (pin)                          : PTF2_ADP12
+**              A/D channel (pin) signal                   : AD2
+**            Channel3                                     : 
+**              A/D channel (pin)                          : PTF3_ADP13
+**              A/D channel (pin) signal                   : AD3
+**            Channel4                                     : 
+**              A/D channel (pin)                          : PTF4_ADP14
+**              A/D channel (pin) signal                   : AD4
 **          A/D resolution                                 : 12 bits
 **          Conversion time                                : 3.078528 µs
 **          Low-power mode                                 : Disabled
@@ -107,7 +119,11 @@
 
 
 /* Constants for channel selection */
-#define ADC_CHANNEL_Pot                 0
+#define ADC_CHANNEL_Press_In            0
+#define ADC_CHANNEL_AD1                 1
+#define ADC_CHANNEL_AD2                 2
+#define ADC_CHANNEL_AD3                 3
+#define ADC_CHANNEL_AD4                 4
 
 __interrupt void ADC_Interrupt(void);
 /*
@@ -170,8 +186,7 @@ byte ADC_Measure(bool WaitForResult);
 */
 /* ===================================================================*/
 
-#define ADC_MeasureChan(W,Ch) PE_ADC_MeasureChan(W)
-byte PE_ADC_MeasureChan(bool WaitForResult);
+byte ADC_MeasureChan(bool WaitForResult,byte Channel);
 /*
 ** ===================================================================
 **     Method      :  ADC_MeasureChan (component ADC)

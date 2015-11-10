@@ -1,0 +1,20 @@
+Added Component: Designator=BatR1(6-0805_L)
+Added Component: Designator=BatR2(6-0805_L)
+Added Component: Designator=D1(DO-35)
+Added Pin To Net: NetName=GND Pin=BatR2-1
+Added Pin To Net: NetName=GND Pin=D1-1
+Added Pin To Net: NetName=AD5_BAT Pin=BatR1-2
+Added Pin To Net: NetName=AD5_BAT Pin=MCU-29
+Added Net: Name=AD5_BAT
+Added Pin To Net: NetName=NetBatR1_1 Pin=BatR1-1
+Added Pin To Net: NetName=NetBatR1_1 Pin=BatR2-2
+Added Pin To Net: NetName=NetBatR1_1 Pin=D1-2
+Added Net: Name=NetBatR1_1
+Added Member To Class: ClassName=MCU Member=Component BatR1 Res
+Added Member To Class: ClassName=MCU Member=Component BatR2 Res
+Added Room: Name=ADC_PRES
+Added Room: Name=Expansion Board
+Added Room: Name=Fuente
+Added Room: Name=MCU
+Added Room: Name=Presencia_Agua
+Added Room: Name=PWM_OUTS

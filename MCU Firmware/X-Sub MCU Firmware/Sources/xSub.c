@@ -20,7 +20,7 @@
 
 /*Mis includes*/
 #include "xSub.h"
-
+#include "OneWire.h"
 
 
 
@@ -321,6 +321,127 @@ void dataHMC6352(byte dataIn[])
 	while(I2C_RecvBlock(dataIn,2,&Sent) != ERR_OK);
 }
 
+//Envio de data a PC
+void dataTrans(byte dataOut[], byte tam)
+{
+	byte i = 0;
+	for(i = 0;i<tam;i++){
+		(void)SerialCom_SendChar(dataOut[i]);
+	}
+}
 
+//envio de toda la data
+void envioData()
+{
+	//dataTrans(data,SIZEPACKAGE);
+	word error;
+	(void)SerialCom_SendBlock(data,SIZEPACKAGE,&error);
+}
+
+void initVFisicas(){
+	//Genera la numeración de la posición
+	STATUS.pos = 0;
+	tempExterna.HIGH.pos = 1;
+	tempExterna.LOW.pos = 2;
+	tempInterna.HIGH.pos = 3;
+	tempInterna.LOW.pos = 4;
+	presExterna.HIGH.pos = 5;
+	presExterna.LOW.pos = 6;
+	aceleracionX.HIGH.pos = 7;
+	aceleracionX.LOW.pos = 8;
+	aceleracionY.HIGH.pos = 9;
+	aceleracionY.LOW.pos = 10;
+	aceleracionZ.HIGH.pos = 11;
+	aceleracionZ.LOW.pos = 12;
+	velAngularX.HIGH.pos = 13;
+	velAngularX.LOW.pos = 14;
+	velAngularY.HIGH.pos = 15;
+	velAngularY.LOW.pos = 16;
+	velAngularZ.HIGH.pos = 17;
+	velAngularZ.LOW.pos = 18;
+	velLineal.HIGH.pos = 19;
+	velLineal.LOW.pos = 20;
+	angBrujula.HIGH.pos = 21;
+	angBrujula.LOW.pos = 22;
+	presenciaAgua.pos = 23;
+	cargaBaterias.pos = 24;
+	XOR.pos = 25;
+	finTrama.pos = 26;
+}
+
+void vFisicas2Array(){
+	
+	data[0] = STATUS.data;
+	data[1] = tempExterna.HIGH.data;
+	data[2] = tempExterna.LOW.data;
+	data[3] = tempInterna.HIGH.data;
+	data[4] = tempInterna.LOW.data;
+	data[5] = presExterna.HIGH.data;
+	data[6] = presExterna.LOW.data;
+	data[7] = aceleracionX.HIGH.data;
+	data[8] = aceleracionX.LOW.data;
+	data[9] = aceleracionY.HIGH.data;
+	data[10] = aceleracionY.LOW.data;
+	data[11] = aceleracionZ.HIGH.data;
+	data[12] = aceleracionZ.LOW.data;
+	data[13] = velAngularX.HIGH.data;
+	data[14] = velAngularX.LOW.data;
+	data[15] = velAngularY.HIGH.data;
+	data[16] = velAngularY.LOW.data;
+	data[17] = velAngularZ.HIGH.data;
+	data[18] = velAngularZ.LOW.data;
+	data[19] = velLineal.HIGH.data;
+	data[20] = velLineal.LOW.data;
+	data[21] = angBrujula.HIGH.data;
+	data[22] = angBrujula.LOW.data;
+	data[23] = presenciaAgua.data;
+	data[24] = cargaBaterias.data;
+	data[25] = XOR.data;
+	data[26] = finTrama.data;
+}
+
+//Inicialización MCU
+
+byte initxSub(){
+	STATUS.data  = 0xA0;
+	tempExterna.HIGH.data = 0x00;
+	tempExterna.LOW.data = 0x00;
+	tempInterna.HIGH.data = 0x00;
+	tempInterna.LOW.data = 0x00;
+	presExterna.HIGH.data = 0x00;
+	presExterna.LOW.data = 0x00;
+	aceleracionX.HIGH.data = 0x00;
+	aceleracionX.LOW.data = 0x00;
+	aceleracionY.HIGH.data = 0x00;
+	aceleracionY.LOW.data = 0x00;
+	aceleracionZ.HIGH.data = 0x00;
+	aceleracionZ.LOW.data = 0x00;
+	velAngularX.HIGH.data = 0x00;
+	velAngularX.LOW.data = 0x00;
+	velAngularY.HIGH.data = 0x00;
+	velAngularY.LOW.data = 0x00;
+	velAngularZ.HIGH.data = 0x00;
+	velAngularZ.LOW.data = 0x00;
+	velLineal.HIGH.data = 0x00;
+	velLineal.LOW.data = 0x00;
+	angBrujula.HIGH.data = 0x00;
+	angBrujula.LOW.data = 0x00;
+	presenciaAgua.data = 0x00;
+	cargaBaterias.data = 0x00;
+	XOR.data = 0x00;
+	finTrama.data = 0xFF;
+	
+	initVFisicas();
+	vFisicas2Array();
+	
+	//Dispositivos
+	//initMPU();
+	//initHMC6352();
+	//initMxSub(1);
+	
+	return 0xFF;
+	
+	
+}
 
 

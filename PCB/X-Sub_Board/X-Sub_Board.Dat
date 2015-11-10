@@ -1,0 +1,24 @@
+Field=Comment~String~Comment~100|Field=Description~String~Description~100|Field=Designator~String~Designator~100|Field=Footprint~String~Footprint~100|Field=LibRef~String~LibRef~100|Field=Quantity~Integer~Quantity~100|ReportField=Currency~<none>|ReportField=ProductionQuantity~1|ReportField=ProjectFileName~X-Sub_Board.PrjPcb|ReportField=ProjectFullPath~C:\Users\ddtdanilo\Dropbox\Tesis\X-Sub\PCB\X-Sub_Board\X-Sub_Board.PrjPcb|ReportField=Title~Bill of Materials For Project [X-Sub_Board.PrjPcb] (No PCB Document Selected)|ReportField=TotalQuantity~39|ReportField=ReportTime~9:53:38|ReportField=ReportDate~02/11/2015|ReportField=ReportDateTime~02/11/2015 9:53:38|ReportField=OutputName~Bill of Materials|ReportField=OutputType~BOM_PartType|ReportField=GeneratorName~BOM|ReportField=GeneratorDescription~Bill of Materials|ReportField=VariantName~None|ReportField=Address1~|ReportField=Address2~|ReportField=Address3~|ReportField=Address4~|ReportField=Application_BuildNumber~|ReportField=ApprovedBy~|ReportField=Author~|ReportField=CheckedBy~|ReportField=CompanyName~|ReportField=CurrentDate~|ReportField=CurrentTime~|ReportField=Date~|ReportField=DocumentFullPathAndName~|ReportField=DocumentName~|ReportField=DocumentNumber~|ReportField=DrawnBy~|ReportField=Engineer~|ReportField=ImagePath~|ReportField=ModifiedDate~|ReportField=Organization~|ReportField=PageSetup~Record=PageOptions:CenterHorizontal=True:CenterVertical=True:PrintScale=0.98:XCorrection=1.00:YCorrection=1.00:PrintKind=1:BorderSize=5000000:LeftOffset=0:BottomOffset=0:Orientation=2:PaperLength=1000:PaperWidth=1000:Scale=100:PaperSource=7:PrintQuality=-3:MediaType=1:DitherType=10:PrintScaleMode=1:PaperKind=Carta:PaperIndex=1|ReportField=ProjectName~|ReportField=Revision~|ReportField=Rule~|ReportField=SheetNumber~|ReportField=SheetTotal~|ReportField=Time~|ReportField=Title~|ReportField=DataSourceFileName~X-Sub_Board.PrjPcb|ReportField=DataSourceFullPath~C:\Users\ddtdanilo\Dropbox\Tesis\X-Sub\PCB\X-Sub_Board\X-Sub_Board.PrjPcb
+Res|Resistor|BatR1, BatR2, R_OW, R_sMCU_OK, S1, S2, sPC_OK|6-0805_L|Res3|7
+HMC6352||COMPASS|HMC6352_SF|HMC6352|1
+Cap Pol1|Polarized Capacitor (Radial)|C_3.3V, C_5_Press, C_5V, MCU_C|CAPR5-4X5|Cap Pol1|4
+Cap|Capacitor|C_Press|J1-0603|Cap|1
+Diode 1N4148|High Conductance Fast Diode|D1|DO-35|Diode 1N4148|1
+Diode Zenner 3.3V|High Conductance Fast Diode|D1|DO-35|Diode 1N4148|1
+||Duino Conn|UNO_R3_SHIELD_NOLABELS|ARDUINO_R3_SHIELDNOLABELS|1
+MPU-6050 Board GY-521||GY-521|GY-521|GY-521|1
+Header 3X2|Header, 3-Pin, Dual row|JBDM|HDR2X3|Header 3X2|1
+Header 3|Header, 3-Pin|Jumper_V_Ser|HDR1X3|Header 3|1
+Header 1|Header, 2-Pin|LED_L1|HDR1X2|Header 2|1
+Header 2|Header, 2-Pin|LED_L2, V_Servo_In|HDR1X2|Header 2|2
+LED|Typical RED, GREEN, YELLOW, AMBER GaAs LED|LED_sMCU_OK, LED_sPC_OK|6-0805_L|LED2|2
+MCF51QE128CLH|MCF51QE128 ColdFire V1 Microcontroller, 32-Bit, 128KB Flash, 8KB RAM, -40°C to 85°C, 64-Pin LQFP|MCU|840F-02_N|MCF51QE128CLH|1
+||Motor_Out, Servo_Out|RJ45-8|RJ45-8PTH|2
+||OneWire_Temp|HDR1X3|M03-SCREW-5MM|1
+OPA345NA/250|Low Power, Single-Supply, Rail-to-Rail Operational Amplifier MicroAmplifier(TM) Series, 2.7 to 5.5 V, -55 to 125 degC, 5-pin SOT23 (DBV5), Green (RoHS & no Sb/Br)|OPAMP_1|TI-DBV5_N|OPA345NA/250|1
+Jumper_STANDAR||Pres_Agua1, Pres_Agua2|HDR1X2H|Jumper_STANDAR|2
+PNP|PNP Bipolar Transistor|Q1, Q2|SOT-23B_L|PNP|2
+Res3|Resistor|R_I2C_1, R_I2C_2|6-0805_L|Res3|2
+Res3|Resistor|R_P1, R_P2|J1-0603|Res3|2
+MPX5700AP||Sensor_Pres|HDR1X6H|MPX5700AP|1
+Header 4|Header, 4-Pin|UART|HDR1X4|Header 4|1

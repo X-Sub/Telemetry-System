@@ -6,7 +6,7 @@
 **     Component   : AsynchroSerial
 **     Version     : Component 02.611, Driver 01.33, CPU db: 3.00.078
 **     Compiler    : CodeWarrior ColdFireV1 C Compiler
-**     Date/Time   : 2015-07-17, 22:39, # CodeGen: 54
+**     Date/Time   : 2015-10-12, 17:29, # CodeGen: 70
 **     Abstract    :
 **         This component "AsynchroSerial" implements an asynchronous serial
 **         communication. The component supports different settings of
@@ -23,8 +23,8 @@
 **             Stop bits               : 1
 **             Parity                  : none
 **             Breaks                  : Disabled
-**             Input buffer size       : 2
-**             Output buffer size      : 14
+**             Input buffer size       : 5
+**             Output buffer size      : 27
 **
 **         Registers
 **             Input buffer            : SCI1D     [0xFFFF8027]
@@ -243,7 +243,9 @@ byte SerialCom_RecvChar(SerialCom_TComData *Chr)
     EnterCritical();                   /* Save the PS register */
     SerialCom_InpLen--;                /* Decrease number of received chars */
     *Chr = InpBuffer[InpIndxR];        /* Received char */
-    InpIndxR = (byte)((InpIndxR + 1U) & (SerialCom_INP_BUF_SIZE - 1U)); /* Update index */
+    if (++InpIndxR >= SerialCom_INP_BUF_SIZE) { /* Is the index out of the buffer? */
+      InpIndxR = 0U;                   /* Set the index to the start of the buffer */
+    }
     Result = (byte)((SerFlag & (OVERRUN_ERR|COMMON_ERR|FULL_RX)) ? ERR_COMMON : ERR_OK);
     SerFlag &= (byte)(~(byte)(OVERRUN_ERR|COMMON_ERR|FULL_RX|CHAR_IN_RX)); /* Clear all errors in the status variable */
     ExitCritical();                    /* Restore the PS register */
@@ -520,7 +522,9 @@ ISR(SerialCom_InterruptRx)
   if (SerialCom_InpLen < SerialCom_INP_BUF_SIZE) { /* Is number of bytes in the receive buffer lower than size of buffer? */
     SerialCom_InpLen++;                /* Increse number of chars in the receive buffer */
     InpBuffer[InpIndxW] = Data;        /* Save received char to the receive buffer */
-    InpIndxW = (byte)((InpIndxW + 1U) & (SerialCom_INP_BUF_SIZE - 1U)); /* Update index */
+    if (++InpIndxW >= SerialCom_INP_BUF_SIZE) { /* Is the index out of the buffer? */
+      InpIndxW = 0U;                   /* Set the index to the start of the buffer */
+    }
     OnFlags |= ON_RX_CHAR;             /* Set flag "OnRXChar" */
     if (SerialCom_InpLen== SerialCom_INP_BUF_SIZE) { /* Is number of bytes in the receive buffer equal as a size of buffer? */
       OnFlags |= ON_FULL_RX;           /* If yes then set flag "OnFullRxBuff" */

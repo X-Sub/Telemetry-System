@@ -1,0 +1,6 @@
+Removed Pin From Net: NetName=NetDuino Conn_GND@0 Pin=pcDuino Power-1
+Added Pin To Net: NetName=NetDuino Conn_GND@0 Pin=Duino Conn-GND@1
+Added Pin To Net: NetName=NetDuino Conn_GND@0 Pin=Duino Conn-GND@2
+Added Pin To Net: NetName=NetDuino Conn_5V Pin=Duino Conn-5V
+Added Pin To Net: NetName=NetDuino Conn_5V Pin=pcDuino Power-5
+Added Net: Name=NetDuino Conn_5V

@@ -1,0 +1,20 @@
+Removed Pin From Net: NetName=GND Pin=LED_sMCU_OK-2
+Removed Pin From Net: NetName=GND Pin=LED_sPC_OK-2
+Removed Pin From Net: NetName=SMCU_OK Pin=R_sMCU_OK-2
+Removed Pin From Net: NetName=SPC_OK Pin=sPC_OK-2
+Added Pin To Net: NetName=SMCU_OK Pin=LED_sMCU_OK-1
+Added Pin To Net: NetName=SPC_OK Pin=LED_sPC_OK-1
+Added Pin To Net: NetName=GND Pin=R_sMCU_OK-1
+Added Pin To Net: NetName=GND Pin=sPC_OK-1
+Added Pin To Net: NetName=NetLED_sMCU_OK_2 Pin=LED_sMCU_OK-2
+Added Pin To Net: NetName=NetLED_sMCU_OK_2 Pin=R_sMCU_OK-2
+Added Net: Name=NetLED_sMCU_OK_2
+Added Pin To Net: NetName=NetLED_sPC_OK_2 Pin=LED_sPC_OK-2
+Added Pin To Net: NetName=NetLED_sPC_OK_2 Pin=sPC_OK-2
+Added Net: Name=NetLED_sPC_OK_2
+Added Room: Name=ADC_PRES
+Added Room: Name=Expansion Board
+Added Room: Name=Fuente
+Added Room: Name=MCU
+Added Room: Name=Presencia_Agua
+Added Room: Name=PWM_OUTS

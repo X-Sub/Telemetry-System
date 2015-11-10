@@ -1,0 +1,29 @@
+Added Component: Designator=PS(Fuente_Switching)
+Added Component: Designator=Shield_ADC(HDR1X6)
+Added Component: Designator=Shield Power(HDR1X8)
+Added Pin To Net: NetName=GND Pin=PS-2
+Added Pin To Net: NetName=+3.3V Pin=PS-3
+Added Pin To Net: NetName=GND Pin=PS-4
+Added Pin To Net: NetName=+5V Pin=PS-5
+Added Pin To Net: NetName=GND Pin=PS-6
+Added Pin To Net: NetName=NetDuino Conn_A5 Pin=Shield_ADC-1
+Added Pin To Net: NetName=NetDuino Conn_A4 Pin=Shield_ADC-2
+Added Pin To Net: NetName=NetDuino Conn_A3 Pin=Shield_ADC-3
+Added Pin To Net: NetName=NetDuino Conn_A2 Pin=Shield_ADC-4
+Added Pin To Net: NetName=NetDuino Conn_A1 Pin=Shield_ADC-5
+Added Pin To Net: NetName=NetDuino Conn_A0 Pin=Shield_ADC-6
+Added Pin To Net: NetName=NetDuino Conn_VIN Pin=Shield Power-1
+Added Pin To Net: NetName=GND Pin=Shield Power-2
+Added Pin To Net: NetName=GND Pin=Shield Power-3
+Added Pin To Net: NetName=+5V Pin=Shield Power-4
+Added Pin To Net: NetName=+3.3V Pin=Shield Power-5
+Added Pin To Net: NetName=NetDuino Conn_RES Pin=Shield Power-6
+Added Pin To Net: NetName=NetDuino Conn_IOREF Pin=Shield Power-7
+Added Pin To Net: NetName=NetpcDuino Power_8 Pin=Shield Power-8
+Added Pin To Net: NetName=+12V Pin=PS-1
+Added Net: Name=+12V
+Added Class: Name=Power_In
+Added Member To Class: ClassName=pcDuino Link Board Member=Component Shield_ADC Header 6
+Added Member To Class: ClassName=pcDuino Link Board Member=Component Shield Power Header 8
+Added Room: Name=pcDuino Link Board
+Added Room: Name=Power_In
