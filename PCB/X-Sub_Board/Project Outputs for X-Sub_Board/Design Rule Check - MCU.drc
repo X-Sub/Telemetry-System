@@ -1,246 +1,315 @@
 Protel Design System Design Rule Check
-PCB File : C:\Users\ddtdanilo\Dropbox\X-Sub\X-Sub\PCB\X-Sub_Board\X-Sub_Board\MCU.PcbDoc
-Date     : 29/08/2015
-Time     : 12:16:01
+PCB File : C:\Users\ddtdanilo\Dropbox\Tesis\X-Sub\PCB\X-Sub_Board\MCU.PcbDoc
+Date     : 11/11/2015
+Time     : 14:42:10
 
-Processing Rule : Short-Circuit Constraint (Allowed=No) (All),(All)
-Rule Violations :0
+WARNING: Zero hole size multi-layer pad(s) detected
+   Pad D1-2(2913mil,2501mil)  Multi-Layer on Net TXSERIALCOM2
+   Pad D1-1(2913mil,2356mil)  Multi-Layer on Net RXSERIALCOM2
+   Pad D2-2(4593mil,1939mil)  Multi-Layer on Net AD5_BAT
+   Pad D2-1(4593mil,1794mil)  Multi-Layer on Net GND
 
-Processing Rule : Un-Routed Net Constraint ( (All) )
-   Violation between Un-Routed Net Constraint: Net TXSERIALCOM Between Pad UART-4 (28,44.62mm) And Pad toPC-2 (36.725,38.69mm)
-   Violation between Un-Routed Net Constraint: Net TXSERIALCOM Between Pad toPC-2 (36.725,38.69mm) And Pad MCU-33 (77.45,59.35mm)
-   Violation between Un-Routed Net Constraint: Net TXSERIALCOM2 Between Pad MCU-51 (68.15,56.55mm) And Pad D1-2 (85.45,39.8mm)
-   Violation between Un-Routed Net Constraint: Net SPC_OK Between Pad MCU-62 (68.15,51.05mm) And Pad sPC_OK-2 (105,68.85mm)
-   Violation between Un-Routed Net Constraint: Net SMCU_OK Between Pad MCU-21 (79.25,52.05mm) And Pad R_sMCU_OK-2 (89.3,63.25mm)
-   Violation between Un-Routed Net Constraint: Net SDA Between Pad GY-521-4 (137.156,59.876mm) And Pad P_Expansion-1 (141.4,70.8mm)
-   Violation between Un-Routed Net Constraint: Net SDA Between Pad I2C_P_EN_SDA-2 (116,64.46mm) And Pad GY-521-4 (137.156,59.876mm)
-   Violation between Un-Routed Net Constraint: Net SDA Between Pad COMPASS-2 (97.684,54.796mm) And Pad I2C_P_EN_SDA-2 (116,64.46mm)
-   Violation between Un-Routed Net Constraint: Net SDA Between Pad MCU-3 (70.95,48.25mm) And Pad COMPASS-2 (97.684,54.796mm)
-   Violation between Un-Routed Net Constraint: Net SDA Between Pad toPC-3 (37.995,36.15mm) And Pad MCU-3 (70.95,48.25mm)
-   Violation between Un-Routed Net Constraint: Net SCOM_IN Between Pad MCU-16 (77.45,48.25mm) And Pad R_sCom_In-2 (97,63.15mm)
-   Violation between Un-Routed Net Constraint: Net SCL Between Pad I2C_P_EN_SCL-2 (131,64.46mm) And Pad GY-521-3 (139.696,59.876mm)
-   Violation between Un-Routed Net Constraint: Net SCL Between Pad GY-521-3 (139.696,59.876mm) And Pad P_Expansion-3 (143.94,70.8mm)
-   Violation between Un-Routed Net Constraint: Net SCL Between Pad MCU-4 (71.45,48.25mm) And Pad COMPASS-1 (97.684,57.336mm)
-   Violation between Un-Routed Net Constraint: Net SCL Between Pad toPC-6 (41.805,38.69mm) And Pad MCU-4 (71.45,48.25mm)
-   Violation between Un-Routed Net Constraint: Net SCL Between Pad COMPASS-1 (97.684,57.336mm) And Pad I2C_P_EN_SCL-2 (131,64.46mm)
-   Violation between Un-Routed Net Constraint: Net RXSERIALCOM Between Pad toPC-1 (34.185,29.8mm) And Pad toPC-1 (35.455,36.15mm)
-   Violation between Un-Routed Net Constraint: Net RXSERIALCOM Between Pad toPC-1 (34.185,29.8mm) And Pad toPC-1 (45.615,29.8mm)
-   Violation between Un-Routed Net Constraint: Net RXSERIALCOM Between Pad UART-3 (28,42.08mm) And Pad toPC-1 (35.455,36.15mm)
-   Violation between Un-Routed Net Constraint: Net RXSERIALCOM Between Pad toPC-1 (45.615,29.8mm) And Pad MCU-34 (76.95,59.35mm)
-   Violation between Un-Routed Net Constraint: Net RXSERIALCOM2 Between Pad MCU-52 (68.15,56.05mm) And Pad R_OW-1 (104,30.15mm)
-   Violation between Un-Routed Net Constraint: Net RESET Between Pad R_BDM2-2 (56.05,40.4mm) And Pad JBDM-4 (58.985,35.54mm)
-   Violation between Un-Routed Net Constraint: Net RESET Between Pad R_BDM2-2 (56.05,40.4mm) And Pad MCU-63 (68.15,50.55mm)
-   Violation between Un-Routed Net Constraint: Net PRESENCIAAGUA2 Between Pad Q2-3 (116.97,38.2mm) And Pad R_A2-1 (119.52,37.7mm)
-   Violation between Un-Routed Net Constraint: Net PRESENCIAAGUA2 Between Pad MCU-57 (68.15,53.55mm) And Pad Q2-3 (116.97,38.2mm)
-   Violation between Un-Routed Net Constraint: Net PRESENCIAAGUA1 Between Pad Q1-3 (134.87,38.1mm) And Pad R_A1-1 (138.12,37.9mm)
-   Violation between Un-Routed Net Constraint: Net PRESENCIAAGUA1 Between Pad MCU-58 (68.15,53.05mm) And Pad Q1-3 (134.87,38.1mm)
-   Violation between Un-Routed Net Constraint: Net P_OUT Between Pad C_Press-2 (61.85,58.4mm) And Pad R_P1-2 (64.3,62.25mm)
-   Violation between Un-Routed Net Constraint: Net NetPres_Agua2_2 Between Pad Q2-2 (115.7,38.2mm) And Pad Pres_Agua2-2 (116.54,33mm)
-   Violation between Un-Routed Net Constraint: Net NetPres_Agua1_2 Between Pad Q1-2 (133.6,38.1mm) And Pad Pres_Agua1-2 (134.54,33mm)
-   Violation between Un-Routed Net Constraint: Net NetOPAMP_1_3 Between Pad R_P2-2 (64.3,66.95mm) And Pad R_P1-1 (64.3,63.75mm)
-   Violation between Un-Routed Net Constraint: Net NetOPAMP_1_3 Between Pad OPAMP_1-3 (61.15,64.3mm) And Pad R_P1-1 (64.3,63.75mm)
-   Violation between Un-Routed Net Constraint: Net NetLED_sPC_OK_1 Between Pad sPC_OK-1 (105,63.15mm) And Pad LED_sPC_OK-1 (105.4,72.65mm)
-   Violation between Un-Routed Net Constraint: Net NetLED_sMCU_OK_1 Between Pad R_sMCU_OK-1 (89.3,68.95mm) And Pad LED_sMCU_OK-1 (89.7,72.15mm)
-   Violation between Un-Routed Net Constraint: Net NetLED_sCom_In_1 Between Pad LED_sCom_In-1 (96.9,72.45mm) And Pad R_sCom_In-1 (97,68.85mm)
-   Violation between Un-Routed Net Constraint: Net NetLED_+5V_1 Between Pad R_5V-1 (40.15,75.7mm) And Pad LED_+5V-1 (42,70.85mm)
-   Violation between Un-Routed Net Constraint: Net NetLED_+3.3V_1 Between Pad R_3.3V-1 (40.55,48.3mm) And Pad LED_+3.3V-1 (41.9,57.05mm)
-   Violation between Un-Routed Net Constraint: Net NetI2C_P_EN_SDA_1 Between Pad I2C_P_EN_SDA-1 (116,67mm) And Pad R_I2C_1-1 (116,71.15mm)
-   Violation between Un-Routed Net Constraint: Net NetI2C_P_EN_SCL_1 Between Pad I2C_P_EN_SCL-1 (131,67mm) And Pad R_I2C_2-1 (131,71.15mm)
-   Violation between Un-Routed Net Constraint: Net NetC_Crystal_2_2 Between Pad C_Crystal_2-2 (71.6,37.3mm) And Pad Y1-1 (72.15,42.6mm)
-   Violation between Un-Routed Net Constraint: Net NetC_Crystal_2_2 Between Pad Y1-1 (72.15,42.6mm) And Pad MCU-12 (75.45,48.25mm)
-   Violation between Un-Routed Net Constraint: Net NetC_Crystal_1_2 Between Pad Y1-2 (75.25,42.6mm) And Pad C_Crystal_1-2 (75.9,37.3mm)
-   Violation between Un-Routed Net Constraint: Net NetC_Crystal_1_2 Between Pad Y1-2 (75.25,42.6mm) And Pad MCU-13 (75.95,48.25mm)
-   Violation between Un-Routed Net Constraint: Net M4_ESC Between Pad MCU-49 (68.15,57.55mm) And Pad M4-3 (159,56.08mm)
-   Violation between Un-Routed Net Constraint: Net M3_ESC Between Pad M3-3 (31,56.08mm) And Pad MCU-38 (74.95,59.35mm)
-   Violation between Un-Routed Net Constraint: Net M2_ESC Between Pad M2-3 (71.92,77mm) And Pad MCU-18 (79.25,50.55mm)
-   Violation between Un-Routed Net Constraint: Net M1_ESC Between Pad MCU-50 (68.15,57.05mm) And Pad M1-3 (71.92,28mm)
-   Violation between Un-Routed Net Constraint: Net LEDLIGHT2 Between Pad MCU-25 (79.25,54.05mm) And Pad LEDLIGHT2-3 (159,46.08mm)
-   Violation between Un-Routed Net Constraint: Net LEDLIGHT1 Between Pad MCU-26 (79.25,54.55mm) And Pad LEDLIGHT1-3 (159,66.08mm)
-   Violation between Un-Routed Net Constraint: Net GND Between Pad P_Expansion-9 (151.56,70.8mm) And Pad P_Expansion-10 (151.56,73.34mm)
-   Violation between Un-Routed Net Constraint: Net GND Between Pad toPC-7 (43.075,36.15mm) And Pad toPC-8 (44.345,38.69mm)
-   Violation between Un-Routed Net Constraint: Net GND Between Pad C_Crystal_2-1 (71.6,38.7mm) And Pad C_Crystal_1-1 (75.9,38.7mm)
-   Violation between Un-Routed Net Constraint: Net GND Between Pad Pres_Agua1-1 (132,33mm) And Pad Q1-1 (132.33,38.1mm)
-   Violation between Un-Routed Net Constraint: Net GND Between Pad Pres_Agua2-1 (114,33mm) And Pad Q2-1 (114.43,38.2mm)
-   Violation between Un-Routed Net Constraint: Net GND Between Pad LED_+3.3V-2 (41.9,60.55mm) And Pad LED_+5V-2 (42,67.35mm)
-   Violation between Un-Routed Net Constraint: Net GND Between Pad LED_sMCU_OK-2 (89.7,75.65mm) And Pad LED_sCom_In-2 (96.9,75.95mm)
-   Violation between Un-Routed Net Constraint: Net GND Between Pad C_Press-1 (58.35,58.4mm) And Pad OPAMP_1-2 (60.2,64.3mm)
-   Violation between Un-Routed Net Constraint: Net GND Between Pad C_5V-2 (34.4,72.4mm) And Pad C_3.3V-2 (34.6,64.8mm)
-   Violation between Un-Routed Net Constraint: Net GND Between Pad C_5_Press-2 (54.3,66.6mm) And Pad OPAMP_1-2 (60.2,64.3mm)
-   Violation between Un-Routed Net Constraint: Net GND Between Pad OPAMP_1-2 (60.2,64.3mm) And Pad R_P2-1 (64.3,68.45mm)
-   Violation between Un-Routed Net Constraint: Net GND Between Pad LED_sCom_In-2 (96.9,75.95mm) And Pad LED_sPC_OK-2 (105.4,76.15mm)
-   Violation between Un-Routed Net Constraint: Net GND Between Pad POWER_IN-2 (27.3,67.14mm) And Pad C_3.3V-2 (34.6,64.8mm)
-   Violation between Un-Routed Net Constraint: Net GND Between Pad LEDLIGHT2-1 (159,41mm) And Pad M4-1 (159,51mm)
-   Violation between Un-Routed Net Constraint: Net GND Between Pad M4-1 (159,51mm) And Pad LEDLIGHT1-1 (159,61mm)
-   Violation between Un-Routed Net Constraint: Net GND Between Pad C_Crystal_1-1 (75.9,38.7mm) And Pad M1-1 (77,28mm)
-   Violation between Un-Routed Net Constraint: Net GND Between Pad toPC-7 (43.075,36.15mm) And Pad JBDM-2 (56.445,35.54mm)
-   Violation between Un-Routed Net Constraint: Net GND Between Pad M2-1 (77,77mm) And Pad LED_sMCU_OK-2 (89.7,75.65mm)
-   Violation between Un-Routed Net Constraint: Net GND Between Pad UART-1 (28,37mm) And Pad toPC-7 (43.075,36.15mm)
-   Violation between Un-Routed Net Constraint: Net GND Between Pad UART-1 (28,37mm) And Pad M3-1 (31,51mm)
-   Violation between Un-Routed Net Constraint: Net GND Between Pad GY-521-2 (142.236,59.876mm) And Pad LEDLIGHT1-1 (159,61mm)
-   Violation between Un-Routed Net Constraint: Net GND Between Pad LED_sCom_In-2 (96.9,75.95mm) And Pad COMPASS-4 (97.684,49.716mm)
-   Violation between Un-Routed Net Constraint: Net GND Between Pad C_3.3V-2 (34.6,64.8mm) And Pad LED_+5V-2 (42,67.35mm)
-   Violation between Un-Routed Net Constraint: Net GND Between Pad LED_+5V-2 (42,67.35mm) And Pad C_5_Press-2 (54.3,66.6mm)
-   Violation between Un-Routed Net Constraint: Net GND Between Pad P_Expansion-9 (151.56,70.8mm) And Pad LEDLIGHT1-1 (159,61mm)
-   Violation between Un-Routed Net Constraint: Net GND Between Pad M3-1 (31,51mm) And Pad C_3.3V-2 (34.6,64.8mm)
-   Violation between Un-Routed Net Constraint: Net GND Between Pad Pres_Agua2-1 (114,33mm) And Pad Pres_Agua1-1 (132,33mm)
-   Violation between Un-Routed Net Constraint: Net GND Between Pad JBDM-2 (56.445,35.54mm) And Pad C_Crystal_2-1 (71.6,38.7mm)
-   Violation between Un-Routed Net Constraint: Net GND Between Pad R_P2-1 (64.3,68.45mm) And Pad M2-1 (77,77mm)
-   Violation between Un-Routed Net Constraint: Net GND Between Pad COMPASS-4 (97.684,49.716mm) And Pad Q2-1 (114.43,38.2mm)
-   Violation between Un-Routed Net Constraint: Net GND Between Pad Q1-1 (132.33,38.1mm) And Pad LEDLIGHT2-1 (159,41mm)
-   Violation between Un-Routed Net Constraint: Net BKGD Between Pad R_BDM1-1 (56.05,28.8mm) And Pad JBDM-1 (56.445,33mm)
-   Violation between Un-Routed Net Constraint: Net BKGD Between Pad JBDM-1 (56.445,33mm) And Pad MCU-64 (68.15,50.05mm)
-   Violation between Un-Routed Net Constraint: Net ADC_PRESSURE_3.3V Between Pad OPAMP_1-1 (59.25,64.3mm) And Pad OPAMP_1-4 (61.15,66.7mm)
-   Violation between Un-Routed Net Constraint: Net ADC_PRESSURE_3.3V Between Pad OPAMP_1-1 (59.25,64.3mm) And Pad MCU-43 (72.45,59.35mm)
-   Violation between Un-Routed Net Constraint: Net AD4 Between Pad MCU-30 (79.25,56.55mm) And Pad P_Expansion-8 (149.02,73.34mm)
-   Violation between Un-Routed Net Constraint: Net AD3 Between Pad MCU-35 (76.45,59.35mm) And Pad P_Expansion-6 (146.48,73.34mm)
-   Violation between Un-Routed Net Constraint: Net AD2 Between Pad MCU-36 (75.95,59.35mm) And Pad P_Expansion-4 (143.94,73.34mm)
-   Violation between Un-Routed Net Constraint: Net AD1 Between Pad MCU-42 (72.95,59.35mm) And Pad P_Expansion-2 (141.4,73.34mm)
-   Violation between Un-Routed Net Constraint: Net +5V Between Pad toPC-4 (39.265,38.69mm) And Pad toPC-5 (40.535,36.15mm)
-   Violation between Un-Routed Net Constraint: Net +5V Between Pad C_5V-1 (34.4,67.4mm) And Pad R_5V-2 (34.45,75.7mm)
-   Violation between Un-Routed Net Constraint: Net +5V Between Pad POWER_IN-3 (27.3,69.68mm) And Pad C_5V-1 (34.4,67.4mm)
-   Violation between Un-Routed Net Constraint: Net +5V Between Pad LEDLIGHT2-2 (159,43.54mm) And Pad M4-2 (159,53.54mm)
-   Violation between Un-Routed Net Constraint: Net +5V Between Pad M4-2 (159,53.54mm) And Pad LEDLIGHT1-2 (159,63.54mm)
-   Violation between Un-Routed Net Constraint: Net +5V Between Pad C_5V-1 (34.4,67.4mm) And Pad C_5_Press-1 (49.3,66.6mm)
-   Violation between Un-Routed Net Constraint: Net +5V Between Pad M3-2 (31,53.54mm) And Pad C_5V-1 (34.4,67.4mm)
-   Violation between Un-Routed Net Constraint: Net +5V Between Pad P_Expansion-5 (146.48,70.8mm) And Pad LEDLIGHT1-2 (159,63.54mm)
-   Violation between Un-Routed Net Constraint: Net +5V Between Pad C_5_Press-1 (49.3,66.6mm) And Pad M2-2 (74.46,77mm)
-   Violation between Un-Routed Net Constraint: Net +5V Between Pad toPC-5 (40.535,36.15mm) And Pad M1-2 (74.46,28mm)
-   Violation between Un-Routed Net Constraint: Net +5V Between Pad M3-2 (31,53.54mm) And Pad toPC-4 (39.265,38.69mm)
-   Violation between Un-Routed Net Constraint: Net +5V Between Pad M2-2 (74.46,77mm) And Pad P_Expansion-5 (146.48,70.8mm)
-   Violation between Un-Routed Net Constraint: Net +3.3V Between Pad JBDM-6 (61.525,35.54mm) And Pad R_BDM2-1 (61.75,40.4mm)
-   Violation between Un-Routed Net Constraint: Net +3.3V Between Track on layer Top Layer (96.414,47.176mm) And Pad COMPASS-3 (97.684,52.256mm)
-   Violation between Un-Routed Net Constraint: Net +3.3V Between Pad JBDM-6 (61.525,35.54mm) And Pad R_BDM1-2 (61.75,28.8mm)
-   Violation between Un-Routed Net Constraint: Net +3.3V Between Pad C_3.3V-1 (34.6,59.8mm) And Pad R_3.3V-2 (34.85,48.3mm)
-   Violation between Un-Routed Net Constraint: Net +3.3V Between Pad POWER_IN-1 (27.3,64.6mm) And Pad C_3.3V-1 (34.6,59.8mm)
-   Violation between Un-Routed Net Constraint: Net +3.3V Between Pad R_I2C_1-2 (116,76.85mm) And Pad R_I2C_2-2 (131,76.85mm)
-   Violation between Un-Routed Net Constraint: Net +3.3V Between Pad GY-521-1 (144.776,59.876mm) And Pad P_Expansion-7 (149.02,70.8mm)
-   Violation between Un-Routed Net Constraint: Net +3.3V Between Pad UART-2 (28,39.54mm) And Pad R_3.3V-2 (34.85,48.3mm)
-   Violation between Un-Routed Net Constraint: Net +3.3V Between Track on layer Top Layer (97.684,45.906mm) And Pad R_OW-2 (104,35.85mm)
-   Violation between Un-Routed Net Constraint: Net +3.3V Between Pad R_A2-2 (129.68,37.7mm) And Pad R_A1-2 (148.28,37.9mm)
-   Violation between Un-Routed Net Constraint: Net +3.3V Between Pad OPAMP_1-5 (59.25,66.7mm) And Pad R_BDM2-1 (61.75,40.4mm)
-   Violation between Un-Routed Net Constraint: Net +3.3V Between Track on layer Top Layer (111.654,61.146mm) And Pad R_I2C_1-2 (116,76.85mm)
-   Violation between Un-Routed Net Constraint: Net +3.3V Between Pad R_I2C_2-2 (131,76.85mm) And Pad P_Expansion-7 (149.02,70.8mm)
-   Violation between Un-Routed Net Constraint: Net +3.3V Between Pad GY-521-1 (144.776,59.876mm) And Pad R_A1-2 (148.28,37.9mm)
-   Violation between Un-Routed Net Constraint: Net +3.3V Between Pad C_3.3V-1 (34.6,59.8mm) And Pad OPAMP_1-5 (59.25,66.7mm)
-   Violation between Un-Routed Net Constraint: Net +3.3V Between Pad R_BDM2-1 (61.75,40.4mm) And Track on layer Top Layer (96.414,47.176mm)
-Rule Violations :116
+WARNING: Multilayer Pads with 0 size Hole found
+   Pad D1-2(2913mil,2501mil)  Multi-Layer
+   Pad D1-1(2913mil,2356mil)  Multi-Layer
+   Pad D2-2(4593mil,1939mil)  Multi-Layer
+   Pad D2-1(4593mil,1794mil)  Multi-Layer
 
-Processing Rule : Clearance Constraint (Gap=0.1mm) (All),(All)
-Rule Violations :0
+Processing Rule : MCU_Room (Bounding Region = (2960mil, 1959mil, 3629mil, 2644mil) (InComponentClass('MCU'))
+   Violation between Room Definition Between Component on TopLayer And Rule on TopLayer
+   Violation between Room Definition Between Component on TopLayer And Rule on TopLayer
+   Violation between Room Definition Between Component on TopLayer And Rule on TopLayer
+   Violation between Room Definition Between Component on TopLayer And Rule on TopLayer
+   Violation between Room Definition Between Component on TopLayer And Rule on TopLayer
+   Violation between Room Definition Between Component on TopLayer And Rule on TopLayer
+   Violation between Room Definition Between Component on TopLayer And Rule on TopLayer
+   Violation between Room Definition Between Component on TopLayer And Rule on TopLayer
+   Violation between Room Definition Between Component on TopLayer And Rule on TopLayer
+   Violation between Room Definition Between Component on TopLayer And Rule on TopLayer
+   Violation between Room Definition Between Component on TopLayer And Rule on TopLayer
+   Violation between Room Definition Between Component on TopLayer And Rule on TopLayer
+   Violation between Room Definition Between Component on TopLayer And Rule on TopLayer
+   Violation between Room Definition Between Component on TopLayer And Rule on TopLayer
+   Violation between Room Definition Between Component on TopLayer And Rule on TopLayer
+   Violation between Room Definition Between Component on TopLayer And Rule on TopLayer
+   Violation between Room Definition Between Component on TopLayer And Rule on TopLayer
+Rule Violations :17
 
-Processing Rule : Power Plane Connect Rule(Relief Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (All)
-Rule Violations :0
-
-Processing Rule : Width Constraint (Min=0.254mm) (Max=0.254mm) (Preferred=0.254mm) (All)
-Rule Violations :0
-
-Processing Rule : Height Constraint (Min=0mm) (Max=25.4mm) (Prefered=12.7mm) (All)
-Rule Violations :0
-
-Processing Rule : Hole Size Constraint (Min=0.025mm) (Max=2.54mm) (All)
-   Violation between Hole Size Constraint (2.6mm > 2.54mm) : Pad GY-521-SCREW2(128.266mm,48.954mm)  Multi-Layer
-   Violation between Hole Size Constraint (2.6mm > 2.54mm) : Pad GY-521-SCREW1(143.506mm,48.954mm)  Multi-Layer
-   Violation between Hole Size Constraint (3.2mm > 2.54mm) : Pad toPC-1(45.615mm,29.8mm)  Multi-Layer
-   Violation between Hole Size Constraint (3.2mm > 2.54mm) : Pad toPC-1(34.185mm,29.8mm)  Multi-Layer
-Rule Violations :4
-
-Processing Rule : Hole To Hole Clearance (Gap=0.254mm) (All),(All)
-Rule Violations :0
-
-Processing Rule : Minimum Solder Mask Sliver (Gap=0.254mm) (All),(All)
-   Violation between Pad Q1-2(133.6mm,38.1mm)  Multi-Layer and 
-                     Pad Q1-3(134.87mm,38.1mm)  Multi-Layer
-   Violation between Pad Q1-1(132.33mm,38.1mm)  Multi-Layer and 
-                     Pad Q1-2(133.6mm,38.1mm)  Multi-Layer
-   Violation between Pad Q2-2(115.7mm,38.2mm)  Multi-Layer and 
-                     Pad Q2-3(116.97mm,38.2mm)  Multi-Layer
-   Violation between Pad Q2-1(114.43mm,38.2mm)  Multi-Layer and 
-                     Pad Q2-2(115.7mm,38.2mm)  Multi-Layer
-   Violation between Pad OPAMP_1-2(60.2mm,64.3mm)  Top Layer and 
-                     Pad OPAMP_1-3(61.15mm,64.3mm)  Top Layer
-   Violation between Pad OPAMP_1-1(59.25mm,64.3mm)  Top Layer and 
-                     Pad OPAMP_1-2(60.2mm,64.3mm)  Top Layer
-Rule Violations :6
-
-Processing Rule : Silk To Solder Mask (Clearance=0.254mm) (IsPad),(All)
-   Violation between Track (139.136mm,37.9mm)(140.152mm,37.9mm)  Top Overlay and 
-                     Pad R_A1-1(138.12mm,37.9mm)  Multi-Layer
-   Violation between Track (146.248mm,37.9mm)(147.264mm,37.9mm)  Top Overlay and 
-                     Pad R_A1-2(148.28mm,37.9mm)  Multi-Layer
-   Violation between Track (120.536mm,37.7mm)(121.552mm,37.7mm)  Top Overlay and 
-                     Pad R_A2-1(119.52mm,37.7mm)  Multi-Layer
-   Violation between Track (127.648mm,37.7mm)(128.664mm,37.7mm)  Top Overlay and 
-                     Pad R_A2-2(129.68mm,37.7mm)  Multi-Layer
-   Violation between Text "Pres_Agua1" (128mm,34mm)  Top Overlay and 
-                     Pad Pres_Agua1-2(134.54mm,33mm)  Multi-Layer
-   Violation between Text "Pres_Agua1" (128mm,34mm)  Top Overlay and 
-                     Pad Pres_Agua1-1(132mm,33mm)  Multi-Layer
-   Violation between Text "Pres_Agua2" (109mm,34mm)  Top Overlay and 
-                     Pad Pres_Agua2-2(116.54mm,33mm)  Multi-Layer
-   Violation between Text "Pres_Agua2" (109mm,34mm)  Top Overlay and 
-                     Pad Pres_Agua2-1(114mm,33mm)  Multi-Layer
-   Violation between Track (47.52mm,26.8mm)(47.52mm,39.808mm)  Top Overlay and 
-                     Pad toPC-1(45.615mm,29.8mm)  Multi-Layer
-   Violation between Track (32.28mm,26.8mm)(32.28mm,39.808mm)  Top Overlay and 
-                     Pad toPC-1(34.185mm,29.8mm)  Multi-Layer
-   Violation between Track (32.28mm,39.808mm)(47.52mm,39.808mm)  Top Overlay and 
-                     Pad toPC-2(36.725mm,38.69mm)  Multi-Layer
-   Violation between Track (32.28mm,39.808mm)(47.52mm,39.808mm)  Top Overlay and 
-                     Pad toPC-4(39.265mm,38.69mm)  Multi-Layer
-   Violation between Track (32.28mm,39.808mm)(47.52mm,39.808mm)  Top Overlay and 
-                     Pad toPC-6(41.805mm,38.69mm)  Multi-Layer
-   Violation between Track (32.28mm,39.808mm)(47.52mm,39.808mm)  Top Overlay and 
-                     Pad toPC-8(44.345mm,38.69mm)  Multi-Layer
-   Violation between Track (63.95mm,62.8mm)(63.95mm,63.2mm)  Top Overlay and 
-                     Pad R_P1-1(64.3mm,63.75mm)  Top Layer
-   Violation between Track (64.65mm,62.8mm)(64.65mm,63.2mm)  Top Overlay and 
-                     Pad R_P1-1(64.3mm,63.75mm)  Top Layer
-   Violation between Track (63.95mm,62.8mm)(63.95mm,63.2mm)  Top Overlay and 
-                     Pad R_P1-2(64.3mm,62.25mm)  Top Layer
-   Violation between Track (64.65mm,62.8mm)(64.65mm,63.2mm)  Top Overlay and 
-                     Pad R_P1-2(64.3mm,62.25mm)  Top Layer
-   Violation between Track (63.95mm,67.5mm)(63.95mm,67.9mm)  Top Overlay and 
-                     Pad R_P2-1(64.3mm,68.45mm)  Top Layer
-   Violation between Track (64.65mm,67.5mm)(64.65mm,67.9mm)  Top Overlay and 
-                     Pad R_P2-1(64.3mm,68.45mm)  Top Layer
-   Violation between Track (63.95mm,67.5mm)(63.95mm,67.9mm)  Top Overlay and 
-                     Pad R_P2-2(64.3mm,66.95mm)  Top Layer
-   Violation between Track (64.65mm,67.5mm)(64.65mm,67.9mm)  Top Overlay and 
-                     Pad R_P2-2(64.3mm,66.95mm)  Top Layer
-Rule Violations :22
-
-Processing Rule : Silk to Silk (Clearance=0.254mm) (All),(All)
-   Violation between Text "OPAMP_1" (53.6mm,68mm)  Top Overlay and 
-                     Arc (51.8mm,66.6mm)  Top Overlay
-   Violation between Text "6" (63.049mm,35.032mm)  Top Overlay and 
-                     Track (62.795mm,31.73mm)(62.795mm,36.81mm)  Top Overlay
-   Violation between Text "5" (63.049mm,32.492mm)  Top Overlay and 
-                     Track (62.795mm,31.73mm)(62.795mm,36.81mm)  Top Overlay
-   Violation between Text "1" (54.413mm,32.492mm)  Top Overlay and 
-                     Track (55.175mm,31.73mm)(55.175mm,36.81mm)  Top Overlay
-   Violation between Text "LED_+3.3V" (40.1mm,53.6mm)  Top Overlay and 
-                     Track (40.75mm,55.9mm)(40.75mm,57.8mm)  Top Overlay
-   Violation between Text "1" (139.368mm,70.292mm)  Top Overlay and 
-                     Track (140.13mm,69.53mm)(140.13mm,74.61mm)  Top Overlay
-   Violation between Text "2" (138.86mm,72.832mm)  Top Overlay and 
-                     Track (140.13mm,69.53mm)(140.13mm,74.61mm)  Top Overlay
-   Violation between Text "9" (153.084mm,70.292mm)  Top Overlay and 
-                     Track (152.83mm,69.53mm)(152.83mm,74.61mm)  Top Overlay
-   Violation between Text "10" (153.084mm,72.832mm)  Top Overlay and 
-                     Track (152.83mm,69.53mm)(152.83mm,74.61mm)  Top Overlay
-   Violation between Text "R_P2" (63.957mm,69.875mm)  Top Overlay and 
-                     Text "Sensor_Pres" (67mm,71mm)  Top Overlay
-Rule Violations :10
-
-Processing Rule : Silk primitive without silk layer
-Rule Violations :0
-
-Processing Rule : Net Antennae (Tolerance=0mm) (All)
+Processing Rule : Clearance Constraint (Gap=10mil) (All),(All)
 Rule Violations :0
 
 Processing Rule : Modified Polygon (Allow modified: No), (Allow shelved: No)
 Rule Violations :0
 
+Processing Rule : Net Antennae (Tolerance=0mil) (All)
+Rule Violations :0
 
-Violations Detected : 158
+Processing Rule : Silk primitive without silk layer
+   Violation between Silk To Board Region Clearance (Out of silkscreen region) : Track (875.92mil,2328.672mil)(1009.252mil,2328.672mil)  Top Overlay
+   Violation between Silk To Board Region Clearance (Out of silkscreen region) : Track (859.252mil,2312.006mil)(875.92mil,2328.672mil)  Top Overlay
+   Violation between Silk To Board Region Clearance (Out of silkscreen region) : Track (859.252mil,2312.006mil)(875.92mil,2295.34mil)  Top Overlay
+   Violation between Silk To Board Region Clearance (Out of silkscreen region) : Track (875.92mil,2295.34mil)(1009.252mil,2295.34mil)  Top Overlay
+   Violation between Silk To Board Region Clearance (Out of silkscreen region) : Track (875.92mil,2228.674mil)(1009.252mil,2228.674mil)  Top Overlay
+   Violation between Silk To Board Region Clearance (Out of silkscreen region) : Track (859.252mil,2212.006mil)(875.92mil,2228.674mil)  Top Overlay
+   Violation between Silk To Board Region Clearance (Out of silkscreen region) : Track (859.252mil,2212.006mil)(875.92mil,2195.34mil)  Top Overlay
+   Violation between Silk To Board Region Clearance (Out of silkscreen region) : Track (875.92mil,2195.34mil)(1009.252mil,2195.34mil)  Top Overlay
+   Violation between Silk To Board Region Clearance (Out of silkscreen region) : Track (871.982mil,1821.784mil)(1005.314mil,1821.784mil)  Top Overlay
+   Violation between Silk To Board Region Clearance (Out of silkscreen region) : Track (855.314mil,1805.118mil)(871.982mil,1821.784mil)  Top Overlay
+   Violation between Silk To Board Region Clearance (Out of silkscreen region) : Track (855.314mil,1805.118mil)(871.982mil,1788.45mil)  Top Overlay
+   Violation between Silk To Board Region Clearance (Out of silkscreen region) : Track (871.982mil,1788.45mil)(1005.314mil,1788.45mil)  Top Overlay
+   Violation between Silk To Board Region Clearance (Out of silkscreen region) : Track (871.982mil,1721.784mil)(1005.314mil,1721.784mil)  Top Overlay
+   Violation between Silk To Board Region Clearance (Out of silkscreen region) : Track (855.314mil,1705.118mil)(871.982mil,1721.784mil)  Top Overlay
+   Violation between Silk To Board Region Clearance (Out of silkscreen region) : Track (855.314mil,1705.118mil)(871.982mil,1688.452mil)  Top Overlay
+   Violation between Silk To Board Region Clearance (Out of silkscreen region) : Track (871.982mil,1688.452mil)(1005.314mil,1688.452mil)  Top Overlay
+   Violation between Silk To Board Region Clearance (Out of silkscreen region) : Track (1600.001mil,3294.999mil)(1616.667mil,3278.331mil)  Top Overlay
+   Violation between Silk To Board Region Clearance (Out of silkscreen region) : Track (1583.333mil,3278.331mil)(1600.001mil,3294.999mil)  Top Overlay
+   Violation between Silk To Board Region Clearance (Out of silkscreen region) : Track (1500.001mil,3294.999mil)(1516.667mil,3278.331mil)  Top Overlay
+   Violation between Silk To Board Region Clearance (Out of silkscreen region) : Track (1483.333mil,3278.331mil)(1500.001mil,3294.999mil)  Top Overlay
+   Violation between Silk To Board Region Clearance (Out of silkscreen region) : Track (1400.001mil,3294.999mil)(1416.667mil,3278.331mil)  Top Overlay
+   Violation between Silk To Board Region Clearance (Out of silkscreen region) : Track (1383.333mil,3278.331mil)(1400.001mil,3294.999mil)  Top Overlay
+   Violation between Silk To Board Region Clearance (Out of silkscreen region) : Track (1300.001mil,3294.999mil)(1316.667mil,3278.331mil)  Top Overlay
+   Violation between Silk To Board Region Clearance (Out of silkscreen region) : Track (1283.335mil,3278.331mil)(1300.001mil,3294.999mil)  Top Overlay
+   Violation between Silk To Board Region Clearance (Out of silkscreen region) : Track (1200.001mil,3294.999mil)(1216.667mil,3278.331mil)  Top Overlay
+   Violation between Silk To Board Region Clearance (Out of silkscreen region) : Track (1183.335mil,3278.331mil)(1200.001mil,3294.999mil)  Top Overlay
+   Violation between Silk To Board Region Clearance (Out of silkscreen region) : Track (1100.001mil,3294.999mil)(1116.667mil,3278.331mil)  Top Overlay
+   Violation between Silk To Board Region Clearance (Out of silkscreen region) : Track (1083.335mil,3278.331mil)(1100.001mil,3294.999mil)  Top Overlay
+Rule Violations :28
+
+Processing Rule : Silk to Silk (Clearance=10mil) (All),(All)
+   Violation between Text "Sensor_Pres" (1029.134mil,2938.701mil)  Top Overlay and 
+                     Track (1084mil,2896mil)(1120.795mil,2932.795mil)  Top Overlay
+   Violation between Text "Sensor_Pres" (1029.134mil,2938.701mil)  Top Overlay and 
+                     Track (1120.795mil,2932.795mil)(1425mil,2932.795mil)  Top Overlay
+   Violation between Text "D1" (2870mil,2407mil)  Top Overlay and 
+                     Track (2881mil,2411mil)(2945mil,2411mil)  Top Overlay
+   Violation between Text "D1" (2870mil,2407mil)  Top Overlay and 
+                     Track (2881mil,2411mil)(2911mil,2441mil)  Top Overlay
+   Violation between Text "D1" (2870mil,2407mil)  Top Overlay and 
+                     Track (2880mil,2442mil)(2947mil,2442mil)  Top Overlay
+   Violation between Text "V_Servo_In" (4652.504mil,1567.661mil)  Top Overlay and 
+                     Track (4561mil,1849mil)(4625mil,1849mil)  Top Overlay
+   Violation between Text "V_Servo_In" (4652.504mil,1567.661mil)  Top Overlay and 
+                     Track (4591mil,1883mil)(4625mil,1849mil)  Top Overlay
+   Violation between Text "Jumper_V_Ser" (3808.89mil,1783.74mil)  Top Overlay and 
+                     Track (3876.999mil,1755mil)(4176.999mil,1755mil)  Top Overlay
+   Violation between Text "5" (2484.409mil,1397.323mil)  Top Overlay and 
+                     Track (2474.409mil,1367.322mil)(2474.409mil,1567.322mil)  Top Overlay
+   Violation between Text "6" (2484.409mil,1497.323mil)  Top Overlay and 
+                     Track (2474.409mil,1367.322mil)(2474.409mil,1567.322mil)  Top Overlay
+   Violation between Text "C_3.3V" (2643.575mil,2657.52mil)  Top Overlay and 
+                     Track (2572mil,2677.205mil)(2876.205mil,2677.205mil)  Top Overlay
+   Violation between Text "Batt_Measure" (4295mil,2095mil)  Top Overlay and 
+                     Text "R_sMCU_OK" (4023mil,2413mil)  Top Overlay
+   Violation between Text "OPAMP_1" (1633.779mil,2865.315mil)  Top Overlay and 
+                     Text "R_P1" (1615.158mil,2775.551mil)  Top Overlay
+   Violation between Text "BatR2" (4485mil,1715mil)  Top Overlay and 
+                     Text "V_Servo_In" (4652.504mil,1567.661mil)  Top Overlay
+Rule Violations :14
+
+Processing Rule : Silk To Solder Mask (Clearance=10mil) (IsPad),(All)
+   Violation between Track (3789.748mil,1555.418mil)(4389.748mil,1555.418mil)  Top Overlay and 
+                     Pad Servo_Out-8(4264.748mil,1511.418mil)  Multi-Layer
+   Violation between Track (3789.748mil,1555.418mil)(4389.748mil,1555.418mil)  Top Overlay and 
+                     Pad Servo_Out-6(4164.748mil,1511.418mil)  Multi-Layer
+   Violation between Track (3789.748mil,1555.418mil)(4389.748mil,1555.418mil)  Top Overlay and 
+                     Pad Servo_Out-4(4064.748mil,1511.418mil)  Multi-Layer
+   Violation between Track (3789.748mil,1555.418mil)(4389.748mil,1555.418mil)  Top Overlay and 
+                     Pad Servo_Out-2(3964.748mil,1511.418mil)  Multi-Layer
+   Violation between Track (3789.748mil,1043.308mil)(3789.748mil,1555.418mil)  Top Overlay and 
+                     Pad Servo_Out-1(3864.748mil,1161.418mil)  Multi-Layer
+   Violation between Track (4389.748mil,1043.308mil)(4389.748mil,1555.418mil)  Top Overlay and 
+                     Pad Servo_Out-1(4314.748mil,1161.418mil)  Multi-Layer
+   Violation between Text "V_Servo_In" (4652.504mil,1567.661mil)  Top Overlay and 
+                     Pad D2-1(4593mil,1794mil)  Multi-Layer
+   Violation between Track (3789.748mil,2637.496mil)(4389.748mil,2637.496mil)  Top Overlay and 
+                     Pad Motor_Out-8(3914.748mil,2681.496mil)  Multi-Layer
+   Violation between Track (3789.748mil,2637.496mil)(4389.748mil,2637.496mil)  Top Overlay and 
+                     Pad Motor_Out-6(4014.748mil,2681.496mil)  Multi-Layer
+   Violation between Track (3789.748mil,2637.496mil)(4389.748mil,2637.496mil)  Top Overlay and 
+                     Pad Motor_Out-4(4114.748mil,2681.496mil)  Multi-Layer
+   Violation between Track (3789.748mil,2637.496mil)(4389.748mil,2637.496mil)  Top Overlay and 
+                     Pad Motor_Out-2(4214.748mil,2681.496mil)  Multi-Layer
+   Violation between Track (4389.748mil,2637.496mil)(4389.748mil,3149.606mil)  Top Overlay and 
+                     Pad Motor_Out-1(4314.748mil,3031.496mil)  Multi-Layer
+   Violation between Track (3789.748mil,2637.496mil)(3789.748mil,3149.606mil)  Top Overlay and 
+                     Pad Motor_Out-1(3864.748mil,3031.496mil)  Multi-Layer
+   Violation between Text "C_Press" (1323.15mil,3029.729mil)  Top Overlay and 
+                     Pad Sensor_Pres-2(1500.001mil,3044.999mil)  Multi-Layer
+   Violation between Text "C_Press" (1323.15mil,3029.729mil)  Top Overlay and 
+                     Pad Sensor_Pres-3(1400.001mil,3044.999mil)  Multi-Layer
+   Violation between Text "C_Press" (1323.15mil,3029.729mil)  Top Overlay and 
+                     Pad Sensor_Pres-4(1300.001mil,3044.999mil)  Multi-Layer
+   Violation between Track (3923mil,2246.347mil)(3923mil,2289.653mil)  Top Overlay and 
+                     Pad LED_sMCU_OK-1(3891.504mil,2268mil)  Top Layer
+   Violation between Track (3923mil,2246.347mil)(3923mil,2289.653mil)  Top Overlay and 
+                     Pad LED_sMCU_OK-2(3954.496mil,2268mil)  Top Layer
+   Violation between Track (4082mil,2246.347mil)(4082mil,2289.654mil)  Top Overlay and 
+                     Pad R_sMCU_OK-1(4113.496mil,2268mil)  Top Layer
+   Violation between Track (4082mil,2246.347mil)(4082mil,2289.654mil)  Top Overlay and 
+                     Pad R_sMCU_OK-2(4050.504mil,2268mil)  Top Layer
+   Violation between Track (3388.347mil,1882mil)(3431.653mil,1882mil)  Top Overlay and 
+                     Pad MCU_C_Log-2(3410mil,1850.504mil)  Top Layer
+   Violation between Track (3388.347mil,1882mil)(3431.653mil,1882mil)  Top Overlay and 
+                     Pad MCU_C_Log-1(3410mil,1913.496mil)  Top Layer
+   Violation between Track (3252.347mil,1882mil)(3295.653mil,1882mil)  Top Overlay and 
+                     Pad MCU_C_VCC-2(3274mil,1850.504mil)  Top Layer
+   Violation between Track (3252.347mil,1882mil)(3295.653mil,1882mil)  Top Overlay and 
+                     Pad MCU_C_VCC-1(3274mil,1913.496mil)  Top Layer
+   Violation between Track (1425mil,2657.205mil)(1425mil,2932.795mil)  Top Overlay and 
+                     Pad C_5_Press-2(1363.74mil,2795mil)  Top Layer
+   Violation between Track (1084mil,2687mil)(1084mil,2778.252mil)  Top Overlay and 
+                     Pad C_5_Press-1(1144.26mil,2795mil)  Top Layer
+   Violation between Track (1084mil,2778.252mil)(1084mil,2896mil)  Top Overlay and 
+                     Pad C_5_Press-1(1144.26mil,2795mil)  Top Layer
+   Violation between Track (4483.346mil,1835mil)(4526.654mil,1835mil)  Top Overlay and 
+                     Pad BatR2-1(4505mil,1803.504mil)  Top Layer
+   Violation between Track (4483.346mil,1835mil)(4526.654mil,1835mil)  Top Overlay and 
+                     Pad BatR2-2(4505mil,1866.496mil)  Top Layer
+   Violation between Track (4483.346mil,1970mil)(4526.654mil,1970mil)  Top Overlay and 
+                     Pad BatR1-1(4505mil,1938.504mil)  Top Layer
+   Violation between Track (4483.346mil,1970mil)(4526.654mil,1970mil)  Top Overlay and 
+                     Pad BatR1-2(4505mil,2001.496mil)  Top Layer
+   Violation between Track (4075mil,2070.347mil)(4075mil,2113.653mil)  Top Overlay and 
+                     Pad sPC_OK-1(4106.496mil,2092mil)  Top Layer
+   Violation between Track (4075mil,2070.347mil)(4075mil,2113.653mil)  Top Overlay and 
+                     Pad sPC_OK-2(4043.504mil,2092mil)  Top Layer
+   Violation between Track (1486.22mil,2652.126mil)(1486.22mil,2667.874mil)  Top Overlay and 
+                     Pad R_P2-2(1500mil,2689.528mil)  Top Layer
+   Violation between Track (1513.78mil,2652.126mil)(1513.78mil,2667.874mil)  Top Overlay and 
+                     Pad R_P2-2(1500mil,2689.528mil)  Top Layer
+   Violation between Track (1486.22mil,2652.126mil)(1486.22mil,2667.874mil)  Top Overlay and 
+                     Pad R_P2-1(1500mil,2630.472mil)  Top Layer
+   Violation between Track (1513.78mil,2652.126mil)(1513.78mil,2667.874mil)  Top Overlay and 
+                     Pad R_P2-1(1500mil,2630.472mil)  Top Layer
+   Violation between Track (1486.22mil,2802.126mil)(1486.22mil,2817.874mil)  Top Overlay and 
+                     Pad R_P1-2(1500mil,2839.528mil)  Top Layer
+   Violation between Track (1513.78mil,2802.126mil)(1513.78mil,2817.874mil)  Top Overlay and 
+                     Pad R_P1-2(1500mil,2839.528mil)  Top Layer
+   Violation between Track (1486.22mil,2802.126mil)(1486.22mil,2817.874mil)  Top Overlay and 
+                     Pad R_P1-1(1500mil,2780.472mil)  Top Layer
+   Violation between Track (1513.78mil,2802.126mil)(1513.78mil,2817.874mil)  Top Overlay and 
+                     Pad R_P1-1(1500mil,2780.472mil)  Top Layer
+   Violation between Track (3525mil,1423.347mil)(3525mil,1466.653mil)  Top Overlay and 
+                     Pad R_OW-1(3556.496mil,1445mil)  Top Layer
+   Violation between Track (3525mil,1423.347mil)(3525mil,1466.653mil)  Top Overlay and 
+                     Pad R_OW-2(3493.504mil,1445mil)  Top Layer
+   Violation between Track (3375mil,1423.347mil)(3375mil,1466.653mil)  Top Overlay and 
+                     Pad R_I2C_2-1(3343.504mil,1445mil)  Top Layer
+   Violation between Track (3375mil,1423.347mil)(3375mil,1466.653mil)  Top Overlay and 
+                     Pad R_I2C_2-2(3406.496mil,1445mil)  Top Layer
+   Violation between Track (3375mil,1284.347mil)(3375mil,1327.653mil)  Top Overlay and 
+                     Pad R_I2C_1-1(3343.504mil,1306mil)  Top Layer
+   Violation between Track (3375mil,1284.347mil)(3375mil,1327.653mil)  Top Overlay and 
+                     Pad R_I2C_1-2(3406.496mil,1306mil)  Top Layer
+   Violation between Track (3802.638mil,2069.811mil)(3802.638mil,2113.118mil)  Top Overlay and 
+                     Pad LED_sPC_OK-1(3771.142mil,2091.465mil)  Top Layer
+   Violation between Track (3802.638mil,2069.811mil)(3802.638mil,2113.118mil)  Top Overlay and 
+                     Pad LED_sPC_OK-2(3834.134mil,2091.465mil)  Top Layer
+   Violation between Track (1512.125mil,2936.22mil)(1527.875mil,2936.22mil)  Top Overlay and 
+                     Pad C_Press-2(1549.527mil,2950mil)  Top Layer
+   Violation between Track (1512.125mil,2963.78mil)(1527.875mil,2963.78mil)  Top Overlay and 
+                     Pad C_Press-2(1549.527mil,2950mil)  Top Layer
+   Violation between Track (1512.125mil,2936.22mil)(1527.875mil,2936.22mil)  Top Overlay and 
+                     Pad C_Press-1(1490.473mil,2950mil)  Top Layer
+   Violation between Track (1512.125mil,2963.78mil)(1527.875mil,2963.78mil)  Top Overlay and 
+                     Pad C_Press-1(1490.473mil,2950mil)  Top Layer
+   Violation between Track (1245mil,2498.347mil)(1245mil,2541.653mil)  Top Overlay and 
+                     Pad S2-1(1276.496mil,2520mil)  Top Layer
+   Violation between Track (1245mil,2498.347mil)(1245mil,2541.653mil)  Top Overlay and 
+                     Pad S2-2(1213.504mil,2520mil)  Top Layer
+   Violation between Track (1225mil,1903.347mil)(1225mil,1946.653mil)  Top Overlay and 
+                     Pad S1-1(1256.496mil,1925mil)  Top Layer
+   Violation between Track (1225mil,1903.347mil)(1225mil,1946.653mil)  Top Overlay and 
+                     Pad S1-2(1193.504mil,1925mil)  Top Layer
+   Violation between Track (2913mil,2714mil)(2913mil,2831.748mil)  Top Overlay and 
+                     Pad C_3.3V-1(2852.74mil,2815mil)  Top Layer
+   Violation between Track (2913mil,2831.748mil)(2913mil,2923mil)  Top Overlay and 
+                     Pad C_3.3V-1(2852.74mil,2815mil)  Top Layer
+   Violation between Track (2572mil,2677.205mil)(2572mil,2952.795mil)  Top Overlay and 
+                     Pad C_3.3V-2(2633.26mil,2815mil)  Top Layer
+   Violation between Track (2478mil,2558.5mil)(2478mil,2963.5mil)  Top Overlay and 
+                     Pad C_5V-2(2427.48mil,2755.5mil)  Top Layer
+   Violation between Track (2066mil,2619.5mil)(2066mil,2886.5mil)  Top Overlay and 
+                     Pad C_5V-1(2112.52mil,2755.5mil)  Top Layer
+Rule Violations :62
+
+Processing Rule : Minimum Solder Mask Sliver (Gap=10mil) (All),(All)
+   Violation between Pad OPAMP_1-2(1745mil,2712.757mil)  Top Layer and 
+                     Pad OPAMP_1-1(1707.6mil,2712.757mil)  Top Layer
+   Violation between Pad OPAMP_1-3(1782.402mil,2712.757mil)  Top Layer and 
+                     Pad OPAMP_1-2(1745mil,2712.757mil)  Top Layer
+   Violation between Via (3771mil,2442mil) Top Layer to Bottom Layer and 
+                     Via (3772mil,2382mil) Top Layer to Bottom Layer
+Rule Violations :3
+
+Processing Rule : Hole To Hole Clearance (Gap=10mil) (All),(All)
+Rule Violations :0
+
+Processing Rule : Hole Size Constraint (Min=1mil) (Max=100mil) (All)
+   Violation between Hole Size Constraint (126mil > 100mil) : Pad Servo_Out-1(3864.748mil,1161.418mil)  Multi-Layer
+   Violation between Hole Size Constraint (126mil > 100mil) : Pad Servo_Out-1(4314.748mil,1161.418mil)  Multi-Layer
+   Violation between Hole Size Constraint (126mil > 100mil) : Pad Motor_Out-1(4314.748mil,3031.496mil)  Multi-Layer
+   Violation between Hole Size Constraint (126mil > 100mil) : Pad Motor_Out-1(3864.748mil,3031.496mil)  Multi-Layer
+   Violation between Hole Size Constraint (102.362mil > 100mil) : Pad GY-521-SCREW2(2109.45mil,1892.836mil)  Multi-Layer
+   Violation between Hole Size Constraint (102.362mil > 100mil) : Pad GY-521-SCREW1(2709.45mil,1892.836mil)  Multi-Layer
+   Violation between Hole Size Constraint (125mil > 100mil) : Pad Free-2(1245mil,1525mil)  Multi-Layer
+   Violation between Hole Size Constraint (125mil > 100mil) : Pad Free-1(3285mil,2820mil)  Multi-Layer
+   Violation between Hole Size Constraint (125mil > 100mil) : Pad Free-0(3285mil,1720mil)  Multi-Layer
+   Violation between Hole Size Constraint (125mil > 100mil) : Pad Free-3(4562.992mil,1145.669mil)  Multi-Layer
+   Violation between Hole Size Constraint (125mil > 100mil) : Pad Free-5(4570.866mil,3047.244mil)  Multi-Layer
+Rule Violations :11
+
+Processing Rule : Height Constraint (Min=0mil) (Max=1000mil) (Prefered=500mil) (All)
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=10mil) (Max=40mil) (Preferred=12mil) (All)
+Rule Violations :0
+
+Processing Rule : Power Plane Connect Rule(Relief Connect )(Expansion=20mil) (Conductor Width=10mil) (Air Gap=10mil) (Entries=2) (All)
+Rule Violations :0
+
+Processing Rule : Un-Routed Net Constraint ( (All) )
+   Violation between Un-Routed Net Constraint: Net GND Between Pad BatR2-1 (4505,1803.504mil) And Pad D2-1 (4593,1794mil)
+   Violation between Un-Routed Net Constraint: Net GND Between Pad Duino Conn-GND@0 (2253.938,3043.308mil) And Pad Duino Conn-GND@1 (2353.938,3043.308mil)
+   Violation between Un-Routed Net Constraint: Net GND Between Pad C_Press-1 (1490.473,2950mil) And Pad Sensor_Pres-2 (1500.001,3044.999mil)
+   Violation between Un-Routed Net Constraint: Net GND Between Pad MCU_C_Log-2 (3410,1850.504mil) And Fill on layer Top Layer (3425,1960mil)
+   Violation between Un-Routed Net Constraint: Net GND Between Pad MCU_C_VCC-2 (3274,1850.504mil) And Pad MCU_C_Log-2 (3410,1850.504mil)
+   Violation between Un-Routed Net Constraint: Net GND Between Pad Pres_Agua2-1 (1109.252,2312.006mil) And Pad Q2-1 (1227.598,2342.677mil)
+   Violation between Un-Routed Net Constraint: Net GND Between Pad Servo_Out-7 (4214.748,1411.418mil) And Pad Servo_Out-8 (4264.748,1511.418mil)
+   Violation between Un-Routed Net Constraint: Net GND Between Pad Motor_Out-8 (3914.748,2681.496mil) And Pad Motor_Out-7 (3964.748,2781.496mil)
+   Violation between Un-Routed Net Constraint: Net GND Between Pad V_Servo_In-2 (4326.999,1806mil) And Pad BatR2-1 (4505,1803.504mil)
+   Violation between Un-Routed Net Constraint: Net GND Between Pad sPC_OK-1 (4106.496,2092mil) And Pad R_sMCU_OK-1 (4113.496,2268mil)
+   Violation between Un-Routed Net Constraint: Net GND Between Pad Q1-1 (1227.598,2137.323mil) And Pad Q2-1 (1227.598,2342.677mil)
+   Violation between Un-Routed Net Constraint: Net GND Between Pad C_5V-2 (2427.48,2755.5mil) And Pad C_3.3V-2 (2633.26,2815mil)
+   Violation between Un-Routed Net Constraint: Net GND Between Pad C_5_Press-2 (1363.74,2795mil) And Pad C_Press-1 (1490.473,2950mil)
+   Violation between Un-Routed Net Constraint: Net GND Between Pad C_5_Press-2 (1363.74,2795mil) And Pad R_P2-1 (1500,2630.472mil)
+   Violation between Un-Routed Net Constraint: Net GND Between Pad Q2-1 (1227.598,2342.677mil) And Pad COMPASS-4 (1528.189,2321.89mil)
+   Violation between Un-Routed Net Constraint: Net GND Between Pad R_P2-1 (1500,2630.472mil) And Pad OPAMP_1-2 (1745,2712.757mil)
+   Violation between Un-Routed Net Constraint: Net GND Between Pad LED_L1-2 (4585,1460mil) And Pad D2-1 (4593,1794mil)
+   Violation between Un-Routed Net Constraint: Net GND Between Pad Pres_Agua1-1 (1105.314,1805.118mil) And Pad Q1-1 (1227.598,2137.323mil)
+   Violation between Un-Routed Net Constraint: Net GND Between Pad Batt_Measure-1 (4485,2420mil) And Pad LED_L2-2 (4585,2795mil)
+   Violation between Un-Routed Net Constraint: Net GND Between Pad C_3.3V-2 (2633.26,2815mil) And Pad GY-521-2 (2659.45,2322.836mil)
+   Violation between Un-Routed Net Constraint: Net GND Between Pad MCU_C_Log-2 (3410,1850.504mil) And Pad OneWire_Temp-1 (3562.992,1181.102mil)
+   Violation between Un-Routed Net Constraint: Net GND Between Pad UART-1 (3309.999,3045mil) And Track on layer Top Layer (3315,2176mil)
+   Violation between Un-Routed Net Constraint: Net GND Between Pad Duino Conn-GND@2 (1703.938,1143.308mil) And Pad JBDM-2 (2224.409,1517.322mil)
+   Violation between Un-Routed Net Constraint: Net GND Between Pad R_P2-1 (1500,2630.472mil) And Pad COMPASS-4 (1528.189,2321.89mil)
+   Violation between Un-Routed Net Constraint: Net GND Between Pad Servo_Out-8 (4264.748,1511.418mil) And Pad V_Servo_In-2 (4326.999,1806mil)
+   Violation between Un-Routed Net Constraint: Net GND Between Pad Duino Conn-GND@1 (2353.938,3043.308mil) And Pad C_5V-2 (2427.48,2755.5mil)
+   Violation between Un-Routed Net Constraint: Net GND Between Pad sPC_OK-1 (4106.496,2092mil) And Pad V_Servo_In-2 (4326.999,1806mil)
+   Violation between Un-Routed Net Constraint: Net GND Between Pad R_sMCU_OK-1 (4113.496,2268mil) And Pad Batt_Measure-1 (4485,2420mil)
+   Violation between Un-Routed Net Constraint: Net GND Between Pad Motor_Out-8 (3914.748,2681.496mil) And Pad R_sMCU_OK-1 (4113.496,2268mil)
+   Violation between Un-Routed Net Constraint: Net GND Between Track on layer Top Layer (3473,1995mil) And Pad sPC_OK-1 (4106.496,2092mil)
+   Violation between Un-Routed Net Constraint: Net GND Between Pad JBDM-2 (2224.409,1517.322mil) And Pad GY-521-2 (2659.45,2322.836mil)
+   Violation between Un-Routed Net Constraint: Net GND Between Pad OPAMP_1-2 (1745,2712.757mil) And Pad C_5V-2 (2427.48,2755.5mil)
+   Violation between Un-Routed Net Constraint: Net GND Between Pad GY-521-2 (2659.45,2322.836mil) And Track on layer Top Layer (3304.843,2165.843mil)
+Rule Violations :33
+
+Processing Rule : Short-Circuit Constraint (Allowed=No) (All),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=7mil) (TouchesRoom('MCU_ROOM')),(All)
+Rule Violations :0
+
+
+Violations Detected : 168
 Time Elapsed        : 00:00:01

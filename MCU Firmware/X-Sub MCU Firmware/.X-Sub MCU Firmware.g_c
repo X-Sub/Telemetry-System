@@ -112,7 +112,7 @@
     </GenFiles>
     <SignalListFile>Documentation\X-Sub MCU Firmware_SIGNALS.txt</SignalListFile>
     <DestinationCompiler>CodeWarriorColdFireV1</DestinationCompiler>
-    <ProjectModificationStamp>66</ProjectModificationStamp>
+    <ProjectModificationStamp>79</ProjectModificationStamp>
   </Options>
   <CpuID_4>
     <Generated>true</Generated>
@@ -121,7 +121,7 @@
     <GenDriverVersion>01.12</GenDriverVersion>
     <GenEventModule>Events</GenEventModule>
     <HeaderAge>1196053978</HeaderAge>
-    <CodeAge>1196053978</CodeAge>
+    <CodeAge>1211788931</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>19</GenNumMethods>
     <SetHighSpeed>false</SetHighSpeed>
@@ -1502,8 +1502,8 @@
     <GenComponentVersion>02.611</GenComponentVersion>
     <GenDriverVersion>01.33</GenDriverVersion>
     <GenEventModule>Events</GenEventModule>
-    <HeaderAge>1196198840</HeaderAge>
-    <CodeAge>1196198840</CodeAge>
+    <HeaderAge>1211782027</HeaderAge>
+    <CodeAge>1211782027</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>30</GenNumMethods>
     <Enable>true</Enable>
@@ -1840,8 +1840,8 @@
     <GenComponentVersion>01.697</GenComponentVersion>
     <GenDriverVersion>01.30</GenDriverVersion>
     <GenEventModule>Events</GenEventModule>
-    <HeaderAge>1196053978</HeaderAge>
-    <CodeAge>1196053978</CodeAge>
+    <HeaderAge>1211789508</HeaderAge>
+    <CodeAge>1211789508</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>19</GenNumMethods>
     <Enable>false</Enable>
@@ -1856,7 +1856,7 @@
     <GetValue>true</GetValue>
     <GetChanValue>true</GetChanValue>
     <GetValue8>true</GetValue8>
-    <GetChanValue8>false</GetChanValue8>
+    <GetChanValue8>true</GetChanValue8>
     <GetValue16>true</GetValue16>
     <GetChanValue16>true</GetChanValue16>
     <EnableAsynchroClock>false</EnableAsynchroClock>
@@ -1876,160 +1876,174 @@
     <GenSmartUserChangesDetected_Header>false</GenSmartUserChangesDetected_Header>
     <GenSmartUserChangesDetected_Code>false</GenSmartUserChangesDetected_Code>
     <GenSmartUserChangesDetected_Asembl>false</GenSmartUserChangesDetected_Asembl>
-    <GenMethodPos>22</GenMethodPos>
+    <GenMethodPos>24</GenMethodPos>
     <MethodPos>
       <MethodPos0>Interrupt</MethodPos0>
       <MethodType>internal_method</MethodType>
       <ModuleType>Header</ModuleType>
-      <LineBeg>127</LineBeg>
-      <LineEnd>138</LineEnd>
+      <LineBeg>131</LineBeg>
+      <LineEnd>142</LineEnd>
     </MethodPos>
     <MethodPos>
       <MethodPos1>HWEnDi</MethodPos1>
       <MethodType>internal_method</MethodType>
       <ModuleType>Header</ModuleType>
-      <LineBeg>139</LineBeg>
-      <LineEnd>151</LineEnd>
+      <LineBeg>143</LineBeg>
+      <LineEnd>155</LineEnd>
     </MethodPos>
     <MethodPos>
       <MethodPos2>Measure</MethodPos2>
       <MethodType>method</MethodType>
       <ModuleType>Header</ModuleType>
-      <LineBeg>153</LineBeg>
-      <LineEnd>187</LineEnd>
+      <LineBeg>157</LineBeg>
+      <LineEnd>191</LineEnd>
     </MethodPos>
     <MethodPos>
       <MethodPos3>MeasureChan</MethodPos3>
       <MethodType>method</MethodType>
       <ModuleType>Header</ModuleType>
-      <LineBeg>188</LineBeg>
-      <LineEnd>220</LineEnd>
+      <LineBeg>192</LineBeg>
+      <LineEnd>224</LineEnd>
     </MethodPos>
     <MethodPos>
       <MethodPos4>GetValue</MethodPos4>
       <MethodType>method</MethodType>
       <ModuleType>Header</ModuleType>
-      <LineBeg>221</LineBeg>
-      <LineEnd>252</LineEnd>
+      <LineBeg>225</LineBeg>
+      <LineEnd>256</LineEnd>
     </MethodPos>
     <MethodPos>
       <MethodPos5>GetChanValue</MethodPos5>
       <MethodType>method</MethodType>
       <ModuleType>Header</ModuleType>
-      <LineBeg>253</LineBeg>
-      <LineEnd>290</LineEnd>
+      <LineBeg>257</LineBeg>
+      <LineEnd>294</LineEnd>
     </MethodPos>
     <MethodPos>
       <MethodPos6>GetValue8</MethodPos6>
       <MethodType>method</MethodType>
       <ModuleType>Header</ModuleType>
-      <LineBeg>291</LineBeg>
-      <LineEnd>320</LineEnd>
+      <LineBeg>295</LineBeg>
+      <LineEnd>324</LineEnd>
     </MethodPos>
     <MethodPos>
-      <MethodPos7>GetValue16</MethodPos7>
+      <MethodPos7>GetChanValue8</MethodPos7>
       <MethodType>method</MethodType>
       <ModuleType>Header</ModuleType>
-      <LineBeg>321</LineBeg>
-      <LineEnd>350</LineEnd>
+      <LineBeg>325</LineBeg>
+      <LineEnd>360</LineEnd>
     </MethodPos>
     <MethodPos>
-      <MethodPos8>GetChanValue16</MethodPos8>
+      <MethodPos8>GetValue16</MethodPos8>
       <MethodType>method</MethodType>
       <ModuleType>Header</ModuleType>
-      <LineBeg>351</LineBeg>
-      <LineEnd>386</LineEnd>
+      <LineBeg>361</LineBeg>
+      <LineEnd>390</LineEnd>
     </MethodPos>
     <MethodPos>
-      <MethodPos9>Init</MethodPos9>
+      <MethodPos9>GetChanValue16</MethodPos9>
+      <MethodType>method</MethodType>
+      <ModuleType>Header</ModuleType>
+      <LineBeg>391</LineBeg>
+      <LineEnd>426</LineEnd>
+    </MethodPos>
+    <MethodPos>
+      <MethodPos10>Init</MethodPos10>
       <MethodType>internal_method</MethodType>
       <ModuleType>Header</ModuleType>
-      <LineBeg>387</LineBeg>
-      <LineEnd>399</LineEnd>
+      <LineBeg>427</LineBeg>
+      <LineEnd>439</LineEnd>
     </MethodPos>
     <MethodPos>
-      <MethodPos10>ClrSumV</MethodPos10>
+      <MethodPos11>ClrSumV</MethodPos11>
       <MethodType>internal_method_declaration</MethodType>
       <ModuleType>Code</ModuleType>
-      <LineBeg>112</LineBeg>
-      <LineEnd>122</LineEnd>
+      <LineBeg>116</LineBeg>
+      <LineEnd>126</LineEnd>
     </MethodPos>
     <MethodPos>
-      <MethodPos11>Interrupt</MethodPos11>
+      <MethodPos12>Interrupt</MethodPos12>
       <MethodType>internal_method</MethodType>
       <ModuleType>Code</ModuleType>
-      <LineBeg>142</LineBeg>
-      <LineEnd>181</LineEnd>
+      <LineBeg>146</LineBeg>
+      <LineEnd>185</LineEnd>
     </MethodPos>
     <MethodPos>
-      <MethodPos12>ClrSumV</MethodPos12>
+      <MethodPos13>ClrSumV</MethodPos13>
       <MethodType>internal_method</MethodType>
       <ModuleType>Code</ModuleType>
-      <LineBeg>182</LineBeg>
-      <LineEnd>200</LineEnd>
+      <LineBeg>186</LineBeg>
+      <LineEnd>205</LineEnd>
     </MethodPos>
     <MethodPos>
-      <MethodPos13>HWEnDi</MethodPos13>
+      <MethodPos14>HWEnDi</MethodPos14>
       <MethodType>internal_method</MethodType>
       <ModuleType>Code</ModuleType>
-      <LineBeg>201</LineBeg>
-      <LineEnd>229</LineEnd>
+      <LineBeg>206</LineBeg>
+      <LineEnd>234</LineEnd>
     </MethodPos>
     <MethodPos>
-      <MethodPos14>Measure</MethodPos14>
+      <MethodPos15>Measure</MethodPos15>
       <MethodType>method</MethodType>
       <ModuleType>Code</ModuleType>
-      <LineBeg>230</LineBeg>
-      <LineEnd>275</LineEnd>
+      <LineBeg>235</LineBeg>
+      <LineEnd>280</LineEnd>
     </MethodPos>
     <MethodPos>
-      <MethodPos15>MeasureChan</MethodPos15>
+      <MethodPos16>MeasureChan</MethodPos16>
       <MethodType>method</MethodType>
       <ModuleType>Code</ModuleType>
-      <LineBeg>276</LineBeg>
-      <LineEnd>323</LineEnd>
+      <LineBeg>281</LineBeg>
+      <LineEnd>328</LineEnd>
     </MethodPos>
     <MethodPos>
-      <MethodPos16>GetValue</MethodPos16>
+      <MethodPos17>GetValue</MethodPos17>
       <MethodType>method</MethodType>
       <ModuleType>Code</ModuleType>
-      <LineBeg>324</LineBeg>
-      <LineEnd>366</LineEnd>
+      <LineBeg>329</LineBeg>
+      <LineEnd>372</LineEnd>
     </MethodPos>
     <MethodPos>
-      <MethodPos17>GetChanValue</MethodPos17>
+      <MethodPos18>GetChanValue</MethodPos18>
       <MethodType>method</MethodType>
       <ModuleType>Code</ModuleType>
-      <LineBeg>367</LineBeg>
-      <LineEnd>414</LineEnd>
+      <LineBeg>373</LineBeg>
+      <LineEnd>420</LineEnd>
     </MethodPos>
     <MethodPos>
-      <MethodPos18>GetValue8</MethodPos18>
+      <MethodPos19>GetValue8</MethodPos19>
       <MethodType>method</MethodType>
       <ModuleType>Code</ModuleType>
-      <LineBeg>415</LineBeg>
-      <LineEnd>455</LineEnd>
+      <LineBeg>421</LineBeg>
+      <LineEnd>462</LineEnd>
     </MethodPos>
     <MethodPos>
-      <MethodPos19>GetValue16</MethodPos19>
+      <MethodPos20>GetChanValue8</MethodPos20>
       <MethodType>method</MethodType>
       <ModuleType>Code</ModuleType>
-      <LineBeg>456</LineBeg>
-      <LineEnd>496</LineEnd>
+      <LineBeg>463</LineBeg>
+      <LineEnd>508</LineEnd>
     </MethodPos>
     <MethodPos>
-      <MethodPos20>GetChanValue16</MethodPos20>
+      <MethodPos21>GetValue16</MethodPos21>
       <MethodType>method</MethodType>
       <ModuleType>Code</ModuleType>
-      <LineBeg>497</LineBeg>
-      <LineEnd>542</LineEnd>
+      <LineBeg>509</LineBeg>
+      <LineEnd>550</LineEnd>
     </MethodPos>
     <MethodPos>
-      <MethodPos21>Init</MethodPos21>
+      <MethodPos22>GetChanValue16</MethodPos22>
+      <MethodType>method</MethodType>
+      <ModuleType>Code</ModuleType>
+      <LineBeg>551</LineBeg>
+      <LineEnd>596</LineEnd>
+    </MethodPos>
+    <MethodPos>
+      <MethodPos23>Init</MethodPos23>
       <MethodType>internal_method</MethodType>
       <ModuleType>Code</ModuleType>
-      <LineBeg>543</LineBeg>
-      <LineEnd>565</LineEnd>
+      <LineBeg>597</LineBeg>
+      <LineEnd>619</LineEnd>
     </MethodPos>
     <GenExtraFilesCount>0</GenExtraFilesCount>
   </ComponentID_47>
@@ -2431,8 +2445,8 @@
     <GenComponentVersion>01.287</GenComponentVersion>
     <GenDriverVersion>01.28</GenDriverVersion>
     <GenEventModule>Events</GenEventModule>
-    <HeaderAge>1196053978</HeaderAge>
-    <CodeAge>1196053978</CodeAge>
+    <HeaderAge>1211198139</HeaderAge>
+    <CodeAge>1211198139</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>21</GenNumMethods>
     <Enable>false</Enable>
@@ -2615,8 +2629,8 @@
     <GenComponentVersion>02.086</GenComponentVersion>
     <GenDriverVersion>03.14</GenDriverVersion>
     <GenEventModule />
-    <HeaderAge>1196053978</HeaderAge>
-    <CodeAge>1196053978</CodeAge>
+    <HeaderAge>1210866410</HeaderAge>
+    <CodeAge>1210866410</CodeAge>
     <AsemblAge>-1</AsemblAge>
     <GenNumMethods>10</GenNumMethods>
     <GetDir>false</GetDir>
@@ -2942,8 +2956,8 @@
     <SrcFile31>Drivers\HCS08\ADC.drv=1116866294</SrcFile31>
     <SrcFile32>Drivers\HCS08\MC9S08_LowLevelInit.prg=1116866294</SrcFile32>
     <SrcFile33>Drivers\Common\ADCGetValue16.inc=1146382935</SrcFile33>
-    <SrcFile34>Drivers\Common\OneBitIOClrVal.inc=1116866294</SrcFile34>
-    <SrcFile35>Drivers\Common\CommonInitialization_WriteOnce.prg=1116866294</SrcFile35>
+    <SrcFile34>Drivers\Common\CommonInitialization_WriteOnce.prg=1116866294</SrcFile34>
+    <SrcFile35>Drivers\Common\OneBitIOClrVal.inc=1116866294</SrcFile35>
     <SrcFile36>Drivers\Common\PWMSetDutyMS.inc=1116866294</SrcFile36>
     <SrcFile37>Drivers\AsynchroSerial.src=1122284138</SrcFile37>
     <SrcFile38>Drivers\HCS08\TimerSubroutines_Output.prg=1116866294</SrcFile38>
@@ -3008,109 +3022,110 @@
     <SrcFile97>Drivers\HCS08\MC9S08_MemProtect.prg=1116866294</SrcFile97>
     <SrcFile98>Drivers\HCS08\InitPin.prg=1116866294</SrcFile98>
     <SrcFile99>Drivers\HCS08\MC9S08_DefineRegsAndBitsAccess.prg=1116866294</SrcFile99>
-    <SrcFile100>Drivers\Common\ADCGetChanValue16.inc=1146382935</SrcFile100>
-    <SrcFile101>Drivers\Common\AsynchroSerialSendChar.inc=1116866294</SrcFile101>
-    <SrcFile102>Drivers\Common\PWMSetRatio8.inc=1116866294</SrcFile102>
-    <SrcFile103>Drivers\ColdFireV1\MCF51QE128_80c.prg=1116866294</SrcFile103>
-    <SrcFile104>Drivers\HCS08\TimerSubroutines_TmrAsSharedPresc.prg=1116866294</SrcFile104>
-    <SrcFile105>Drivers\Common\ExternalInterruptInterrupt.inc=1116866294</SrcFile105>
-    <SrcFile106>Drivers\Common\GeneralParametersNone.inc=1116866294</SrcFile106>
-    <SrcFile107>Drivers\Common\ExternalInterruptGetVal.inc=1116866294</SrcFile107>
-    <SrcFile108>Drivers\Common\ADCMeasure.inc=1146382935</SrcFile108>
-    <SrcFile109>Drivers\HCS08\MC9S08_Constants.prg=1116866294</SrcFile109>
-    <SrcFile110>Drivers\Common\GeneralInternalGlobal.inc=1116866294</SrcFile110>
-    <SrcFile111>Drivers\Common\PE_MisraEnableRules.prg=1116866294</SrcFile111>
-    <SrcFile112>Drivers\Common\GeneralInternalDescription.prg=1116866294</SrcFile112>
-    <SrcFile113>Drivers\Common\PWMSettings.inc=1127381294</SrcFile113>
-    <SrcFile114>Drivers\Common\InitReg8Enable.prg=1116866294</SrcFile114>
-    <SrcFile115>Drivers\Common\GeneralParameters.inc=1116866294</SrcFile115>
-    <SrcFile116>Drivers\Common\AsynchroSerialOnRxChar.inc=1116866294</SrcFile116>
-    <SrcFile117>Drivers\Common\CriticalSectionEnterCritical.Inc=1190232497</SrcFile117>
-    <SrcFile118>Drivers\TimerInt.src=1122284138</SrcFile118>
-    <SrcFile119>Drivers\Common\PE_TimerConstants.inc=1116866294</SrcFile119>
-    <SrcFile120>Drivers\Common\GenReg32InitInfo.prg=1116866294</SrcFile120>
-    <SrcFile121>Drivers\Common\AsynchroSerialOnFullRxBuf.inc=1116866294</SrcFile121>
-    <SrcFile122>Drivers\ColdFireV1.src=1121555243</SrcFile122>
-    <SrcFile123>Drivers\Common\ADCGetChanValue.inc=1146382935</SrcFile123>
-    <SrcFile124>Drivers\Common\ExternalInterruptAbstract.inc=1116866294</SrcFile124>
-    <SrcFile125>Drivers\Common\DataHeader.End=1116866294</SrcFile125>
-    <SrcFile126>Drivers\Common\UsedAsynchroPins.inc=1116866294</SrcFile126>
-    <SrcFile127>Drivers\BitIO.src=1122284138</SrcFile127>
-    <SrcFile128>Drivers\HC08\Common_HCx08\MC9x08_COPreset.prg=1116866294</SrcFile128>
-    <SrcFile129>Drivers\Common\AsynchroSerialSettings.inc=1116866294</SrcFile129>
-    <SrcFile130>Drivers\Common\OneBitIOAbstract.inc=1116866294</SrcFile130>
-    <SrcFile131>Drivers\ADC.src=1122284138</SrcFile131>
-    <SrcFile132>Drivers\ColdFireV1\PE_Error.drv=1116866294</SrcFile132>
-    <SrcFile133>Drivers\ColdFireV1\ColdFireV1_InterruptVectorTable.prg=1116866294</SrcFile133>
-    <SrcFile134>Drivers\Common\InternalI2CSendBlock.inc=1116866294</SrcFile134>
-    <SrcFile135>Drivers\Common\InternalI2CSelectSlave.inc=1116866294</SrcFile135>
-    <SrcFile136>Drivers\Common\EBGNSupport\StringLib.prg=1146382935</SrcFile136>
-    <SrcFile137>Drivers\Common\GeneralDamage.inc=1116866294</SrcFile137>
-    <SrcFile138>Drivers\HCS08\MC9S08_DefineCommonSymbols.prg=1116866294</SrcFile138>
-    <SrcFile139>Drivers\Common\PWMSetDutyUS.inc=1116866294</SrcFile139>
-    <SrcFile140>Drivers\Common\ADCGetValue.inc=1146382935</SrcFile140>
-    <SrcFile141>Drivers\sw\CpuDelay.prg=1146382935</SrcFile141>
-    <SrcFile142>Drivers\Common\PE_MisraDisableRules.prg=1116866294</SrcFile142>
-    <SrcFile143>Drivers\HCS08\PWM.drv=1127381294</SrcFile143>
-    <SrcFile144>Drivers\Common\HeaderGeneral.c=1116866294</SrcFile144>
-    <SrcFile145>Drivers\Common\UsedPin.inc=1116866294</SrcFile145>
-    <SrcFile146>Drivers\CriticalSection.src=1190232496</SrcFile146>
-    <SrcFile147>Drivers\HCS08\MC9S08_EntryPointCode.prg=1116866294</SrcFile147>
-    <SrcFile148>Drivers\ColdFireV1\PE_Const.drv=1116866294</SrcFile148>
-    <SrcFile149>Drivers\Common\AsynchroSerialRecvChar.inc=1116866294</SrcFile149>
-    <SrcFile150>Drivers\Common\OneBitIOSetVal.inc=1116866294</SrcFile150>
-    <SrcFile151>Drivers\Common\AsynchroSerialAbstract.inc=1116866294</SrcFile151>
-    <SrcFile152>Drivers\Common\PE_ErrorAbstract.inc=1116866294</SrcFile152>
-    <SrcFile153>Drivers\ColdFireV1\Init_ExternalBus_COLDFIREV1.prg=1116866294</SrcFile153>
-    <SrcFile154>Drivers\Common\PWMDisable.inc=1116866294</SrcFile154>
-    <SrcFile155>Drivers\ExtInt.src=1122284138</SrcFile155>
-    <SrcFile156>Drivers\Common\GeneralEvent.inc=1116866294</SrcFile156>
-    <SrcFile157>Drivers\InternalI2C.src=1122284138</SrcFile157>
-    <SrcFile158>Drivers\Common\AsynchroSerialEnable.inc=1116866294</SrcFile158>
-    <SrcFile159>Drivers\HCS08\MC9S08_ICS_V3.prg=1116866294</SrcFile159>
-    <SrcFile160>Drivers\Common\CommonRegInitialization.prg=1116866294</SrcFile160>
-    <SrcFile161>Drivers\Common\SetReg8.prg=1127381294</SrcFile161>
-    <SrcFile162>Drivers\HCS08\TimerSubroutines.prg=1116866294</SrcFile162>
-    <SrcFile163>Drivers\Common\PE_MisraDisableRuleForSymbol.prg=1116866294</SrcFile163>
-    <SrcFile164>Drivers\Common\OneBitIOGetVal.inc=1116866294</SrcFile164>
-    <SrcFile165>Drivers\Common\PE_TimerMethods.inc=1116866294</SrcFile165>
-    <SrcFile166>Drivers\Common\AsynchroSerialGetCharsInTxBuf.inc=1116866294</SrcFile166>
-    <SrcFile167>Drivers\HC08\Common_HCx08\CommonSubroutines.prg=1116866294</SrcFile167>
-    <SrcFile168>Drivers\HCS08\TimerInt.drv=1128496915</SrcFile168>
-    <SrcFile169>Drivers\Common\ADCSettings.inc=1151162642</SrcFile169>
-    <SrcFile170>Drivers\HCS08\MC9S08_SharedInterruptVectors.prg=1116866294</SrcFile170>
-    <SrcFile171>Drivers\Common\SetReg16.prg=1127381294</SrcFile171>
-    <SrcFile172>Drivers\HCS08\InternalI2C.drv=1128496915</SrcFile172>
-    <SrcFile173>Drivers\HCS08\TimerSubroutines_PeriodicInt.prg=1116866294</SrcFile173>
-    <SrcFile174>Drivers\Common\Header.doxy=1119169723</SrcFile174>
-    <SrcFile175>Drivers\Common\PE_TypesAbstract.inc=1116866294</SrcFile175>
-    <SrcFile176>Drivers\Common\AsynchroSerialDisable.inc=1116866294</SrcFile176>
-    <SrcFile177>Drivers\Common\ToolChain_Settings.prg=1146382935</SrcFile177>
-    <SrcFile178>Drivers\Common\CriticalSectionAbstract.Inc=1190232495</SrcFile178>
-    <SrcFile179>Drivers\HC08\Common_HCx08\MC9x08_WhileNotSet.prg=1116866294</SrcFile179>
-    <SrcFile180>Drivers\Common\TimerIntOnInterrupt.inc=1116866294</SrcFile180>
-    <SrcFile181>Drivers\Common\ADCAbstract.inc=1116866294</SrcFile181>
-    <SrcFile182>Drivers\HCS08\ADC_shared.drv=1116866294</SrcFile182>
-    <SrcFile183>Drivers\Common\ColdFireV1Abstract.inc=1116866294</SrcFile183>
-    <SrcFile184>Drivers\Common\InternalI2CRecvBlock.inc=1116866294</SrcFile184>
-    <SrcFile185>Drivers\Common\InitReg8Speed.prg=1116866294</SrcFile185>
-    <SrcFile186>Drivers\Common\AsynchroSerialOnTxChar.inc=1116866294</SrcFile186>
-    <SrcFile187>Drivers\Common\ColdFireV1EnableInt.inc=1116866294</SrcFile187>
-    <SrcFile188>Drivers\Common\CommonEnabling.prg=1116866294</SrcFile188>
-    <SrcFile189>Drivers\Common\SetRegBits8.prg=1127381294</SrcFile189>
-    <SrcFile190>Drivers\Common\Doxy_CollectRegInitInfo.prg=1116866294</SrcFile190>
-    <SrcFile191>Drivers\Common\CriticalSectionCriticalVariable.Inc=1190232497</SrcFile191>
-    <SrcFile192>Drivers\Common\OneBitIONegVal.inc=1116866294</SrcFile192>
-    <SrcFile193>Drivers\Common\DeclareISR.prg=1146382935</SrcFile193>
-    <SrcFile194>Drivers\Common\PE_TimerLngMul.inc=1116866294</SrcFile194>
-    <SrcFile195>Drivers\Common\ADCOnEnd.inc=1116866294</SrcFile195>
-    <SrcFile196>Drivers\HCS08\CreateCodeSection.prg=1116866294</SrcFile196>
-    <SrcFile197>Drivers\Common\IO_MapSettings.inc=1116866294</SrcFile197>
-    <SrcFile198>Drivers\Common\TimerIntAbstract.inc=1116866294</SrcFile198>
-    <SrcFile199>Drivers\Common\GeneralReturnNothing.inc=1116866294</SrcFile199>
-    <SrcFile200>Drivers\Common\UsedBaudModes.inc=1116866294</SrcFile200>
-    <SrcFile201>Drivers\PWM.src=1122284138</SrcFile201>
-    <SrcFile202>Drivers\Common\CommonInitialization_FLASH.prg=1116866294</SrcFile202>
-    <SrcFile203>Drivers\ColdFireV1\MCF51QE128_80h.prg=1116866294</SrcFile203>
+    <SrcFile100>Drivers\Common\ADCGetChanValue8.inc=1146382935</SrcFile100>
+    <SrcFile101>Drivers\Common\ADCGetChanValue16.inc=1146382935</SrcFile101>
+    <SrcFile102>Drivers\Common\AsynchroSerialSendChar.inc=1116866294</SrcFile102>
+    <SrcFile103>Drivers\Common\PWMSetRatio8.inc=1116866294</SrcFile103>
+    <SrcFile104>Drivers\ColdFireV1\MCF51QE128_80c.prg=1116866294</SrcFile104>
+    <SrcFile105>Drivers\HCS08\TimerSubroutines_TmrAsSharedPresc.prg=1116866294</SrcFile105>
+    <SrcFile106>Drivers\Common\ExternalInterruptInterrupt.inc=1116866294</SrcFile106>
+    <SrcFile107>Drivers\Common\GeneralParametersNone.inc=1116866294</SrcFile107>
+    <SrcFile108>Drivers\Common\ExternalInterruptGetVal.inc=1116866294</SrcFile108>
+    <SrcFile109>Drivers\Common\ADCMeasure.inc=1146382935</SrcFile109>
+    <SrcFile110>Drivers\HCS08\MC9S08_Constants.prg=1116866294</SrcFile110>
+    <SrcFile111>Drivers\Common\GeneralInternalGlobal.inc=1116866294</SrcFile111>
+    <SrcFile112>Drivers\Common\PE_MisraEnableRules.prg=1116866294</SrcFile112>
+    <SrcFile113>Drivers\Common\GeneralInternalDescription.prg=1116866294</SrcFile113>
+    <SrcFile114>Drivers\Common\PWMSettings.inc=1127381294</SrcFile114>
+    <SrcFile115>Drivers\Common\InitReg8Enable.prg=1116866294</SrcFile115>
+    <SrcFile116>Drivers\Common\GeneralParameters.inc=1116866294</SrcFile116>
+    <SrcFile117>Drivers\Common\AsynchroSerialOnRxChar.inc=1116866294</SrcFile117>
+    <SrcFile118>Drivers\Common\CriticalSectionEnterCritical.Inc=1190232497</SrcFile118>
+    <SrcFile119>Drivers\TimerInt.src=1122284138</SrcFile119>
+    <SrcFile120>Drivers\Common\PE_TimerConstants.inc=1116866294</SrcFile120>
+    <SrcFile121>Drivers\Common\GenReg32InitInfo.prg=1116866294</SrcFile121>
+    <SrcFile122>Drivers\Common\AsynchroSerialOnFullRxBuf.inc=1116866294</SrcFile122>
+    <SrcFile123>Drivers\ColdFireV1.src=1121555243</SrcFile123>
+    <SrcFile124>Drivers\Common\ADCGetChanValue.inc=1146382935</SrcFile124>
+    <SrcFile125>Drivers\Common\ExternalInterruptAbstract.inc=1116866294</SrcFile125>
+    <SrcFile126>Drivers\Common\DataHeader.End=1116866294</SrcFile126>
+    <SrcFile127>Drivers\Common\UsedAsynchroPins.inc=1116866294</SrcFile127>
+    <SrcFile128>Drivers\BitIO.src=1122284138</SrcFile128>
+    <SrcFile129>Drivers\HC08\Common_HCx08\MC9x08_COPreset.prg=1116866294</SrcFile129>
+    <SrcFile130>Drivers\Common\AsynchroSerialSettings.inc=1116866294</SrcFile130>
+    <SrcFile131>Drivers\Common\OneBitIOAbstract.inc=1116866294</SrcFile131>
+    <SrcFile132>Drivers\ADC.src=1122284138</SrcFile132>
+    <SrcFile133>Drivers\ColdFireV1\PE_Error.drv=1116866294</SrcFile133>
+    <SrcFile134>Drivers\ColdFireV1\ColdFireV1_InterruptVectorTable.prg=1116866294</SrcFile134>
+    <SrcFile135>Drivers\Common\InternalI2CSendBlock.inc=1116866294</SrcFile135>
+    <SrcFile136>Drivers\Common\InternalI2CSelectSlave.inc=1116866294</SrcFile136>
+    <SrcFile137>Drivers\Common\EBGNSupport\StringLib.prg=1146382935</SrcFile137>
+    <SrcFile138>Drivers\Common\GeneralDamage.inc=1116866294</SrcFile138>
+    <SrcFile139>Drivers\HCS08\MC9S08_DefineCommonSymbols.prg=1116866294</SrcFile139>
+    <SrcFile140>Drivers\Common\PWMSetDutyUS.inc=1116866294</SrcFile140>
+    <SrcFile141>Drivers\Common\ADCGetValue.inc=1146382935</SrcFile141>
+    <SrcFile142>Drivers\sw\CpuDelay.prg=1146382935</SrcFile142>
+    <SrcFile143>Drivers\Common\PE_MisraDisableRules.prg=1116866294</SrcFile143>
+    <SrcFile144>Drivers\HCS08\PWM.drv=1127381294</SrcFile144>
+    <SrcFile145>Drivers\Common\HeaderGeneral.c=1116866294</SrcFile145>
+    <SrcFile146>Drivers\Common\UsedPin.inc=1116866294</SrcFile146>
+    <SrcFile147>Drivers\CriticalSection.src=1190232496</SrcFile147>
+    <SrcFile148>Drivers\HCS08\MC9S08_EntryPointCode.prg=1116866294</SrcFile148>
+    <SrcFile149>Drivers\ColdFireV1\PE_Const.drv=1116866294</SrcFile149>
+    <SrcFile150>Drivers\Common\AsynchroSerialRecvChar.inc=1116866294</SrcFile150>
+    <SrcFile151>Drivers\Common\OneBitIOSetVal.inc=1116866294</SrcFile151>
+    <SrcFile152>Drivers\Common\AsynchroSerialAbstract.inc=1116866294</SrcFile152>
+    <SrcFile153>Drivers\Common\PE_ErrorAbstract.inc=1116866294</SrcFile153>
+    <SrcFile154>Drivers\ColdFireV1\Init_ExternalBus_COLDFIREV1.prg=1116866294</SrcFile154>
+    <SrcFile155>Drivers\Common\PWMDisable.inc=1116866294</SrcFile155>
+    <SrcFile156>Drivers\ExtInt.src=1122284138</SrcFile156>
+    <SrcFile157>Drivers\Common\GeneralEvent.inc=1116866294</SrcFile157>
+    <SrcFile158>Drivers\InternalI2C.src=1122284138</SrcFile158>
+    <SrcFile159>Drivers\Common\AsynchroSerialEnable.inc=1116866294</SrcFile159>
+    <SrcFile160>Drivers\HCS08\MC9S08_ICS_V3.prg=1116866294</SrcFile160>
+    <SrcFile161>Drivers\Common\CommonRegInitialization.prg=1116866294</SrcFile161>
+    <SrcFile162>Drivers\Common\SetReg8.prg=1127381294</SrcFile162>
+    <SrcFile163>Drivers\HCS08\TimerSubroutines.prg=1116866294</SrcFile163>
+    <SrcFile164>Drivers\Common\PE_MisraDisableRuleForSymbol.prg=1116866294</SrcFile164>
+    <SrcFile165>Drivers\Common\OneBitIOGetVal.inc=1116866294</SrcFile165>
+    <SrcFile166>Drivers\Common\PE_TimerMethods.inc=1116866294</SrcFile166>
+    <SrcFile167>Drivers\Common\AsynchroSerialGetCharsInTxBuf.inc=1116866294</SrcFile167>
+    <SrcFile168>Drivers\HC08\Common_HCx08\CommonSubroutines.prg=1116866294</SrcFile168>
+    <SrcFile169>Drivers\HCS08\TimerInt.drv=1128496915</SrcFile169>
+    <SrcFile170>Drivers\Common\ADCSettings.inc=1151162642</SrcFile170>
+    <SrcFile171>Drivers\HCS08\MC9S08_SharedInterruptVectors.prg=1116866294</SrcFile171>
+    <SrcFile172>Drivers\Common\SetReg16.prg=1127381294</SrcFile172>
+    <SrcFile173>Drivers\HCS08\InternalI2C.drv=1128496915</SrcFile173>
+    <SrcFile174>Drivers\HCS08\TimerSubroutines_PeriodicInt.prg=1116866294</SrcFile174>
+    <SrcFile175>Drivers\Common\Header.doxy=1119169723</SrcFile175>
+    <SrcFile176>Drivers\Common\PE_TypesAbstract.inc=1116866294</SrcFile176>
+    <SrcFile177>Drivers\Common\AsynchroSerialDisable.inc=1116866294</SrcFile177>
+    <SrcFile178>Drivers\Common\ToolChain_Settings.prg=1146382935</SrcFile178>
+    <SrcFile179>Drivers\Common\CriticalSectionAbstract.Inc=1190232495</SrcFile179>
+    <SrcFile180>Drivers\HC08\Common_HCx08\MC9x08_WhileNotSet.prg=1116866294</SrcFile180>
+    <SrcFile181>Drivers\Common\TimerIntOnInterrupt.inc=1116866294</SrcFile181>
+    <SrcFile182>Drivers\Common\ADCAbstract.inc=1116866294</SrcFile182>
+    <SrcFile183>Drivers\HCS08\ADC_shared.drv=1116866294</SrcFile183>
+    <SrcFile184>Drivers\Common\ColdFireV1Abstract.inc=1116866294</SrcFile184>
+    <SrcFile185>Drivers\Common\InternalI2CRecvBlock.inc=1116866294</SrcFile185>
+    <SrcFile186>Drivers\Common\InitReg8Speed.prg=1116866294</SrcFile186>
+    <SrcFile187>Drivers\Common\AsynchroSerialOnTxChar.inc=1116866294</SrcFile187>
+    <SrcFile188>Drivers\Common\ColdFireV1EnableInt.inc=1116866294</SrcFile188>
+    <SrcFile189>Drivers\Common\CommonEnabling.prg=1116866294</SrcFile189>
+    <SrcFile190>Drivers\Common\SetRegBits8.prg=1127381294</SrcFile190>
+    <SrcFile191>Drivers\Common\Doxy_CollectRegInitInfo.prg=1116866294</SrcFile191>
+    <SrcFile192>Drivers\Common\CriticalSectionCriticalVariable.Inc=1190232497</SrcFile192>
+    <SrcFile193>Drivers\Common\OneBitIONegVal.inc=1116866294</SrcFile193>
+    <SrcFile194>Drivers\Common\DeclareISR.prg=1146382935</SrcFile194>
+    <SrcFile195>Drivers\Common\PE_TimerLngMul.inc=1116866294</SrcFile195>
+    <SrcFile196>Drivers\Common\ADCOnEnd.inc=1116866294</SrcFile196>
+    <SrcFile197>Drivers\HCS08\CreateCodeSection.prg=1116866294</SrcFile197>
+    <SrcFile198>Drivers\Common\IO_MapSettings.inc=1116866294</SrcFile198>
+    <SrcFile199>Drivers\Common\TimerIntAbstract.inc=1116866294</SrcFile199>
+    <SrcFile200>Drivers\Common\GeneralReturnNothing.inc=1116866294</SrcFile200>
+    <SrcFile201>Drivers\Common\UsedBaudModes.inc=1116866294</SrcFile201>
+    <SrcFile202>Drivers\PWM.src=1122284138</SrcFile202>
+    <SrcFile203>Drivers\Common\CommonInitialization_FLASH.prg=1116866294</SrcFile203>
+    <SrcFile204>Drivers\ColdFireV1\MCF51QE128_80h.prg=1116866294</SrcFile204>
   </UsedSrcFiles>
 </GenerationInfo_G_C>

@@ -903,7 +903,7 @@ autoselected pull
         <Interrupt_TxD_priority v="high priority" />
         <Interrupt_Error v="Vsci1err" />
         <Interrupt_Error_priority v="medium priority" />
-        <Input_buffer_size v="5" />
+        <Input_buffer_size v="10" />
         <Output_buffer_size v="27" />
         <group name="Handshake">
           <boolgroup name="CTS" v="Disabled" />
@@ -1041,7 +1041,7 @@ autoselected pull
         <A_D_interrupt v="Vadc" />
         <A_D_interrupt_priority v="medium priority" />
       </boolgroup>
-      <list name="A/D channels" v="5">
+      <list name="A/D channels" v="6">
         <group name="Channel0">
           <A_D_channel__pin_ v="PTF0_ADP10" />
         </group>
@@ -1056,6 +1056,9 @@ autoselected pull
         </group>
         <group name="Channel4">
           <A_D_channel__pin_ v="PTF4_ADP14" />
+        </group>
+        <group name="Channel5">
+          <A_D_channel__pin_ v="PTF5_ADP15" />
         </group>
       </list>
       <A_D_resolution v="12 bits" />
@@ -1087,7 +1090,7 @@ autoselected pull
       <GetValue v="generate code" />
       <GetChanValue v="generate code" />
       <GetValue8 v="generate code" />
-      <GetChanValue8 v="don&amp;apos;t generate code" />
+      <GetChanValue8 v="generate code" />
       <GetValue16 v="generate code" />
       <GetChanValue16 v="generate code" />
       <EnableAsynchroClock v="don&amp;apos;t generate code" />
@@ -1246,7 +1249,7 @@ autoselected pull
     <Enabled v="Y" />
     <Properties>
       <Component_name v="I2C" />
-      <I2C_channel v="IIC1" />
+      <I2C_channel v="IIC2" />
       <Mode_selection v="MASTER" />
       <boolgroup name="Interrupt service/event" v="Disabled" />
       <boolgroup name="MASTER mode" v="Enabled">
@@ -1259,8 +1262,8 @@ autoselected pull
       </boolgroup>
       <boolgroup name="SLAVE mode" v="Disabled" />
       <group name="Data and Clock">
-        <SDA_pin v="PTB6_SDA1_XTAL" />
-        <SCL_pin v="PTB7_SCL1_EXTAL" />
+        <SDA_pin v="PTH7_SDA2" />
+        <SCL_pin v="PTH6_SCL2" />
       </group>
       <Internal_frequency__multiplier_factor_ v="3.735552 MHz" />
       <Bits_0_2_of_Frequency_divider_register v="110" />
@@ -1325,7 +1328,12 @@ autoselected pull
     <Properties>
       <Component_name v="PresenciaAgua2" />
       <Pin_for_I_O v="PTG1" />
-      <Pull_resistor v="no pull resistor" />
+      <Pull_resistor sel_value="no pull resistor">
+        
+autoselected pull
+
+        <EmptySection_DummyValue />
+      </Pull_resistor>
       <Open_drain sel_value="The settings is irrelevant for input direction">
         
 push-pull

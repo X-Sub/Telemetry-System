@@ -6,7 +6,7 @@
 **     Component   : InternalI2C
 **     Version     : Component 01.287, Driver 01.28, CPU db: 3.00.078
 **     Compiler    : CodeWarrior ColdFireV1 C Compiler
-**     Date/Time   : 2015-10-10, 10:46, # CodeGen: 61
+**     Date/Time   : 2016-01-17, 13:21, # CodeGen: 84
 **     Abstract    :
 **          This component encapsulates the internal I2C communication 
 **          interface. The implementation of the interface is based 
@@ -25,7 +25,7 @@
 **            - 7-bit slave addressing
 **            - General call address detection provided
 **     Settings    :
-**         Serial channel              : IIC1
+**         Serial channel              : IIC2
 **
 **         Protocol
 **             Mode                    : MASTER
@@ -39,12 +39,12 @@
 **             Events                  : Enabled
 **
 **         Registers
-**             Input buffer            : IIC1D     [0xFFFF8034]
-**             Output buffer           : IIC1D     [0xFFFF8034]
-**             Control register        : IIC1C1    [0xFFFF8032]
-**             Status register         : IIC1S     [0xFFFF8033]
-**             Baud setting reg.       : IIC1F     [0xFFFF8031]
-**             Address register        : IIC1A     [0xFFFF8030]
+**             Input buffer            : IIC2D     [0xFFFF986C]
+**             Output buffer           : IIC2D     [0xFFFF986C]
+**             Control register        : IIC2C1    [0xFFFF986A]
+**             Status register         : IIC2S     [0xFFFF986B]
+**             Baud setting reg.       : IIC2F     [0xFFFF9869]
+**             Address register        : IIC2A     [0xFFFF9868]
 **
 **             Priority                : 
 **
@@ -52,8 +52,8 @@
 **       ----------------------------------------------------------
 **            Function    | On package |    Name
 **       ----------------------------------------------------------
-**              SDA       |     15     |  PTB6_SDA1_XTAL
-**              SCL       |     14     |  PTB7_SCL1_EXTAL
+**              SDA       |     3      |  PTH7_SDA2
+**              SCL       |     4      |  PTH6_SCL2
 **       ----------------------------------------------------------
 **     Contents    :
 **         SendChar    - byte I2C_SendChar(byte Chr);

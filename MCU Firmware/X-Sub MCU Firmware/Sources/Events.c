@@ -35,8 +35,11 @@
 #include "xSub.h"
 #include "OneWire.h"
 
-byte err = 0;
+unsigned short err = 0;
 byte data[27];
+byte data2[2];
+byte dataTest[14];
+byte dataInPC[10];
 byte in;
 
 /*
@@ -55,6 +58,7 @@ byte SerialIn;
 wordbyte wordIn;
 byte wordInByte[2];
 word error;
+byte STATUS_PC;
 //Tiempo
 byte tLed = 0x00;
 byte tMotor = 0x00;
@@ -77,6 +81,7 @@ byte tMotor = 0x00;
 //Resolucion de 10 ms
 void Aux_Int_OnInterrupt(void)
 {
+	
 	//Bucle para 100 ms de leds
 	if(tLed != 10-1)
 	{
@@ -111,7 +116,7 @@ void Aux_Int_OnInterrupt(void)
 	
 	//Transmitir DATA
 	
-	//if(STATUS.data == 0xFF)  envioData();
+	
 	
 	
 	
@@ -134,14 +139,7 @@ void Aux_Int_OnInterrupt(void)
 */
 void  SerialCom_OnRxChar(void)
 {
-  /* Write your code here ... */
-	sPC_OK_W();
-	//(void)SerialCom_SendChar(0x01);
-	//(void)SerialCom_RecvChar(&SerialIn);
-	//setMotorSpeed256(SerialIn,1);
-	//(void)SerialCom_SendChar(SerialIn);
-	//(void)SerialCom_ClearRxBuf();
-	//(void)SerialCom_ClearTxBuf();
+  
 }
 
 /*
@@ -174,25 +172,7 @@ void  SerialCom_OnTxChar(void)
 */
 void RESET_INTERRUPT_OnInterrupt(void)
 {
-  /* place your RESET_INTERRUPT interrupt procedure body here*/
-	//setMotorSpeed1024SW(0,2);
-	//delay(2000);
-	//(void)SerialCom_SendChar(wordIn.byte[0]);
-	//(void)SerialCom_SendChar(wordIn.byte[1]);
-	/*
-	(void)SerialCom_SendChar(data[err]);
-    (void)SerialCom_ClearTxBuf();
-
-    err++;
-    if(err == 14) err = 0;
-    */
-	sCom_In_W;
-	
-	SerialCom_SendChar(0xAA);
-	SerialCom_SendChar(0xEE);
-	
-		
-    delay(500);
+  
 		  
 }
 
@@ -231,21 +211,30 @@ void ADC_OnEnd(void)
 */
 void  SerialCom_OnFullRxBuf(void)
 {
-  /* Write your code here ... */
 	sPC_OK_W();
-	//wordIn.byte[0] = 0x00;
-	//wordIn.byte[1] = 0x00;
-	//wordIn.byte[2] = 0x00;
-	(void)SerialCom_RecvBlock(wordIn.byte,2,&error);
-	//wordInByte[0] = wordIn.byte[0];
-	//wordInByte[1] = wordIn.byte[1];
-	setMotorSpeed1024SW(wordIn.word,2);
-	//(void)SerialCom_SendBlock(wordIn.byte,2,&error);
-	//(void)SerialCom_SendChar(wordIn.byte[0]);
-	//(void)SerialCom_SendChar(wordIn.byte[1]);
-	(void)SerialCom_ClearRxBuf();
-	//(void)SerialCom_ClearTxBuf();
-	
+  (void)SerialCom_RecvBlock(dataInPC,10,&err);
+  (void)SerialCom_ClearRxBuf();
+  if(dataInPC[9] == 0xFF)
+  {
+	  //Set the motor speed
+	  setMotorSpeed256(dataInPC[0],1);
+	  setMotorSpeed256(dataInPC[1],2);
+	  setMotorSpeed256(dataInPC[2],3);
+	  setMotorSpeed256(dataInPC[3],4);
+	  
+	  //Servo Pos
+	  
+	  servoPanAngle(dataInPC[4]);//Resolución de 0 - 255
+	  servoTiltAngle(dataInPC[5]);//Resolución de 0 - 255
+	  
+	  //Set Light bright
+	  (void)LedLight1_SetRatio8(dataInPC[6]);
+	  (void)LedLight2_SetRatio8(dataInPC[7]);
+	  
+	  STATUS_PC = dataInPC[8];
+  }
+  
+  (void)SerialCom_ClearRxBuf();
 }
 
 /*

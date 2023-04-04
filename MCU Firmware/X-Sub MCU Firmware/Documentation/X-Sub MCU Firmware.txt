@@ -220,6 +220,9 @@ Module "ADC"       (component ADC)
    - ADC_GetValue8 -This method returns the last measured values of all channels. Compared with <GetValue> method this method 
                 returns more accurate result if the <number of conversions> is greater than 1 and <AD resolution> is less than 
                 8 bits. In addition, the user code dependency on <AD resolution> is eliminated.
+   - ADC_GetChanValue8 -This method returns the last measured value of the required channel. Compared with <GetChanValue> 
+                method this method returns more accurate result if the <number of conversions> is greater than 1 and <AD 
+                resolution> is less than 8 bits. In addition, the user code dependency on <AD resolution> is eliminated.
    - ADC_GetValue16 -This method returns the last measured values of all channels. Compared with <GetValue> method this method 
                 returns more accurate result if the <number of conversions> is greater than 1 and <AD resolution> is less than 
                 16 bits. In addition, the user code dependency on <AD resolution> is eliminated.

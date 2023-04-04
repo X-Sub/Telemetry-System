@@ -1,0 +1,8 @@
+Added Member To Class: ClassName=MCU Member=Component LED_sMCU_OK LED
+Added Member To Class: ClassName=MCU Member=Component R_sMCU_OK Res
+Change Room Name: Old Name=MCU_Room New Name=MCU
+Added Room: Name=ADC_PRES
+Added Room: Name=Expansion Board
+Added Room: Name=Fuente
+Added Room: Name=Presencia_Agua
+Added Room: Name=PWM_OUTS

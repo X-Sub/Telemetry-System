@@ -25,6 +25,7 @@ typedef struct{
 typedef struct{
 	vFisica8 HIGH;
 	vFisica8 LOW;
+	word word;
 }vFisica16;
 
 
@@ -36,6 +37,7 @@ extern byte  SIZEPACKAGE;
 
 
 extern byte data[27];
+extern byte dataTest[14];
 extern byte data2[2];
 /*STATUS*/
 extern bool led0x00; //0x00 sMCU_OK Led
@@ -47,9 +49,11 @@ extern bool led0x05; //0x05
 extern bool led0x06; //0x06
 extern bool led0x07; //0x07
 
+extern bool beginMeasure;
 /*Puerto Serial*/
 extern byte SIZEBUFFERIN;
 extern byte SIZEBUFFEROUT;
+extern byte dataInPC[10];
 
 /*I2C*/
 
@@ -63,7 +67,8 @@ extern byte HMC6352;
 
 /*Variables*/
 
-
+extern byte STATUS_PC;
+//---
 extern vFisica8  STATUS;
 extern vFisica16 tempExterna;
 extern vFisica16 tempInterna;
@@ -163,17 +168,20 @@ byte initxSub();
 void initMPU();//Inicializa la IMU
 
 //Obtener data de la IMU. data debe ser de tamaño 14
-void dataMPU(byte dataIn[]);
+void dataMPUtoArray(byte dataIn[]);
 
 void initHMC6352();//Inicializa la IMU
 
 //Obtener data del magnetometro. data debe ser de tamaño 2
-void dataHMC6352(byte dataIn[]);
+void dataHMC6352toArray(byte dataIn[]);
 
 //Envio de data a PC
 void dataTrans(byte dataOut[], byte tam);
 //envio de paquetes
 void envioData();
+
+//Recopila la data
+void getDataAll();
 
 
 #endif /* XSUB_H_ */

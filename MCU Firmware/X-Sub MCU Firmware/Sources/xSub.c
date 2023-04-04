@@ -222,9 +222,9 @@ void setMotorSpeed1024SW(word Speed,byte Motor){
 //SERVOS
 
   /*Pan*/
-void servoPanAngle(word Angle)//Resolución de 0 - 179
+void servoPanAngle(word Angle)//Resolución de 0 - 255
 {
-	Angle = map(Angle,0,179,MINSERVOUS,MAXSERVOUS);
+	Angle = map(Angle,0,255,MINSERVOUS,MAXSERVOUS);
 	S_PanCamera_SetDutyUS(Angle);
 }
 
@@ -235,9 +235,9 @@ void servoPan1024(word In)//Resolución de 0 - 1023 (0 - 0x1023)
 }
 
    /*Tilt*/
-void servoTiltAngle(word Angle)//Resolución de 0 - 179
+void servoTiltAngle(word Angle)//Resolución de 0 - 255
 {
-	Angle = map(Angle,0,179,MINSERVOUS,MAXSERVOUS);
+	Angle = map(Angle,0,255,MINSERVOUS,MAXSERVOUS);
 	S_TiltCamera_SetDutyUS(Angle);
 }
 
@@ -273,7 +273,6 @@ long map(long x, long in_min,long in_max,long out_min, long out_max){
 byte writeRegisterI2C(byte reg, byte data)//manera sencilla de editar un registro
 {
 	byte DATA[2];
-	byte MPU = 0x68;
 	word Sent;
 	byte err;
 	DATA[0] = reg; // registro a editar
@@ -296,12 +295,79 @@ void initMPU()//Inicializa la IMU
 
 
 //Obtener data de la IMU. data debe ser de tamaño 14
-void dataMPU(byte dataIn[])
+void dataMPUtoArray(byte dataIn[])
 {
 	word Sent;
 	(void)I2C_SelectSlave(MPU);
 	while(I2C_SendChar(0x3B) != ERR_OK);
 	while(I2C_RecvBlock(dataIn,14,&Sent) != ERR_OK);
+	
+	aceleracionX.HIGH.data = dataIn[0];
+	aceleracionX.LOW.data = dataIn[1];
+	aceleracionY.HIGH.data = dataIn[2];
+	aceleracionY.LOW.data = dataIn[3];
+	aceleracionZ.HIGH.data = dataIn[4];
+	aceleracionZ.LOW.data = dataIn[5];
+	tempInterna.HIGH.data = dataIn[6];
+	tempInterna.LOW.data = dataIn[7];
+	velAngularX.HIGH.data = dataIn[8];
+	velAngularX.LOW.data = dataIn[9];
+	velAngularY.HIGH.data = dataIn[10];
+	velAngularY.LOW.data = dataIn[11];
+	velAngularZ.HIGH.data = dataIn[12];
+	velAngularZ.LOW.data = dataIn[13];
+		/*
+		 * 
+		  AcXH = Wire.read();
+		  AcXL = Wire.read();
+
+		  AcYH = Wire.read();
+		  AcYL = Wire.read();
+
+		  AcZH = Wire.read();
+		  AcZL = Wire.read();
+
+		  // 0x41 (TEMP_OUT_H) & 0x42 (TEMP_OUT_L)
+		  TmpH = Wire.read();
+		  TmpL = Wire.read();
+
+
+		  GyXH = Wire.read();
+		  GyXL = Wire.read();
+		  GyYH = Wire.read();
+		  GyYL = Wire.read();
+		  GyZH = Wire.read();
+		  GyZL = Wire.read();
+		*/
+}
+	
+	
+
+//Obtener data de la IMU. data debe ser de tamaño 14
+void dataMPU()
+{
+	byte dataIn[14];
+	word Sent;
+	(void)I2C_SelectSlave(MPU);
+	while(I2C_SendChar(0x3B) != ERR_OK);
+	while(I2C_RecvBlock(dataIn,14,&Sent) != ERR_OK);
+	
+	aceleracionX.HIGH.data = dataIn[0];
+	aceleracionX.LOW.data = dataIn[1];
+	aceleracionY.HIGH.data = dataIn[2];
+	aceleracionY.LOW.data = dataIn[3];
+	aceleracionZ.HIGH.data = dataIn[4];
+	aceleracionZ.LOW.data = dataIn[5];
+	tempInterna.HIGH.data = dataIn[6];
+	tempInterna.LOW.data = dataIn[7];
+	velAngularX.HIGH.data = dataIn[8];
+	velAngularX.LOW.data = dataIn[9];
+	velAngularY.HIGH.data = dataIn[10];
+	velAngularY.LOW.data = dataIn[11];
+	velAngularZ.HIGH.data = dataIn[12];
+	velAngularZ.LOW.data = dataIn[13];
+
+	
 }
 
 void initHMC6352()//Inicializa la IMU
@@ -310,15 +376,34 @@ void initHMC6352()//Inicializa la IMU
 	byte reg = 0x6B; // PWR_MGMT_1 register
 	byte data = 0x00; // set to zero (wakes up the MPU-6050)
 	(void)I2C_SelectSlave(HMC6352);
+	
+	
 }
 
 //Obtener data del magnetometro. data debe ser de tamaño 2
-void dataHMC6352(byte dataIn[])
+void dataHMC6352toArray(byte dataIn[])
 {
 	word Sent;
 	(void)I2C_SelectSlave(HMC6352);
-	while(I2C_SendChar('A') != ERR_OK){(void)SerialCom_SendChar(0xFF);};
+	while(I2C_SendChar('A') != ERR_OK){};
 	while(I2C_RecvBlock(dataIn,2,&Sent) != ERR_OK);
+	
+	angBrujula.HIGH.data = dataIn[0];
+	angBrujula.LOW.data = dataIn[1];
+	
+}
+
+//Obtener data del magnetometro. data debe ser de tamaño 2
+void dataHMC6352()
+{
+	byte dataIn[2];
+	word Sent;
+	(void)I2C_SelectSlave(HMC6352);
+	while(I2C_SendChar('A') != ERR_OK){};
+	while(I2C_RecvBlock(dataIn,2,&Sent) != ERR_OK);
+	
+	angBrujula.HIGH.data = dataIn[0];
+	angBrujula.LOW.data = dataIn[1];
 }
 
 //Envio de data a PC
@@ -333,9 +418,12 @@ void dataTrans(byte dataOut[], byte tam)
 //envio de toda la data
 void envioData()
 {
+	
 	//dataTrans(data,SIZEPACKAGE);
 	word error;
+	vFisicas2Array();
 	(void)SerialCom_SendBlock(data,SIZEPACKAGE,&error);
+	//delay(100);
 }
 
 void initVFisicas(){
@@ -403,43 +491,66 @@ void vFisicas2Array(){
 //Inicialización MCU
 
 byte initxSub(){
-	STATUS.data  = 0xA0;
-	tempExterna.HIGH.data = 0x00;
-	tempExterna.LOW.data = 0x00;
-	tempInterna.HIGH.data = 0x00;
-	tempInterna.LOW.data = 0x00;
-	presExterna.HIGH.data = 0x00;
-	presExterna.LOW.data = 0x00;
-	aceleracionX.HIGH.data = 0x00;
-	aceleracionX.LOW.data = 0x00;
-	aceleracionY.HIGH.data = 0x00;
-	aceleracionY.LOW.data = 0x00;
-	aceleracionZ.HIGH.data = 0x00;
-	aceleracionZ.LOW.data = 0x00;
-	velAngularX.HIGH.data = 0x00;
-	velAngularX.LOW.data = 0x00;
-	velAngularY.HIGH.data = 0x00;
-	velAngularY.LOW.data = 0x00;
-	velAngularZ.HIGH.data = 0x00;
-	velAngularZ.LOW.data = 0x00;
-	velLineal.HIGH.data = 0x00;
-	velLineal.LOW.data = 0x00;
-	angBrujula.HIGH.data = 0x00;
-	angBrujula.LOW.data = 0x00;
-	presenciaAgua.data = 0x00;
-	cargaBaterias.data = 0x00;
-	XOR.data = 0x00;
+	
+	STATUS_PC = 0x00;
+	
+	STATUS.data  = 0x01;
+	tempExterna.HIGH.data = 0x02;
+	tempExterna.LOW.data = 0x03;
+	tempInterna.HIGH.data = 0x04;
+	tempInterna.LOW.data = 0x05;
+	presExterna.HIGH.data = 0x06;
+	presExterna.LOW.data = 0x07;
+	aceleracionX.HIGH.data = 0x08;
+	aceleracionX.LOW.data = 0x09;
+	aceleracionY.HIGH.data = 10;
+	aceleracionY.LOW.data = 11;
+	aceleracionZ.HIGH.data = 12;
+	aceleracionZ.LOW.data = 13;
+	velAngularX.HIGH.data = 14;
+	velAngularX.LOW.data = 15;
+	velAngularY.HIGH.data = 16;
+	velAngularY.LOW.data = 17;
+	velAngularZ.HIGH.data = 18;
+	velAngularZ.LOW.data = 19;
+	velLineal.HIGH.data = 20;
+	velLineal.LOW.data = 21;
+	angBrujula.HIGH.data = 22;
+	angBrujula.LOW.data = 23;
+	presenciaAgua.data = 24;
+	cargaBaterias.data = 25;
+	XOR.data = 26;
 	finTrama.data = 0xFF;
 	
 	initVFisicas();
 	vFisicas2Array();
 	
 	//Dispositivos
-	//initMPU();
-	//initHMC6352();
-	//initMxSub(1);
+	initMPU();
+	initHMC6352();
+	initMxSub(2);
 	
 	return 0xFF;
+	
+	
+}
+
+//Recopila la data
+
+void getDataAll(){
+	
+	//I2C
+	dataMPU();
+	dataHMC6352();
+	
+	//ADC
+	(void)ADC_Measure(TRUE);
+	(void)ADC_GetChanValue16(0,&presExterna.word); //Presión
+	presExterna.word = presExterna.word >> 2; //Corrimiento
+	(void)ADC_GetChanValue8(6,&cargaBaterias.data); //Voltaje Baterías
+	cargaBaterias.data = cargaBaterias.data >> 2;
+	//Bit I/O
+	presenciaAgua.data = PresenciaAgua1_GetVal() + PresenciaAgua2_GetVal();
 	
 	
 }

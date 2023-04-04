@@ -1,0 +1,14 @@
+Change Component Footprint: Designator=MCU_C Old Footprint=Capacitor S Panasonic New Footprint=6-0805_L
+Change Component Designator: OldDesignator=MCU_C NewDesignator=MCU_C_VCC
+Added Component: Designator=MCU_C_Log(6-0805_L)
+Added Pin To Net: NetName=+3.3V Pin=MCU_C_Log-1
+Added Pin To Net: NetName=GND Pin=MCU_C_Log-2
+Added Member To Class: ClassName=Fuente Member=Component MCU_C_Log Cap Pol1
+Added Member To Class: ClassName=PWM_OUTS Member=Component Servo_Out 
+Change Room Name: Old Name=MCU_ROOM New Name=MCU
+Change Room Scope: Old Scope=InComponentClass('Components Class 1') New Scope=InComponentClass('MCU')
+Added Room: Name=ADC_PRES
+Added Room: Name=Expansion Board
+Added Room: Name=Fuente
+Added Room: Name=Presencia_Agua
+Added Room: Name=PWM_OUTS

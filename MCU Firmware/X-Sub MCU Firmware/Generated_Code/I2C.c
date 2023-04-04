@@ -6,7 +6,7 @@
 **     Component   : InternalI2C
 **     Version     : Component 01.287, Driver 01.28, CPU db: 3.00.078
 **     Compiler    : CodeWarrior ColdFireV1 C Compiler
-**     Date/Time   : 2015-10-10, 10:46, # CodeGen: 61
+**     Date/Time   : 2016-01-17, 13:21, # CodeGen: 84
 **     Abstract    :
 **          This component encapsulates the internal I2C communication 
 **          interface. The implementation of the interface is based 
@@ -25,7 +25,7 @@
 **            - 7-bit slave addressing
 **            - General call address detection provided
 **     Settings    :
-**         Serial channel              : IIC1
+**         Serial channel              : IIC2
 **
 **         Protocol
 **             Mode                    : MASTER
@@ -39,12 +39,12 @@
 **             Events                  : Enabled
 **
 **         Registers
-**             Input buffer            : IIC1D     [0xFFFF8034]
-**             Output buffer           : IIC1D     [0xFFFF8034]
-**             Control register        : IIC1C1    [0xFFFF8032]
-**             Status register         : IIC1S     [0xFFFF8033]
-**             Baud setting reg.       : IIC1F     [0xFFFF8031]
-**             Address register        : IIC1A     [0xFFFF8030]
+**             Input buffer            : IIC2D     [0xFFFF986C]
+**             Output buffer           : IIC2D     [0xFFFF986C]
+**             Control register        : IIC2C1    [0xFFFF986A]
+**             Status register         : IIC2S     [0xFFFF986B]
+**             Baud setting reg.       : IIC2F     [0xFFFF9869]
+**             Address register        : IIC2A     [0xFFFF9868]
 **
 **             Priority                : 
 **
@@ -52,8 +52,8 @@
 **       ----------------------------------------------------------
 **            Function    | On package |    Name
 **       ----------------------------------------------------------
-**              SDA       |     15     |  PTB6_SDA1_XTAL
-**              SCL       |     14     |  PTB7_SCL1_EXTAL
+**              SDA       |     3      |  PTH7_SDA2
+**              SCL       |     4      |  PTH6_SCL2
 **       ----------------------------------------------------------
 **     Contents    :
 **         SendChar    - byte I2C_SendChar(byte Chr);
@@ -186,15 +186,15 @@ static byte MainComm(void)
 
   *PtrSndRcv = 0U;                     /* Clear Snd/Rcv counter */
   for(Tr=0U; Tr<0x07D0U;Tr++) {
-    Status = IIC1S;                    /* Save status register */
-    if(Status & IIC1S_IICIF_MASK) {
-      IIC1S_IICIF = 1U;                /* Clear interrupt flag */
+    Status = IIC2S;                    /* Save status register */
+    if(Status & IIC2S_IICIF_MASK) {
+      IIC2S_IICIF = 1U;                /* Clear interrupt flag */
       Tr = (word)-1;                   /* Clear trials */
-      if(IIC1C1_MST){                  /* Is device in master mode? */
-        if(IIC1C1_TX){                 /* Is device in Tx mode? */
+      if(IIC2C1_MST){                  /* Is device in master mode? */
+        if(IIC2C1_TX){                 /* Is device in Tx mode? */
           if(Status & RXAK) {          /* NACK received? */
-            IIC1C1_MST = 0U;           /* Switch device to slave mode (stop signal sent) */
-            IIC1C1_TX = 0U;            /* Switch to Rx mode */
+            IIC2C1_MST = 0U;           /* Switch device to slave mode (stop signal sent) */
+            IIC2C1_TX = 0U;            /* Switch to Rx mode */
             OutLenM = 0U;              /* No character for sending */
             InpLenM = 0U;              /* No character for reception */
             I2C_SerFlag &= (uint8_t)~(uint8_t)((CHAR_IN_TX|WAIT_RX_CHAR|IN_PROGRES)); /* No character for sending or reception*/
@@ -203,25 +203,25 @@ static byte MainComm(void)
           else {
             if(OutLenM) {              /* Is any char. for transmitting? */
               OutLenM--;               /* Decrease number of chars for the transmit */
-              IIC1D = *(OutPtrM)++;    /* Send character */
+              IIC2D = *(OutPtrM)++;    /* Send character */
               (*PtrSndRcv)++;          /* Increment Snd counter */
             }
             else {
               if(InpLenM) {            /* Is any char. for reception? */
                 if(InpLenM == 1U) {    /* If only one char to receive */
-                  IIC1C1_TXAK = 1U;    /* then transmit ACK disable */
+                  IIC2C1_TXAK = 1U;    /* then transmit ACK disable */
                 }
                 else {
-                  IIC1C1_TXAK = 0U;    /* else transmit ACK anable */
+                  IIC2C1_TXAK = 0U;    /* else transmit ACK anable */
                 }
-                IIC1C1_TX = 0U;        /* Switch to Rx mode */
-                (void)IIC1D;           /* Dummy read character */
+                IIC2C1_TX = 0U;        /* Switch to Rx mode */
+                (void)IIC2D;           /* Dummy read character */
               }
               else {
-                IIC1C1_MST = 0U;       /* Switch device to slave mode (stop signal sent) */
-                IIC1C1_TX = 0U;        /* Switch to Rx mode */
+                IIC2C1_MST = 0U;       /* Switch device to slave mode (stop signal sent) */
+                IIC2C1_TX = 0U;        /* Switch to Rx mode */
                 for(Tr=0x07D0U;Tr!=0U;Tr--) {
-                  if(!IIC1S_BUSY) {    /* Bus is busy? */
+                  if(!IIC2S_BUSY) {    /* Bus is busy? */
                     return ERR_OK;     /* Return without error */
                   }
                 }
@@ -234,18 +234,18 @@ static byte MainComm(void)
           InpLenM--;                   /* Decrease number of chars for the receive */
           if(InpLenM) {                /* Is any char. for reception? */
             if(InpLenM == 1U) {
-              IIC1C1_TXAK = 1U;        /* Transmit ACK disable */
+              IIC2C1_TXAK = 1U;        /* Transmit ACK disable */
             }
           }
           else {
-            IIC1C1_MST = 0U;           /* If no, switch device to slave mode (stop signal sent) */
-            IIC1C1_TXAK = 0U;          /* Transmit ACK enable */
+            IIC2C1_MST = 0U;           /* If no, switch device to slave mode (stop signal sent) */
+            IIC2C1_TXAK = 0U;          /* Transmit ACK enable */
           }
-          *(InpPtrM)++ = IIC1D;        /* Receive character */
+          *(InpPtrM)++ = IIC2D;        /* Receive character */
           (*PtrSndRcv)++;              /* Increment Rcv counter */
           if(!InpLenM) {               /* Is any char. for reception? */
             for(Tr=0x07D0U;Tr!=0U;Tr--) {
-              if(!IIC1S_BUSY) {        /* Bus is busy? */
+              if(!IIC2S_BUSY) {        /* Bus is busy? */
                 return ERR_OK;         /* Return without error */
               }
             }
@@ -258,7 +258,7 @@ static byte MainComm(void)
           OutLenM = 0U;                /* No character for sending */
           InpLenM = 0U;                /* No character for reception */
           I2C_SerFlag &= (uint8_t)~(uint8_t)((CHAR_IN_TX|WAIT_RX_CHAR|IN_PROGRES)); /* No character for sending or reception*/
-          IIC1C1_TX = 0U;              /* Switch to Rx mode */
+          IIC2C1_TX = 0U;              /* Switch to Rx mode */
           return ERR_ARBITR;           /* Return with error */
         }
       }
@@ -312,7 +312,7 @@ static byte MainComm(void)
 */
 byte I2C_SendChar(byte Chr)
 {
-  if((IIC1S_BUSY) || (InpLenM) || (I2C_SerFlag & (CHAR_IN_TX|WAIT_RX_CHAR|IN_PROGRES))) { /* Is the bus busy */
+  if((IIC2S_BUSY) || (InpLenM) || (I2C_SerFlag & (CHAR_IN_TX|WAIT_RX_CHAR|IN_PROGRES))) { /* Is the bus busy */
     return ERR_BUSOFF;                 /* If yes then error */
   }
   ChrTemp = Chr;                       /* Save character */
@@ -433,20 +433,20 @@ byte I2C_SendBlock(const void * Ptr,word Siz,word *Snt)
     *Snt = 0U;
     return ERR_OK;                     /* If zero then OK */
   }
-  if((IIC1S_BUSY) || (InpLenM) || (I2C_SerFlag & (CHAR_IN_TX|WAIT_RX_CHAR|IN_PROGRES))) { /* Is the bus busy */
+  if((IIC2S_BUSY) || (InpLenM) || (I2C_SerFlag & (CHAR_IN_TX|WAIT_RX_CHAR|IN_PROGRES))) { /* Is the bus busy */
     return ERR_BUSOFF;                 /* If yes then error */
   }
   PtrSndRcv = Snt;                     /* Safe Snd pointer */
   OutLenM = Siz;                       /* Set lenght of data */
   OutPtrM = (byte *)Ptr;               /* Save pointer to data for transmitting */
-  IIC1C1_TX = 1U;                      /* Set TX mode */
-  if(IIC1C1_MST) {                     /* Is device in master mode? */
-    IIC1C1_RSTA = 1U;                  /* If yes then repeat start cycle generated */
+  IIC2C1_TX = 1U;                      /* Set TX mode */
+  if(IIC2C1_MST) {                     /* Is device in master mode? */
+    IIC2C1_RSTA = 1U;                  /* If yes then repeat start cycle generated */
   }
   else {
-    IIC1C1_MST = 1U;                   /* If no then start signal generated */
+    IIC2C1_MST = 1U;                   /* If no then start signal generated */
   }
-  IIC1D = I2C_SlaveAddr;               /* Send slave address */
+  IIC2D = I2C_SlaveAddr;               /* Send slave address */
   return (MainComm());                 /* Call main communication method and return */
 }
 
@@ -511,20 +511,20 @@ byte I2C_RecvBlock(void* Ptr,word Siz,word *Rcv)
     *Rcv = 0U;
     return ERR_OK;                     /* If zero then OK */
   }
-  if((IIC1S_BUSY) || (InpLenM) || (I2C_SerFlag & (CHAR_IN_TX|WAIT_RX_CHAR|IN_PROGRES))) { /* Is the bus busy */
+  if((IIC2S_BUSY) || (InpLenM) || (I2C_SerFlag & (CHAR_IN_TX|WAIT_RX_CHAR|IN_PROGRES))) { /* Is the bus busy */
     return ERR_BUSOFF;                 /* If yes then error */
   }
   PtrSndRcv = Rcv;                     /* Safe Rcv pointer */
   InpLenM = Siz;                       /* Set lenght of data */
   InpPtrM = (byte *)Ptr;               /* Save pointer to data for reception */
-  IIC1C1_TX = 1U;                      /* Set TX mode */
-  if(IIC1C1_MST) {                     /* Is device in master mode? */
-    IIC1C1_RSTA = 1U;                  /* If yes then repeat start cycle generated */
+  IIC2C1_TX = 1U;                      /* Set TX mode */
+  if(IIC2C1_MST) {                     /* Is device in master mode? */
+    IIC2C1_RSTA = 1U;                  /* If yes then repeat start cycle generated */
   }
   else {
-    IIC1C1_MST = 1U;                   /* If no then start signal generated */
+    IIC2C1_MST = 1U;                   /* If no then start signal generated */
   }
-  IIC1D = (byte)(I2C_SlaveAddr+1U);    /* Send slave address */
+  IIC2D = (byte)(I2C_SlaveAddr+1U);    /* Send slave address */
   return (MainComm());                 /* Call main communication method and return */
 }
 
@@ -552,7 +552,7 @@ byte I2C_RecvBlock(void* Ptr,word Siz,word *Rcv)
 */
 byte I2C_SelectSlave(byte Slv)
 {
-  if (IIC1C1_MST == 1U) {              /* Is the device in the active state? */
+  if (IIC2C1_MST == 1U) {              /* Is the device in the active state? */
     return ERR_BUSY;                   /* If yes then error */
   }
   I2C_SlaveAddr = (byte)(Slv << 1);    /* Set slave address */
@@ -575,9 +575,9 @@ void I2C_Init(void)
   I2C_SerFlag = 0x80U;                 /* Reset all flags */
   I2C_SlaveAddr = 0x10U;               /* Set variable for slave address */
   InpLenM = 0U;                        /* No data to be received */
-  /* IIC1F: MULT1=1,MULT0=0,ICR5=0,ICR4=1,ICR3=0,ICR2=1,ICR1=1,ICR0=0 */
-  setReg8(IIC1F, 0x96U);                
-  IIC1C1_IICEN = 1U;                   /* Enable device */
+  /* IIC2F: MULT1=1,MULT0=0,ICR5=0,ICR4=1,ICR3=0,ICR2=1,ICR1=1,ICR0=0 */
+  setReg8(IIC2F, 0x96U);                
+  IIC2C1_IICEN = 1U;                   /* Enable device */
 }
 
 

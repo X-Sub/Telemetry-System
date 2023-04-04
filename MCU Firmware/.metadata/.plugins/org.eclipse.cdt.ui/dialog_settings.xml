@@ -3,6 +3,7 @@
 	<item value="Default C source template" key="LastUsedSourceTemplate"/>
 	<item value="Default C header template" key="LastUsedHeaderTemplate"/>
 	<section name="OptionalMessageDialog.hide.">
+		<item value="2" key="com.freescale.cdt.debug.cw.PN_SuppressDialog927dc758c805ca26e2dd28d96539ba1a20bcf5"/>
 	</section>
 	<section name="completion_proposal_size">
 	</section>

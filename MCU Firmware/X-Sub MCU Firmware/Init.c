@@ -25,7 +25,7 @@ byte MPU = 0x68;  // I2C address of the MPU-6050
 byte HMC6352 = 0x21;  // I2C address of the HMC6352 Compass
 
 /*Puerto Serial*/
-byte SIZEBUFFERIN = 5;
+byte SIZEBUFFERIN = 10;
 byte SIZEBUFFEROUT = 27;
 
 /*Constantes de Motores*/

@@ -7,7 +7,7 @@
 **     Version     : Component 01.014, Driver 01.12, CPU db: 3.00.078
 **     Datasheet   : MCF51QE128RM, Rev. 3, 9/2007
 **     Compiler    : CodeWarrior ColdFireV1 C Compiler
-**     Date/Time   : 2015-10-10, 10:46, # CodeGen: 61
+**     Date/Time   : 2016-01-26, 13:51, # CodeGen: 89
 **     Abstract    :
 **         This component "MCF51QE128_80" contains initialization of the
 **         CPU and provides basic methods and events for CPU core
@@ -226,8 +226,6 @@ void __initialize_hardware(void)
   /* Common initialization of the write once registers */
   /* SOPT1: COPE=0,COPT=1,STOPE=0,WAITE=1,??=0,RSTOPE=0,BKGDPE=1,RSTPE=0 */
   setReg8(SOPT1, 0x52U);                
-  /* SOPT2: COPCLKS=0,??=0,??=0,??=0,SPI1PS=0,ACIC2=0,IIC1PS=1,ACIC1=0 */
-  setReg8(SOPT2, 0x02U);                
   /* SPMSC1: LVDF=0,LVDACK=0,LVDIE=0,LVDRE=1,LVDSE=1,LVDE=1,??=0,BGBE=0 */
   setReg8(SPMSC1, 0x1CU);               
   /* SPMSC2: LPR=0,LPRS=0,LPWUI=0,??=0,PPDF=0,PPDACK=0,PPDE=1,PPDC=0 */
@@ -291,8 +289,8 @@ void PE_low_level_init(void)
   clrSetReg8Bits(PTADD, 0x04U, 0xC3U);  
   /* PTAD: PTAD7=0,PTAD6=0,PTAD1=0,PTAD0=0 */
   clrReg8Bits(PTAD, 0xC3U);             
-  /* PTBDD: PTBDD7=0,PTBDD6=0,PTBDD5=1,PTBDD4=1,PTBDD1=1,PTBDD0=0 */
-  clrSetReg8Bits(PTBDD, 0xC1U, 0x32U);  
+  /* PTBDD: PTBDD5=1,PTBDD4=1,PTBDD1=1,PTBDD0=0 */
+  clrSetReg8Bits(PTBDD, 0x01U, 0x32U);  
   /* PTBD: PTBD5=0,PTBD4=0,PTBD1=1 */
   clrSetReg8Bits(PTBD, 0x30U, 0x02U);   
   /* PTCD: PTCD7=1,PTCD4=1,PTCD2=1,PTCD1=0,PTCD0=0 */
@@ -309,8 +307,10 @@ void PE_low_level_init(void)
   setReg8Bits(PTEDD, 0x40U);            
   /* PTAPE: PTAPE2=1 */
   setReg8Bits(PTAPE, 0x04U);            
-  /* APCTL2: ADPC14=1,ADPC13=1,ADPC12=1,ADPC11=1,ADPC10=1 */
-  setReg8Bits(APCTL2, 0x7CU);           
+  /* APCTL2: ADPC15=1,ADPC14=1,ADPC13=1,ADPC12=1,ADPC11=1,ADPC10=1 */
+  setReg8Bits(APCTL2, 0xFCU);           
+  /* PTHDD: PTHDD7=0,PTHDD6=0 */
+  clrReg8Bits(PTHDD, 0xC0U);            
   /* PTGPE: PTGPE1=0,PTGPE0=0 */
   clrReg8Bits(PTGPE, 0x03U);            
   /* PTGDD: PTGDD1=0,PTGDD0=0 */

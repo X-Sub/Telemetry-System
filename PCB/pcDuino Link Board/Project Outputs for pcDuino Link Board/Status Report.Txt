@@ -1,11 +1,12 @@
-Output: Simple BOM
-Type  : SimpleBOM
-From  : Variant [[No Variations]] of Project [pcDuino Link Board.PrjPcb]
-   Generated File[pcDuino Link Board.BOM]
-   Generated File[pcDuino Link Board.CSV]
+Output: NC Drill Files
+Type  : NC Drill
+From  : Project [pcDuino Link Board.PrjPcb]
+   Generated File[pcDuino Link Board.TXT]
+   Generated File[pcDuino Link Board.LDP]
+   Generated File[pcDuino Link Board.DRR]
 
 
-Files Generated   : 2
+Files Generated   : 3
 Documents Printed : 0
 
-Finished Output Generation At 8:26:46 On 30/09/2015
+Finished Output Generation At 8:53:03 On 16/11/2015

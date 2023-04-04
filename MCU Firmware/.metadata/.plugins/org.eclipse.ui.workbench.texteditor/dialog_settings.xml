@@ -13,10 +13,14 @@
 		<item value="false" key="isRegEx"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="data2" key="selection"/>
+		<item value="dataIn" key="selection"/>
 		<list key="findhistory">
-			<item value="data2"/>
+			<item value="dataIn"/>
+			<item value="dataMPU"/>
 			<item value="data"/>
+			<item value="err"/>
+			<item value="STATUS."/>
+			<item value="data2"/>
 		</list>
 		<list key="replacehistory">
 		</list>

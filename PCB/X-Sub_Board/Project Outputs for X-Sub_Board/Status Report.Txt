@@ -1,13 +1,12 @@
-Output: Gerber Files
-Type  : Gerber
-From  : Variant [[No Variations]] of Project [X-Sub_Board.PrjPcb]
-   Generated File[MCU.GD1]
-   Generated File[MCU.RUL]
-   Generated File[MCU.EXTREP]
-   Generated File[MCU.REP]
+Output: NC Drill Files
+Type  : NC Drill
+From  : Project [X-Sub_Board.PrjPcb]
+   Generated File[MCU.TXT]
+   Generated File[MCU.LDP]
+   Generated File[MCU.DRR]
 
 
-Files Generated   : 4
+Files Generated   : 3
 Documents Printed : 0
 
-Finished Output Generation At 8:02:00 On 30/09/2015
+Finished Output Generation At 8:40:49 On 16/11/2015

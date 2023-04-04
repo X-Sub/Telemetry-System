@@ -6,7 +6,7 @@
 **     Component   : ADC
 **     Version     : Component 01.697, Driver 01.30, CPU db: 3.00.078
 **     Compiler    : CodeWarrior ColdFireV1 C Compiler
-**     Date/Time   : 2015-10-10, 10:46, # CodeGen: 61
+**     Date/Time   : 2016-01-26, 14:05, # CodeGen: 90
 **     Abstract    :
 **         This device "ADC" implements an A/D converter,
 **         its control methods and interrupt/event handling procedure.
@@ -17,7 +17,7 @@
 **          Interrupt service/event                        : Enabled
 **            A/D interrupt                                : Vadc
 **            A/D interrupt priority                       : medium priority
-**          A/D channels                                   : 5
+**          A/D channels                                   : 6
 **            Channel0                                     : 
 **              A/D channel (pin)                          : PTF0_ADP10
 **              A/D channel (pin) signal                   : Press_In
@@ -33,6 +33,9 @@
 **            Channel4                                     : 
 **              A/D channel (pin)                          : PTF4_ADP14
 **              A/D channel (pin) signal                   : AD4
+**            Channel5                                     : 
+**              A/D channel (pin)                          : PTF5_ADP15
+**              A/D channel (pin) signal                   : 
 **          A/D resolution                                 : 12 bits
 **          Conversion time                                : 3.078528 µs
 **          Low-power mode                                 : Disabled
@@ -56,6 +59,7 @@
 **         GetValue       - byte ADC_GetValue(void* Values);
 **         GetChanValue   - byte ADC_GetChanValue(byte Channel, void* Value);
 **         GetValue8      - byte ADC_GetValue8(byte *Values);
+**         GetChanValue8  - byte ADC_GetChanValue8(byte Channel, byte *Value);
 **         GetValue16     - byte ADC_GetValue16(word *Values);
 **         GetChanValue16 - byte ADC_GetChanValue16(byte Channel, word *Value);
 **
@@ -311,6 +315,42 @@ byte ADC_GetValue8(byte *Values);
 **                           the active speed mode
 **                           ERR_NOTAVAIL - Requested value not
 **                           available
+**                           ERR_OVERRUN - External trigger overrun flag
+**                           was detected after the last value(s) was
+**                           obtained (for example by GetValue). This
+**                           error may not be supported on some CPUs
+**                           (see generated code).
+*/
+/* ===================================================================*/
+
+byte ADC_GetChanValue8(byte Channel,byte *Value);
+/*
+** ===================================================================
+**     Method      :  ADC_GetChanValue8 (component ADC)
+*/
+/*!
+**     @brief
+**         This method returns the last measured value of the required
+**         channel. Compared with [GetChanValue] method this method
+**         returns more accurate result if the [number of conversions]
+**         is greater than 1 and [AD resolution] is less than 8 bits.
+**         In addition, the user code dependency on [AD resolution] is
+**         eliminated.
+**     @param
+**         Channel         - Channel number. If only one
+**                           channel in the component is set then this
+**                           parameter is ignored.
+**     @param
+**         Value           - Pointer to the measured value.
+**     @return
+**                         - Error code, possible codes:
+**                           ERR_OK - OK
+**                           ERR_SPEED - This device does not work in
+**                           the active speed mode
+**                           ERR_NOTAVAIL - Requested value not
+**                           available
+**                           ERR_RANGE - Parameter "Channel" out of
+**                           range
 **                           ERR_OVERRUN - External trigger overrun flag
 **                           was detected after the last value(s) was
 **                           obtained (for example by GetValue). This
