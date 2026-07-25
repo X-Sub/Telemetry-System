@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you use this archive, please cite the thesis and repository."
+title: "X-Sub Telemetry System"
+type: software
+authors:
+  - family-names: "Díaz Tarascó"
+    given-names: "Danilo"
+repository-code: "https://github.com/X-Sub/Telemetry-System"
+license: MIT
+version: 1.0.0
+date-released: 2026-07-25
+preferred-citation:
+  type: thesis
+  title: "Desarrollo de sistema de telemetría para teleoperación de robot submarino"
+  authors:
+    - family-names: "Díaz Tarascó"
+      given-names: "Danilo"
+  institution:
+    name: "Universidad Simón Bolívar"
+  year: 2016

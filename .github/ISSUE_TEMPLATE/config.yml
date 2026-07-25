@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Questions and archival discussion
+    url: https://github.com/X-Sub/Telemetry-System/discussions
+    about: Ask questions and discuss historical context.
+  - name: Private security report
+    url: https://github.com/X-Sub/Telemetry-System/security/advisories/new
+    about: Report security or safety-sensitive issues privately.
