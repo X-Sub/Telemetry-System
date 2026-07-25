@@ -1,0 +1,58 @@
+name: Bug report
+description: Report a reproducible problem in maintained tooling or documentation.
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Do not include credentials, private telemetry, personal data, or unsafe hardware instructions.
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Protocol tools
+        - Documentation
+        - Repository automation
+        - Historical artifact
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Commit or release
+      placeholder: v1.0.0 or commit SHA
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: What happened, and what did you expect?
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Reproduction
+      description: Provide minimal, safe steps and sanitized input.
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Operating system, Python or vendor-tool version, and hardware state.
+    validations:
+      required: true
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Safety confirmation
+      options:
+        - label: I removed secrets, personal data, and sensitive telemetry.
+          required: true
+        - label: This report does not require anyone to energize unrestrained hardware.
+          required: true

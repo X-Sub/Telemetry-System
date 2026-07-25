@@ -1,0 +1,9 @@
+# SHA-256 hashes for primary historical artifacts.
+# Format: SHA256<two spaces>relative path
+e8face32745bebfb66ac5e0ece8b21e8b12fd8088149ca4c301c2f2f561b7060  Libro Tesis.pdf
+06643335aae8bffa0331f510ca1e7d0c35a76d424232a782f286c54a50e465f8  LabView Visualizer/LabView Visualizer.vi
+55dc5ce7414e5d10cb0c345f96209ffb2f63dfdc0704ce5e84b5799518c0ddf6  Spectrum Analyser/Acceleration_Angular__Spectrum_Analyser.slx
+80f308f2527716bceb8d7d00025c26cacd4c07cb6d7ec47509a0dc97d2aca40e  PCB/X-Sub_Board/MCU.PcbDoc
+7d7dcc8356a859a1db213c218d23329c5e4fe9389bc564b827790dda26b38225  PCB/X-Sub_Board/X-Sub_Board.pdf
+02309641e6ac66ec0bc5f594fd205301557d4b03b3ca46f385190203180d31cb  PCB/pcDuino Link Board/pcDuino Link Board.PcbDoc
+92725517a59a7382d0faed68bd1a4b4bb80676b5ac45bcdb3c02c5584cb5feea  MCU Firmware/X-Sub MCU Firmware/Sources/xSub.c

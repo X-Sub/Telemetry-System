@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=80"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "xsub-telemetry-tools"
+version = "1.0.0"
+description = "Dependency-free inspection tools for the historical X-Sub telemetry protocol."
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+authors = [
+  { name = "Danilo Díaz Tarascó" },
+]
+keywords = ["embedded", "rov", "telemetry", "underwater-robotics"]
+classifiers = [
+  "Development Status :: 5 - Production/Stable",
+  "Intended Audience :: Developers",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
+  "Topic :: Scientific/Engineering",
+]
+
+[project.scripts]
+xsub-protocol = "tools.xsub_protocol:main"
+
+[project.urls]
+Documentation = "https://github.com/X-Sub/Telemetry-System#readme"
+Issues = "https://github.com/X-Sub/Telemetry-System/issues"
+Repository = "https://github.com/X-Sub/Telemetry-System"
+
+[tool.setuptools]
+packages = ["tools"]

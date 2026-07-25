@@ -1,0 +1,36 @@
+name: Feature request
+description: Suggest an improvement to maintained tools or documentation.
+title: "[Enhancement]: "
+labels:
+  - enhancement
+body:
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Protocol tools
+        - Documentation
+        - Archive preservation
+        - Repository automation
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What need would this solve?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change
+      description: Describe the smallest useful solution.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives and safety considerations
+      description: What else was considered, and could this affect physical hardware?

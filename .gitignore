@@ -1,43 +1,48 @@
-# Windows image file caches
-Thumbs.db
-ehthumbs.db
-
-# Folder config file
-Desktop.ini
-
-# Recycle Bin used on file shares
-$RECYCLE.BIN/
-
-# Windows Installer files
-*.cab
-*.msi
-*.msm
-*.msp
-
-# Windows shortcuts
-*.lnk
-
-# =========================
-# Operating System Files
-# =========================
-
-# OSX
-# =========================
-
+# Operating systems
 .DS_Store
-.AppleDouble
-.LSOverride
-
-# Thumbnails
 ._*
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.Spotlight-V100/
+.Trashes/
 
-# Files that might appear on external disk
-.Spotlight-V100
-.Trashes
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+*.egg-info/
+build/
+dist/
 
-# Directories potentially created on remote AFP share
-.AppleDB
-.AppleDesktop
-Network Trash Folder
-Temporary Items
-.apdisk
+# Temporary workspace
+tmp/
+*.log
+*.tmp
+*.bak
+*~
+
+# Eclipse / CodeWarrior workspace state
+.metadata/
+RemoteSystemsTempFiles/
+RemoteLaunch/results/
+
+# Altium transient data
+History/
+Project\ Logs\ for\ */
+__Previews/
+*.SchDocPreview
+*.PcbDocPreview
+*.autosave
+
+# MATLAB / Simulink generated data
+slprj/
+*.slxc
+
+# Runtime data
+logger.txt
